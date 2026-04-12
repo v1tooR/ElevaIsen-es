@@ -1,0 +1,2897 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Eleva Isenções: assessoria para pessoas com deficiência no processo de isenção na aquisição de veículo. Orientação clara, acompanhamento próximo e suporte estratégico em cada etapa." />
+  <title>Eleva Isenções | Assessoria PCD</title>
+
+  <!-- Preload fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&family=DM+Sans:wght@400;500&family=Cormorant+Garamond:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&family=DM+Sans:wght@400;500&family=Cormorant+Garamond:wght@400;500&display=swap" />
+
+  <style>
+    /* ============================================================
+       CSS CUSTOM PROPERTIES
+    ============================================================ */
+    :root {
+      --color-terracota: #a14f2a;
+      --color-mogno: #6B3019;
+      --color-cobre: #C97A52;
+      --color-creme: #EFE3D6;
+      --color-verde: #425438;
+      --color-preto-quente: #1E1A17;
+
+      --font-heading: 'Raleway', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --font-editorial: 'Cormorant Garamond', serif;
+
+      --max-width: 1280px;
+      --padding-x-mobile: 20px;
+      --padding-x-desktop: 80px;
+      --radius: 12px;
+
+      --shadow-card: 0 4px 32px rgba(161, 79, 42, 0.10);
+      --shadow-card-hover: 0 8px 40px rgba(161, 79, 42, 0.18);
+      --transition-base: 250ms ease-out;
+    }
+
+    /* ============================================================
+       RESET + BASE
+    ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--color-preto-quente);
+      background-color: var(--color-creme);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: rgba(161, 79, 42, 0.22);
+      color: var(--color-preto-quente);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    button {
+      cursor: pointer;
+      font-family: var(--font-body);
+      border: none;
+      background: none;
+    }
+
+    /* ============================================================
+       SKIP LINK (ACESSIBILIDADE)
+    ============================================================ */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 20px;
+      background: var(--color-terracota);
+      color: var(--color-creme);
+      padding: 12px 20px;
+      border-radius: var(--radius);
+      font-weight: 500;
+      z-index: 9999;
+      transition: top 200ms;
+    }
+    .skip-link:focus {
+      top: 20px;
+    }
+
+    /* ============================================================
+       FOCO VISUAL
+    ============================================================ */
+    :focus-visible {
+      outline: 3px solid var(--color-cobre);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ============================================================
+       CONTAINER
+    ============================================================ */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--padding-x-mobile);
+    }
+
+    /* ============================================================
+       TIPOGRAFIA BASE
+    ============================================================ */
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .editorial {
+      font-family: var(--font-editorial);
+      font-weight: 400;
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.25;
+    }
+
+    p {
+      max-width: 68ch;
+    }
+
+    /* ============================================================
+       BOTOES
+    ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 32px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 40px;
+      min-height: 48px;
+      min-width: 48px;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      letter-spacing: 0.02em;
+      position: relative;
+      cursor: pointer;
+    }
+    .btn:active {
+      transform: scale(0.96) !important;
+    }
+
+    .btn-primary {
+      background-color: var(--color-terracota);
+      color: var(--color-creme);
+      border: 2px solid transparent;
+    }
+    @media (hover: hover) {
+      .btn-primary:hover {
+        background-color: var(--color-mogno);
+        transform: translateY(-2px);
+        box-shadow: 0 12px 32px rgba(161, 79, 42, 0.4);
+      }
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--color-creme);
+      border: 2px solid rgba(239, 227, 214, 0.5);
+    }
+    @media (hover: hover) {
+      .btn-secondary:hover {
+        border-color: var(--color-creme);
+        background-color: rgba(239, 227, 214, 0.08);
+        transform: translateY(-2px);
+        box-shadow: 0 12px 32px rgba(239, 227, 214, 0.12);
+      }
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--color-terracota);
+      border: 2px solid var(--color-terracota);
+    }
+    @media (hover: hover) {
+      .btn-outline:hover {
+        background-color: var(--color-terracota);
+        color: var(--color-creme);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 24px rgba(161, 79, 42, 0.18);
+      }
+    }
+
+    .btn-verde {
+      background-color: var(--color-verde);
+      color: var(--color-creme);
+      border: 2px solid transparent;
+    }
+    @media (hover: hover) {
+      .btn-verde:hover {
+        background-color: #344529;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 24px rgba(66, 84, 56, 0.28);
+      }
+    }
+
+    /* ============================================================
+       BADGE / TAG
+    ============================================================ */
+    .badge {
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .badge-terracota {
+      background-color: rgba(161, 79, 42, 0.12);
+      color: var(--color-terracota);
+    }
+
+    .badge-verde {
+      background-color: rgba(66, 84, 56, 0.12);
+      color: var(--color-verde);
+    }
+
+    /* ============================================================
+       HEADER / NAVBAR
+    ============================================================ */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 20px 0;
+      transition: padding 300ms ease;
+    }
+
+    .site-header .container {
+      padding-left: 0;
+      padding-right: 0;
+      max-width: var(--max-width);
+    }
+
+    .site-header.scrolled {
+      padding: 12px 20px 0;
+    }
+
+    .header-inner {
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 74px;
+      padding: 12px 14px;
+      border-radius: 24px;
+      border: 1px solid rgba(239, 227, 214, 0.12);
+      background:
+        linear-gradient(180deg, rgba(30, 26, 23, 0.42), rgba(30, 26, 23, 0.26));
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 18px 44px rgba(30, 26, 23, 0.18);
+      overflow: hidden;
+      transition:
+        background-color 300ms ease,
+        border-color 300ms ease,
+        box-shadow 300ms ease,
+        transform 300ms ease;
+    }
+
+    .header-inner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(239, 227, 214, 0.14), transparent 34%),
+        linear-gradient(180deg, transparent, rgba(201, 122, 82, 0.08));
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .header-inner > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .site-header.scrolled .header-inner {
+      background:
+        linear-gradient(180deg, rgba(30, 26, 23, 0.42), rgba(30, 26, 23, 0.26));
+      border-color: rgba(239, 227, 214, 0.12);
+      box-shadow: 0 18px 44px rgba(30, 26, 23, 0.18);
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      min-height: 48px;
+      min-width: 0;
+    }
+
+    .logo-lockup {
+      display: block;
+      width: clamp(138px, 19vw, 182px);
+      height: auto;
+      filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.14));
+      transition: transform 300ms ease-out, filter 300ms ease-out;
+    }
+
+    @media (hover: hover) {
+      .logo:hover .logo-lockup {
+        transform: translateY(-1px) scale(1.02);
+        filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.2));
+      }
+    }
+
+    /* Nav links */
+    #main-nav {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 52rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: rgba(239, 227, 214, 0.8);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color var(--transition-base), opacity var(--transition-base);
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 10px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--color-cobre), transparent);
+      opacity: 0;
+      transform: scaleX(0.6);
+      transition: opacity var(--transition-base), transform var(--transition-base);
+    }
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--color-creme);
+    }
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+
+    .nav-cta {
+      display: none;
+      flex-shrink: 0;
+      white-space: nowrap;
+      padding: 12px 18px;
+      font-size: 0.84rem;
+      background-color: var(--color-creme);
+      color: var(--color-mogno);
+      border-color: rgba(239, 227, 214, 0.16);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
+    }
+
+    @media (hover: hover) {
+      .nav-cta:hover {
+        background-color: #f6ede4;
+        color: var(--color-mogno);
+        box-shadow: 0 18px 32px rgba(0, 0, 0, 0.16);
+      }
+    }
+
+    /* Menu toggle mobile */
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      justify-content: center;
+      align-items: center;
+      background: rgba(239, 227, 214, 0.08);
+      border: 1px solid rgba(239, 227, 214, 0.08);
+      border-radius: 12px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background-color: var(--color-creme);
+      transition: transform 300ms ease, opacity 300ms ease;
+      transform-origin: center;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .menu-toggle.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      position: fixed;
+      top: 94px;
+      left: 20px;
+      right: 20px;
+      bottom: auto;
+      padding: 22px;
+      background:
+        linear-gradient(180deg, rgba(30, 26, 23, 0.97), rgba(30, 26, 23, 0.92));
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+      gap: 10px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-12px) scale(0.985);
+      transition: opacity 300ms ease, transform 300ms ease;
+      border-radius: 24px;
+      border: 1px solid rgba(239, 227, 214, 0.1);
+      box-shadow: 0 26px 44px rgba(0, 0, 0, 0.28);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .mobile-menu.open {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0) scale(1);
+    }
+
+    .mobile-menu a {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.02rem;
+      color: var(--color-creme);
+      min-height: 48px;
+      padding: 12px 4px;
+      border-bottom: 1px solid rgba(239, 227, 214, 0.08);
+      transition: color var(--transition-base), padding-left var(--transition-base);
+    }
+
+    .mobile-menu a:hover {
+      color: var(--color-cobre);
+      padding-left: 10px;
+    }
+
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-menu .btn {
+      margin-top: 8px;
+      justify-content: center;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      text-transform: none;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .mobile-menu .btn:hover {
+      padding-left: 20px;
+    }
+
+    /* ============================================================
+       SECTION BASE
+    ============================================================ */
+    section {
+      position: relative;
+    }
+
+    .section-label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-label--light {
+      color: var(--color-cobre);
+    }
+
+    .section-label--dark {
+      color: var(--color-cobre);
+    }
+
+    /* ============================================================
+       1. HERO
+    ============================================================ */
+    #hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 124px;
+      padding-bottom: 72px;
+      overflow: hidden;
+      position: relative;
+      background:
+        radial-gradient(circle at 18% 24%, rgba(30, 26, 23, 0.18), transparent 32%),
+        radial-gradient(circle at 82% 14%, rgba(239, 227, 214, 0.08), transparent 24%),
+        radial-gradient(circle at 74% 76%, rgba(201, 122, 82, 0.12), transparent 28%),
+        linear-gradient(120deg, #7b381e 0%, #8a4224 24%, var(--color-mogno) 58%, #4d2313 100%);
+    }
+
+    #hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(30, 26, 23, 0.12) 0%, rgba(30, 26, 23, 0.04) 34%, rgba(30, 26, 23, 0.1) 100%),
+        linear-gradient(180deg, rgba(30, 26, 23, 0.04), rgba(30, 26, 23, 0.14) 48%, rgba(30, 26, 23, 0.26));
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    #hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(239, 227, 214, 0.24), transparent);
+      z-index: 1;
+    }
+
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      opacity: 0;
+      background-image:
+        linear-gradient(180deg, rgba(239, 227, 214, 0.05), rgba(239, 227, 214, 0)),
+        url('pattern.svg');
+      background-repeat: no-repeat, repeat;
+      background-size: 100% 100%, 168px 228px;
+      background-position: center, center top;
+      mix-blend-mode: normal;
+      filter: saturate(0.8) contrast(0.94);
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.54), rgba(0,0,0,0.18));
+      -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.54), rgba(0,0,0,0.18));
+    }
+
+    .hero-light {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1;
+      mix-blend-mode: screen;
+      opacity: 0.08;
+      filter: blur(54px);
+      animation: heroLightFloat 16s ease-in-out infinite;
+    }
+
+    .hero-light--one {
+      top: 104px;
+      left: -58px;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(239, 227, 214, 0.18) 0%, rgba(239, 227, 214, 0) 74%);
+    }
+
+    .hero-light--two {
+      top: 168px;
+      right: -52px;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(201, 122, 82, 0.16) 0%, rgba(201, 122, 82, 0) 74%);
+      animation-delay: 2100ms;
+    }
+
+    .hero-light--three {
+      bottom: 36px;
+      left: 44%;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(239, 227, 214, 0.12) 0%, rgba(239, 227, 214, 0) 76%);
+      animation-delay: 3600ms;
+    }
+
+    .hero-pattern svg {
+      display: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero-emblem-wrap {
+      display: flex;
+      justify-content: center;
+      opacity: 0;
+      transform: scale(0.6);
+    }
+
+    .hero-visual-card {
+      position: relative;
+      width: min(100%, 520px);
+    }
+
+    .hero-visual-header {
+      position: relative;
+      z-index: 3;
+      display: grid;
+      gap: 10px;
+      text-align: center;
+      max-width: 27ch;
+      margin: 0 auto 18px;
+    }
+
+    .hero-visual-kicker {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-cobre);
+    }
+
+    .hero-visual-caption {
+      font-size: 0.92rem;
+      color: rgba(248, 239, 229, 0.86);
+      line-height: 1.56;
+      margin: 0;
+    }
+
+    .hero-portrait-stage {
+      position: relative;
+      min-height: 468px;
+      padding: 22px 0 120px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      isolation: isolate;
+      overflow: visible;
+    }
+
+    .hero-portrait-stage::before {
+      content: none;
+    }
+
+    .hero-portrait-frame {
+      display: contents;
+    }
+
+    .hero-portrait-stage::after {
+      content: none;
+    }
+
+    .hero-emblem {
+      position: relative;
+      z-index: 2;
+      display: block;
+      width: min(100%, 390px);
+      height: auto;
+      margin: 0 auto;
+      mix-blend-mode: normal;
+      filter: brightness(1.06) contrast(1.03) drop-shadow(0 26px 42px rgba(30, 26, 23, 0.2));
+      transform: translateZ(0);
+    }
+
+    .hero-proof-grid {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .hero-proof {
+      pointer-events: auto;
+      position: absolute;
+      width: min(176px, calc(50% - 8px));
+      padding: 15px 15px 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(239, 227, 214, 0.16);
+      background: linear-gradient(180deg, rgba(122, 59, 33, 0.38), rgba(74, 35, 20, 0.24));
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: grid;
+      gap: 10px;
+      justify-items: center;
+      text-align: center;
+      transform: translateY(0);
+      will-change: transform, box-shadow;
+      animation: heroProofFloat 8.4s ease-in-out infinite;
+      box-shadow: 0 18px 36px rgba(30, 26, 23, 0.16);
+      cursor: default;
+    }
+
+    .hero-proof-top {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .hero-proof--clarity {
+      top: 160px;
+      left: -4px;
+    }
+
+    .hero-proof--support {
+      top: 96px;
+      right: 2px;
+    }
+
+    .hero-proof--strategy {
+      bottom: 16px;
+      left: calc(50% - 96px);
+      width: min(192px, calc(58% - 8px));
+    }
+
+    .hero-proof:nth-child(1) {
+      animation-delay: 0ms;
+    }
+
+    .hero-proof:nth-child(2) {
+      animation-delay: 220ms;
+    }
+
+    .hero-proof:nth-child(3) {
+      animation-delay: 440ms;
+    }
+
+    .hero-proof-index {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      background: rgba(239, 227, 214, 0.12);
+      color: rgba(239, 227, 214, 0.9);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-proof-label {
+      display: block;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      text-align: center;
+      font-size: 0.72rem;
+      color: rgba(248, 239, 229, 0.92);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .hero-proof-text {
+      display: block;
+      text-align: center;
+      margin: 0;
+      font-size: 0.82rem;
+      color: rgba(239, 227, 214, 0.78);
+      line-height: 1.55;
+      max-width: 28ch;
+    }
+
+    .hero-proof::before {
+      content: "";
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      width: 52px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(201, 122, 82, 0.8), rgba(201, 122, 82, 0));
+      opacity: 0.8;
+      transform: translateX(-50%);
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: left;
+      align-self: center;
+      max-width: 40rem;
+      padding: 24px 0;
+      isolation: isolate;
+    }
+
+    .hero-content::before { display: none; }
+
+    .hero-headline {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(2.4rem, 5.8vw, 4.65rem);
+      color: #fff6ed;
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      margin-bottom: 20px;
+      max-width: 10.8ch;
+      text-wrap: balance;
+      text-shadow: 0 18px 40px rgba(30, 26, 23, 0.22);
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .hero-headline em {
+      font-style: normal;
+      color: var(--color-cobre);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 1.8vw, 1.08rem);
+      color: rgba(255, 246, 237, 0.98);
+      line-height: 1.72;
+      margin: 0 0 14px;
+      max-width: 46ch;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .hero-support {
+      font-size: 0.95rem;
+      color: rgba(248, 239, 229, 0.88);
+      line-height: 1.7;
+      margin: 0 0 28px;
+      max-width: 44ch;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 24px;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .hero-trust-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      width: 100%;
+      max-width: 52rem;
+    }
+
+    .hero-trust-item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 12px 14px 12px 32px;
+      border-radius: 18px;
+      border: 1px solid rgba(239, 227, 214, 0.16);
+      background: rgba(239, 227, 214, 0.08);
+      box-shadow: 0 14px 26px rgba(30, 26, 23, 0.1);
+    }
+
+    .hero-trust-item::before {
+      content: "";
+      position: absolute;
+      top: 19px;
+      left: 15px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-cobre);
+      box-shadow: 0 0 0 5px rgba(201, 122, 82, 0.16);
+    }
+
+    .hero-trust-title {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(239, 227, 214, 0.92);
+      line-height: 1.2;
+    }
+
+    .hero-trust-copy {
+      font-size: 0.87rem;
+      color: rgba(248, 239, 229, 0.88);
+      line-height: 1.55;
+    }
+
+    .hero-ctas .btn-secondary {
+      background-color: rgba(239, 227, 214, 0.03);
+      border-color: rgba(239, 227, 214, 0.32);
+      box-shadow: inset 0 0 0 1px rgba(239, 227, 214, 0.08);
+    }
+
+    /* ============================================================
+       2. SOBRE A ELEVA
+    ============================================================ */
+    #sobre {
+      background:
+        radial-gradient(ellipse 90% 60% at 12% 0%, rgba(161, 79, 42, 0.07), transparent 52%),
+        radial-gradient(ellipse 70% 45% at 88% 20%, rgba(66, 84, 56, 0.05), transparent 50%),
+        var(--color-creme);
+      padding: 80px 0 60px;
+    }
+
+    .sobre-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .sobre-text h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+      color: var(--color-mogno);
+      margin-bottom: 24px;
+    }
+
+    .sobre-text p + p {
+      margin-top: 16px;
+    }
+
+    .sobre-text p {
+      color: #4a3a2e;
+      font-size: 1rem;
+    }
+
+    .sobre-visual {
+      display: flex;
+      justify-content: center;
+    }
+
+    .sobre-card {
+      background-color: white;
+      border-radius: var(--radius);
+      padding: 40px 36px;
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(201, 122, 82, 0.15);
+      max-width: 360px;
+      width: 100%;
+    }
+
+    .sobre-card-icon {
+      width: 48px;
+      height: 48px;
+      background-color: rgba(161, 79, 42, 0.08);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .sobre-card h3 {
+      font-size: 1.1rem;
+      color: var(--color-mogno);
+      margin-bottom: 10px;
+    }
+
+    .sobre-card p {
+      font-size: 0.92rem;
+      color: #6b5040;
+    }
+
+    .sobre-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background-color: rgba(161, 79, 42, 0.1);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-top: 32px;
+    }
+
+    .sobre-stat {
+      background-color: var(--color-creme);
+      padding: 24px 16px;
+      text-align: center;
+    }
+
+    .sobre-stat-number {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--color-terracota);
+      display: block;
+    }
+
+    .sobre-stat-label {
+      font-size: 0.78rem;
+      color: #7a5a44;
+      line-height: 1.3;
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* ============================================================
+       3. PARA QUEM
+    ============================================================ */
+    #para-quem {
+      background-color: var(--color-preto-quente);
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .para-quem-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .para-quem-header h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+      color: var(--color-creme);
+      margin-bottom: 16px;
+    }
+
+    .para-quem-header p {
+      color: rgba(239, 227, 214, 0.7);
+      margin: 0 auto;
+      font-size: 1rem;
+    }
+
+    .para-quem-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .pq-card {
+      background-color: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201, 122, 82, 0.2);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+    }
+
+    @media (hover: hover) {
+      .pq-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 40px rgba(161, 79, 42, 0.15);
+        border-color: var(--color-cobre);
+      }
+    }
+
+    .pq-card-number {
+      font-family: var(--font-editorial);
+      font-size: 3rem;
+      color: rgba(201, 122, 82, 0.25);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .pq-card h3 {
+      font-size: 1.05rem;
+      color: var(--color-creme);
+      margin-bottom: 10px;
+    }
+
+    .pq-card p {
+      font-size: 0.9rem;
+      color: rgba(239, 227, 214, 0.65);
+      line-height: 1.65;
+    }
+
+    .pq-obs {
+      margin-top: 40px;
+      padding: 20px 24px;
+      background-color: rgba(66, 84, 56, 0.15);
+      border-left: 3px solid var(--color-verde);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .pq-obs p {
+      font-size: 0.88rem;
+      color: rgba(239, 227, 214, 0.7);
+    }
+
+    .pq-cta {
+      text-align: center;
+      margin-top: 48px;
+    }
+
+    /* ============================================================
+       4. O QUE A ELEVA RESOLVE
+    ============================================================ */
+    #resolve {
+      background-color: var(--color-creme);
+      padding: 80px 0;
+    }
+
+    .resolve-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .resolve-content h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+      color: var(--color-mogno);
+      margin-bottom: 16px;
+    }
+
+    .resolve-content > p {
+      color: #4a3a2e;
+      margin-bottom: 0;
+    }
+
+    .resolve-content > p + p {
+      margin-top: 14px;
+    }
+
+    .resolve-content > p + .resolve-list {
+      margin-top: 28px;
+    }
+
+    .resolve-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .resolve-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .resolve-item-check {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      background-color: rgba(66, 84, 56, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    .resolve-item-check svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    .resolve-item span {
+      font-size: 0.95rem;
+      color: #4a3a2e;
+      line-height: 1.5;
+    }
+
+    .resolve-closing {
+      margin-top: 28px;
+      padding: 24px;
+      background-color: rgba(161, 79, 42, 0.06);
+      border-radius: var(--radius);
+      border: 1px solid rgba(161, 79, 42, 0.12);
+    }
+
+    .resolve-closing p {
+      font-size: 0.92rem;
+      color: var(--color-mogno);
+      font-style: italic;
+    }
+
+    .resolve-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .resolve-highlight {
+      background-color: var(--color-terracota);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      color: var(--color-creme);
+    }
+
+    .resolve-highlight .editorial {
+      font-size: clamp(28px, 4vw, 36px);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .resolve-highlight p {
+      font-size: 0.9rem;
+      color: rgba(239, 227, 214, 0.8);
+    }
+
+    /* ============================================================
+       5. COMO FUNCIONA
+    ============================================================ */
+    #processo {
+      background-color: var(--color-mogno);
+      padding: 80px 0;
+    }
+
+    .processo-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .processo-header h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+      color: var(--color-creme);
+      margin-bottom: 12px;
+    }
+
+    .processo-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+
+    .processo-steps::before {
+      content: '';
+      position: absolute;
+      left: 28px;
+      top: 20px;
+      bottom: 20px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--color-cobre), rgba(201, 122, 82, 0.15));
+    }
+
+    .step {
+      display: flex;
+      gap: 24px;
+      padding: 24px 0;
+      position: relative;
+    }
+
+    .step-number {
+      width: 56px;
+      height: 56px;
+      flex-shrink: 0;
+      background-color: var(--color-terracota);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--color-creme);
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-content {
+      padding-top: 12px;
+    }
+
+    .step-content h3 {
+      font-size: 1.05rem;
+      color: var(--color-creme);
+      margin-bottom: 6px;
+    }
+
+    .step-content p {
+      font-size: 0.9rem;
+      color: rgba(239, 227, 214, 0.65);
+      line-height: 1.65;
+    }
+
+    .processo-obs {
+      margin-top: 40px;
+      padding: 20px 24px;
+      background-color: rgba(239, 227, 214, 0.06);
+      border-radius: var(--radius);
+      border: 1px solid rgba(239, 227, 214, 0.1);
+    }
+
+    .processo-obs p {
+      font-size: 0.84rem;
+      color: rgba(239, 227, 214, 0.72);
+      line-height: 1.65;
+    }
+
+    .processo-cta {
+      text-align: center;
+      margin-top: 48px;
+    }
+
+    /* ============================================================
+       6. BENEFICIOS
+    ============================================================ */
+    #beneficios {
+      background-color: var(--color-verde);
+      padding: 80px 0;
+    }
+
+    .beneficios-header {
+      margin-bottom: 48px;
+    }
+
+    .beneficios-header h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+      color: var(--color-creme);
+      margin-bottom: 12px;
+    }
+
+    .beneficios-header p {
+      color: rgba(239, 227, 214, 0.75);
+      max-width: 56ch;
+    }
+
+    .beneficios-header p + p {
+      margin-top: 14px;
+    }
+
+    .beneficios-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .beneficio-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 24px;
+      background-color: rgba(255,255,255,0.06);
+      border-radius: var(--radius);
+      border: 1px solid rgba(239, 227, 214, 0.1);
+      transition: transform var(--transition-base), border-color var(--transition-base);
+    }
+
+    @media (hover: hover) {
+      .beneficio-item:hover {
+        transform: translateY(-4px);
+        border-color: rgba(239, 227, 214, 0.25);
+      }
+    }
+
+    .beneficio-icon {
+      width: 40px;
+      height: 40px;
+      background-color: rgba(201, 122, 82, 0.2);
+      border-radius: 8px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .beneficio-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .beneficio-text {
+      font-size: 0.92rem;
+      color: rgba(239, 227, 214, 0.8);
+      line-height: 1.55;
+    }
+
+    .beneficio-text strong {
+      display: block;
+      color: var(--color-creme);
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .beneficios-closing {
+      background-color: rgba(255,255,255,0.05);
+      border-radius: var(--radius);
+      padding: 32px;
+      border: 1px solid rgba(239, 227, 214, 0.1);
+    }
+
+    .beneficios-closing p {
+      color: rgba(239, 227, 214, 0.75);
+      font-style: italic;
+      font-size: 0.96rem;
+    }
+
+    /* ============================================================
+       7. FAQ + FECHAMENTO
+    ============================================================ */
+    #faq {
+      background-color: var(--color-creme);
+      padding: 80px 0;
+    }
+
+    .faq-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 56px;
+    }
+
+    .faq-header h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+      color: var(--color-mogno);
+      margin-bottom: 8px;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    details {
+      border: 1px solid rgba(161, 79, 42, 0.15);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background-color: white;
+      transition: box-shadow var(--transition-base);
+    }
+
+    details[open] {
+      box-shadow: var(--shadow-card);
+    }
+
+    summary {
+      padding: 20px 24px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.97rem;
+      color: var(--color-mogno);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      list-style: none;
+      user-select: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: '';
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a14f2a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+      transition: transform 250ms ease;
+    }
+
+    details[open] summary::after {
+      transform: rotate(180deg);
+    }
+
+    .details-body {
+      padding: 0 24px 20px;
+      font-size: 0.92rem;
+      color: #5a4033;
+      line-height: 1.7;
+    }
+
+    /* Fechamento comercial */
+    .faq-closing {
+      background-color: var(--color-terracota);
+      border-radius: var(--radius);
+      padding: 48px 36px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .faq-closing::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-color: rgba(239, 227, 214, 0.06);
+    }
+
+    .faq-closing .editorial {
+      color: var(--color-creme);
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .faq-closing p {
+      color: rgba(239, 227, 214, 0.85);
+      font-size: 1rem;
+      margin: 0 auto 32px;
+      position: relative;
+    }
+
+    .faq-closing .btn {
+      position: relative;
+    }
+
+    .faq-cta-btn {
+      background: var(--color-creme);
+      color: var(--color-terracota);
+      border: 2px solid transparent;
+      font-weight: 600;
+      padding: 16px 32px;
+      border-radius: var(--radius);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 52px;
+      transition: transform 250ms ease-out, box-shadow 250ms ease-out;
+    }
+
+    @media (hover: hover) {
+      .faq-cta-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 32px rgba(30, 26, 23, 0.22);
+      }
+    }
+
+    /* CTA pulse animation */
+    .btn-pulse {
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+
+    @keyframes heroProofFloat {
+      0%, 100% {
+        transform: translate3d(0, 0, 0);
+      }
+      50% {
+        transform: translate3d(0, -3px, 0);
+      }
+    }
+
+    @keyframes heroLightFloat {
+      0%, 100% {
+        opacity: 0.16;
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      50% {
+        opacity: 0.28;
+        transform: translate3d(0, -14px, 0) scale(1.06);
+      }
+    }
+
+    @keyframes heroProofPulse {
+      0%, 100% {
+        opacity: 0.72;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.28);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(239, 227, 214, 0); }
+      50% { box-shadow: 0 0 0 10px rgba(239, 227, 214, 0.12); }
+    }
+
+    .btn-pulse:hover {
+      animation: none;
+    }
+
+    /* ============================================================
+       8. RODAPE
+    ============================================================ */
+    #rodape {
+      background-color: var(--color-preto-quente);
+      padding: 64px 0 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rodape-pattern {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      background-image:
+        linear-gradient(180deg, rgba(30, 26, 23, 0.06), rgba(30, 26, 23, 0.42)),
+        url('pattern.svg');
+      background-repeat: no-repeat, repeat;
+      background-size: 100% 100%, 168px 228px;
+      background-position: center, center;
+    }
+
+    .rodape-pattern svg {
+      display: none;
+    }
+
+    .rodape-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .rodape-top {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(239, 227, 214, 0.08);
+      margin-bottom: 32px;
+    }
+
+    .rodape-brand-logo {
+      width: min(190px, 52vw);
+      height: auto;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .rodape-brand p {
+      font-size: 0.88rem;
+      color: rgba(239, 227, 214, 0.5);
+      line-height: 1.7;
+      max-width: 36ch;
+    }
+
+    .rodape-col h4 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: rgba(239, 227, 214, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 16px;
+    }
+
+    .rodape-col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .rodape-col ul li a {
+      font-size: 0.9rem;
+      color: rgba(239, 227, 214, 0.65);
+      transition: color var(--transition-base);
+    }
+
+    .rodape-col ul li a:hover {
+      color: var(--color-cobre);
+    }
+
+    .rodape-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background-color: rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color var(--transition-base), transform var(--transition-base);
+      cursor: pointer;
+    }
+
+    @media (hover: hover) {
+      .social-link:hover {
+        background-color: rgba(201, 122, 82, 0.2);
+        transform: translateY(-2px);
+      }
+    }
+
+    .social-link svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .rodape-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .rodape-cnpj {
+      font-size: 0.78rem;
+      color: rgba(239, 227, 214, 0.3);
+      letter-spacing: 0.04em;
+    }
+
+    .rodape-legal {
+      font-size: 0.78rem;
+      color: rgba(239, 227, 214, 0.3);
+    }
+
+    .rodape-legal a {
+      color: rgba(239, 227, 214, 0.45);
+      text-decoration: underline;
+      text-decoration-color: transparent;
+      transition: color var(--transition-base), text-decoration-color var(--transition-base);
+    }
+
+    .rodape-legal a:hover {
+      color: var(--color-cobre);
+      text-decoration-color: var(--color-cobre);
+    }
+
+    /* ============================================================
+       WHATSAPP FLUTUANTE
+    ============================================================ */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 20px;
+      width: 56px;
+      height: 56px;
+      background-color: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+      z-index: 200;
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+      opacity: 0;
+      transform: scale(0);
+    }
+
+    .whatsapp-float.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    @media (hover: hover) {
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 28px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    .whatsapp-float svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    /* ============================================================
+       SCROLL REVEAL (estado inicial)
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 600ms ease-out, transform 600ms ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================================
+       RESPONSIVO - 768px
+    ============================================================ */
+    @media (min-width: 768px) {
+      .container {
+        padding: 0 40px;
+      }
+
+      .hero-pattern {
+        opacity: 0.04;
+      }
+
+      .rodape-pattern {
+        opacity: 0.022;
+      }
+
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 0.82fr);
+        gap: 36px;
+      }
+
+      .hero-emblem-wrap {
+        justify-content: center;
+      }
+
+      .hero-visual-card {
+        width: min(100%, 500px);
+      }
+
+      .hero-portrait-stage {
+        min-height: 534px;
+        padding: 18px 0 132px;
+      }
+
+      .hero-emblem {
+        width: min(100%, 418px);
+      }
+
+      .hero-proof {
+        width: 176px;
+      }
+
+      .hero-proof--clarity {
+        top: 186px;
+        left: 0;
+      }
+
+      .hero-proof--support {
+        top: 118px;
+        right: 0;
+      }
+
+      .hero-proof--strategy {
+        bottom: 18px;
+        left: calc(50% - 96px);
+      }
+
+      .hero-content {
+        text-align: left;
+      }
+
+      .hero-subtitle,
+      .hero-support {
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .hero-ctas {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+      }
+
+      .hero-trust-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .sobre-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .para-quem-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .resolve-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .beneficios-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .faq-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .rodape-top {
+        grid-template-columns: 1.5fr 1fr 1fr;
+      }
+
+      .rodape-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .whatsapp-float {
+        display: none;
+      }
+    }
+
+    /* ============================================================
+       RESPONSIVO - 1024px
+    ============================================================ */
+    @media (min-width: 1024px) {
+      .site-header {
+        padding: 24px 28px 0;
+      }
+
+      .site-header.scrolled {
+        padding: 14px 28px 0;
+      }
+
+      .container {
+        padding: 0 var(--padding-x-desktop);
+      }
+
+      .header-inner {
+        padding: 14px 18px;
+      }
+
+      .nav-links {
+        display: flex;
+      }
+
+      .nav-cta {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .hero-pattern {
+        opacity: 0.052;
+      }
+
+      .rodape-pattern {
+        opacity: 0.03;
+      }
+
+      #hero {
+        padding-top: 142px;
+        padding-bottom: 84px;
+      }
+
+      .hero-inner {
+        grid-template-columns: minmax(0, 1.02fr) minmax(380px, 500px);
+        gap: 48px;
+      }
+
+      .hero-emblem-wrap {
+        justify-content: flex-end;
+      }
+
+      .hero-visual-card {
+        width: min(100%, 520px);
+      }
+
+      .hero-portrait-stage {
+        min-height: 596px;
+        padding: 20px 0 144px;
+      }
+
+      .hero-emblem {
+        width: min(100%, 442px);
+      }
+
+      .hero-proof {
+        width: 284px;
+      }
+
+      .hero-proof--clarity {
+        top: 526px;
+        left: 120px;
+      }
+
+      .hero-proof--support {
+        top: 144px;
+        right: -8px;
+      }
+
+      .hero-proof--strategy {
+        bottom: 24px;
+        left: calc(50% - 100px);
+      }
+
+      .hero-headline {
+        font-size: clamp(3.6rem, 4.8vw, 5rem);
+        max-width: 10.8ch;
+      }
+
+      .hero-trust-item {
+        padding-right: 16px;
+      }
+
+      #sobre {
+        padding: 100px 0 80px;
+      }
+
+      #para-quem {
+        padding: 100px 0;
+      }
+
+      .para-quem-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      #resolve {
+        padding: 100px 0;
+      }
+
+      #processo {
+        padding: 100px 0;
+      }
+
+      .processo-steps {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0;
+      }
+
+      .processo-steps::before {
+        display: none;
+      }
+
+      .step {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0 12px;
+        position: relative;
+      }
+
+      .step:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        top: 28px;
+        left: calc(50% + 36px);
+        right: 0;
+        height: 2px;
+        background: linear-gradient(to right, var(--color-cobre), rgba(201, 122, 82, 0.2));
+      }
+
+      .step-content {
+        padding-top: 20px;
+      }
+
+      .step-content p {
+        font-size: 0.85rem;
+      }
+
+      #beneficios {
+        padding: 100px 0;
+      }
+
+      .beneficios-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      #faq {
+        padding: 100px 0;
+      }
+
+      .faq-inner {
+        gap: 80px;
+      }
+    }
+
+    /* ============================================================
+       RESPONSIVO - 1280px
+    ============================================================ */
+    @media (min-width: 1280px) {
+      .hero-visual-card {
+        width: min(100%, 548px);
+      }
+
+      .hero-portrait-stage {
+        min-height: 620px;
+      }
+
+      .hero-emblem {
+        width: min(100%, 458px);
+      }
+    }
+
+    /* ============================================================
+       PREFERS REDUCED MOTION
+    ============================================================ */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 200ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 200ms !important;
+      }
+
+      .hero-emblem-wrap,
+      .hero-headline,
+      .hero-subtitle,
+      .hero-support,
+      .hero-ctas {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      .hero-light,
+      .hero-proof,
+      .hero-proof::before {
+        animation: none !important;
+      }
+
+      .btn-pulse {
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Ir para o conteúdo principal</a>
+
+  <header class="site-header" id="site-header" role="banner">
+    <div class="container">
+      <div class="header-inner">
+        <a href="#hero" class="logo" aria-label="Eleva Isenções - Página inicial">
+          <img
+            src="ELEVA 01H.svg"
+            class="logo-lockup"
+            width="182"
+            height="60"
+            alt="Eleva"
+            decoding="async"
+          />
+        </a>
+
+        <nav aria-label="Navegação principal" id="main-nav">
+          <ul class="nav-links" role="list">
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#para-quem">Para quem</a></li>
+            <li><a href="#resolve">O que fazemos</a></li>
+            <li><a href="#processo">Como funciona</a></li>
+            <li><a href="#beneficios">Benefícios</a></li>
+            <li><a href="#faq">Dúvidas</a></li>
+          </ul>
+        </nav>
+
+        <a
+          href="https://wa.me/5511999999999?text=Ol%C3%A1,%20quero%20saber%20mais%20sobre%20isen%C3%A7%C3%A3o%20PCD"
+          class="btn btn-primary nav-cta"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Falar com a equipe pelo WhatsApp"
+        >
+          Falar com a equipe
+        </a>
+
+        <button
+          class="menu-toggle"
+          id="menu-toggle"
+          aria-label="Abrir menu de navegação"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav
+    class="mobile-menu"
+    id="mobile-menu"
+    role="navigation"
+    aria-label="Menu mobile"
+    aria-hidden="true"
+  >
+    <a href="#sobre" class="mobile-nav-link">Sobre</a>
+    <a href="#para-quem" class="mobile-nav-link">Para quem</a>
+    <a href="#resolve" class="mobile-nav-link">O que fazemos</a>
+    <a href="#processo" class="mobile-nav-link">Como funciona</a>
+    <a href="#beneficios" class="mobile-nav-link">Benefícios</a>
+    <a href="#faq" class="mobile-nav-link">Dúvidas</a>
+    <a
+      href="https://wa.me/5511999999999?text=Ol%C3%A1,%20quero%20saber%20mais%20sobre%20isen%C3%A7%C3%A3o%20PCD"
+      class="btn btn-primary"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Falar com a equipe
+    </a>
+  </nav>
+
+  <main id="main-content"> 
+
+    <!-- ============================================================
+         1. HERO
+    ============================================================ -->    <section id="hero" aria-labelledby="hero-heading">
+      <div class="hero-pattern" aria-hidden="true" id="hero-pattern"></div>
+      <div class="hero-light hero-light--one" aria-hidden="true"></div>
+      <div class="hero-light hero-light--two" aria-hidden="true"></div>
+      <div class="hero-light hero-light--three" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="hero-inner" id="hero-content">
+          <div class="hero-content">
+            <h1 class="hero-headline" id="hero-heading">
+              Transformamos seu direito em <em>conquista.</em>
+            </h1>
+
+            <p class="hero-subtitle">
+              A Eleva Isenções é especializada em assessoria para pessoas com deficiência que desejam entender e conduzir com mais segurança o processo de isenção na aquisição de veículo.
+            </p>
+
+            <p class="hero-support">
+              Oferecemos orientação clara, acompanhamento próximo e suporte estratégico para tornar cada etapa mais organizada, menos burocrática e mais tranquila.
+            </p>
+
+            <div class="hero-ctas">
+              <a
+                href="https://wa.me/5511999999999?text=Ol%C3%A1,%20quero%20saber%20mais%20sobre%20isen%C3%A7%C3%A3o%20PCD"
+                class="btn btn-primary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Quero analisar meu caso
+              </a>
+              <a
+                href="https://wa.me/5511999999999?text=Ol%C3%A1,%20quero%20falar%20com%20a%20equipe%20da%20Eleva"
+                class="btn btn-secondary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Falar com a equipe
+              </a>
+            </div>
+
+            <ul class="hero-trust-list" role="list" aria-label="Diferenciais da assessoria">
+              <li class="hero-trust-item">
+                <span class="hero-trust-title">Análise do caso</span>
+                <span class="hero-trust-copy">Entendimento claro do seu enquadramento e dos próximos passos.</span>
+              </li>
+              <li class="hero-trust-item">
+                <span class="hero-trust-title">Documentação</span>
+                <span class="hero-trust-copy">Orientação organizada para reduzir dúvidas, falhas e retrabalho.</span>
+              </li>
+              <li class="hero-trust-item">
+                <span class="hero-trust-title">Acompanhamento</span>
+                <span class="hero-trust-copy">Mais segurança ao longo de uma jornada que exige direção.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="hero-emblem-wrap" id="hero-emblem">
+            <div class="hero-visual-card">
+              <div class="hero-portrait-stage">
+                <img
+                  src="fotohero.webp"
+                  class="hero-emblem"
+                  width="640"
+                  height="760"
+                  alt=""
+                  aria-hidden="true"
+                  loading="eager"
+                  fetchpriority="high"
+                  decoding="sync"
+                />
+
+                <div class="hero-proof-grid">
+                  <div class="hero-proof hero-proof--clarity">
+                    <div class="hero-proof-top">
+                      <span class="hero-proof-label">Clareza</span>
+                    </div>
+                    <span class="hero-proof-text">Orientação objetiva para entender etapas, critérios e o que esperar em cada fase.</span>
+                  </div>
+                  <div class="hero-proof hero-proof--support">
+                    <div class="hero-proof-top">
+                      <span class="hero-proof-label">Acompanhamento</span>
+                    </div>
+                    <span class="hero-proof-text">Suporte próximo para reduzir dúvidas e avançar com mais segurança na jornada.</span>
+                  </div>
+                  <div class="hero-proof hero-proof--strategy">
+                    <div class="hero-proof-top">
+                      <span class="hero-proof-label">Organização</span>
+                    </div>
+                    <span class="hero-proof-text">Documentação e direcionamento alinhados para evitar retrabalho e imprevistos.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         2. SOBRE A ELEVA
+    ============================================================ -->    <section id="sobre" aria-labelledby="sobre-heading">
+      <div class="container">
+        <div class="sobre-inner">
+          <div class="sobre-text reveal">
+            <span class="section-label badge badge-terracota">Quem somos</span>
+            <h2 id="sobre-heading">Especialização, clareza e cuidado em cada etapa do processo</h2>
+
+            <p>A Eleva Isenções nasceu com o propósito de ajudar pessoas a compreender e conduzir, com mais segurança, os processos de isenção relacionados à aquisição de veículos para PCD.</p>
+            <p>Sabemos que, para muitas famílias, esse caminho pode parecer complexo. Por isso, nosso trabalho é oferecer uma assessoria próxima, organizada e especializada, trazendo mais clareza sobre documentação, etapas e direcionamentos.</p>
+            <p>Mais do que falar sobre benefícios, a Eleva busca oferecer apoio real para que cada cliente avance com mais confiança e tranquilidade.</p>
+          </div>
+
+          <div class="sobre-visual reveal" style="transition-delay:120ms;">
+            <div class="sobre-card">
+              <div class="sobre-card-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a14f2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <h3>Assessoria focada em isenções PCD</h3>
+              <p>Trabalhamos com orientação alinhada à legislação e aos procedimentos dos órgãos competentes, com atenção ao que muda de caso para caso.</p>
+
+              <div class="sobre-stats">
+                <div class="sobre-stat">
+                  <span class="sobre-stat-number">IPI</span>
+                  <span class="sobre-stat-label">Isenção federal</span>
+                </div>
+                <div class="sobre-stat">
+                  <span class="sobre-stat-number">ICMS</span>
+                  <span class="sobre-stat-label">Isenção estadual</span>
+                </div>
+                <div class="sobre-stat">
+                  <span class="sobre-stat-number">IPVA</span>
+                  <span class="sobre-stat-label">Isenção veicular</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3. PARA QUEM E A ASSESSORIA
+    ============================================================ -->    <section id="para-quem" aria-labelledby="para-quem-heading">
+      <div class="container">
+        <div class="para-quem-header reveal">
+          <span class="section-label badge badge-terracota">Público atendido</span>
+          <h2 id="para-quem-heading">Para quem a Eleva atua</h2>
+          <p>A assessoria da Eleva é voltada para pessoas que desejam entender melhor seu enquadramento e seguir o processo com orientação especializada.</p>
+        </div>
+
+        <div class="para-quem-grid">
+          <div class="pq-card reveal" style="transition-delay:0ms;">
+            <div class="pq-card-number" aria-hidden="true">01</div>
+            <h3>Pessoa com deficiência condutora</h3>
+            <p>Para quem deseja conduzir o próprio veículo e busca apoio para entender o processo, organizar a documentação e seguir com mais segurança.</p>
+          </div>
+
+          <div class="pq-card reveal" style="transition-delay:120ms;">
+            <div class="pq-card-number" aria-hidden="true">02</div>
+            <h3>Pessoa com deficiência não condutora</h3>
+            <p>Para casos em que o beneficiário não dirige e o processo exige análise e condução conforme as exigências aplicáveis. A legislação e os procedimentos públicos contemplam hipóteses de atendimento também para não condutores, observadas as regras do caso.</p>
+          </div>
+
+          <div class="pq-card reveal" style="transition-delay:240ms;">
+            <div class="pq-card-number" aria-hidden="true">03</div>
+            <h3>Familiares e responsáveis</h3>
+            <p>Para quem está auxiliando um familiar e deseja contar com uma assessoria que ajude a organizar melhor o processo.</p>
+          </div>
+        </div>
+
+        <div class="pq-obs reveal">
+          <p><strong style="color:rgba(239,227,214,0.85);">Observação:</strong> Cada situação precisa ser analisada individualmente, pois o enquadramento depende de critérios, documentos e exigências específicas.</p>
+        </div>
+
+        <div class="pq-cta reveal">
+          <a
+            href="https://wa.me/5511999999999?text=Ol%C3%A1,%20quero%20entender%20meu%20caso%20PCD"
+            class="btn btn-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Quero entender meu caso
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. O QUE A ELEVA RESOLVE
+    ============================================================ -->    <section id="resolve" aria-labelledby="resolve-heading">
+      <div class="container">
+        <div class="resolve-inner">
+          <div class="resolve-content reveal">
+            <span class="section-label badge badge-terracota">O que fazemos</span>
+            <h2 id="resolve-heading">Você não precisa enfrentar esse processo sozinho</h2>
+            <p>Processos de isenção podem gerar dúvidas, insegurança e retrabalho quando não há clareza sobre por onde começar ou como conduzir cada etapa.</p>
+            <p>A Eleva atua justamente para dar direção ao cliente, organizando o caminho e oferecendo mais tranquilidade ao longo da jornada.</p>
+
+            <ul class="resolve-list" aria-label="O que a Eleva oferece">
+              <li class="resolve-item"><span class="resolve-item-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#425438" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Análise inicial do caso</span></li>
+              <li class="resolve-item"><span class="resolve-item-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#425438" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Orientação sobre documentação</span></li>
+              <li class="resolve-item"><span class="resolve-item-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#425438" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Apoio na compreensão das etapas do processo</span></li>
+              <li class="resolve-item"><span class="resolve-item-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#425438" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Redução de erros e retrabalho</span></li>
+              <li class="resolve-item"><span class="resolve-item-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#425438" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Acompanhamento com mais clareza e organização</span></li>
+              <li class="resolve-item"><span class="resolve-item-check" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#425438" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Suporte para avançar com mais segurança</span></li>
+            </ul>
+
+            <div class="resolve-closing">
+              <p>Nosso objetivo é tornar o processo mais compreensível, mais estruturado e mais seguro para quem deseja buscar esse direito com apoio especializado.</p>
+            </div>
+          </div>
+
+          <div class="resolve-visual reveal" style="transition-delay:120ms;">
+            <div class="resolve-highlight">
+              <p class="editorial">Clareza em cada<br>etapa da jornada.</p>
+              <p>Assessoria próxima para quem precisa de segurança, direção e organização ao longo de um processo que pode parecer complexo.</p>
+            </div>
+
+            <div class="sobre-card" style="margin-top:16px;">
+              <div class="sobre-card-icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a14f2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <h3>Acompanhamento real</h3>
+              <p>Do primeiro contato à conclusão do processo, a Eleva está presente em cada etapa da sua jornada.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5. COMO FUNCIONA O PROCESSO
+    ============================================================ -->    <section id="processo" aria-labelledby="processo-heading">
+      <div class="container">
+        <div class="processo-header reveal">
+          <span class="section-label badge" style="background:rgba(201,122,82,0.15);color:var(--color-cobre);">Metodologia</span>
+          <h2 id="processo-heading">Entenda como a Eleva conduz cada etapa</h2>
+        </div>
+
+        <ol class="processo-steps" aria-label="Etapas do processo">
+          <li class="step reveal" style="transition-delay:0ms;"><div class="step-number" aria-hidden="true">01</div><div class="step-content"><h3>Análise inicial</h3><p>Entendimento do caso e levantamento das informações essenciais.</p></div></li>
+          <li class="step reveal" style="transition-delay:120ms;"><div class="step-number" aria-hidden="true">02</div><div class="step-content"><h3>Direcionamento do processo</h3><p>Orientação sobre os possíveis caminhos, critérios e exigências aplicáveis ao cenário apresentado.</p></div></li>
+          <li class="step reveal" style="transition-delay:240ms;"><div class="step-number" aria-hidden="true">03</div><div class="step-content"><h3>Organização documental</h3><p>Apoio na compreensão e preparação da documentação necessária.</p></div></li>
+          <li class="step reveal" style="transition-delay:360ms;"><div class="step-number" aria-hidden="true">04</div><div class="step-content"><h3>Acompanhamento</h3><p>Suporte durante o andamento do processo, com mais clareza sobre cada fase.</p></div></li>
+          <li class="step reveal" style="transition-delay:480ms;"><div class="step-number" aria-hidden="true">05</div><div class="step-content"><h3>Avanço para aquisição do veículo</h3><p>Com o processo devidamente conduzido, o cliente segue com mais segurança para as próximas etapas da aquisição.</p></div></li>
+        </ol>
+
+        <div class="processo-obs reveal">
+          <p>Benefícios ligados à aquisição de veículo por PCD podem envolver tributos como IPI, ICMS e IPVA, conforme o enquadramento e as regras aplicáveis em cada caso. Órgãos públicos como Receita Federal e Secretarias Estaduais da Fazenda disponibilizam procedimentos específicos para essas solicitações.</p>
+        </div>
+
+        <div class="processo-cta reveal">
+          <a
+            href="https://wa.me/5511999999999?text=Ol%C3%A1,%20quero%20falar%20com%20a%20Eleva%20no%20WhatsApp%20sobre%20isen%C3%A7%C3%A3o%20PCD"
+            class="btn btn-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Falar com a Eleva no WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         6. BENEFICIOS
+    ============================================================ -->    <section id="beneficios" aria-labelledby="beneficios-heading">
+      <div class="container">
+        <div class="beneficios-header reveal">
+          <span class="section-label badge" style="background:rgba(239,227,214,0.12);color:rgba(239,227,214,0.7);">Diferenciais</span>
+          <h2 id="beneficios-heading">Mais clareza, mais segurança<br>e menos burocracia</h2>
+          <p>Quando o processo é conduzido com orientação adequada, o cliente ganha mais tranquilidade para compreender seu caso, organizar a documentação e evitar falhas que possam atrasar o andamento.</p>
+          <p>Além da possível economia relacionada aos benefícios previstos em lei, existe também um valor importante na segurança de contar com uma assessoria preparada para orientar cada etapa.</p>
+        </div>
+
+        <div class="beneficios-grid">
+          <div class="beneficio-item reveal" style="transition-delay:0ms;"><div class="beneficio-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#C97A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="beneficio-text"><strong>Atendimento mais próximo e humanizado</strong>Escuta atenta e linguagem acessível, do primeiro contato ao acompanhamento.</div></div>
+          <div class="beneficio-item reveal" style="transition-delay:120ms;"><div class="beneficio-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#C97A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><div class="beneficio-text"><strong>Processo mais organizado</strong>Etapas e documentação estruturadas para você saber onde está em cada momento.</div></div>
+          <div class="beneficio-item reveal" style="transition-delay:240ms;"><div class="beneficio-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#C97A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div><div class="beneficio-text"><strong>Mais clareza sobre o que fazer</strong>Orientação direta, sem jargão desnecessário, para decidir com segurança.</div></div>
+          <div class="beneficio-item reveal" style="transition-delay:120ms;"><div class="beneficio-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#C97A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="beneficio-text"><strong>Mais confiança para tomar decisões</strong>Informação correta e contexto jurídico aplicável ao seu cenário.</div></div>
+          <div class="beneficio-item reveal" style="transition-delay:240ms;"><div class="beneficio-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#C97A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div class="beneficio-text"><strong>Apoio especializado em uma jornada sensível e relevante</strong>Respeito ao tempo, às dúvidas e à importância desse processo para a família.</div></div>
+        </div>
+
+        <div class="beneficios-closing reveal">
+          <p>Na Eleva, acreditamos que informação correta, cuidado no atendimento e condução estratégica fazem diferença real para quem está buscando exercer um direito.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         7. FAQ + FECHAMENTO COMERCIAL
+    ============================================================ -->    <section id="faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="faq-inner">
+          <div>
+            <div class="faq-header reveal">
+              <span class="section-label badge badge-terracota">Perguntas frequentes</span>
+              <h2 id="faq-heading">Dúvidas frequentes</h2>
+            </div>
+
+            <div class="faq-list" style="margin-top:32px;">
+              <details class="reveal" style="transition-delay:0ms;"><summary>Como saber se tenho direito?</summary><div class="details-body">O primeiro passo é realizar uma análise do caso. O enquadramento depende de critérios específicos e documentação aplicável.</div></details>
+              <details class="reveal" style="transition-delay:80ms;"><summary>A pessoa precisa ser condutora?</summary><div class="details-body">Não necessariamente. Existem casos que envolvem pessoa com deficiência não condutora, conforme as condições e exigências previstas.</div></details>
+              <details class="reveal" style="transition-delay:160ms;"><summary>Quais benefícios podem estar envolvidos?</summary><div class="details-body">Dependendo do enquadramento, o processo pode envolver isenções ligadas a IPI, ICMS e IPVA, entre outros aspectos previstos na legislação e nos procedimentos públicos aplicáveis.</div></details>
+              <details class="reveal" style="transition-delay:240ms;"><summary>A Eleva acompanha o processo?</summary><div class="details-body">O posicionamento público da marca mostra justamente esse compromisso de orientar e acompanhar o cliente ao longo da jornada.</div></details>
+            </div>
+          </div>
+
+          <div class="faq-closing reveal">
+            <p>Se você deseja entender melhor o seu caso e contar com uma assessoria especializada para conduzir esse processo com mais segurança, a Eleva está pronta para ajudar.</p>
+            <a
+              href="https://wa.me/5511999999999?text=Ol%C3%A1,%20quero%20falar%20com%20a%20equipe%20da%20Eleva"
+              class="btn faq-cta-btn btn-pulse"
+              target="_blank"
+              rel="noopener noreferrer"
+              id="cta-pulse"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Quero falar com a equipe
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       8. RODAPE
+  ============================================================ -->  <footer id="rodape" role="contentinfo">
+    <div class="rodape-pattern" aria-hidden="true" id="rodape-pattern"></div>
+
+    <div class="container">
+      <div class="rodape-inner">
+        <div class="rodape-top">
+          <div class="rodape-brand">
+            <a href="#hero" aria-label="Eleva Isenções - Início">
+              <img
+                src="ELEVA 01H.svg"
+                class="rodape-brand-logo"
+                width="190"
+                height="63"
+                alt="Eleva"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+            <p>Assessoria especializada para pessoas com deficiência no processo de isenção na aquisição de veículos.</p>
+
+            <div class="rodape-social" role="list" aria-label="Redes sociais">
+              <a href="#" class="social-link" role="listitem" aria-label="Instagram da Eleva Isenções" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="rgba(239,227,214,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+              <a href="https://wa.me/5511999999999?text=Ol%C3%A1,%20quero%20saber%20mais%20sobre%20isen%C3%A7%C3%A3o%20PCD" class="social-link" role="listitem" aria-label="WhatsApp da Eleva Isenções" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="rgba(239,227,214,0.6)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="rodape-col">
+            <h4>Navegação</h4>
+            <ul role="list">
+              <li><a href="#sobre">Sobre a Eleva</a></li>
+              <li><a href="#para-quem">Para quem é</a></li>
+              <li><a href="#resolve">O que fazemos</a></li>
+              <li><a href="#processo">Como funciona</a></li>
+              <li><a href="#beneficios">Benefícios</a></li>
+              <li><a href="#faq">Dúvidas</a></li>
+            </ul>
+          </div>
+
+          <div class="rodape-col">
+            <h4>Contato</h4>
+            <ul role="list">
+              <li><a href="https://wa.me/5511999999999?text=Ol%C3%A1,%20quero%20saber%20mais%20sobre%20isen%C3%A7%C3%A3o%20PCD" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+              <li><a href="#" aria-label="Política de Privacidade">Privacidade</a></li>
+            </ul>
+
+            <div style="margin-top:24px;">
+              <a
+                href="https://wa.me/5511999999999?text=Ol%C3%A1,%20quero%20saber%20mais%20sobre%20isen%C3%A7%C3%A3o%20PCD"
+                class="btn btn-outline"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="border-color:rgba(239,227,214,0.2);color:rgba(239,227,214,0.7);font-size:0.85rem;padding:10px 20px;"
+              >
+                Falar no WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="rodape-bottom">
+          <span class="rodape-cnpj">CNPJ: 00.000.000/0001-00 • Eleva Isenções Assessoria Ltda.</span>
+          <span class="rodape-legal">© 2026 Eleva Isenções. <a href="#">Política de Privacidade</a></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a
+    href="https://wa.me/5511999999999?text=Ol%C3%A1,%20quero%20saber%20mais%20sobre%20isen%C3%A7%C3%A3o%20PCD"
+    class="whatsapp-float"
+    id="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Falar com a Eleva pelo WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    'use strict';
+
+    /* ============================================================
+       UTILITARIOS
+    ============================================================ */
+    const $ = (sel, ctx = document) => ctx.querySelector(sel);
+    const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
+    const isMobile = () => window.innerWidth < 768;
+    const prefersReducedMotion = () =>
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ============================================================
+       HEADER - SCROLL BEHAVIOR
+    ============================================================ */
+    (function initHeader() {
+      const header = $('#site-header');
+      if (!header) return;
+
+      function onScroll() {
+        if (window.scrollY > 60) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    /* ============================================================
+       MENU MOBILE
+    ============================================================ */
+    (function initMobileMenu() {
+      const toggle = $('#menu-toggle');
+      const menu = $('#mobile-menu');
+      const links = $$('.mobile-nav-link');
+      if (!toggle || !menu) return;
+
+      function openMenu() {
+        toggle.classList.add('active');
+        menu.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+        menu.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeMenu() {
+        toggle.classList.remove('active');
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        menu.setAttribute('aria-hidden', 'true');
+      }
+
+      toggle.addEventListener('click', () => {
+        const isOpen = menu.classList.contains('open');
+        isOpen ? closeMenu() : openMenu();
+      });
+
+      links.forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && menu.classList.contains('open')) {
+          closeMenu();
+          toggle.focus();
+        }
+      });
+
+      document.addEventListener('click', e => {
+        const clickedInsideMenu = menu.contains(e.target);
+        const clickedToggle = toggle.contains(e.target);
+        if (menu.classList.contains('open') && !clickedInsideMenu && !clickedToggle) {
+          closeMenu();
+        }
+      });
+
+      window.addEventListener('resize', () => {
+        if (!isMobile() && menu.classList.contains('open')) {
+          closeMenu();
+        }
+      });
+    })();
+
+    /* ============================================================
+       HERO REVEAL ANIMATIONS
+    ============================================================ */
+    (function initHeroReveal() {
+      if (prefersReducedMotion()) return;
+
+      const emblem = $('#hero-emblem');
+      const headline = $('.hero-headline');
+      const subtitle = $('.hero-subtitle');
+      const support = $('.hero-support');
+      const ctas = $('.hero-ctas');
+
+      function animate(el, delay, props) {
+        if (!el) return;
+        setTimeout(() => {
+          el.style.transition = `opacity ${props.dur}ms ${props.easing}, transform ${props.dur}ms ${props.easing}`;
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        }, delay);
+      }
+
+      const springEasing = 'cubic-bezier(0.34, 1.56, 0.64, 1)';
+      const smoothEasing = 'cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+
+      animate(emblem,   100, { dur: 800, easing: springEasing });
+      animate(headline, 500, { dur: 500, easing: smoothEasing });
+      animate(subtitle, 600, { dur: 500, easing: smoothEasing });
+      animate(support,  700, { dur: 500, easing: smoothEasing });
+      animate(ctas,     800, { dur: 500, easing: smoothEasing });
+    })();
+
+    /* ============================================================
+       PARALLAX NO HERO (desktop only)
+    ============================================================ */
+    (function initParallax() {
+      if (isMobile() || prefersReducedMotion()) return;
+
+      const pattern = $('#hero-pattern');
+      let ticking = false;
+
+      function update() {
+        const scrollY = window.scrollY;
+        if (pattern) {
+          pattern.style.transform = `translateY(${scrollY * 0.3}px)`;
+        }
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(update);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      // Disable on resize to mobile
+      window.addEventListener('resize', () => {
+        if (isMobile()) {
+          if (pattern) pattern.style.transform = '';
+        }
+      });
+    })();
+
+    /* ============================================================
+       SCROLL REVEAL - IntersectionObserver
+    ============================================================ */
+    (function initScrollReveal() {
+      const elements = $$('.reveal');
+      if (!elements.length) return;
+
+      if (prefersReducedMotion()) {
+        elements.forEach(el => {
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+        });
+        return;
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.15,
+          rootMargin: '0px 0px -40px 0px'
+        }
+      );
+
+      elements.forEach(el => observer.observe(el));
+    })();
+
+    /* ============================================================
+       CTA PULSE - inicia apos 3s
+    ============================================================ */
+    (function initCtaPulse() {
+      if (prefersReducedMotion()) return;
+      const cta = $('#cta-pulse');
+      if (!cta) return;
+
+      setTimeout(() => {
+        cta.classList.add('btn-pulse');
+      }, 3000);
+    })();
+
+    /* ============================================================
+       WHATSAPP FLOAT - aparece apos scroll
+    ============================================================ */
+    (function initWhatsappFloat() {
+      const btn = $('#whatsapp-float');
+      if (!btn) return;
+
+      // So mostrar em mobile
+      if (!isMobile()) return;
+
+      function onScroll() {
+        if (window.scrollY > 300) {
+          btn.classList.add('visible');
+        } else {
+          btn.classList.remove('visible');
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    /* ============================================================
+       SMOOTH SCROLL para links internos
+    ============================================================ */
+    (function initSmoothScroll() {
+      $$('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+          const id = this.getAttribute('href').slice(1);
+          if (!id) return;
+          const target = document.getElementById(id);
+          if (!target) return;
+          e.preventDefault();
+          const offset = window.innerWidth >= 1024 ? 104 : 92;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        });
+      });
+    })();
+
+    /* ============================================================
+       DETAILS/SUMMARY - fechar outros ao abrir
+    ============================================================ */
+    (function initAccordion() {
+      const allDetails = $$('details');
+      allDetails.forEach(detail => {
+        detail.addEventListener('toggle', function() {
+          if (this.open) {
+            allDetails.forEach(other => {
+              if (other !== this && other.open) {
+                other.open = false;
+              }
+            });
+          }
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
