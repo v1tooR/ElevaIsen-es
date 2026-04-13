@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Eleva Isenções: assessoria especializada para pessoas com deficiência no processo de isenção na aquisição de veículo. Orientação clara, acompanhamento próximo e suporte em cada etapa." />
+  <meta name="theme-color" content="#6B3019" />
+  <title>Eleva Isenções | Seu direito, nosso compromisso</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;0,700;0,800;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =========================================================
+       DESIGN TOKENS
+    ========================================================= */
+    :root {
+      --c-terra:    #A14F2A;
+      --c-mogno:    #6B3019;
+      --c-cobre:    #C97A52;
+      --c-creme:    #EFE3D6;
+      --c-creme-2:  #F7F1EA;
+      --c-preto:    #1E1A17;
+      --c-verde:    #425438;
+      --c-verde-dk: #344529;
+      --c-terra-a:  rgba(161, 79, 42, 0.10);
+      --c-mogno-a:  rgba(107, 48, 25, 0.08);
+
+      --f-heading:   'Raleway', sans-serif;
+      --f-body:      'DM Sans', sans-serif;
+      --f-editorial: 'Cormorant Garamond', serif;
+
+      --w-max:    1200px;
+      --r-sm:     8px;
+      --r-md:     14px;
+      --r-lg:     24px;
+      --r-pill:   100px;
+
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in:  cubic-bezier(0.7, 0, 0.84, 0);
+      --dur-fast: 240ms;
+      --dur-base: 400ms;
+      --dur-slow: 700ms;
+    }
+
+    /* =========================================================
+       RESET + BASE
+    ========================================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--f-body);
+      color: var(--c-preto);
+      background: var(--c-creme-2);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    ::selection { background: rgba(161, 79, 42, 0.2); color: var(--c-preto); }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { cursor: pointer; font-family: var(--f-body); border: none; background: none; }
+    p { line-height: 1.75; }
+
+    /* skip link */
+    .skip { position: absolute; top: -100%; left: 20px; z-index: 9999; background: var(--c-terra); color: var(--c-creme); padding: 10px 20px; border-radius: var(--r-pill); font-weight: 600; transition: top 200ms; }
+    .skip:focus { top: 20px; }
+    :focus-visible { outline: 2px solid var(--c-cobre); outline-offset: 3px; border-radius: 4px; }
+
+    /* =========================================================
+       LAYOUT UTILITIES
+    ========================================================= */
+    .wrap { width: 100%; max-width: var(--w-max); margin: 0 auto; padding: 0 24px; }
+    @media (min-width: 768px) { .wrap { padding: 0 48px; } }
+    @media (min-width: 1024px) { .wrap { padding: 0 64px; } }
+
+    .section { padding: 88px 0; }
+    @media (min-width: 768px) { .section { padding: 112px 0; } }
+
+    .tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 5px 14px;
+      border-radius: var(--r-pill);
+    }
+    .tag--terra { background: rgba(161,79,42,0.12); color: var(--c-terra); }
+    .tag--verde { background: rgba(66,84,56,0.12); color: var(--c-verde); }
+    .tag--creme { background: rgba(239,227,214,0.15); color: var(--c-creme); border: 1px solid rgba(239,227,214,0.2); }
+
+    .section-label {
+      font-family: var(--f-body); font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--c-cobre); margin-bottom: 16px;
+    }
+
+    /* =========================================================
+       TYPOGRAPHY
+    ========================================================= */
+    h1, h2, h3, h4 { font-family: var(--f-heading); font-weight: 700; line-height: 1.15; }
+    .display-xl { font-size: clamp(2.6rem, 6vw, 5rem); letter-spacing: -0.02em; }
+    .display-lg { font-size: clamp(2rem, 4.5vw, 3.6rem); letter-spacing: -0.02em; }
+    .display-md { font-size: clamp(1.6rem, 3vw, 2.4rem); letter-spacing: -0.01em; }
+    .display-sm { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+    .editorial-quote { font-family: var(--f-editorial); font-style: italic; line-height: 1.3; }
+    .body-lg { font-size: 1.1rem; line-height: 1.75; }
+    .body-md { font-size: 0.95rem; line-height: 1.75; }
+    .body-sm { font-size: 0.85rem; line-height: 1.7; }
+
+    /* =========================================================
+       BUTTONS
+    ========================================================= */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 8px; padding: 15px 32px; border-radius: var(--r-pill);
+      font-family: var(--f-body); font-weight: 600; font-size: 0.92rem;
+      letter-spacing: 0.01em; min-height: 50px;
+      transition: transform var(--dur-fast) var(--ease-out),
+                  box-shadow var(--dur-fast) var(--ease-out),
+                  background var(--dur-fast) var(--ease-out),
+                  border-color var(--dur-fast) var(--ease-out);
+      position: relative; overflow: hidden;
+    }
+    .btn:active { transform: scale(0.97) !important; }
+
+    .btn--terra {
+      background: var(--c-terra); color: var(--c-creme);
+      border: 2px solid transparent;
+    }
+    @media (hover:hover) { .btn--terra:hover { background: var(--c-mogno); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(107,48,25,0.35); } }
+
+    .btn--outline-creme {
+      background: transparent; color: var(--c-creme);
+      border: 2px solid rgba(239,227,214,0.45);
+    }
+    @media (hover:hover) { .btn--outline-creme:hover { border-color: var(--c-creme); background: rgba(239,227,214,0.08); transform: translateY(-2px); } }
+
+    .btn--verde {
+      background: var(--c-verde); color: var(--c-creme);
+      border: 2px solid transparent;
+    }
+    @media (hover:hover) { .btn--verde:hover { background: var(--c-verde-dk); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(66,84,56,0.3); } }
+
+    .btn--outline-terra {
+      background: transparent; color: var(--c-terra);
+      border: 2px solid var(--c-terra);
+    }
+    @media (hover:hover) { .btn--outline-terra:hover { background: var(--c-terra); color: var(--c-creme); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(161,79,42,0.2); } }
+
+    /* =========================================================
+       NAV
+    ========================================================= */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      transition: background var(--dur-base) ease, box-shadow var(--dur-base) ease,
+                  padding var(--dur-base) ease;
+      padding: 20px 0;
+    }
+    .nav.scrolled {
+      background: rgba(30,26,23,0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 rgba(239,227,214,0.08);
+      padding: 12px 0;
+    }
+    .nav__inner {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav__logo { display: flex; align-items: center; }
+    .nav__logo img { height: 36px; width: auto; }
+    .nav__logo-text {
+      font-family: var(--f-heading); font-weight: 700; font-size: 1.1rem;
+      color: var(--c-creme); letter-spacing: -0.01em;
+    }
+    .nav__links {
+      display: none;
+      align-items: center; gap: 32px;
+    }
+    @media (min-width: 900px) { .nav__links { display: flex; } }
+    .nav__link {
+      font-size: 0.88rem; font-weight: 500; color: rgba(239,227,214,0.75);
+      transition: color var(--dur-fast) ease;
+      position: relative;
+    }
+    .nav__link::after {
+      content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
+      height: 1px; background: var(--c-cobre); transform: scaleX(0);
+      transition: transform var(--dur-fast) var(--ease-out);
+    }
+    @media (hover:hover) { .nav__link:hover { color: var(--c-creme); } .nav__link:hover::after { transform: scaleX(1); } }
+
+    .nav__cta { display: none; }
+    @media (min-width: 900px) { .nav__cta { display: flex; } }
+
+    .nav__burger {
+      display: flex; flex-direction: column; gap: 5px;
+      padding: 8px; border-radius: 6px;
+      transition: background var(--dur-fast) ease;
+    }
+    @media (min-width: 900px) { .nav__burger { display: none; } }
+    .nav__burger span {
+      width: 22px; height: 2px; background: var(--c-creme);
+      border-radius: 2px; transition: transform var(--dur-fast) ease, opacity var(--dur-fast) ease;
+    }
+    .nav__burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav__burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .nav__burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* mobile menu */
+    .nav__mobile {
+      display: none; position: fixed; inset: 0; z-index: 190;
+      background: rgba(30,26,23,0.98); backdrop-filter: blur(20px);
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 32px;
+    }
+    .nav__mobile.open { display: flex; }
+    .nav__mobile-link {
+      font-family: var(--f-heading); font-weight: 700; font-size: 2rem;
+      color: var(--c-creme); transition: color var(--dur-fast) ease;
+    }
+    @media (hover:hover) { .nav__mobile-link:hover { color: var(--c-cobre); } }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+    .hero {
+      position: relative; min-height: 100svh;
+      display: flex; align-items: center;
+      background: var(--c-preto); overflow: hidden;
+      padding-top: 80px;
+    }
+    .hero__bg-color {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, #1a110a 0%, var(--c-preto) 50%, #0e1509 100%);
+    }
+    .hero__pattern {
+      position: absolute; inset: 0; opacity: 0.06;
+      background-image: url("pattern.svg"); background-size: 240px;
+      background-repeat: repeat;
+    }
+    .hero__glow {
+      position: absolute; top: -20%; left: -10%;
+      width: 60%; height: 80%; border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(161,79,42,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero__glow-2 {
+      position: absolute; bottom: -30%; right: -5%;
+      width: 50%; height: 70%; border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(66,84,56,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero__inner {
+      position: relative; z-index: 2;
+      display: grid; gap: 64px; align-items: center;
+      padding: 80px 0;
+    }
+    @media (min-width: 900px) {
+      .hero__inner { grid-template-columns: 1fr 420px; gap: 80px; }
+    }
+    .hero__content { max-width: 640px; }
+    .hero__eyebrow {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 28px;
+    }
+    .hero__eyebrow-line {
+      width: 32px; height: 1px; background: var(--c-cobre);
+    }
+    .hero__eyebrow-text {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--c-cobre);
+    }
+    .hero__title {
+      font-size: clamp(2.8rem, 6.5vw, 5.2rem);
+      font-weight: 800; letter-spacing: -0.025em;
+      color: var(--c-creme); line-height: 1.05;
+      margin-bottom: 20px;
+    }
+    .hero__title em {
+      font-style: normal; color: var(--c-cobre);
+      display: block;
+    }
+    .hero__tagline {
+      font-family: var(--f-editorial); font-style: italic;
+      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+      color: rgba(239,227,214,0.6); line-height: 1.4;
+      margin-bottom: 28px;
+    }
+    .hero__body {
+      font-size: 1.05rem; color: rgba(239,227,214,0.72);
+      line-height: 1.75; max-width: 52ch; margin-bottom: 40px;
+    }
+    .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 48px; }
+    .hero__trust {
+      display: flex; align-items: center; gap: 16px;
+      padding-top: 40px; border-top: 1px solid rgba(239,227,214,0.1);
+    }
+    .hero__trust-dots {
+      display: flex; gap: 4px;
+    }
+    .hero__trust-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--c-cobre); opacity: 0.7;
+    }
+    .hero__trust-text {
+      font-size: 0.8rem; color: rgba(239,227,214,0.5);
+      letter-spacing: 0.02em;
+    }
+
+    /* hero card */
+    .hero__card {
+      background: rgba(239,227,214,0.06);
+      border: 1px solid rgba(239,227,214,0.1);
+      border-radius: var(--r-lg); padding: 36px;
+      backdrop-filter: blur(8px);
+    }
+    .hero__card-label {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--c-cobre); margin-bottom: 20px;
+    }
+    .hero__card-items { display: flex; flex-direction: column; gap: 16px; }
+    .hero__card-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 16px; background: rgba(239,227,214,0.04);
+      border-radius: var(--r-sm); border: 1px solid rgba(239,227,214,0.07);
+      transition: border-color var(--dur-fast) ease;
+    }
+    @media (hover:hover) { .hero__card-item:hover { border-color: rgba(201,122,82,0.25); } }
+    .hero__card-icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+      background: rgba(161,79,42,0.15); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .hero__card-item-title {
+      font-family: var(--f-heading); font-weight: 600; font-size: 0.88rem;
+      color: var(--c-creme); margin-bottom: 3px;
+    }
+    .hero__card-item-text {
+      font-size: 0.78rem; color: rgba(239,227,214,0.5); line-height: 1.5;
+    }
+    .hero__card-cta { margin-top: 28px; text-align: center; }
+    .hero__card-note {
+      font-size: 0.72rem; color: rgba(239,227,214,0.38);
+      text-align: center; margin-top: 10px;
+    }
+
+    /* =========================================================
+       SECTION: SOBRE
+    ========================================================= */
+    .sobre { background: var(--c-creme-2); }
+    .sobre__inner {
+      display: grid; gap: 56px; align-items: center;
+    }
+    @media (min-width: 900px) { .sobre__inner { grid-template-columns: 1fr 1fr; gap: 80px; } }
+    .sobre__visual {
+      position: relative;
+    }
+    .sobre__img-wrap {
+      border-radius: var(--r-lg); overflow: hidden;
+      aspect-ratio: 4/3; background: var(--c-mogno);
+      position: relative;
+    }
+    .sobre__img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .sobre__img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(107,48,25,0.6) 0%, transparent 50%);
+    }
+    .sobre__badge-float {
+      position: absolute; bottom: 24px; left: 24px;
+      background: var(--c-creme); border-radius: var(--r-md);
+      padding: 16px 20px;
+      box-shadow: 0 8px 32px rgba(30,26,23,0.2);
+    }
+    .sobre__badge-num {
+      font-family: var(--f-heading); font-weight: 800; font-size: 1.8rem;
+      color: var(--c-terra); line-height: 1;
+    }
+    .sobre__badge-label {
+      font-size: 0.75rem; color: rgba(30,26,23,0.55); line-height: 1.3;
+    }
+    .sobre__deco-line {
+      position: absolute; top: 24px; right: -12px; bottom: -12px;
+      border: 1px solid var(--c-cobre); border-radius: var(--r-lg);
+      opacity: 0.3; pointer-events: none;
+    }
+    .sobre__content {}
+    .sobre__title { color: var(--c-preto); margin-bottom: 20px; }
+    .sobre__editorial {
+      font-family: var(--f-editorial); font-style: italic;
+      font-size: 1.35rem; color: var(--c-terra); line-height: 1.5;
+      margin-bottom: 24px; padding-left: 20px;
+      border-left: 3px solid var(--c-cobre);
+    }
+    .sobre__body { color: rgba(30,26,23,0.7); max-width: 55ch; margin-bottom: 36px; }
+    .sobre__pillars { display: flex; flex-direction: column; gap: 14px; }
+    .sobre__pillar {
+      display: flex; align-items: center; gap: 14px;
+    }
+    .sobre__pillar-icon {
+      width: 40px; height: 40px; flex-shrink: 0; border-radius: var(--r-sm);
+      background: var(--c-terra-a); display: flex; align-items: center;
+      justify-content: center; font-size: 1.1rem;
+    }
+    .sobre__pillar-text {
+      font-weight: 500; font-size: 0.92rem; color: var(--c-preto);
+    }
+    .sobre__pillar-sub {
+      font-size: 0.78rem; color: rgba(30,26,23,0.5);
+    }
+
+    /* =========================================================
+       SECTION: PARA QUEM
+    ========================================================= */
+    .para-quem { background: var(--c-creme); }
+    .para-quem__head { text-align: center; max-width: 640px; margin: 0 auto 60px; }
+    .para-quem__grid {
+      display: grid; gap: 20px;
+    }
+    @media (min-width: 640px) { .para-quem__grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .para-quem__grid { grid-template-columns: repeat(3, 1fr); } }
+    .para-quem__card {
+      background: var(--c-creme-2);
+      border: 1px solid rgba(161,79,42,0.12);
+      border-radius: var(--r-lg); padding: 36px 32px;
+      transition: transform var(--dur-base) var(--ease-out),
+                  box-shadow var(--dur-base) var(--ease-out),
+                  border-color var(--dur-base) ease;
+      position: relative; overflow: hidden;
+    }
+    .para-quem__card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: linear-gradient(90deg, var(--c-terra), var(--c-cobre));
+      opacity: 0; transition: opacity var(--dur-fast) ease;
+    }
+    @media (hover:hover) {
+      .para-quem__card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(161,79,42,0.12); border-color: rgba(161,79,42,0.2); }
+      .para-quem__card:hover::before { opacity: 1; }
+    }
+    .para-quem__icon {
+      width: 52px; height: 52px; border-radius: var(--r-sm);
+      background: var(--c-terra-a); display: flex; align-items: center;
+      justify-content: center; font-size: 1.5rem; margin-bottom: 24px;
+    }
+    .para-quem__card-title {
+      font-family: var(--f-heading); font-weight: 700; font-size: 1.1rem;
+      color: var(--c-preto); margin-bottom: 12px;
+    }
+    .para-quem__card-body {
+      font-size: 0.9rem; color: rgba(30,26,23,0.65); line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .para-quem__card-items { display: flex; flex-direction: column; gap: 8px; }
+    .para-quem__card-item {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-size: 0.82rem; color: rgba(30,26,23,0.6);
+    }
+    .para-quem__card-item::before {
+      content: '•'; color: var(--c-cobre); flex-shrink: 0; margin-top: 1px;
+    }
+
+    /* =========================================================
+       SECTION: O QUE RESOLVE
+    ========================================================= */
+    .resolve {
+      background: var(--c-preto); position: relative; overflow: hidden;
+    }
+    .resolve__pattern {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image: url("pattern.svg"); background-size: 200px; background-repeat: repeat;
+    }
+    .resolve__inner { position: relative; z-index: 1; }
+    .resolve__head { max-width: 600px; margin-bottom: 64px; }
+    .resolve__head-label { color: var(--c-cobre); margin-bottom: 16px; }
+    .resolve__title { color: var(--c-creme); margin-bottom: 20px; }
+    .resolve__intro { color: rgba(239,227,214,0.6); max-width: 52ch; }
+    .resolve__grid {
+      display: grid; gap: 1px;
+      background: rgba(239,227,214,0.06);
+      border-radius: var(--r-lg); overflow: hidden;
+      border: 1px solid rgba(239,227,214,0.06);
+    }
+    @media (min-width: 640px) { .resolve__grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .resolve__grid { grid-template-columns: repeat(3, 1fr); } }
+    .resolve__item {
+      padding: 36px 32px; background: rgba(30,26,23,0.7);
+      transition: background var(--dur-fast) ease;
+      position: relative;
+    }
+    @media (hover:hover) { .resolve__item:hover { background: rgba(161,79,42,0.07); } }
+    .resolve__item-num {
+      font-family: var(--f-editorial); font-size: 3rem;
+      color: rgba(201,122,82,0.15); line-height: 1; margin-bottom: 16px;
+      font-style: italic;
+    }
+    .resolve__dor {
+      font-family: var(--f-heading); font-weight: 600; font-size: 0.95rem;
+      color: rgba(239,227,214,0.5); margin-bottom: 8px;
+      text-decoration: line-through; text-decoration-color: rgba(201,122,82,0.4);
+    }
+    .resolve__ganho {
+      font-family: var(--f-heading); font-weight: 700; font-size: 1rem;
+      color: var(--c-creme); margin-bottom: 10px;
+    }
+    .resolve__desc {
+      font-size: 0.82rem; color: rgba(239,227,214,0.45); line-height: 1.65;
+    }
+    .resolve__arrow {
+      display: block; width: 20px; height: 1px; background: var(--c-cobre);
+      margin: 10px 0; opacity: 0.5; position: relative;
+    }
+    .resolve__arrow::after {
+      content: ''; position: absolute; right: -1px; top: -3px;
+      border-left: 5px solid var(--c-cobre); border-top: 3px solid transparent;
+      border-bottom: 3px solid transparent;
+    }
+
+    /* =========================================================
+       SECTION: COMO FUNCIONA
+    ========================================================= */
+    .processo { background: var(--c-verde); position: relative; overflow: hidden; }
+    .processo__pattern {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image: url("pattern.svg"); background-size: 180px; background-repeat: repeat;
+    }
+    .processo__inner { position: relative; z-index: 1; }
+    .processo__head { text-align: center; max-width: 600px; margin: 0 auto 72px; }
+    .processo__head-label { color: rgba(239,227,214,0.55); margin-bottom: 16px; }
+    .processo__title { color: var(--c-creme); margin-bottom: 16px; }
+    .processo__intro { color: rgba(239,227,214,0.6); }
+
+    .processo__steps {
+      display: flex; flex-direction: column; gap: 0;
+      max-width: 780px; margin: 0 auto;
+    }
+    .processo__step {
+      display: grid; grid-template-columns: 64px 1fr;
+      gap: 24px; align-items: flex-start;
+      position: relative;
+    }
+    .processo__step:not(:last-child) { padding-bottom: 40px; }
+    .processo__step-left { display: flex; flex-direction: column; align-items: center; }
+    .processo__step-num {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: rgba(239,227,214,0.1); border: 1px solid rgba(239,227,214,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--f-heading); font-weight: 800; font-size: 1rem;
+      color: var(--c-creme); flex-shrink: 0;
+    }
+    .processo__step.active .processo__step-num {
+      background: var(--c-terra); border-color: var(--c-terra);
+    }
+    .processo__step-line {
+      width: 1px; flex: 1; min-height: 40px;
+      background: rgba(239,227,214,0.15); margin-top: 8px;
+    }
+    .processo__step:last-child .processo__step-line { display: none; }
+    .processo__step-content { padding: 12px 0; }
+    .processo__step-tag {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--c-cobre); margin-bottom: 6px;
+    }
+    .processo__step-title {
+      font-family: var(--f-heading); font-weight: 700; font-size: 1.1rem;
+      color: var(--c-creme); margin-bottom: 8px;
+    }
+    .processo__step-body {
+      font-size: 0.88rem; color: rgba(239,227,214,0.55); line-height: 1.7; max-width: 52ch;
+    }
+
+    /* =========================================================
+       SECTION: BENEFÍCIOS
+    ========================================================= */
+    .beneficios { background: var(--c-creme-2); }
+    .beneficios__head { text-align: center; max-width: 560px; margin: 0 auto 60px; }
+    .beneficios__grid {
+      display: grid; gap: 16px;
+    }
+    @media (min-width: 480px) { .beneficios__grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 900px) { .beneficios__grid { grid-template-columns: repeat(3, 1fr); } }
+    .beneficio-card {
+      background: var(--c-creme); border: 1px solid rgba(161,79,42,0.1);
+      border-radius: var(--r-lg); padding: 32px;
+      transition: transform var(--dur-base) var(--ease-out),
+                  box-shadow var(--dur-base) var(--ease-out);
+    }
+    @media (hover:hover) { .beneficio-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(161,79,42,0.1); } }
+    .beneficio-card__icon {
+      width: 48px; height: 48px; border-radius: var(--r-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; margin-bottom: 20px;
+    }
+    .beneficio-card__icon--terra { background: rgba(161,79,42,0.1); }
+    .beneficio-card__icon--verde { background: rgba(66,84,56,0.1); }
+    .beneficio-card__icon--cobre { background: rgba(201,122,82,0.12); }
+    .beneficio-card__title {
+      font-family: var(--f-heading); font-weight: 700; font-size: 1rem;
+      color: var(--c-preto); margin-bottom: 10px;
+    }
+    .beneficio-card__body {
+      font-size: 0.88rem; color: rgba(30,26,23,0.6); line-height: 1.7;
+    }
+
+    /* large feature card */
+    .beneficio-feature {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, var(--c-mogno) 0%, var(--c-preto) 100%);
+      border-radius: var(--r-lg); padding: 48px;
+      display: grid; gap: 32px; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    @media (min-width: 640px) { .beneficio-feature { grid-template-columns: 1fr 1fr; } }
+    .beneficio-feature__pattern {
+      position: absolute; inset: 0; opacity: 0.06;
+      background-image: url("pattern.svg"); background-size: 160px;
+    }
+    .beneficio-feature__content { position: relative; z-index: 1; }
+    .beneficio-feature__label {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--c-cobre); margin-bottom: 16px;
+    }
+    .beneficio-feature__title {
+      font-family: var(--f-heading); font-weight: 800;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: var(--c-creme); line-height: 1.2; margin-bottom: 16px;
+    }
+    .beneficio-feature__body {
+      font-size: 0.92rem; color: rgba(239,227,214,0.6);
+      line-height: 1.75; max-width: 46ch;
+    }
+    .beneficio-feature__cta { position: relative; z-index: 1; text-align: center; }
+    .beneficio-feature__editorial {
+      font-family: var(--f-editorial); font-style: italic;
+      font-size: 1.5rem; color: rgba(239,227,214,0.5);
+      line-height: 1.4; margin-bottom: 24px;
+    }
+
+    /* =========================================================
+       SECTION: FAQ
+    ========================================================= */
+    .faq { background: var(--c-creme); }
+    .faq__inner {
+      display: grid; gap: 56px;
+    }
+    @media (min-width: 900px) { .faq__inner { grid-template-columns: 360px 1fr; gap: 80px; align-items: start; } }
+    .faq__head {}
+    .faq__title { margin-bottom: 16px; }
+    .faq__intro { font-size: 0.95rem; color: rgba(30,26,23,0.6); max-width: 36ch; margin-bottom: 32px; }
+    .faq__contact {
+      background: var(--c-creme-2); border: 1px solid rgba(161,79,42,0.12);
+      border-radius: var(--r-md); padding: 24px;
+    }
+    .faq__contact-label {
+      font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--c-cobre); margin-bottom: 8px;
+    }
+    .faq__contact-text { font-size: 0.88rem; color: rgba(30,26,23,0.6); margin-bottom: 16px; }
+
+    .faq__list { display: flex; flex-direction: column; gap: 0; }
+    .faq__item {
+      border-bottom: 1px solid rgba(161,79,42,0.1);
+    }
+    .faq__item:first-child { border-top: 1px solid rgba(161,79,42,0.1); }
+    .faq__trigger {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 24px 0; text-align: left; cursor: pointer;
+      background: transparent; border: none; color: var(--c-preto);
+      font-family: var(--f-heading); font-weight: 600; font-size: 0.98rem;
+      transition: color var(--dur-fast) ease;
+    }
+    @media (hover:hover) { .faq__trigger:hover { color: var(--c-terra); } }
+    .faq__trigger[aria-expanded="true"] { color: var(--c-terra); }
+    .faq__icon {
+      width: 28px; height: 28px; border-radius: 50%;
+      border: 1px solid rgba(161,79,42,0.2);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 0.9rem; color: var(--c-terra);
+      transition: transform var(--dur-fast) var(--ease-out),
+                  background var(--dur-fast) ease, border-color var(--dur-fast) ease;
+    }
+    .faq__trigger[aria-expanded="true"] .faq__icon {
+      transform: rotate(45deg); background: var(--c-terra); color: var(--c-creme);
+      border-color: var(--c-terra);
+    }
+    .faq__body {
+      overflow: hidden; max-height: 0;
+      transition: max-height var(--dur-slow) var(--ease-out);
+    }
+    .faq__body.open { max-height: 400px; }
+    .faq__body-inner {
+      padding: 0 0 24px;
+      font-size: 0.92rem; color: rgba(30,26,23,0.65); line-height: 1.75;
+    }
+
+    /* =========================================================
+       SECTION: CTA FINAL
+    ========================================================= */
+    .cta-final {
+      background: var(--c-preto); position: relative; overflow: hidden;
+    }
+    .cta-final__glow {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 70%; height: 70%; border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(161,79,42,0.15) 0%, transparent 70%);
+    }
+    .cta-final__pattern {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image: url("pattern.svg"); background-size: 200px;
+    }
+    .cta-final__inner {
+      position: relative; z-index: 1; text-align: center;
+      max-width: 680px; margin: 0 auto;
+    }
+    .cta-final__icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(161,79,42,0.15); border: 1px solid rgba(201,122,82,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; margin: 0 auto 32px;
+    }
+    .cta-final__editorial {
+      font-family: var(--f-editorial); font-style: italic;
+      font-size: clamp(1.4rem, 3vw, 2rem); color: rgba(239,227,214,0.55);
+      line-height: 1.4; margin-bottom: 20px;
+    }
+    .cta-final__title {
+      font-size: clamp(2rem, 5vw, 3.2rem); color: var(--c-creme);
+      margin-bottom: 20px;
+    }
+    .cta-final__body { color: rgba(239,227,214,0.6); max-width: 50ch; margin: 0 auto 40px; }
+    .cta-final__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-bottom: 40px; }
+    .cta-final__trust {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 24px;
+      padding-top: 32px; border-top: 1px solid rgba(239,227,214,0.08);
+    }
+    .cta-final__trust-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.78rem; color: rgba(239,227,214,0.4);
+    }
+    .cta-final__trust-item span:first-child { color: var(--c-cobre); }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+    .footer {
+      background: #100d0a; padding: 56px 0 32px;
+    }
+    .footer__top {
+      display: grid; gap: 40px; margin-bottom: 48px;
+      padding-bottom: 48px; border-bottom: 1px solid rgba(239,227,214,0.06);
+    }
+    @media (min-width: 640px) { .footer__top { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 900px) { .footer__top { grid-template-columns: 1.5fr 1fr 1fr; } }
+    .footer__brand {}
+    .footer__logo { height: 32px; width: auto; margin-bottom: 16px; }
+    .footer__tagline {
+      font-size: 0.82rem; color: rgba(239,227,214,0.4); line-height: 1.65;
+      max-width: 32ch;
+    }
+    .footer__col-title {
+      font-family: var(--f-heading); font-weight: 700; font-size: 0.78rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: rgba(239,227,214,0.3); margin-bottom: 16px;
+    }
+    .footer__col-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer__col-link {
+      font-size: 0.85rem; color: rgba(239,227,214,0.5);
+      transition: color var(--dur-fast) ease;
+    }
+    @media (hover:hover) { .footer__col-link:hover { color: var(--c-cobre); } }
+    .footer__bottom {
+      display: flex; flex-wrap: wrap; gap: 12px;
+      align-items: center; justify-content: space-between;
+    }
+    .footer__copy {
+      font-size: 0.75rem; color: rgba(239,227,214,0.25);
+    }
+    .footer__legal {
+      display: flex; gap: 20px;
+    }
+    .footer__legal-link {
+      font-size: 0.75rem; color: rgba(239,227,214,0.25);
+      transition: color var(--dur-fast) ease;
+    }
+    @media (hover:hover) { .footer__legal-link:hover { color: rgba(239,227,214,0.5); } }
+
+    /* =========================================================
+       WHATSAPP FLOAT
+    ========================================================= */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 300;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #25D366; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: transform var(--dur-fast) var(--ease-out),
+                  box-shadow var(--dur-fast) ease;
+      animation: wa-pulse 3s ease-in-out infinite 2s;
+    }
+    @media (hover:hover) {
+      .wa-float:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 32px rgba(37,211,102,0.5);
+      }
+    }
+    .wa-float svg { width: 28px; height: 28px; fill: white; }
+    @keyframes wa-pulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+      50% { box-shadow: 0 4px 20px rgba(37,211,102,0.4), 0 0 0 8px rgba(37,211,102,0.1); }
+    }
+
+    /* =========================================================
+       DIVIDER
+    ========================================================= */
+    .divider {
+      height: 1px; background: rgba(161,79,42,0.12); width: 100%;
+    }
+
+    /* =========================================================
+       ANIMATE ON SCROLL
+    ========================================================= */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity var(--dur-slow) var(--ease-out),
+                  transform var(--dur-slow) var(--ease-out);
+    }
+    .reveal.visible {
+      opacity: 1; transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 80ms; }
+    .reveal-delay-2 { transition-delay: 160ms; }
+    .reveal-delay-3 { transition-delay: 240ms; }
+    .reveal-delay-4 { transition-delay: 320ms; }
+    .reveal-delay-5 { transition-delay: 400ms; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .btn, .para-quem__card, .beneficio-card, .faq__body,
+      .hero__trust-dot, .wa-float {
+        transition: none !important; animation: none !important;
+        opacity: 1 !important; transform: none !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+
+    /* =========================================================
+       RESPONSIVE HELPERS
+    ========================================================= */
+    @media (max-width: 899px) {
+      .hero__card { max-width: 480px; }
+      .sobre__deco-line { display: none; }
+    }
+    @media (max-width: 480px) {
+      .hero__actions { flex-direction: column; }
+      .hero__actions .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<a class="skip" href="#main">Ir para o conteúdo principal</a>
+
+<!-- =========================================================
+     NAVEGAÇÃO
+========================================================= -->
+<nav class="nav" id="site-nav" aria-label="Navegação principal">
+  <div class="wrap">
+    <div class="nav__inner">
+
+      <a href="#" class="nav__logo" aria-label="Eleva Isenções - voltar ao início">
+        <img src="ELEVA 01H.svg" alt="Eleva Isenções" class="nav__logo-img"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <span class="nav__logo-text" style="display:none;">Eleva Isenções</span>
+      </a>
+
+      <ul class="nav__links" role="list">
+        <li><a href="#sobre" class="nav__link">Sobre a Eleva</a></li>
+        <li><a href="#processo" class="nav__link">Como funciona</a></li>
+        <li><a href="#beneficios" class="nav__link">Benefícios</a></li>
+        <li><a href="#faq" class="nav__link">Dúvidas</a></li>
+      </ul>
+
+      <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+gostaria+de+entender+meu+caso+de+isen%C3%A7%C3%A3o+PCD."
+         class="btn btn--terra nav__cta" target="_blank" rel="noopener noreferrer"
+         aria-label="Falar com a equipe no WhatsApp">
+        Falar com a equipe
+      </a>
+
+      <button class="nav__burger" id="burger-btn" aria-expanded="false"
+              aria-controls="mobile-menu" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- mobile menu -->
+<nav class="nav__mobile" id="mobile-menu" aria-label="Menu mobile" role="dialog" aria-modal="true">
+  <a href="#sobre"   class="nav__mobile-link" data-close-menu>Sobre</a>
+  <a href="#processo" class="nav__mobile-link" data-close-menu>Processo</a>
+  <a href="#beneficios" class="nav__mobile-link" data-close-menu>Benefícios</a>
+  <a href="#faq" class="nav__mobile-link" data-close-menu>Dúvidas</a>
+  <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+gostaria+de+entender+meu+caso+de+isen%C3%A7%C3%A3o+PCD."
+     class="btn btn--terra" target="_blank" rel="noopener" data-close-menu>
+    Falar com a equipe
+  </a>
+</nav>
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+<main id="main">
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__bg-color"></div>
+  <div class="hero__pattern" aria-hidden="true"></div>
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="hero__glow-2" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="hero__inner">
+      <div class="hero__content">
+        <div class="hero__eyebrow reveal" aria-hidden="true">
+          <span class="hero__eyebrow-line"></span>
+          <span class="hero__eyebrow-text">Assessoria especializada · PCD</span>
+        </div>
+
+        <h1 class="hero__title reveal reveal-delay-1" id="hero-title">
+          Transformamos<br />
+          <em>seu direito</em>
+          em conquista.
+        </h1>
+
+        <p class="hero__tagline reveal reveal-delay-2">
+          A isenção que você tem direito,<br />
+          sem a confusão que ninguém merece enfrentar.
+        </p>
+
+        <p class="hero__body reveal reveal-delay-3">
+          A Eleva Isenções é uma assessoria especializada que orienta, organiza e acompanha pessoas com deficiência em cada etapa do processo de isenção na aquisição de veículo — com clareza, responsabilidade e presença real.
+        </p>
+
+        <div class="hero__actions reveal reveal-delay-4">
+          <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+quero+analisar+meu+caso+de+isen%C3%A7%C3%A3o+PCD."
+             class="btn btn--terra" target="_blank" rel="noopener noreferrer"
+             aria-label="Solicitar análise de caso pelo WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Solicitar análise de caso
+          </a>
+          <a href="#sobre" class="btn btn--outline-creme">
+            Conhecer a Eleva
+          </a>
+        </div>
+
+        <div class="hero__trust reveal reveal-delay-5">
+          <div class="hero__trust-dots" aria-hidden="true">
+            <span class="hero__trust-dot"></span>
+            <span class="hero__trust-dot" style="opacity:0.5"></span>
+            <span class="hero__trust-dot" style="opacity:0.3"></span>
+          </div>
+          <p class="hero__trust-text">
+            Atendimento humano · Processo organizado · Sem jargão desnecessário
+          </p>
+        </div>
+      </div>
+
+      <aside class="hero__card reveal reveal-delay-2" aria-label="O que a Eleva oferece">
+        <p class="hero__card-label">A Eleva organiza o caminho</p>
+        <ul class="hero__card-items" role="list">
+          <li class="hero__card-item">
+            <span class="hero__card-icon" aria-hidden="true">🔍</span>
+            <div>
+              <p class="hero__card-item-title">Análise de elegibilidade</p>
+              <p class="hero__card-item-text">Entendemos o seu caso antes de qualquer passo.</p>
+            </div>
+          </li>
+          <li class="hero__card-item">
+            <span class="hero__card-icon" aria-hidden="true">📋</span>
+            <div>
+              <p class="hero__card-item-title">Organização documental</p>
+              <p class="hero__card-item-text">Cada documento no lugar certo, no momento certo.</p>
+            </div>
+          </li>
+          <li class="hero__card-item">
+            <span class="hero__card-icon" aria-hidden="true">🤝</span>
+            <div>
+              <p class="hero__card-item-title">Acompanhamento real</p>
+              <p class="hero__card-item-text">Presente em cada etapa, sem deixar você sozinho.</p>
+            </div>
+          </li>
+          <li class="hero__card-item">
+            <span class="hero__card-icon" aria-hidden="true">✅</span>
+            <div>
+              <p class="hero__card-item-title">Avanço para aquisição</p>
+              <p class="hero__card-item-text">Do direito à chave do veículo, com segurança.</p>
+            </div>
+          </li>
+        </ul>
+        <div class="hero__card-cta">
+          <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+gostaria+de+uma+an%C3%A1lise+do+meu+caso."
+             class="btn btn--terra" target="_blank" rel="noopener noreferrer" style="width:100%">
+            Quero analisar meu caso
+          </a>
+          <p class="hero__card-note">Contato sem compromisso. Sem burocracia.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SOBRE A ELEVA
+========================================================= -->
+<section class="sobre section" id="sobre" aria-labelledby="sobre-title">
+  <div class="wrap">
+    <div class="sobre__inner">
+      <div class="sobre__visual reveal">
+        <div class="sobre__img-wrap">
+          <img src="fotohero.webp" alt="Pessoa com deficiência conversando com a equipe da Eleva Isenções"
+               loading="lazy" width="680" height="510"
+               onerror="this.parentElement.style.background='linear-gradient(135deg,#6B3019,#1E1A17)'" />
+          <div class="sobre__img-overlay" aria-hidden="true"></div>
+        </div>
+        <div class="sobre__badge-float" aria-label="Assessoria dedicada ao processo de isenção PCD">
+          <div class="sobre__badge-num">PCD</div>
+          <div class="sobre__badge-label">Assessoria<br />especializada</div>
+        </div>
+        <div class="sobre__deco-line" aria-hidden="true"></div>
+      </div>
+
+      <div class="sobre__content">
+        <p class="section-label reveal">Quem somos</p>
+        <h2 class="display-md sobre__title reveal reveal-delay-1" id="sobre-title">
+          Uma assessoria feita para quem precisa de clareza, não de mais complicação.
+        </h2>
+        <blockquote class="sobre__editorial reveal reveal-delay-2">
+          "O processo de isenção é um direito. Nosso trabalho é tornar esse caminho percorrível."
+        </blockquote>
+        <p class="sobre__body reveal reveal-delay-3">
+          A Eleva Isenções nasceu da percepção de que muitas pessoas com deficiência têm direito à isenção fiscal na aquisição de veículo, mas enfrentam um processo fragmentado, cheio de dúvidas e instâncias diferentes. Criamos uma assessoria próxima, organizada e experiente para transformar essa complexidade em uma jornada clara e segura.
+        </p>
+        <ul class="sobre__pillars" role="list">
+          <li class="sobre__pillar reveal reveal-delay-3">
+            <span class="sobre__pillar-icon" aria-hidden="true">🎯</span>
+            <div>
+              <p class="sobre__pillar-text">Especialização real</p>
+              <p class="sobre__pillar-sub">Conhecimento aprofundado do processo de isenção PCD</p>
+            </div>
+          </li>
+          <li class="sobre__pillar reveal reveal-delay-4">
+            <span class="sobre__pillar-icon" aria-hidden="true">🤲</span>
+            <div>
+              <p class="sobre__pillar-text">Acompanhamento próximo</p>
+              <p class="sobre__pillar-sub">Presença em cada etapa, não apenas no início</p>
+            </div>
+          </li>
+          <li class="sobre__pillar reveal reveal-delay-5">
+            <span class="sobre__pillar-icon" aria-hidden="true">📐</span>
+            <div>
+              <p class="sobre__pillar-text">Organização do processo</p>
+              <p class="sobre__pillar-sub">Método claro para reduzir retrabalho e insegurança</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     PARA QUEM ATUA
+========================================================= -->
+<section class="para-quem section" id="para-quem" aria-labelledby="para-quem-title">
+  <div class="wrap">
+    <header class="para-quem__head">
+      <p class="section-label reveal">Para quem é a Eleva</p>
+      <h2 class="display-md reveal reveal-delay-1" id="para-quem-title">
+        A isenção existe para você — independente da situação.
+      </h2>
+      <p class="body-md reveal reveal-delay-2" style="color:rgba(30,26,23,0.6); margin-top:14px;">
+        A lei prevê isenção para diferentes perfis de PCD. Entenda se o seu caso se enquadra.
+      </p>
+    </header>
+
+    <ul class="para-quem__grid" role="list">
+      <li class="para-quem__card reveal">
+        <div class="para-quem__icon" aria-hidden="true">🚗</div>
+        <h3 class="para-quem__card-title">PCD condutora</h3>
+        <p class="para-quem__card-body">
+          Pessoa com deficiência que dirige o próprio veículo. Tem direito a isenções específicas na aquisição, mediante laudo e condições adequadas.
+        </p>
+        <ul class="para-quem__card-items" role="list">
+          <li class="para-quem__card-item">Deficiência física com laudo</li>
+          <li class="para-quem__card-item">Adaptação do veículo se necessário</li>
+          <li class="para-quem__card-item">Orientação sobre habilitação especial</li>
+        </ul>
+      </li>
+
+      <li class="para-quem__card reveal reveal-delay-1">
+        <div class="para-quem__icon" aria-hidden="true">🧑‍🦽</div>
+        <h3 class="para-quem__card-title">PCD não condutora</h3>
+        <p class="para-quem__card-body">
+          Pessoa com deficiência que não conduz, mas utiliza o veículo como meio de mobilidade essencial — com condutor designado.
+        </p>
+        <ul class="para-quem__card-items" role="list">
+          <li class="para-quem__card-item">Deficiência severa ou mobilidade reduzida</li>
+          <li class="para-quem__card-item">Condutor regular documentado</li>
+          <li class="para-quem__card-item">Documentação específica exigida</li>
+        </ul>
+      </li>
+
+      <li class="para-quem__card reveal reveal-delay-2">
+        <div class="para-quem__icon" aria-hidden="true">👨‍👩‍👧</div>
+        <h3 class="para-quem__card-title">Familiares e responsáveis</h3>
+        <p class="para-quem__card-body">
+          Responsáveis por pessoas com deficiência que dependem do veículo para acesso à saúde, trabalho e vida social.
+        </p>
+        <ul class="para-quem__card-items" role="list">
+          <li class="para-quem__card-item">Guardião legal ou curador</li>
+          <li class="para-quem__card-item">Dependência comprovada no laudo</li>
+          <li class="para-quem__card-item">Orientação completa sobre requisitos</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- =========================================================
+     O QUE A ELEVA RESOLVE
+========================================================= -->
+<section class="resolve section" id="resolve" aria-labelledby="resolve-title">
+  <div class="resolve__pattern" aria-hidden="true"></div>
+  <div class="wrap resolve__inner">
+    <header class="resolve__head">
+      <p class="section-label resolve__head-label reveal">O que transformamos</p>
+      <h2 class="display-md resolve__title reveal reveal-delay-1" id="resolve-title">
+        Da confusão à clareza, em cada ponto do processo.
+      </h2>
+      <p class="resolve__intro reveal reveal-delay-2">
+        Cada dificuldade que você sente hoje tem um caminho. A Eleva existe para mostrar esse caminho.
+      </p>
+    </header>
+
+    <div class="resolve__grid" role="list">
+      <article class="resolve__item reveal" role="listitem">
+        <div class="resolve__item-num" aria-hidden="true">01</div>
+        <p class="resolve__dor">"Não sei se tenho direito"</p>
+        <span class="resolve__arrow" aria-hidden="true"></span>
+        <p class="resolve__ganho">Clareza sobre a elegibilidade</p>
+        <p class="resolve__desc">Analisamos o seu caso com atenção antes de qualquer passo, para que você saiba exatamente onde está.</p>
+      </article>
+
+      <article class="resolve__item reveal reveal-delay-1" role="listitem">
+        <div class="resolve__item-num" aria-hidden="true">02</div>
+        <p class="resolve__dor">"A burocracia parece interminável"</p>
+        <span class="resolve__arrow" aria-hidden="true"></span>
+        <p class="resolve__ganho">Processo organizado em etapas</p>
+        <p class="resolve__desc">Dividimos o processo em etapas claras e cuidamos da sequência para você não se perder.</p>
+      </article>
+
+      <article class="resolve__item reveal reveal-delay-2" role="listitem">
+        <div class="resolve__item-num" aria-hidden="true">03</div>
+        <p class="resolve__dor">"Não sei quais documentos juntar"</p>
+        <span class="resolve__arrow" aria-hidden="true"></span>
+        <p class="resolve__ganho">Checklist preciso e orientado</p>
+        <p class="resolve__desc">Cada documento, em cada instância. Sem retrabalho, sem idas desnecessárias.</p>
+      </article>
+
+      <article class="resolve__item reveal" role="listitem">
+        <div class="resolve__item-num" aria-hidden="true">04</div>
+        <p class="resolve__dor">"Me perco com tantos órgãos"</p>
+        <span class="resolve__arrow" aria-hidden="true"></span>
+        <p class="resolve__ganho">Direcionamento específico</p>
+        <p class="resolve__desc">Identificamos qual isenção se aplica e junto a qual órgão tratar — sem confusão entre Receita, DETRAN e Sefaz.</p>
+      </article>
+
+      <article class="resolve__item reveal reveal-delay-1" role="listitem">
+        <div class="resolve__item-num" aria-hidden="true">05</div>
+        <p class="resolve__dor">"Tenho medo de errar e perder o benefício"</p>
+        <span class="resolve__arrow" aria-hidden="true"></span>
+        <p class="resolve__ganho">Segurança em cada decisão</p>
+        <p class="resolve__desc">Acompanhamos cada passo para que as decisões sejam tomadas com base em informação real, não em suposição.</p>
+      </article>
+
+      <article class="resolve__item reveal reveal-delay-2" role="listitem">
+        <div class="resolve__item-num" aria-hidden="true">06</div>
+        <p class="resolve__dor">"Estou sozinho nesse processo"</p>
+        <span class="resolve__arrow" aria-hidden="true"></span>
+        <p class="resolve__ganho">Apoio humano e constante</p>
+        <p class="resolve__desc">Você não enfrenta isso sozinho. A Eleva está presente, responde dúvidas e orienta em tempo real.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     COMO FUNCIONA O PROCESSO
+========================================================= -->
+<section class="processo section" id="processo" aria-labelledby="processo-title">
+  <div class="processo__pattern" aria-hidden="true"></div>
+  <div class="wrap processo__inner">
+    <header class="processo__head">
+      <p class="section-label processo__head-label reveal">Método Eleva</p>
+      <h2 class="display-md processo__title reveal reveal-delay-1" id="processo-title">
+        Um processo com começo, meio e fim — e você acompanha cada parte.
+      </h2>
+      <p class="processo__intro reveal reveal-delay-2">
+        Organizamos o caminho da isenção em etapas claras, com orientação real em cada uma delas.
+      </p>
+    </header>
+
+    <ol class="processo__steps" aria-label="Etapas do processo de isenção">
+      <li class="processo__step active reveal">
+        <div class="processo__step-left" aria-hidden="true">
+          <div class="processo__step-num">1</div>
+          <div class="processo__step-line"></div>
+        </div>
+        <div class="processo__step-content">
+          <p class="processo__step-tag">Início</p>
+          <h3 class="processo__step-title">Análise inicial do caso</h3>
+          <p class="processo__step-body">
+            Entendemos a sua situação: tipo de deficiência, perfil de uso do veículo, documentos disponíveis e histórico. Antes de qualquer passo, há clareza sobre o que é possível.
+          </p>
+        </div>
+      </li>
+
+      <li class="processo__step reveal reveal-delay-1">
+        <div class="processo__step-left" aria-hidden="true">
+          <div class="processo__step-num">2</div>
+          <div class="processo__step-line"></div>
+        </div>
+        <div class="processo__step-content">
+          <p class="processo__step-tag">Estratégia</p>
+          <h3 class="processo__step-title">Direcionamento do processo</h3>
+          <p class="processo__step-body">
+            Identificamos quais isenções se aplicam — IPI, IOF, ICMS, IPVA — e quais órgãos e instâncias precisam ser acionados. Definimos o caminho mais eficiente para o seu caso.
+          </p>
+        </div>
+      </li>
+
+      <li class="processo__step reveal reveal-delay-2">
+        <div class="processo__step-left" aria-hidden="true">
+          <div class="processo__step-num">3</div>
+          <div class="processo__step-line"></div>
+        </div>
+        <div class="processo__step-content">
+          <p class="processo__step-tag">Organização</p>
+          <h3 class="processo__step-title">Organização documental</h3>
+          <p class="processo__step-body">
+            Elaboramos o checklist completo e orientamos na obtenção de cada documento — laudo médico, habilitação, certidões e demais requisitos. Sem retrabalho, sem surpresas.
+          </p>
+        </div>
+      </li>
+
+      <li class="processo__step reveal reveal-delay-3">
+        <div class="processo__step-left" aria-hidden="true">
+          <div class="processo__step-num">4</div>
+          <div class="processo__step-line"></div>
+        </div>
+        <div class="processo__step-content">
+          <p class="processo__step-tag">Suporte</p>
+          <h3 class="processo__step-title">Acompanhamento ativo</h3>
+          <p class="processo__step-body">
+            Estamos presentes durante a tramitação, orientando sobre prazos, respondendo dúvidas e garantindo que o processo avance sem perda de informação ou prazo.
+          </p>
+        </div>
+      </li>
+
+      <li class="processo__step reveal reveal-delay-4">
+        <div class="processo__step-left" aria-hidden="true">
+          <div class="processo__step-num">5</div>
+          <div class="processo__step-line"></div>
+        </div>
+        <div class="processo__step-content">
+          <p class="processo__step-tag">Conquista</p>
+          <h3 class="processo__step-title">Aquisição do veículo</h3>
+          <p class="processo__step-body">
+            Com as isenções aplicadas e o processo concluído, você avança com segurança para a escolha e aquisição do veículo — com clareza sobre o que foi obtido e como usar o benefício.
+          </p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- =========================================================
+     BENEFÍCIOS DA ASSESSORIA
+========================================================= -->
+<section class="beneficios section" id="beneficios" aria-labelledby="beneficios-title">
+  <div class="wrap">
+    <header class="beneficios__head">
+      <p class="section-label reveal">Por que contar com a Eleva</p>
+      <h2 class="display-md reveal reveal-delay-1" id="beneficios-title">
+        O que muda quando o processo tem alguém organizado ao seu lado.
+      </h2>
+    </header>
+
+    <div class="beneficios__grid">
+      <article class="beneficio-card reveal">
+        <div class="beneficio-card__icon beneficio-card__icon--terra" aria-hidden="true">🧭</div>
+        <h3 class="beneficio-card__title">Mais clareza desde o início</h3>
+        <p class="beneficio-card__body">
+          Você entende o que tem direito, o que é necessário e o que pode esperar — sem depender de informações contraditórias da internet.
+        </p>
+      </article>
+
+      <article class="beneficio-card reveal reveal-delay-1">
+        <div class="beneficio-card__icon beneficio-card__icon--verde" aria-hidden="true">🛡️</div>
+        <h3 class="beneficio-card__title">Mais segurança em cada decisão</h3>
+        <p class="beneficio-card__body">
+          Cada passo é tomado com orientação especializada, reduzindo o risco de erros que podem atrasar ou inviabilizar o processo.
+        </p>
+      </article>
+
+      <article class="beneficio-card reveal reveal-delay-2">
+        <div class="beneficio-card__icon beneficio-card__icon--cobre" aria-hidden="true">⚡</div>
+        <h3 class="beneficio-card__title">Menos tempo perdido</h3>
+        <p class="beneficio-card__body">
+          A organização prévia e o acompanhamento ativo reduzem idas desnecessárias a órgãos, reenvio de documentos e esperas evitáveis.
+        </p>
+      </article>
+
+      <article class="beneficio-card reveal">
+        <div class="beneficio-card__icon beneficio-card__icon--verde" aria-hidden="true">📦</div>
+        <h3 class="beneficio-card__title">Processo mais organizado</h3>
+        <p class="beneficio-card__body">
+          Nada fica perdido. Cada documento, prazo e instância tem seu lugar definido dentro de um método estruturado e claro.
+        </p>
+      </article>
+
+      <article class="beneficio-card reveal reveal-delay-1">
+        <div class="beneficio-card__icon beneficio-card__icon--terra" aria-hidden="true">💬</div>
+        <h3 class="beneficio-card__title">Apoio especializado e humano</h3>
+        <p class="beneficio-card__body">
+          Você não precisa decifrar legislação ou entender burocracias sozinho. A equipe da Eleva traduz cada exigência em ação concreta.
+        </p>
+      </article>
+
+      <article class="beneficio-card reveal reveal-delay-2">
+        <div class="beneficio-card__icon beneficio-card__icon--cobre" aria-hidden="true">🌿</div>
+        <h3 class="beneficio-card__title">Mais tranquilidade para avançar</h3>
+        <p class="beneficio-card__body">
+          Saber que há alguém organizado conduzindo o processo permite que você avance com mais leveza e foque no que realmente importa.
+        </p>
+      </article>
+
+      <!-- feature card -->
+      <div class="beneficio-feature reveal">
+        <div class="beneficio-feature__pattern" aria-hidden="true"></div>
+        <div class="beneficio-feature__content">
+          <p class="beneficio-feature__label">Nossa missão</p>
+          <h3 class="beneficio-feature__title">
+            Um direito que existe no papel deve existir também na prática.
+          </h3>
+          <p class="beneficio-feature__body">
+            A Eleva existe para que a isenção deixe de ser um processo intimidador e se torne uma conquista real — acessível, compreensível e segura para quem tem esse direito.
+          </p>
+        </div>
+        <div class="beneficio-feature__cta">
+          <p class="beneficio-feature__editorial">
+            "Da insegurança<br />à chave do carro."
+          </p>
+          <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+quero+come%C3%A7ar+a+analisar+meu+caso+de+isen%C3%A7%C3%A3o."
+             class="btn btn--terra" target="_blank" rel="noopener noreferrer">
+            Começar agora
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FAQ
+========================================================= -->
+<section class="faq section" id="faq" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="faq__inner">
+      <div class="faq__head reveal">
+        <p class="section-label">Dúvidas frequentes</p>
+        <h2 class="display-sm faq__title" id="faq-title">
+          Perguntas que chegam muito — respondidas com clareza.
+        </h2>
+        <p class="faq__intro">
+          Se a sua dúvida não estiver aqui, fale com a nossa equipe diretamente pelo WhatsApp.
+        </p>
+        <div class="faq__contact">
+          <p class="faq__contact-label">Fale com a Eleva</p>
+          <p class="faq__contact-text">Nossa equipe responde com atenção e sem pressa.</p>
+          <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+tenho+uma+d%C3%BAvida+sobre+o+processo+de+isen%C3%A7%C3%A3o+PCD."
+             class="btn btn--outline-terra" target="_blank" rel="noopener noreferrer">
+            Enviar mensagem
+          </a>
+        </div>
+      </div>
+
+      <div class="faq__list reveal reveal-delay-1" role="list">
+
+        <div class="faq__item" role="listitem">
+          <button class="faq__trigger" aria-expanded="false" aria-controls="faq-1">
+            <span>Como saber se tenho direito à isenção?</span>
+            <span class="faq__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq__body" id="faq-1" role="region">
+            <div class="faq__body-inner">
+              O direito à isenção depende do tipo e grau de deficiência, comprovado em laudo médico especializado. A legislação prevê isenção de IPI, IOF, ICMS e IPVA para diferentes perfis de PCD. A Eleva analisa o seu caso especificamente antes de qualquer passo — sem que você precise interpretar a lei sozinho.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <button class="faq__trigger" aria-expanded="false" aria-controls="faq-2">
+            <span>A pessoa com deficiência precisa ser a motorista?</span>
+            <span class="faq__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq__body" id="faq-2" role="region">
+            <div class="faq__body-inner">
+              Não necessariamente. A legislação prevê isenção mesmo para PCD não condutora — desde que o veículo seja utilizado para sua mobilidade e que haja documentação adequada do condutor regular. Para cada situação existe um caminho específico, e a Eleva identifica qual se aplica ao seu caso.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <button class="faq__trigger" aria-expanded="false" aria-controls="faq-3">
+            <span>Quais isenções podem estar envolvidas no processo?</span>
+            <span class="faq__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq__body" id="faq-3" role="region">
+            <div class="faq__body-inner">
+              Dependendo do perfil da deficiência e do estado de residência, é possível obter isenção de IPI (federal), IOF (federal), ICMS (estadual) e IPVA (estadual). Cada isenção tem requisitos e órgãos responsáveis distintos. A Eleva mapeia quais se aplicam ao seu caso e orienta em cada frente.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <button class="faq__trigger" aria-expanded="false" aria-controls="faq-4">
+            <span>A Eleva acompanha o processo do início ao fim?</span>
+            <span class="faq__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq__body" id="faq-4" role="region">
+            <div class="faq__body-inner">
+              Sim. A Eleva não faz apenas a orientação inicial e te deixa sozinho. Estamos presentes em cada etapa — da análise do caso à organização documental, do acompanhamento das aprovações à conclusão para aquisição do veículo.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <button class="faq__trigger" aria-expanded="false" aria-controls="faq-5">
+            <span>Quanto tempo dura o processo de isenção?</span>
+            <span class="faq__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq__body" id="faq-5" role="region">
+            <div class="faq__body-inner">
+              O tempo varia de acordo com o tipo de isenção, o estado e a completude da documentação. Com organização e acompanhamento, o processo tende a fluir mais rapidamente. A Eleva te mantém informado sobre cada prazo e andamento — sem que você fique na dúvida sobre o que está acontecendo.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <button class="faq__trigger" aria-expanded="false" aria-controls="faq-6">
+            <span>Familiares podem contratar a assessoria?</span>
+            <span class="faq__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq__body" id="faq-6" role="region">
+            <div class="faq__body-inner">
+              Sim. Familiares, responsáveis legais e curadores podem buscar a Eleva para conduzir o processo em nome da pessoa com deficiência. Analisamos a situação e orientamos sobre a documentação necessária para esse perfil.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     CTA FINAL
+========================================================= -->
+<section class="cta-final section" aria-labelledby="cta-title">
+  <div class="cta-final__glow" aria-hidden="true"></div>
+  <div class="cta-final__pattern" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="cta-final__inner">
+      <div class="cta-final__icon reveal" aria-hidden="true">🌿</div>
+      <p class="cta-final__editorial reveal reveal-delay-1">
+        "O primeiro passo é entender o que é possível."
+      </p>
+      <h2 class="display-md cta-final__title reveal reveal-delay-2" id="cta-title">
+        Pronto para começar com segurança?
+      </h2>
+      <p class="cta-final__body reveal reveal-delay-3">
+        Entre em contato com a Eleva. Analisamos o seu caso com atenção, orientamos sem jargão e acompanhamos o caminho inteiro com você.
+      </p>
+      <div class="cta-final__actions reveal reveal-delay-4">
+        <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+quero+analisar+meu+caso+de+isen%C3%A7%C3%A3o+PCD+com+a+equipe+da+Eleva."
+           class="btn btn--terra" target="_blank" rel="noopener noreferrer"
+           aria-label="Solicitar análise de caso pelo WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Solicitar análise pelo WhatsApp
+        </a>
+        <a href="mailto:contato@elevaisencoes.com.br" class="btn btn--outline-creme">
+          Enviar por e-mail
+        </a>
+      </div>
+      <div class="cta-final__trust reveal reveal-delay-5">
+        <span class="cta-final__trust-item"><span>✓</span> Sem compromisso inicial</span>
+        <span class="cta-final__trust-item"><span>✓</span> Análise confidencial</span>
+        <span class="cta-final__trust-item"><span>✓</span> Atendimento humano</span>
+        <span class="cta-final__trust-item"><span>✓</span> Especialistas em PCD</span>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer class="footer" aria-label="Rodapé Eleva Isenções">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <img src="ELEVA 01H.svg" alt="Eleva Isenções" class="footer__logo"
+             onerror="this.style.display='none'" />
+        <p class="footer__tagline">
+          Assessoria especializada em isenções fiscais para pessoas com deficiência na aquisição de veículos. Clareza, organização e presença em cada etapa.
+        </p>
+      </div>
+
+      <nav aria-label="Links da página">
+        <p class="footer__col-title">Navegação</p>
+        <ul class="footer__col-links" role="list">
+          <li><a href="#sobre" class="footer__col-link">Sobre a Eleva</a></li>
+          <li><a href="#para-quem" class="footer__col-link">Para quem é</a></li>
+          <li><a href="#processo" class="footer__col-link">Como funciona</a></li>
+          <li><a href="#beneficios" class="footer__col-link">Benefícios</a></li>
+          <li><a href="#faq" class="footer__col-link">Dúvidas frequentes</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <p class="footer__col-title">Contato</p>
+        <ul class="footer__col-links" role="list">
+          <li>
+            <a href="https://wa.me/5500000000000" class="footer__col-link" target="_blank" rel="noopener noreferrer">
+              WhatsApp
+            </a>
+          </li>
+          <li>
+            <a href="mailto:contato@elevaisencoes.com.br" class="footer__col-link">
+              contato@elevaisencoes.com.br
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copy">
+        &copy; <span id="year"></span> Eleva Isenções. Todos os direitos reservados.
+      </p>
+      <nav class="footer__legal" aria-label="Links legais">
+        <a href="#" class="footer__legal-link">Política de Privacidade</a>
+        <a href="#" class="footer__legal-link">Termos de Uso</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp float -->
+<a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+gostaria+de+falar+com+a+equipe+da+Eleva+Isen%C3%A7%C3%B5es."
+   class="wa-float" target="_blank" rel="noopener noreferrer"
+   aria-label="Falar com a Eleva no WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+</a>
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+<script>
+  /* ---- ano no footer ---- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---- nav scroll ---- */
+  const nav = document.getElementById('site-nav');
+  const onScroll = () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ---- burger / mobile menu ---- */
+  const burger = document.getElementById('burger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  burger.addEventListener('click', () => {
+    const expanded = burger.getAttribute('aria-expanded') === 'true';
+    burger.setAttribute('aria-expanded', String(!expanded));
+    mobileMenu.classList.toggle('open', !expanded);
+    document.body.style.overflow = expanded ? '' : 'hidden';
+  });
+
+  document.querySelectorAll('[data-close-menu]').forEach(el => {
+    el.addEventListener('click', () => {
+      burger.setAttribute('aria-expanded', 'false');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // close menu on Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+      burger.setAttribute('aria-expanded', 'false');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+      burger.focus();
+    }
+  });
+
+  /* ---- reveal on scroll ---- */
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReduced) {
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    reveals.forEach(el => observer.observe(el));
+  } else {
+    // show all immediately for reduced motion
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }
+
+  /* ---- FAQ accordion ---- */
+  document.querySelectorAll('.faq__trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const expanded = trigger.getAttribute('aria-expanded') === 'true';
+      const bodyId = trigger.getAttribute('aria-controls');
+      const body = document.getElementById(bodyId);
+
+      // close all others
+      document.querySelectorAll('.faq__trigger').forEach(t => {
+        if (t !== trigger) {
+          t.setAttribute('aria-expanded', 'false');
+          const b = document.getElementById(t.getAttribute('aria-controls'));
+          if (b) b.classList.remove('open');
+        }
+      });
+
+      trigger.setAttribute('aria-expanded', String(!expanded));
+      if (body) body.classList.toggle('open', !expanded);
+    });
+  });
+
+  /* ---- smooth scroll for anchor links ---- */
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      const offset = 80;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
