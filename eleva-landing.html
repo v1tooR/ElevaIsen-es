@@ -152,16 +152,25 @@
     ========================================================= */
     .nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      transition: background var(--dur-base) ease, box-shadow var(--dur-base) ease,
+      transition: background var(--dur-slow) var(--ease-out),
+                  box-shadow var(--dur-slow) var(--ease-out),
+                  backdrop-filter var(--dur-slow) var(--ease-out),
+                  -webkit-backdrop-filter var(--dur-slow) var(--ease-out),
+                  border-color var(--dur-slow) var(--ease-out),
                   padding var(--dur-base) ease;
       padding: 20px 0;
+      background: transparent;
+      border-bottom: 1px solid transparent;
     }
     .nav.scrolled {
-      background: rgba(30,26,23,0.96);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      box-shadow: 0 1px 0 rgba(239,227,214,0.08);
+      background: rgba(247,241,234,0.55);
+      backdrop-filter: blur(24px) saturate(1.6) brightness(1.05);
+      -webkit-backdrop-filter: blur(24px) saturate(1.6) brightness(1.05);
+      box-shadow: 0 1px 0 rgba(161,79,42,0.08),
+                  0 4px 24px rgba(107,48,25,0.06),
+                  inset 0 1px 0 rgba(255,255,255,0.45);
       padding: 12px 0;
+      border-bottom: 1px solid rgba(201,122,82,0.1);
     }
     .nav__inner {
       display: flex; align-items: center; justify-content: space-between;
@@ -170,7 +179,7 @@
     .nav__logo img { height: 36px; width: auto; }
     .nav__logo-text {
       font-family: var(--f-heading); font-weight: 700; font-size: 1.1rem;
-      color: var(--c-creme); letter-spacing: -0.01em;
+      color: var(--c-mogno); letter-spacing: -0.01em;
     }
     .nav__links {
       display: none;
@@ -178,16 +187,16 @@
     }
     @media (min-width: 900px) { .nav__links { display: flex; } }
     .nav__link {
-      font-size: 0.88rem; font-weight: 500; color: rgba(239,227,214,0.75);
+      font-size: 0.88rem; font-weight: 500; color: rgba(30,26,23,0.65);
       transition: color var(--dur-fast) ease;
       position: relative;
     }
     .nav__link::after {
       content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
-      height: 1px; background: var(--c-cobre); transform: scaleX(0);
+      height: 1px; background: var(--c-terra); transform: scaleX(0);
       transition: transform var(--dur-fast) var(--ease-out);
     }
-    @media (hover:hover) { .nav__link:hover { color: var(--c-creme); } .nav__link:hover::after { transform: scaleX(1); } }
+    @media (hover:hover) { .nav__link:hover { color: var(--c-preto); } .nav__link:hover::after { transform: scaleX(1); } }
 
     .nav__cta { display: none; }
     @media (min-width: 900px) { .nav__cta { display: flex; } }
@@ -199,7 +208,7 @@
     }
     @media (min-width: 900px) { .nav__burger { display: none; } }
     .nav__burger span {
-      width: 22px; height: 2px; background: var(--c-creme);
+      width: 22px; height: 2px; background: var(--c-mogno);
       border-radius: 2px; transition: transform var(--dur-fast) ease, opacity var(--dur-fast) ease;
     }
     .nav__burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -226,130 +235,245 @@
     .hero {
       position: relative; min-height: 100svh;
       display: flex; align-items: center;
-      background: var(--c-preto); overflow: hidden;
+      background: var(--c-creme-2); overflow: hidden;
       padding-top: 80px;
     }
     .hero__bg-color {
       position: absolute; inset: 0;
-      background: linear-gradient(135deg, #1a110a 0%, var(--c-preto) 50%, #0e1509 100%);
+      background: var(--c-creme-2);
     }
     .hero__pattern {
-      position: absolute; inset: 0; opacity: 0.06;
-      background-image: url("pattern.svg"); background-size: 240px;
+      position: absolute; inset: 0; opacity: 0.18;
+      background-image: url("pattern-terra.svg"); background-size: 200px;
       background-repeat: repeat;
+      mask-image: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.05) 100%);
+      -webkit-mask-image: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.05) 100%);
     }
     .hero__glow {
-      position: absolute; top: -20%; left: -10%;
-      width: 60%; height: 80%; border-radius: 50%;
-      background: radial-gradient(ellipse, rgba(161,79,42,0.18) 0%, transparent 70%);
+      position: absolute; top: -30%; left: -15%;
+      width: 70%; height: 90%; border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(161,79,42,0.14) 0%, rgba(201,122,82,0.06) 40%, transparent 70%);
       pointer-events: none;
     }
     .hero__glow-2 {
-      position: absolute; bottom: -30%; right: -5%;
-      width: 50%; height: 70%; border-radius: 50%;
-      background: radial-gradient(ellipse, rgba(66,84,56,0.12) 0%, transparent 70%);
+      position: absolute; bottom: -20%; right: -10%;
+      width: 55%; height: 75%; border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(201,122,82,0.1) 0%, rgba(161,79,42,0.04) 40%, transparent 70%);
       pointer-events: none;
     }
     .hero__inner {
       position: relative; z-index: 2;
-      display: grid; gap: 64px; align-items: center;
-      padding: 80px 0;
+      display: grid; gap: 48px; align-items: center;
+      padding: 60px 0;
     }
     @media (min-width: 900px) {
-      .hero__inner { grid-template-columns: 1fr 420px; gap: 80px; }
+      .hero__inner { grid-template-columns: 1fr 460px; gap: 64px; }
     }
     .hero__content { max-width: 640px; }
     .hero__eyebrow {
       display: flex; align-items: center; gap: 12px; margin-bottom: 28px;
     }
     .hero__eyebrow-line {
-      width: 32px; height: 1px; background: var(--c-cobre);
+      width: 32px; height: 1px; background: var(--c-terra);
     }
     .hero__eyebrow-text {
       font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--c-cobre);
+      text-transform: uppercase; color: var(--c-terra);
     }
     .hero__title {
       font-size: clamp(2.8rem, 6.5vw, 5.2rem);
       font-weight: 800; letter-spacing: -0.025em;
-      color: var(--c-creme); line-height: 1.05;
+      color: var(--c-preto); line-height: 1.05;
       margin-bottom: 20px;
     }
     .hero__title em {
-      font-style: normal; color: var(--c-cobre);
+      font-style: normal; color: var(--c-terra);
       display: block;
     }
     .hero__tagline {
       font-family: var(--f-editorial); font-style: italic;
       font-size: clamp(1.3rem, 2.5vw, 1.7rem);
-      color: rgba(239,227,214,0.6); line-height: 1.4;
+      color: rgba(30,26,23,0.55); line-height: 1.4;
       margin-bottom: 28px;
     }
     .hero__body {
-      font-size: 1.05rem; color: rgba(239,227,214,0.72);
+      font-size: 1.05rem; color: rgba(30,26,23,0.65);
       line-height: 1.75; max-width: 52ch; margin-bottom: 40px;
     }
     .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 48px; }
     .hero__trust {
       display: flex; align-items: center; gap: 16px;
-      padding-top: 40px; border-top: 1px solid rgba(239,227,214,0.1);
+      padding-top: 40px; border-top: 1px solid rgba(161,79,42,0.12);
     }
     .hero__trust-dots {
       display: flex; gap: 4px;
     }
     .hero__trust-dot {
       width: 8px; height: 8px; border-radius: 50%;
-      background: var(--c-cobre); opacity: 0.7;
+      background: var(--c-terra); opacity: 0.7;
     }
     .hero__trust-text {
-      font-size: 0.8rem; color: rgba(239,227,214,0.5);
+      font-size: 0.8rem; color: rgba(30,26,23,0.45);
       letter-spacing: 0.02em;
     }
 
-    /* hero card */
-    .hero__card {
-      background: rgba(239,227,214,0.06);
-      border: 1px solid rgba(239,227,214,0.1);
-      border-radius: var(--r-lg); padding: 36px;
-      backdrop-filter: blur(8px);
+    /* hero image container */
+    .hero__visual {
+      position: relative;
     }
-    .hero__card-label {
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--c-cobre); margin-bottom: 20px;
+    .hero__img-wrap {
+      border-radius: var(--r-lg); overflow: hidden;
+      aspect-ratio: 3/4;
+      position: relative;
     }
-    .hero__card-items { display: flex; flex-direction: column; gap: 16px; }
-    .hero__card-item {
-      display: flex; align-items: flex-start; gap: 14px;
-      padding: 16px; background: rgba(239,227,214,0.04);
-      border-radius: var(--r-sm); border: 1px solid rgba(239,227,214,0.07);
-      transition: border-color var(--dur-fast) ease;
+    .hero__img-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
     }
-    @media (hover:hover) { .hero__card-item:hover { border-color: rgba(201,122,82,0.25); } }
-    .hero__card-icon {
-      width: 36px; height: 36px; flex-shrink: 0;
-      background: rgba(161,79,42,0.15); border-radius: 8px;
+    /* floating cards on top of image */
+    .hero__floating-cards {
+      position: absolute; bottom: 16px; left: 12px;
+      display: flex; flex-direction: column; gap: 10px;
+      z-index: 3; width: 240px;
+    }
+    .hero__float-card {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 16px;
+      background: rgba(161,79,42,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: var(--r-md);
+      border: 1px solid rgba(201,122,82,0.3);
+      transition: transform var(--dur-fast) var(--ease-out);
+    }
+    @media (hover:hover) { .hero__float-card:hover { transform: translateX(4px); } }
+    .hero__float-card-icon {
+      width: 32px; height: 32px; flex-shrink: 0;
+      background: rgba(255,255,255,0.2); border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
+      font-size: 0.9rem;
     }
-    .hero__card-item-title {
-      font-family: var(--f-heading); font-weight: 600; font-size: 0.88rem;
-      color: var(--c-creme); margin-bottom: 3px;
+    .hero__float-card-title {
+      font-family: var(--f-heading); font-weight: 600; font-size: 0.78rem;
+      color: #fff; margin-bottom: 2px;
     }
-    .hero__card-item-text {
-      font-size: 0.78rem; color: rgba(239,227,214,0.5); line-height: 1.5;
+    .hero__float-card-text {
+      font-size: 0.68rem; color: rgba(255,255,255,0.7); line-height: 1.4;
     }
-    .hero__card-cta { margin-top: 28px; text-align: center; }
-    .hero__card-note {
-      font-size: 0.72rem; color: rgba(239,227,214,0.38);
-      text-align: center; margin-top: 10px;
+    @media (max-width: 899px) {
+      .hero__floating-cards {
+        position: relative; top: auto; right: auto;
+        transform: none; width: 100%;
+        flex-direction: row; flex-wrap: wrap;
+        margin-top: 16px;
+      }
+      .hero__float-card { flex: 1; min-width: 180px; }
+    }
+
+    /* =========================================================
+       MARCAS TRABALHADAS
+    ========================================================= */
+    .marcas {
+      background: var(--c-creme-2);
+      padding: 52px 0;
+      border-top: 1px solid rgba(161,79,42,0.08);
+      border-bottom: 1px solid rgba(161,79,42,0.08);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .marcas__header {
+      display: flex; align-items: center; gap: 20px;
+      margin-bottom: 36px;
+      padding: 0 24px;
+    }
+    @media (min-width: 768px) { .marcas__header { padding: 0 48px; } }
+    @media (min-width: 1024px) { .marcas__header { padding: 0 64px; } }
+
+    .marcas__line {
+      flex: 1; height: 1px;
+      background: linear-gradient(90deg, rgba(161,79,42,0.18), transparent);
+    }
+    .marcas__line--right {
+      background: linear-gradient(270deg, rgba(161,79,42,0.18), transparent);
+    }
+    .marcas__label {
+      font-family: var(--f-body);
+      font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(161,79,42,0.55);
+      white-space: nowrap;
+    }
+
+    .marcas__track-wrap {
+      position: relative;
+    }
+    .marcas__track-wrap::before,
+    .marcas__track-wrap::after {
+      content: '';
+      position: absolute; top: 0; bottom: 0; width: 120px;
+      z-index: 2; pointer-events: none;
+    }
+    .marcas__track-wrap::before {
+      left: 0;
+      background: linear-gradient(90deg, var(--c-creme-2) 20%, transparent 100%);
+    }
+    .marcas__track-wrap::after {
+      right: 0;
+      background: linear-gradient(270deg, var(--c-creme-2) 20%, transparent 100%);
+    }
+
+    .marcas__track {
+      display: flex; align-items: center;
+      width: max-content;
+      animation: marquee-fwd 36s linear infinite;
+    }
+    .marcas__track-wrap:hover .marcas__track { animation-play-state: paused; }
+
+    @keyframes marquee-fwd {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .marcas__item {
+      display: inline-flex; align-items: center;
+      padding: 0 36px;
+      flex-shrink: 0;
+    }
+    .marcas__item img {
+      height: 44px; width: auto;
+      display: block;
+      mix-blend-mode: multiply;
+      filter: grayscale(1) opacity(0.45);
+      transition: filter var(--dur-base) var(--ease-out);
+      user-select: none; pointer-events: none;
+    }
+    @media (hover:hover) {
+      .marcas__item:hover img {
+        filter: grayscale(0) opacity(1);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .marcas__track { animation: none !important; }
+      .marcas__track-wrap { overflow: hidden; }
+      .marcas__track-wrap::before, .marcas__track-wrap::after { display: none; }
     }
 
     /* =========================================================
        SECTION: SOBRE
     ========================================================= */
-    .sobre { background: var(--c-creme-2); }
+    .sobre {
+      background: linear-gradient(135deg, var(--c-mogno) 0%, #7A3520 40%, #8B3E25 70%, var(--c-terra) 100%);
+      position: relative; overflow: hidden;
+    }
+    .sobre__pattern {
+      position: absolute; inset: 0; opacity: 0.06;
+      background-image: url("pattern.svg"); background-size: 180px;
+      background-repeat: repeat;
+    }
     .sobre__inner {
       display: grid; gap: 56px; align-items: center;
+      position: relative; z-index: 1;
     }
     @media (min-width: 900px) { .sobre__inner { grid-template-columns: 1fr 1fr; gap: 80px; } }
     .sobre__visual {
@@ -357,19 +481,19 @@
     }
     .sobre__img-wrap {
       border-radius: var(--r-lg); overflow: hidden;
-      aspect-ratio: 4/3; background: var(--c-mogno);
+      aspect-ratio: 3/4; background: var(--c-mogno);
       position: relative;
     }
-    .sobre__img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .sobre__img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
     .sobre__img-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(107,48,25,0.6) 0%, transparent 50%);
+      background: linear-gradient(to top, rgba(107,48,25,0.4) 0%, transparent 40%);
     }
     .sobre__badge-float {
       position: absolute; bottom: 24px; left: 24px;
       background: var(--c-creme); border-radius: var(--r-md);
       padding: 16px 20px;
-      box-shadow: 0 8px 32px rgba(30,26,23,0.2);
+      box-shadow: 0 8px 32px rgba(30,26,23,0.3);
     }
     .sobre__badge-num {
       font-family: var(--f-heading); font-weight: 800; font-size: 1.8rem;
@@ -380,83 +504,178 @@
     }
     .sobre__deco-line {
       position: absolute; top: 24px; right: -12px; bottom: -12px;
-      border: 1px solid var(--c-cobre); border-radius: var(--r-lg);
-      opacity: 0.3; pointer-events: none;
+      border: 1px solid rgba(239,227,214,0.25); border-radius: var(--r-lg);
+      opacity: 0.5; pointer-events: none;
     }
     .sobre__content {}
-    .sobre__title { color: var(--c-preto); margin-bottom: 20px; }
+    .sobre__title { color: var(--c-creme); margin-bottom: 20px; }
     .sobre__editorial {
       font-family: var(--f-editorial); font-style: italic;
-      font-size: 1.35rem; color: var(--c-terra); line-height: 1.5;
+      font-size: 1.35rem; color: rgba(239,227,214,0.65); line-height: 1.5;
       margin-bottom: 24px; padding-left: 20px;
-      border-left: 3px solid var(--c-cobre);
+      border-left: 3px solid rgba(239,227,214,0.3);
     }
-    .sobre__body { color: rgba(30,26,23,0.7); max-width: 55ch; margin-bottom: 36px; }
+    .sobre__body { color: rgba(239,227,214,0.75); max-width: 55ch; margin-bottom: 36px; }
     .sobre__pillars { display: flex; flex-direction: column; gap: 14px; }
     .sobre__pillar {
       display: flex; align-items: center; gap: 14px;
     }
     .sobre__pillar-icon {
       width: 40px; height: 40px; flex-shrink: 0; border-radius: var(--r-sm);
-      background: var(--c-terra-a); display: flex; align-items: center;
+      background: rgba(239,227,214,0.12); display: flex; align-items: center;
       justify-content: center; font-size: 1.1rem;
     }
     .sobre__pillar-text {
-      font-weight: 500; font-size: 0.92rem; color: var(--c-preto);
+      font-weight: 500; font-size: 0.92rem; color: var(--c-creme);
     }
     .sobre__pillar-sub {
-      font-size: 0.78rem; color: rgba(30,26,23,0.5);
+      font-size: 0.78rem; color: rgba(239,227,214,0.55);
     }
 
     /* =========================================================
-       SECTION: PARA QUEM
+       SECTION: ASSESSORIA / PARA QUEM
     ========================================================= */
-    .para-quem { background: var(--c-creme); }
-    .para-quem__head { text-align: center; max-width: 640px; margin: 0 auto 60px; }
-    .para-quem__grid {
-      display: grid; gap: 20px;
-    }
-    @media (min-width: 640px) { .para-quem__grid { grid-template-columns: 1fr 1fr; } }
-    @media (min-width: 1024px) { .para-quem__grid { grid-template-columns: repeat(3, 1fr); } }
-    .para-quem__card {
-      background: var(--c-creme-2);
+    .assessoria { background: var(--c-creme); }
+    .assessoria__head { text-align: center; max-width: 640px; margin: 0 auto 52px; }
+
+    /* Tab navigation */
+    .assessoria__tabs { display: flex; justify-content: center; margin-bottom: 52px; }
+    .assessoria__tab-list {
+      display: flex; gap: 0;
+      background: rgba(30,26,23,0.05);
       border: 1px solid rgba(161,79,42,0.12);
-      border-radius: var(--r-lg); padding: 36px 32px;
+      border-radius: var(--r-pill); padding: 5px;
+      overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    }
+    .assessoria__tab-list::-webkit-scrollbar { display: none; }
+    .assessoria__tab-btn {
+      display: flex; align-items: center; gap: 7px;
+      padding: 11px 22px; border-radius: var(--r-pill);
+      font-family: var(--f-heading); font-weight: 600; font-size: 0.82rem;
+      letter-spacing: 0.03em; white-space: nowrap;
+      color: rgba(30,26,23,0.45); background: transparent; border: none;
+      cursor: pointer; transition: color var(--dur-fast) ease,
+                                   background var(--dur-fast) ease,
+                                   box-shadow var(--dur-fast) ease;
+      min-height: 42px;
+    }
+    .assessoria__tab-btn[aria-selected="true"] {
+      background: var(--c-terra); color: var(--c-creme);
+      box-shadow: 0 4px 14px rgba(161,79,42,0.28);
+    }
+    @media (hover:hover) {
+      .assessoria__tab-btn:not([aria-selected="true"]):hover {
+        color: var(--c-terra); background: rgba(161,79,42,0.07);
+      }
+    }
+    .assessoria__tab-icon { font-size: 0.95rem; }
+
+    /* Tab panels */
+    .assessoria__panel { display: none; }
+    .assessoria__panel.active {
+      display: block;
+      animation: fadePanel var(--dur-base) var(--ease-out) forwards;
+    }
+    @keyframes fadePanel {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Step grid */
+    .assessoria__grid { display: grid; gap: 16px; }
+    @media (min-width: 480px) { .assessoria__grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 900px) { .assessoria__grid { grid-template-columns: repeat(3, 1fr); } }
+
+    /* Step card */
+    .step-card {
+      background: var(--c-creme-2);
+      border: 1px solid rgba(161,79,42,0.1);
+      border-radius: var(--r-lg); padding: 30px 26px;
+      position: relative; overflow: hidden;
       transition: transform var(--dur-base) var(--ease-out),
                   box-shadow var(--dur-base) var(--ease-out),
                   border-color var(--dur-base) ease;
-      position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
     }
-    .para-quem__card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0;
-      height: 3px; background: linear-gradient(90deg, var(--c-terra), var(--c-cobre));
-      opacity: 0; transition: opacity var(--dur-fast) ease;
+    .step-card::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--c-terra), var(--c-cobre));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform var(--dur-base) var(--ease-out);
     }
     @media (hover:hover) {
-      .para-quem__card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(161,79,42,0.12); border-color: rgba(161,79,42,0.2); }
-      .para-quem__card:hover::before { opacity: 1; }
+      .step-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 40px rgba(161,79,42,0.1);
+        border-color: rgba(161,79,42,0.2);
+      }
+      .step-card:hover::after { transform: scaleX(1); }
     }
-    .para-quem__icon {
-      width: 52px; height: 52px; border-radius: var(--r-sm);
-      background: var(--c-terra-a); display: flex; align-items: center;
-      justify-content: center; font-size: 1.5rem; margin-bottom: 24px;
+    .step-card--first {
+      background: linear-gradient(145deg, var(--c-terra) 0%, var(--c-mogno) 100%);
+      border-color: transparent;
     }
-    .para-quem__card-title {
-      font-family: var(--f-heading); font-weight: 700; font-size: 1.1rem;
-      color: var(--c-preto); margin-bottom: 12px;
+    .step-card--first::after {
+      background: rgba(239,227,214,0.25);
     }
-    .para-quem__card-body {
-      font-size: 0.9rem; color: rgba(30,26,23,0.65); line-height: 1.7;
-      margin-bottom: 20px;
+    .step-card__num {
+      font-family: var(--f-editorial); font-style: italic; font-weight: 400;
+      font-size: 4rem; line-height: 1; letter-spacing: -0.03em;
+      color: rgba(161,79,42,0.12); position: absolute;
+      top: 12px; right: 16px; pointer-events: none; user-select: none;
     }
-    .para-quem__card-items { display: flex; flex-direction: column; gap: 8px; }
-    .para-quem__card-item {
-      display: flex; align-items: flex-start; gap: 8px;
-      font-size: 0.82rem; color: rgba(30,26,23,0.6);
+    .step-card--first .step-card__num { color: rgba(239,227,214,0.15); }
+    .step-card__step-label {
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--c-cobre); margin-bottom: 10px;
     }
-    .para-quem__card-item::before {
-      content: '•'; color: var(--c-cobre); flex-shrink: 0; margin-top: 1px;
+    .step-card--first .step-card__step-label { color: rgba(239,227,214,0.6); }
+    .step-card__title {
+      font-family: var(--f-heading); font-weight: 700; font-size: 0.97rem;
+      color: var(--c-preto); margin-bottom: 10px; line-height: 1.3;
     }
+    .step-card--first .step-card__title { color: var(--c-creme); }
+    .step-card__body {
+      font-size: 0.83rem; color: rgba(30,26,23,0.58); line-height: 1.7;
+      flex: 1; margin-bottom: 20px;
+    }
+    .step-card--first .step-card__body { color: rgba(239,227,214,0.68); }
+    .step-card__cta {
+      display: inline-flex; align-items: center; gap: 6px; margin-top: auto;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.03em;
+      color: var(--c-terra); text-decoration: none;
+      transition: gap var(--dur-fast) ease, color var(--dur-fast) ease;
+    }
+    .step-card--first .step-card__cta { color: var(--c-creme); }
+    @media (hover:hover) {
+      .step-card__cta:hover { gap: 10px; color: var(--c-mogno); }
+      .step-card--first .step-card__cta:hover { gap: 10px; color: rgba(239,227,214,0.8); }
+      .step-card__cta:hover .step-card__cta-arrow { transform: translateX(3px); }
+    }
+    .step-card__cta-arrow { transition: transform var(--dur-fast) ease; font-style: normal; }
+
+    /* Renovação banner */
+    .assessoria__renovacao-banner {
+      grid-column: 1 / -1; margin-top: 4px;
+      background: var(--c-verde); border-radius: var(--r-lg);
+      padding: 30px 36px; display: flex;
+      flex-wrap: wrap; align-items: center; justify-content: space-between;
+      gap: 20px; position: relative; overflow: hidden;
+    }
+    .assessoria__renovacao-banner::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("pattern.svg"); background-size: 160px;
+      opacity: 0.05; pointer-events: none;
+    }
+    .assessoria__renovacao-banner-content { position: relative; z-index: 1; }
+    .assessoria__renovacao-banner-title {
+      font-family: var(--f-heading); font-weight: 700; font-size: 1rem;
+      color: var(--c-creme); margin-bottom: 5px;
+    }
+    .assessoria__renovacao-banner-sub {
+      font-size: 0.83rem; color: rgba(239,227,214,0.6);
+    }
+    .assessoria__renovacao-banner-cta { position: relative; z-index: 1; }
 
     /* =========================================================
        SECTION: O QUE RESOLVE
@@ -472,50 +691,240 @@
     .resolve__head { max-width: 600px; margin-bottom: 64px; }
     .resolve__head-label { color: var(--c-cobre); margin-bottom: 16px; }
     .resolve__title { color: var(--c-creme); margin-bottom: 20px; }
-    .resolve__intro { color: rgba(239,227,214,0.6); max-width: 52ch; }
+    .resolve__intro { color: rgba(239,227,214,0.78); max-width: 52ch; } /* ↑ 0.6→0.78: ~6.4:1 ✓ */
     .resolve__grid {
       display: grid; gap: 1px;
       background: rgba(239,227,214,0.06);
       border-radius: var(--r-lg); overflow: hidden;
       border: 1px solid rgba(239,227,214,0.06);
+      list-style: none; padding: 0; margin: 0; /* reset ol defaults */
     }
     @media (min-width: 640px) { .resolve__grid { grid-template-columns: 1fr 1fr; } }
     @media (min-width: 1024px) { .resolve__grid { grid-template-columns: repeat(3, 1fr); } }
+    /* list-style:none kills VoiceOver list semantics in Safari — explicit role="list" on the element restores it */
     .resolve__item {
-      padding: 36px 32px; background: rgba(30,26,23,0.7);
+      padding: 32px 28px 36px;
+      background: rgba(30,26,23,0.82);
       transition: background var(--dur-fast) ease;
-      position: relative;
+      position: relative; overflow: hidden;
+      list-style: none; /* per-item reset for specificity safety */
     }
-    @media (hover:hover) { .resolve__item:hover { background: rgba(161,79,42,0.07); } }
+    /* Animated top accent bar revealed on hover */
+    .resolve__item::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--c-terra), var(--c-cobre));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.38s var(--ease-out);
+    }
+    @media (hover:hover) {
+      .resolve__item:hover { background: rgba(161,79,42,0.09); }
+      .resolve__item:hover::before { transform: scaleX(1); }
+    }
     .resolve__item-num {
-      font-family: var(--f-editorial); font-size: 3rem;
-      color: rgba(201,122,82,0.15); line-height: 1; margin-bottom: 16px;
-      font-style: italic;
+      font-family: var(--f-editorial); font-size: 3.8rem;
+      color: var(--c-cobre); line-height: 1; margin-bottom: 18px;
+      font-style: italic; user-select: none;
     }
+    /* — Antes zone ——————————————————————————— */
+    .resolve__antes {
+      background: rgba(239,227,214,0.04);
+      border: 1px solid rgba(239,227,214,0.09);
+      border-radius: 6px; padding: 10px 14px;
+    }
+    /* Shared zone label styles */
+    .resolve__zone-label {
+      display: block; font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 5px;
+    }
+    .resolve__zone-label--antes { color: rgba(239,227,214,0.65); } /* ~5.5:1 ✓ */
+    .resolve__zone-label--depois { color: var(--c-cobre); }        /* ~5.2:1 ✓ */
     .resolve__dor {
-      font-family: var(--f-heading); font-weight: 600; font-size: 0.95rem;
-      color: rgba(239,227,214,0.5); margin-bottom: 8px;
-      text-decoration: line-through; text-decoration-color: rgba(201,122,82,0.4);
+      font-family: var(--f-body); font-weight: 400; font-size: 0.875rem;
+      color: rgba(239,227,214,0.75); /* ↑ 0.5→0.75: ~5.8:1 ✓ */
+      font-style: italic; line-height: 1.5; margin: 0;
+      text-decoration: line-through;
+      text-decoration-color: rgba(201,122,82,0.55);
+      text-decoration-thickness: 1.5px;
     }
+    /* — Arrow divider ———————————————————————— */
+    .resolve__arrow {
+      display: flex; align-items: center; gap: 8px;
+      margin: 14px 0; color: rgba(201,122,82,0.55);
+    }
+    .resolve__arrow-line {
+      flex: 1; height: 1px;
+      background: linear-gradient(90deg, rgba(201,122,82,0.35), transparent);
+    }
+    /* — Depois zone —————————————————————————— */
     .resolve__ganho {
       font-family: var(--f-heading); font-weight: 700; font-size: 1rem;
-      color: var(--c-creme); margin-bottom: 10px;
+      color: var(--c-creme); /* 21:1 ✓ */
+      margin-bottom: 0; padding-left: 10px;
+      border-left: 2px solid var(--c-terra);
+      line-height: 1.4;
     }
     .resolve__desc {
-      font-size: 0.82rem; color: rgba(239,227,214,0.45); line-height: 1.65;
-    }
-    .resolve__arrow {
-      display: block; width: 20px; height: 1px; background: var(--c-cobre);
-      margin: 10px 0; opacity: 0.5; position: relative;
-    }
-    .resolve__arrow::after {
-      content: ''; position: absolute; right: -1px; top: -3px;
-      border-left: 5px solid var(--c-cobre); border-top: 3px solid transparent;
-      border-bottom: 3px solid transparent;
+      font-size: 0.84rem;
+      color: rgba(239,227,214,0.72); /* ↑ 0.45→0.72: ~5.5:1 ✓ */
+      line-height: 1.70; margin-top: 12px;
     }
 
     /* =========================================================
-       SECTION: COMO FUNCIONA
+       SECTION: ÁREA DE ATUAÇÃO
+    ========================================================= */
+    .atuacao {
+      background: var(--c-creme-2); position: relative; overflow: hidden;
+    }
+    .atuacao__bg {
+      position: absolute; inset: 0; opacity: 0.025;
+      background-image: url("pattern.svg"); background-size: 160px; background-repeat: repeat;
+    }
+    .atuacao__inner { position: relative; z-index: 1; }
+    .atuacao__head { max-width: 640px; margin-bottom: 56px; }
+    .atuacao__title { color: var(--c-preto); margin-bottom: 20px; }
+    .atuacao__intro { color: rgba(30,26,23,0.62); max-width: 58ch; }
+
+    /* Bento grid */
+    .atuacao__grid {
+      display: grid; grid-template-columns: 1fr; gap: 14px;
+    }
+    @media (min-width: 600px) {
+      .atuacao__grid { grid-template-columns: 1fr 1fr; }
+      .atuacao__card--feature { grid-column: span 2; }
+    }
+    @media (min-width: 1024px) {
+      .atuacao__grid { grid-template-columns: repeat(3, 1fr); }
+      .atuacao__card--feature { grid-column: span 2; grid-row: 1; }
+    }
+
+    /* Base card */
+    .atuacao__card {
+      background: #fff;
+      border: 1px solid rgba(161,79,42,0.10);
+      border-radius: var(--r-lg);
+      padding: 28px 26px;
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: transform var(--dur-fast) var(--ease-out),
+                  box-shadow var(--dur-fast) var(--ease-out),
+                  border-color var(--dur-fast) ease;
+    }
+    .atuacao__card::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--c-terra), var(--c-cobre));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.36s var(--ease-out);
+    }
+    @media (hover:hover) {
+      .atuacao__card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 44px rgba(107,48,25,0.10);
+        border-color: rgba(161,79,42,0.22);
+      }
+      .atuacao__card:hover::after { transform: scaleX(1); }
+    }
+
+    /* Feature card */
+    .atuacao__card--feature {
+      background: linear-gradient(135deg, var(--c-terra) 0%, var(--c-mogno) 100%);
+      border-color: transparent; padding: 36px 32px; min-height: 240px;
+    }
+    .atuacao__card--feature::after { display: none; }
+    @media (hover:hover) {
+      .atuacao__card--feature:hover {
+        border-color: transparent;
+        box-shadow: 0 24px 60px rgba(107,48,25,0.28);
+      }
+    }
+
+    /* CTA card */
+    .atuacao__card--cta {
+      background: var(--c-preto); border-color: transparent; gap: 0;
+    }
+    .atuacao__card--cta::after { display: none; }
+    @media (hover:hover) {
+      .atuacao__card--cta:hover {
+        border-color: transparent;
+        box-shadow: 0 16px 44px rgba(30,26,23,0.25);
+      }
+    }
+
+    /* Icon */
+    .atuacao__icon {
+      width: 42px; height: 42px; border-radius: 11px;
+      background: rgba(161,79,42,0.09);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--c-terra); margin-bottom: 18px; flex-shrink: 0;
+    }
+    .atuacao__card--feature .atuacao__icon {
+      background: rgba(255,255,255,0.16); color: rgba(239,227,214,0.9);
+    }
+
+    /* Badge */
+    .atuacao__badge {
+      display: inline-block;
+      font-size: 0.60rem; font-weight: 700; letter-spacing: 0.11em;
+      text-transform: uppercase; padding: 4px 10px; border-radius: var(--r-pill);
+      background: rgba(161,79,42,0.08); color: var(--c-terra); margin-bottom: 14px;
+    }
+    .atuacao__card--feature .atuacao__badge {
+      background: rgba(255,255,255,0.16); color: rgba(239,227,214,0.82);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    /* Card name */
+    .atuacao__card-name {
+      font-family: var(--f-heading); font-weight: 700;
+      font-size: 1rem; line-height: 1.3; color: var(--c-preto); margin-bottom: 10px;
+    }
+    .atuacao__card--feature .atuacao__card-name {
+      font-size: clamp(1.3rem, 2.2vw, 1.7rem); letter-spacing: -0.01em;
+      color: var(--c-creme); margin-bottom: 14px;
+    }
+
+    /* Card desc */
+    .atuacao__card-desc {
+      font-size: 0.84rem; color: rgba(30,26,23,0.65); line-height: 1.70; margin: 0; /* ~5.3:1 ✓ */
+    }
+    .atuacao__card--feature .atuacao__card-desc {
+      color: rgba(239,227,214,0.72); font-size: 0.88rem; line-height: 1.72;
+    }
+
+    /* Feature card arrow link */
+    .atuacao__card-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.82rem; font-weight: 600; color: rgba(239,227,214,0.78);
+      margin-top: 22px; text-decoration: none; width: fit-content;
+      transition: color var(--dur-fast) ease, gap var(--dur-fast) var(--ease-out);
+    }
+    @media (hover:hover) { .atuacao__card-link:hover { color: var(--c-creme); gap: 10px; } }
+    .atuacao__card-link svg { flex-shrink: 0; }
+
+    /* Feature card decorative watermark */
+    .atuacao__card-deco {
+      position: absolute; right: 20px; bottom: -10px;
+      font-family: var(--f-editorial); font-style: italic;
+      font-size: 8rem; line-height: 1;
+      color: rgba(255,255,255,0.055); user-select: none; pointer-events: none;
+    }
+
+    /* CTA card copy */
+    .atuacao__cta-label {
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--c-cobre); margin-bottom: 16px;
+    }
+    .atuacao__cta-text {
+      font-family: var(--f-heading); font-weight: 700;
+      font-size: 1.05rem; line-height: 1.3; color: var(--c-creme); margin-bottom: 10px;
+    }
+    .atuacao__cta-sub {
+      font-size: 0.84rem; color: rgba(239,227,214,0.62); line-height: 1.65;
+      margin-bottom: 24px; flex: 1;
+    }
+
+    /* =========================================================
+       SECTION: COMO FUNCIONA — MÉTODO ELEVA
     ========================================================= */
     .processo { background: var(--c-verde); position: relative; overflow: hidden; }
     .processo__pattern {
@@ -523,115 +932,432 @@
       background-image: url("pattern.svg"); background-size: 180px; background-repeat: repeat;
     }
     .processo__inner { position: relative; z-index: 1; }
-    .processo__head { text-align: center; max-width: 600px; margin: 0 auto 72px; }
+    .processo__head { text-align: center; max-width: 600px; margin: 0 auto 80px; }
     .processo__head-label { color: rgba(239,227,214,0.55); margin-bottom: 16px; }
     .processo__title { color: var(--c-creme); margin-bottom: 16px; }
-    .processo__intro { color: rgba(239,227,214,0.6); }
+    .processo__intro { color: rgba(239,227,214,0.62); }
 
-    .processo__steps {
-      display: flex; flex-direction: column; gap: 0;
-      max-width: 780px; margin: 0 auto;
-    }
-    .processo__step {
-      display: grid; grid-template-columns: 64px 1fr;
-      gap: 24px; align-items: flex-start;
+    /* timeline wrapper — establishes positioning context for the rail */
+    .processo__timeline {
+      max-width: 700px; margin: 0 auto;
       position: relative;
     }
-    .processo__step:not(:last-child) { padding-bottom: 40px; }
-    .processo__step-left { display: flex; flex-direction: column; align-items: center; }
+
+    /* shared vertical rail */
+    .processo__rail {
+      position: absolute;
+      left: 27px;           /* center of 56px node column */
+      top: 28px;            /* center of first node */
+      bottom: 28px;         /* center of last node */
+      width: 2px;
+      background: rgba(239,227,214,0.08);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .processo__rail-fill {
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 0%;
+      background: linear-gradient(180deg, var(--c-terra) 0%, var(--c-cobre) 100%);
+      border-radius: 2px;
+      transition: height 0.65s var(--ease-out);
+      will-change: height;
+    }
+
+    /* steps list */
+    .processo__steps { list-style: none; padding: 0; margin: 0; }
+
+    /* single step */
+    .processo__step {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 32px;
+      align-items: flex-start;
+      padding-bottom: 60px;
+    }
+    .processo__step:last-child { padding-bottom: 0; }
+
+    /* node circle */
+    .processo__step-node {
+      position: relative; z-index: 2; flex-shrink: 0;
+    }
     .processo__step-num {
       width: 56px; height: 56px; border-radius: 50%;
-      background: rgba(239,227,214,0.1); border: 1px solid rgba(239,227,214,0.2);
+      border: 2px solid rgba(239,227,214,0.12);
+      background: rgba(239,227,214,0.04);
       display: flex; align-items: center; justify-content: center;
-      font-family: var(--f-heading); font-weight: 800; font-size: 1rem;
-      color: var(--c-creme); flex-shrink: 0;
+      position: relative; overflow: hidden;
+      transition: background 0.5s var(--ease-out),
+                  border-color 0.5s var(--ease-out),
+                  box-shadow 0.5s var(--ease-out);
     }
+    .processo__step-num-text {
+      font-family: var(--f-editorial); font-style: italic; font-weight: 500;
+      font-size: 1.3rem; color: rgba(239,227,214,0.22);
+      transition: opacity 0.3s ease, color 0.4s ease;
+      position: relative; z-index: 1;
+    }
+    /* checkmark — hidden until step is 'seen' */
+    .processo__step-num::after {
+      content: '';
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18' fill='none'%3E%3Cpath d='M4 9.5l3.5 3.5 6.5-7' stroke='%23EFE3D6' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: center;
+      opacity: 0; transition: opacity 0.35s ease 0.1s;
+    }
+
+    /* ACTIVE state */
     .processo__step.active .processo__step-num {
-      background: var(--c-terra); border-color: var(--c-terra);
+      background: var(--c-terra);
+      border-color: var(--c-terra);
+      box-shadow: 0 0 0 5px rgba(161,79,42,0.18),
+                  0 0 0 11px rgba(161,79,42,0.07);
+      animation: step-pulse 2.8s ease-in-out infinite;
     }
-    .processo__step-line {
-      width: 1px; flex: 1; min-height: 40px;
-      background: rgba(239,227,214,0.15); margin-top: 8px;
+    .processo__step.active .processo__step-num-text {
+      color: var(--c-creme); opacity: 1;
     }
-    .processo__step:last-child .processo__step-line { display: none; }
-    .processo__step-content { padding: 12px 0; }
+
+    /* SEEN (past) state */
+    .processo__step.seen .processo__step-num {
+      background: rgba(161,79,42,0.28);
+      border-color: rgba(161,79,42,0.45);
+    }
+    .processo__step.seen .processo__step-num-text { opacity: 0; }
+    .processo__step.seen .processo__step-num::after { opacity: 1; }
+
+    @keyframes step-pulse {
+      0%, 100% { box-shadow: 0 0 0 5px rgba(161,79,42,0.18), 0 0 0 11px rgba(161,79,42,0.07); }
+      50%       { box-shadow: 0 0 0 7px rgba(161,79,42,0.12), 0 0 0 15px rgba(161,79,42,0.04); }
+    }
+
+    /* step content */
+    .processo__step-content {
+      padding: 14px 0 0;
+      opacity: 0.2;
+      transform: translateX(10px);
+      transition: opacity 0.55s var(--ease-out),
+                  transform 0.55s var(--ease-out);
+    }
+    .processo__step.active .processo__step-content,
+    .processo__step.seen .processo__step-content {
+      opacity: 1; transform: translateX(0);
+    }
+    .processo__step.seen .processo__step-content { opacity: 0.55; }
+
     .processo__step-tag {
-      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--c-cobre); margin-bottom: 6px;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--c-cobre); margin-bottom: 10px;
+    }
+    .processo__step-tag::before {
+      content: ''; width: 14px; height: 1px;
+      background: currentColor; opacity: 0.6; flex-shrink: 0;
     }
     .processo__step-title {
-      font-family: var(--f-heading); font-weight: 700; font-size: 1.1rem;
-      color: var(--c-creme); margin-bottom: 8px;
+      font-family: var(--f-heading); font-weight: 700; font-size: 1.12rem;
+      color: var(--c-creme); margin-bottom: 10px; line-height: 1.3;
     }
     .processo__step-body {
-      font-size: 0.88rem; color: rgba(239,227,214,0.55); line-height: 1.7; max-width: 52ch;
+      font-size: 0.88rem; color: rgba(239,227,214,0.52);
+      line-height: 1.75; max-width: 52ch;
+      transition: color 0.4s ease;
     }
+    .processo__step.active .processo__step-body {
+      color: rgba(239,227,214,0.75);
+    }
+
+    /* progress counter */
+    .processo__counter {
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; margin-top: 64px;
+    }
+    .processo__counter-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(239,227,214,0.18);
+      transition: background 0.4s ease, transform 0.4s var(--ease-out);
+    }
+    .processo__counter-dot.active {
+      background: var(--c-cobre);
+      transform: scale(1.5);
+    }
+    .processo__counter-dot.seen { background: rgba(161,79,42,0.5); }
 
     /* =========================================================
        SECTION: BENEFÍCIOS
     ========================================================= */
-    .beneficios { background: var(--c-creme-2); }
-    .beneficios__head { text-align: center; max-width: 560px; margin: 0 auto 60px; }
-    .beneficios__grid {
-      display: grid; gap: 16px;
-    }
-    @media (min-width: 480px) { .beneficios__grid { grid-template-columns: 1fr 1fr; } }
-    @media (min-width: 900px) { .beneficios__grid { grid-template-columns: repeat(3, 1fr); } }
-    .beneficio-card {
-      background: var(--c-creme); border: 1px solid rgba(161,79,42,0.1);
-      border-radius: var(--r-lg); padding: 32px;
-      transition: transform var(--dur-base) var(--ease-out),
-                  box-shadow var(--dur-base) var(--ease-out);
-    }
-    @media (hover:hover) { .beneficio-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(161,79,42,0.1); } }
-    .beneficio-card__icon {
-      width: 48px; height: 48px; border-radius: var(--r-sm);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem; margin-bottom: 20px;
-    }
-    .beneficio-card__icon--terra { background: rgba(161,79,42,0.1); }
-    .beneficio-card__icon--verde { background: rgba(66,84,56,0.1); }
-    .beneficio-card__icon--cobre { background: rgba(201,122,82,0.12); }
-    .beneficio-card__title {
-      font-family: var(--f-heading); font-weight: 700; font-size: 1rem;
-      color: var(--c-preto); margin-bottom: 10px;
-    }
-    .beneficio-card__body {
-      font-size: 0.88rem; color: rgba(30,26,23,0.6); line-height: 1.7;
-    }
-
-    /* large feature card */
-    .beneficio-feature {
-      grid-column: 1 / -1;
-      background: linear-gradient(135deg, var(--c-mogno) 0%, var(--c-preto) 100%);
-      border-radius: var(--r-lg); padding: 48px;
-      display: grid; gap: 32px; align-items: center;
+    .beneficios {
+      background: var(--c-creme-2);
       position: relative; overflow: hidden;
     }
-    @media (min-width: 640px) { .beneficio-feature { grid-template-columns: 1fr 1fr; } }
-    .beneficio-feature__pattern {
-      position: absolute; inset: 0; opacity: 0.06;
-      background-image: url("pattern.svg"); background-size: 160px;
+    .beneficios::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 55% 45% at 92% 2%, rgba(161,79,42,0.055) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 35% at 4% 98%, rgba(66,84,56,0.04) 0%, transparent 55%);
+      pointer-events: none;
     }
-    .beneficio-feature__content { position: relative; z-index: 1; }
+
+    .beneficios__inner { position: relative; z-index: 1; }
+
+    .beneficios__head {
+      max-width: 620px;
+      margin-bottom: 60px;
+    }
+    .beneficios__head .display-md { margin-top: 12px; }
+
+    /* Two-column layout */
+    .beneficios__layout {
+      display: grid;
+      gap: 48px;
+      align-items: start;
+    }
+    @media (min-width: 960px) {
+      .beneficios__layout {
+        grid-template-columns: 1fr 348px;
+        gap: 80px;
+      }
+    }
+
+    /* Benefit rows list */
+    .beneficios__list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .benef-row {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 8px 20px;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(161,79,42,0.09);
+      position: relative;
+      cursor: default;
+      transition: border-color var(--dur-base) ease;
+    }
+
+    /* Animated left accent bar */
+    .benef-row::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--c-terra) 0%, var(--c-cobre) 100%);
+      border-radius: 2px;
+      transform: scaleY(0);
+      transform-origin: top center;
+      transition: transform 0.4s var(--ease-out);
+    }
+
+    /* Background highlight */
+    .benef-row::after {
+      content: '';
+      position: absolute;
+      inset: 4px -12px;
+      border-radius: var(--r-sm);
+      background: rgba(161,79,42,0.0);
+      transition: background var(--dur-base) ease;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    @media (hover:hover) {
+      .benef-row:hover { border-color: rgba(161,79,42,0.0); }
+      .benef-row:hover::before { transform: scaleY(1); }
+      .benef-row:hover::after { background: rgba(161,79,42,0.03); }
+      .benef-row:hover .benef-row__num { color: var(--c-terra); opacity: 1; }
+      .benef-row:hover .benef-row__icon { opacity: 1; transform: scale(1.05); }
+      .benef-row:hover .benef-row__title { color: var(--c-terra); }
+    }
+
+    /* Column 1: editorial number */
+    .benef-row__num {
+      font-family: var(--f-editorial);
+      font-style: italic;
+      font-size: 2.1rem;
+      color: rgba(161,79,42,0.2);
+      line-height: 1;
+      padding-top: 3px;
+      grid-row: 1;
+      transition: color var(--dur-base) ease, opacity var(--dur-base) ease;
+      user-select: none;
+    }
+
+    /* Column 2: icon + meta + body */
+    .benef-row__content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .benef-row__meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .benef-row__icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      opacity: 0.75;
+      transition: opacity var(--dur-base) ease, transform var(--dur-base) var(--ease-out);
+    }
+    .benef-row__icon--terra { background: rgba(161,79,42,0.1); }
+    .benef-row__icon--verde { background: rgba(66,84,56,0.1); }
+    .benef-row__icon--cobre { background: rgba(201,122,82,0.12); }
+
+    .benef-row__title {
+      font-family: var(--f-heading);
+      font-weight: 700;
+      font-size: 0.97rem;
+      color: var(--c-preto);
+      line-height: 1.25;
+      transition: color var(--dur-fast) ease;
+    }
+
+    .benef-row__body {
+      font-size: 0.865rem;
+      color: rgba(30,26,23,0.52);
+      line-height: 1.73;
+    }
+
+    .benef-row__tag {
+      display: inline-flex;
+      align-self: flex-start;
+      margin-top: 10px;
+      font-size: 0.63rem;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: var(--r-pill);
+    }
+    .benef-row__tag--terra { background: rgba(161,79,42,0.08); color: var(--c-terra); }
+    .benef-row__tag--verde { background: rgba(66,84,56,0.08); color: var(--c-verde); }
+    .benef-row__tag--cobre { background: rgba(201,122,82,0.1); color: #9d5e38; }
+
+    /* Sticky aside */
+    .beneficios__aside {
+      position: sticky;
+      top: 96px;
+    }
+
+    /* Feature card (full redesign) */
+    .beneficio-feature {
+      background: linear-gradient(155deg, #5A2412 0%, #0E0A08 100%);
+      border-radius: var(--r-lg);
+      padding: 36px 32px 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(14,10,8,0.22), 0 2px 0 rgba(201,122,82,0.12) inset;
+    }
+
+    /* texture */
+    .beneficio-feature__bg {
+      position: absolute; inset: 0;
+      background-image: url("pattern.svg");
+      background-size: 120px;
+      opacity: 0.05;
+    }
+
+    /* warm glow at top-right */
+    .beneficio-feature__glow {
+      position: absolute;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(201,122,82,0.18) 0%, transparent 68%);
+      top: -80px; right: -60px;
+      pointer-events: none;
+    }
+
+    /* subtle ring */
+    .beneficio-feature__ring {
+      position: absolute;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,122,82,0.09);
+      top: -100px; right: -100px;
+      pointer-events: none;
+    }
+    .beneficio-feature__ring::after {
+      content: '';
+      position: absolute;
+      inset: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,122,82,0.06);
+    }
+
+    .beneficio-feature__inner { position: relative; z-index: 1; }
+
     .beneficio-feature__label {
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--c-cobre); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.67rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--c-cobre); margin-bottom: 22px;
     }
-    .beneficio-feature__title {
-      font-family: var(--f-heading); font-weight: 800;
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      color: var(--c-creme); line-height: 1.2; margin-bottom: 16px;
+    .beneficio-feature__label::before {
+      content: ''; width: 22px; height: 1px; background: var(--c-cobre); flex-shrink: 0;
     }
-    .beneficio-feature__body {
-      font-size: 0.92rem; color: rgba(239,227,214,0.6);
-      line-height: 1.75; max-width: 46ch;
-    }
-    .beneficio-feature__cta { position: relative; z-index: 1; text-align: center; }
+
     .beneficio-feature__editorial {
-      font-family: var(--f-editorial); font-style: italic;
-      font-size: 1.5rem; color: rgba(239,227,214,0.5);
-      line-height: 1.4; margin-bottom: 24px;
+      font-family: var(--f-editorial);
+      font-style: italic;
+      font-size: clamp(1.65rem, 2.2vw, 2.05rem);
+      color: var(--c-creme);
+      line-height: 1.35;
+      margin-bottom: 18px;
+    }
+
+    .beneficio-feature__body {
+      font-size: 0.835rem;
+      color: rgba(239,227,214,0.48);
+      line-height: 1.75;
+      margin-bottom: 26px;
+    }
+
+    /* Proof points */
+    .beneficio-feature__proof {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      margin-bottom: 28px;
+      padding: 18px 20px;
+      background: rgba(255,255,255,0.04);
+      border-radius: var(--r-sm);
+      border: 1px solid rgba(239,227,214,0.07);
+    }
+
+    .benef-proof-item {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 0.82rem;
+      color: rgba(239,227,214,0.68);
+      line-height: 1.4;
+    }
+
+    .benef-proof-item__check {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: rgba(161,79,42,0.38);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .benef-proof-item__check svg {
+      width: 9px; height: 9px;
+    }
+
+    .beneficio-feature__btn {
+      display: flex;
+      width: 100%;
+    }
+    .beneficio-feature__btn .btn {
+      flex: 1;
+      justify-content: center;
     }
 
     /* =========================================================
@@ -831,11 +1557,18 @@
     .reveal-delay-5 { transition-delay: 400ms; }
 
     @media (prefers-reduced-motion: reduce) {
-      .reveal, .btn, .para-quem__card, .beneficio-card, .faq__body,
-      .hero__trust-dot, .wa-float {
+      .reveal, .btn, .step-card, .beneficio-card, .faq__body,
+      .hero__trust-dot, .wa-float, .resolve__item::before {
         transition: none !important; animation: none !important;
         opacity: 1 !important; transform: none !important;
       }
+      .processo__step-content {
+        opacity: 1 !important; transform: none !important;
+      }
+      .processo__step.active .processo__step-num {
+        animation: none !important;
+      }
+      .processo__rail-fill { transition: none !important; }
       html { scroll-behavior: auto; }
     }
 
@@ -843,7 +1576,6 @@
        RESPONSIVE HELPERS
     ========================================================= */
     @media (max-width: 899px) {
-      .hero__card { max-width: 480px; }
       .sobre__deco-line { display: none; }
     }
     @media (max-width: 480px) {
@@ -871,6 +1603,7 @@
 
       <ul class="nav__links" role="list">
         <li><a href="#sobre" class="nav__link">Sobre a Eleva</a></li>
+        <li><a href="#atuacao" class="nav__link">Atuação</a></li>
         <li><a href="#processo" class="nav__link">Como funciona</a></li>
         <li><a href="#beneficios" class="nav__link">Benefícios</a></li>
         <li><a href="#faq" class="nav__link">Dúvidas</a></li>
@@ -892,7 +1625,8 @@
 
 <!-- mobile menu -->
 <nav class="nav__mobile" id="mobile-menu" aria-label="Menu mobile" role="dialog" aria-modal="true">
-  <a href="#sobre"   class="nav__mobile-link" data-close-menu>Sobre</a>
+  <a href="#sobre"    class="nav__mobile-link" data-close-menu>Sobre</a>
+  <a href="#atuacao"  class="nav__mobile-link" data-close-menu>Atuação</a>
   <a href="#processo" class="nav__mobile-link" data-close-menu>Processo</a>
   <a href="#beneficios" class="nav__mobile-link" data-close-menu>Benefícios</a>
   <a href="#faq" class="nav__mobile-link" data-close-menu>Dúvidas</a>
@@ -928,21 +1662,20 @@
 
         <p class="hero__tagline reveal reveal-delay-2">
           A isenção que você tem direito,<br />
-          sem a confusão que ninguém merece enfrentar.
+          sem a confusão que ninguém quer enfrentar.
         </p>
 
         <p class="hero__body reveal reveal-delay-3">
-          A Eleva Isenções é uma assessoria especializada que orienta, organiza e acompanha pessoas com deficiência em cada etapa do processo de isenção na aquisição de veículo — com clareza, responsabilidade e presença real.
+          Atuamos na orientação e no acompanhamento de pessoas com deficiência que buscam acesso a direitos, benefícios e isenções, especialmente nos processos ligados à aquisição de veículos, sempre com clareza, segurança e suporte de verdade.
         </p>
 
         <div class="hero__actions reveal reveal-delay-4">
           <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+quero+analisar+meu+caso+de+isen%C3%A7%C3%A3o+PCD."
              class="btn btn--terra" target="_blank" rel="noopener noreferrer"
-             aria-label="Solicitar análise de caso pelo WhatsApp">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-            Solicitar análise de caso
+             aria-label="Falar com a Equipe pelo WhatsApp">
+            Falar com a Equipe
           </a>
-          <a href="#sobre" class="btn btn--outline-creme">
+          <a href="#sobre" class="btn btn--outline-terra">
             Conhecer a Eleva
           </a>
         </div>
@@ -959,46 +1692,65 @@
         </div>
       </div>
 
-      <aside class="hero__card reveal reveal-delay-2" aria-label="O que a Eleva oferece">
-        <p class="hero__card-label">A Eleva organiza o caminho</p>
-        <ul class="hero__card-items" role="list">
-          <li class="hero__card-item">
-            <span class="hero__card-icon" aria-hidden="true">🔍</span>
-            <div>
-              <p class="hero__card-item-title">Análise de elegibilidade</p>
-              <p class="hero__card-item-text">Entendemos o seu caso antes de qualquer passo.</p>
-            </div>
-          </li>
-          <li class="hero__card-item">
-            <span class="hero__card-icon" aria-hidden="true">📋</span>
-            <div>
-              <p class="hero__card-item-title">Organização documental</p>
-              <p class="hero__card-item-text">Cada documento no lugar certo, no momento certo.</p>
-            </div>
-          </li>
-          <li class="hero__card-item">
-            <span class="hero__card-icon" aria-hidden="true">🤝</span>
-            <div>
-              <p class="hero__card-item-title">Acompanhamento real</p>
-              <p class="hero__card-item-text">Presente em cada etapa, sem deixar você sozinho.</p>
-            </div>
-          </li>
-          <li class="hero__card-item">
-            <span class="hero__card-icon" aria-hidden="true">✅</span>
-            <div>
-              <p class="hero__card-item-title">Avanço para aquisição</p>
-              <p class="hero__card-item-text">Do direito à chave do veículo, com segurança.</p>
-            </div>
-          </li>
-        </ul>
-        <div class="hero__card-cta">
-          <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+gostaria+de+uma+an%C3%A1lise+do+meu+caso."
-             class="btn btn--terra" target="_blank" rel="noopener noreferrer" style="width:100%">
-            Quero analisar meu caso
-          </a>
-          <p class="hero__card-note">Contato sem compromisso. Sem burocracia.</p>
+      <div class="hero__visual reveal reveal-delay-2">
+        <div class="hero__img-wrap">
+          <img src="foto1.webp" alt="Pessoa com deficiência utilizando notebook e celular" loading="eager" width="460" height="614" />
         </div>
-      </aside>
+        <div class="hero__floating-cards">
+          <div class="hero__float-card reveal reveal-delay-2">
+            <span class="hero__float-card-icon" aria-hidden="true">🔍</span>
+            <div>
+              <p class="hero__float-card-title">Análise de elegibilidade</p>
+              <p class="hero__float-card-text">Entendemos o seu caso antes de qualquer passo.</p>
+            </div>
+          </div>  
+          <div class="hero__float-card reveal reveal-delay-4">
+            <span class="hero__float-card-icon" aria-hidden="true">🤝</span>
+            <div>
+              <p class="hero__float-card-title">Acompanhamento real</p>
+              <p class="hero__float-card-text">Presente em cada etapa, sem deixar você sozinho.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     MARCAS TRABALHADAS
+========================================================= -->
+<section class="marcas" aria-label="Marcas com as quais trabalhamos">
+  <div class="marcas__header">
+    <span class="marcas__line" aria-hidden="true"></span>
+    <span class="marcas__label">Marcas trabalhadas</span>
+    <span class="marcas__line marcas__line--right" aria-hidden="true"></span>
+  </div>
+
+  <div class="marcas__track-wrap" aria-hidden="true">
+    <div class="marcas__track">
+      <!-- set A -->
+      <span class="marcas__item"><img src="marca10.webp" alt="Volkswagen" loading="lazy" /></span>
+      <span class="marcas__item"><img src="marca3.webp"  alt="Hyundai"    loading="lazy" /></span>
+      <span class="marcas__item"><img src="marca7.webp"  alt="Fiat"       loading="lazy" /></span>
+      <span class="marcas__item"><img src="marca6.webp"  alt="Chevrolet"  loading="lazy" /></span>
+      <span class="marcas__item"><img src="marca5.webp"  alt="Jeep"       loading="lazy" /></span>
+      <span class="marcas__item"><img src="marca4.webp"  alt="Honda"      loading="lazy" /></span>
+      <span class="marcas__item"><img src="marca2.webp"  alt="Nissan"     loading="lazy" /></span>
+      <span class="marcas__item"><img src="marca1.webp"  alt="Peugeot"    loading="lazy" /></span>
+      <span class="marcas__item"><img src="marca8.webp"  alt="Chery"      loading="lazy" /></span>
+      <span class="marcas__item"><img src="marca9.webp"  alt="Citroën"    loading="lazy" /></span>
+      <!-- set B — duplicado para loop sem costura -->
+      <span class="marcas__item"><img src="marca10.webp" alt="Volkswagen" loading="lazy" /></span>
+      <span class="marcas__item"><img src="marca3.webp"  alt="Hyundai"    loading="lazy" /></span>
+      <span class="marcas__item"><img src="marca7.webp"  alt="Fiat"       loading="lazy" /></span>
+      <span class="marcas__item"><img src="marca6.webp"  alt="Chevrolet"  loading="lazy" /></span>
+      <span class="marcas__item"><img src="marca5.webp"  alt="Jeep"       loading="lazy" /></span>
+      <span class="marcas__item"><img src="marca4.webp"  alt="Honda"      loading="lazy" /></span>
+      <span class="marcas__item"><img src="marca2.webp"  alt="Nissan"     loading="lazy" /></span>
+      <span class="marcas__item"><img src="marca1.webp"  alt="Peugeot"    loading="lazy" /></span>
+      <span class="marcas__item"><img src="marca8.webp"  alt="Chery"      loading="lazy" /></span>
+      <span class="marcas__item"><img src="marca9.webp"  alt="Citroën"    loading="lazy" /></span>
     </div>
   </div>
 </section>
@@ -1007,11 +1759,12 @@
      SOBRE A ELEVA
 ========================================================= -->
 <section class="sobre section" id="sobre" aria-labelledby="sobre-title">
+  <div class="sobre__pattern" aria-hidden="true"></div>
   <div class="wrap">
     <div class="sobre__inner">
       <div class="sobre__visual reveal">
         <div class="sobre__img-wrap">
-          <img src="fotohero.webp" alt="Pessoa com deficiência conversando com a equipe da Eleva Isenções"
+          <img src="fotohero.webp" alt="Kelly, fundadora da Eleva Isenções"
                loading="lazy" width="680" height="510"
                onerror="this.parentElement.style.background='linear-gradient(135deg,#6B3019,#1E1A17)'" />
           <div class="sobre__img-overlay" aria-hidden="true"></div>
@@ -1024,7 +1777,7 @@
       </div>
 
       <div class="sobre__content">
-        <p class="section-label reveal">Quem somos</p>
+        <p class="section-label reveal" style="color: rgba(239,227,214,0.55);">Quem somos</p>
         <h2 class="display-md sobre__title reveal reveal-delay-1" id="sobre-title">
           Uma assessoria feita para quem precisa de clareza, não de mais complicação.
         </h2>
@@ -1065,58 +1818,216 @@
 <!-- =========================================================
      PARA QUEM ATUA
 ========================================================= -->
-<section class="para-quem section" id="para-quem" aria-labelledby="para-quem-title">
+<section class="assessoria section" id="para-quem" aria-labelledby="assessoria-title">
   <div class="wrap">
-    <header class="para-quem__head">
+    <header class="assessoria__head">
       <p class="section-label reveal">Para quem é a Eleva</p>
-      <h2 class="display-md reveal reveal-delay-1" id="para-quem-title">
+      <h2 class="display-md reveal reveal-delay-1" id="assessoria-title">
         A isenção existe para você — independente da situação.
       </h2>
       <p class="body-md reveal reveal-delay-2" style="color:rgba(30,26,23,0.6); margin-top:14px;">
-        A lei prevê isenção para diferentes perfis de PCD. Entenda se o seu caso se enquadra.
+        Selecione o seu perfil e veja como a Eleva conduz o processo para o seu caso.
       </p>
     </header>
 
-    <ul class="para-quem__grid" role="list">
-      <li class="para-quem__card reveal">
-        <div class="para-quem__icon" aria-hidden="true">🚗</div>
-        <h3 class="para-quem__card-title">PCD condutora</h3>
-        <p class="para-quem__card-body">
-          Pessoa com deficiência que dirige o próprio veículo. Tem direito a isenções específicas na aquisição, mediante laudo e condições adequadas.
-        </p>
-        <ul class="para-quem__card-items" role="list">
-          <li class="para-quem__card-item">Deficiência física com laudo</li>
-          <li class="para-quem__card-item">Adaptação do veículo se necessário</li>
-          <li class="para-quem__card-item">Orientação sobre habilitação especial</li>
-        </ul>
-      </li>
+    <!-- Tab navigation -->
+    <div class="assessoria__tabs reveal reveal-delay-2">
+      <div class="assessoria__tab-list" role="tablist" aria-label="Perfis de atendimento">
+        <button class="assessoria__tab-btn"
+                role="tab" aria-selected="true"
+                aria-controls="panel-condutor" id="tab-condutor">
+          <span class="assessoria__tab-icon" aria-hidden="true">🚗</span>
+          Condutores
+        </button>
+        <button class="assessoria__tab-btn"
+                role="tab" aria-selected="false"
+                aria-controls="panel-nao-condutor" id="tab-nao-condutor">
+          <span class="assessoria__tab-icon" aria-hidden="true">🧑‍🦽</span>
+          Não Condutores
+        </button>
+        <button class="assessoria__tab-btn"
+                role="tab" aria-selected="false"
+                aria-controls="panel-renovacao" id="tab-renovacao">
+          <span class="assessoria__tab-icon" aria-hidden="true">🔄</span>
+          Renovação de Isenção
+        </button>
+      </div>
+    </div>
 
-      <li class="para-quem__card reveal reveal-delay-1">
-        <div class="para-quem__icon" aria-hidden="true">🧑‍🦽</div>
-        <h3 class="para-quem__card-title">PCD não condutora</h3>
-        <p class="para-quem__card-body">
-          Pessoa com deficiência que não conduz, mas utiliza o veículo como meio de mobilidade essencial — com condutor designado.
-        </p>
-        <ul class="para-quem__card-items" role="list">
-          <li class="para-quem__card-item">Deficiência severa ou mobilidade reduzida</li>
-          <li class="para-quem__card-item">Condutor regular documentado</li>
-          <li class="para-quem__card-item">Documentação específica exigida</li>
-        </ul>
-      </li>
+    <!-- Panel: Condutores -->
+    <div class="assessoria__panel active" id="panel-condutor"
+         role="tabpanel" aria-labelledby="tab-condutor">
+      <div class="assessoria__grid">
 
-      <li class="para-quem__card reveal reveal-delay-2">
-        <div class="para-quem__icon" aria-hidden="true">👨‍👩‍👧</div>
-        <h3 class="para-quem__card-title">Familiares e responsáveis</h3>
-        <p class="para-quem__card-body">
-          Responsáveis por pessoas com deficiência que dependem do veículo para acesso à saúde, trabalho e vida social.
-        </p>
-        <ul class="para-quem__card-items" role="list">
-          <li class="para-quem__card-item">Guardião legal ou curador</li>
-          <li class="para-quem__card-item">Dependência comprovada no laudo</li>
-          <li class="para-quem__card-item">Orientação completa sobre requisitos</li>
-        </ul>
-      </li>
-    </ul>
+        <article class="step-card step-card--first reveal">
+          <span class="step-card__num" aria-hidden="true">1</span>
+          <p class="step-card__step-label">Passo 01</p>
+          <h3 class="step-card__title">Avaliação Gratuita</h3>
+          <p class="step-card__body">Confirme com um especialista se o seu laudo médico e exames te dão direito às isenções — sem custo e sem compromisso.</p>
+          <a href="https://wa.me/5500000000000?text=Quero+fazer+minha+avalia%C3%A7%C3%A3o+gratuita."
+             class="step-card__cta" target="_blank" rel="noopener noreferrer">
+            Fazer avaliação <span class="step-card__cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="step-card reveal reveal-delay-1">
+          <span class="step-card__num" aria-hidden="true">2</span>
+          <p class="step-card__step-label">Passo 02</p>
+          <h3 class="step-card__title">Consulta com Especialista</h3>
+          <p class="step-card__body">Avaliação da sua patologia, orientação sobre exames necessários e suporte para a elaboração do relatório médico correto.</p>
+          <a href="https://wa.me/5500000000000" class="step-card__cta" target="_blank" rel="noopener noreferrer">
+            Falar com a equipe <span class="step-card__cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="step-card reveal reveal-delay-2">
+          <span class="step-card__num" aria-hidden="true">3</span>
+          <p class="step-card__step-label">Passo 03</p>
+          <h3 class="step-card__title">Biometria e Perícia</h3>
+          <p class="step-card__body">Suporte completo para o agendamento de biometria e perícia junto ao DETRAN, com orientação em cada etapa do fluxo.</p>
+          <a href="https://wa.me/5500000000000" class="step-card__cta" target="_blank" rel="noopener noreferrer">
+            Entender o processo <span class="step-card__cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="step-card reveal reveal-delay-3">
+          <span class="step-card__num" aria-hidden="true">4</span>
+          <p class="step-card__step-label">Passo 04</p>
+          <h3 class="step-card__title">Transformação de CNH</h3>
+          <p class="step-card__body">Orientação para a habilitação especial e suporte em todo o processo de adaptação da CNH quando o perfil exigir.</p>
+          <a href="https://wa.me/5500000000000" class="step-card__cta" target="_blank" rel="noopener noreferrer">
+            Saiba mais <span class="step-card__cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="step-card reveal reveal-delay-4">
+          <span class="step-card__num" aria-hidden="true">5</span>
+          <p class="step-card__step-label">Passo 05</p>
+          <h3 class="step-card__title">Laudo Médico</h3>
+          <p class="step-card__body">Orientação na obtenção e organização do laudo médico exigido — documento central em todo o processo de isenção.</p>
+          <a href="https://wa.me/5500000000000" class="step-card__cta" target="_blank" rel="noopener noreferrer">
+            Entender o laudo <span class="step-card__cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="step-card reveal reveal-delay-5">
+          <span class="step-card__num" aria-hidden="true">6</span>
+          <p class="step-card__step-label">Passo 06</p>
+          <h3 class="step-card__title">Processos de Isenção</h3>
+          <p class="step-card__body">Conduzimos as solicitações de IPI, IOF, ICMS e IPVA — identificando quais se aplicam e acompanhando cada tramitação.</p>
+          <a href="https://wa.me/5500000000000" class="step-card__cta" target="_blank" rel="noopener noreferrer">
+            Iniciar processo <span class="step-card__cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- Panel: Não Condutores -->
+    <div class="assessoria__panel" id="panel-nao-condutor"
+         role="tabpanel" aria-labelledby="tab-nao-condutor">
+      <div class="assessoria__grid">
+
+        <article class="step-card step-card--first">
+          <span class="step-card__num" aria-hidden="true">1</span>
+          <p class="step-card__step-label">Passo 01</p>
+          <h3 class="step-card__title">Avaliação Gratuita</h3>
+          <p class="step-card__body">Analisamos seu perfil e documentos para confirmar se há direito à isenção como não condutor — sem custo inicial.</p>
+          <a href="https://wa.me/5500000000000?text=Quero+fazer+minha+avalia%C3%A7%C3%A3o+gratuita."
+             class="step-card__cta" target="_blank" rel="noopener noreferrer">
+            Fazer avaliação <span class="step-card__cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="step-card">
+          <span class="step-card__num" aria-hidden="true">2</span>
+          <p class="step-card__step-label">Passo 02</p>
+          <h3 class="step-card__title">Relatório Médico</h3>
+          <p class="step-card__body">Orientação para a elaboração do relatório médico adequado ao perfil de não condutor — documento decisivo para aprovação das isenções.</p>
+          <a href="https://wa.me/5500000000000" class="step-card__cta" target="_blank" rel="noopener noreferrer">
+            Entender o processo <span class="step-card__cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="step-card">
+          <span class="step-card__num" aria-hidden="true">3</span>
+          <p class="step-card__step-label">Passo 03</p>
+          <h3 class="step-card__title">Laudo Médico</h3>
+          <p class="step-card__body">Suporte na obtenção do laudo específico para não condutores, com orientação sobre o tipo de documento exigido em cada instância.</p>
+          <a href="https://wa.me/5500000000000" class="step-card__cta" target="_blank" rel="noopener noreferrer">
+            Saber mais <span class="step-card__cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="step-card">
+          <span class="step-card__num" aria-hidden="true">4</span>
+          <p class="step-card__step-label">Passo 04</p>
+          <h3 class="step-card__title">Processos de Isenção</h3>
+          <p class="step-card__body">Conduzimos as solicitações de IPI, IOF, ICMS e IPVA para não condutores, acompanhando cada benefício aplicável ao caso.</p>
+          <a href="https://wa.me/5500000000000" class="step-card__cta" target="_blank" rel="noopener noreferrer">
+            Iniciar processo <span class="step-card__cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- Panel: Renovação -->
+    <div class="assessoria__panel" id="panel-renovacao"
+         role="tabpanel" aria-labelledby="tab-renovacao">
+      <div class="assessoria__grid">
+
+        <article class="step-card step-card--first">
+          <span class="step-card__num" aria-hidden="true">1</span>
+          <p class="step-card__step-label">Passo 01</p>
+          <h3 class="step-card__title">Já tem CNH Especial?</h3>
+          <p class="step-card__body">Se você já possui CNH especial e quer renovar as isenções, a Eleva conduz todas as etapas do processo de renovação com você.</p>
+          <a href="https://wa.me/5500000000000?text=Quero+renovar+minhas+isen%C3%A7%C3%B5es."
+             class="step-card__cta" target="_blank" rel="noopener noreferrer">
+            Iniciar renovação <span class="step-card__cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="step-card">
+          <span class="step-card__num" aria-hidden="true">2</span>
+          <p class="step-card__step-label">Passo 02</p>
+          <h3 class="step-card__title">Laudo Médico Atualizado</h3>
+          <p class="step-card__body">Verificamos se o laudo está dentro da validade e orientamos na atualização necessária para manter todos os benefícios fiscais.</p>
+          <a href="https://wa.me/5500000000000" class="step-card__cta" target="_blank" rel="noopener noreferrer">
+            Verificar laudo <span class="step-card__cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="step-card">
+          <span class="step-card__num" aria-hidden="true">3</span>
+          <p class="step-card__step-label">Passo 03</p>
+          <h3 class="step-card__title">Renovação das Cartas de Isenção</h3>
+          <p class="step-card__body">Conduzimos o processo de renovação das cartas de isenção para a aquisição de um novo veículo com todos os benefícios aplicáveis.</p>
+          <a href="https://wa.me/5500000000000" class="step-card__cta" target="_blank" rel="noopener noreferrer">
+            Renovar isenções <span class="step-card__cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <div class="assessoria__renovacao-banner">
+          <div class="assessoria__renovacao-banner-content">
+            <h3 class="assessoria__renovacao-banner-title">
+              Vai trocar de carro e precisa renovar suas cartas?
+            </h3>
+            <p class="assessoria__renovacao-banner-sub">
+              Nossa equipe especializada em renovação está pronta para conduzir o processo.
+            </p>
+          </div>
+          <div class="assessoria__renovacao-banner-cta">
+            <a href="https://wa.me/5500000000000?text=Quero+renovar+minhas+cartas+de+isen%C3%A7%C3%A3o."
+               class="btn btn--terra" target="_blank" rel="noopener noreferrer">
+              Falar com a equipe de renovação
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1136,64 +2047,277 @@
       </p>
     </header>
 
-    <div class="resolve__grid" role="list">
-      <article class="resolve__item reveal" role="listitem">
+    <!-- role="list" restores VoiceOver list semantics when list-style:none is applied (Safari bug) -->
+    <ol class="resolve__grid" role="list">
+
+      <li class="resolve__item reveal">
         <div class="resolve__item-num" aria-hidden="true">01</div>
-        <p class="resolve__dor">"Não sei se tenho direito"</p>
-        <span class="resolve__arrow" aria-hidden="true"></span>
-        <p class="resolve__ganho">Clareza sobre a elegibilidade</p>
-        <p class="resolve__desc">Analisamos o seu caso com atenção antes de qualquer passo, para que você saiba exatamente onde está.</p>
-      </article>
+        <div class="resolve__antes">
+          <span class="resolve__zone-label resolve__zone-label--antes">Antes</span>
+          <p class="resolve__dor">"Não sei se tenho direito"</p>
+        </div>
+        <div class="resolve__arrow" aria-hidden="true">
+          <span class="resolve__arrow-line"></span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" focusable="false">
+            <path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="resolve__depois">
+          <span class="resolve__zone-label resolve__zone-label--depois">Depois</span>
+          <p class="resolve__ganho">Clareza sobre a elegibilidade</p>
+          <p class="resolve__desc">Analisamos o seu caso com atenção antes de qualquer passo, para que você saiba exatamente onde está.</p>
+        </div>
+      </li>
 
-      <article class="resolve__item reveal reveal-delay-1" role="listitem">
+      <li class="resolve__item reveal reveal-delay-1">
         <div class="resolve__item-num" aria-hidden="true">02</div>
-        <p class="resolve__dor">"A burocracia parece interminável"</p>
-        <span class="resolve__arrow" aria-hidden="true"></span>
-        <p class="resolve__ganho">Processo organizado em etapas</p>
-        <p class="resolve__desc">Dividimos o processo em etapas claras e cuidamos da sequência para você não se perder.</p>
-      </article>
+        <div class="resolve__antes">
+          <span class="resolve__zone-label resolve__zone-label--antes">Antes</span>
+          <p class="resolve__dor">"A burocracia parece interminável"</p>
+        </div>
+        <div class="resolve__arrow" aria-hidden="true">
+          <span class="resolve__arrow-line"></span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" focusable="false">
+            <path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="resolve__depois">
+          <span class="resolve__zone-label resolve__zone-label--depois">Depois</span>
+          <p class="resolve__ganho">Processo organizado em etapas</p>
+          <p class="resolve__desc">Dividimos o processo em etapas claras e cuidamos da sequência para você não se perder.</p>
+        </div>
+      </li>
 
-      <article class="resolve__item reveal reveal-delay-2" role="listitem">
+      <li class="resolve__item reveal reveal-delay-2">
         <div class="resolve__item-num" aria-hidden="true">03</div>
-        <p class="resolve__dor">"Não sei quais documentos juntar"</p>
-        <span class="resolve__arrow" aria-hidden="true"></span>
-        <p class="resolve__ganho">Checklist preciso e orientado</p>
-        <p class="resolve__desc">Cada documento, em cada instância. Sem retrabalho, sem idas desnecessárias.</p>
-      </article>
+        <div class="resolve__antes">
+          <span class="resolve__zone-label resolve__zone-label--antes">Antes</span>
+          <p class="resolve__dor">"Não sei quais documentos juntar"</p>
+        </div>
+        <div class="resolve__arrow" aria-hidden="true">
+          <span class="resolve__arrow-line"></span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" focusable="false">
+            <path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="resolve__depois">
+          <span class="resolve__zone-label resolve__zone-label--depois">Depois</span>
+          <p class="resolve__ganho">Checklist preciso e orientado</p>
+          <p class="resolve__desc">Cada documento, em cada instância. Sem retrabalho, sem idas desnecessárias.</p>
+        </div>
+      </li>
 
-      <article class="resolve__item reveal" role="listitem">
+      <li class="resolve__item reveal">
         <div class="resolve__item-num" aria-hidden="true">04</div>
-        <p class="resolve__dor">"Me perco com tantos órgãos"</p>
-        <span class="resolve__arrow" aria-hidden="true"></span>
-        <p class="resolve__ganho">Direcionamento específico</p>
-        <p class="resolve__desc">Identificamos qual isenção se aplica e junto a qual órgão tratar — sem confusão entre Receita, DETRAN e Sefaz.</p>
-      </article>
+        <div class="resolve__antes">
+          <span class="resolve__zone-label resolve__zone-label--antes">Antes</span>
+          <p class="resolve__dor">"Me perco com tantos órgãos"</p>
+        </div>
+        <div class="resolve__arrow" aria-hidden="true">
+          <span class="resolve__arrow-line"></span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" focusable="false">
+            <path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="resolve__depois">
+          <span class="resolve__zone-label resolve__zone-label--depois">Depois</span>
+          <p class="resolve__ganho">Direcionamento específico</p>
+          <p class="resolve__desc">Identificamos qual isenção se aplica e junto a qual órgão tratar — sem confusão entre Receita, DETRAN e Sefaz.</p>
+        </div>
+      </li>
 
-      <article class="resolve__item reveal reveal-delay-1" role="listitem">
+      <li class="resolve__item reveal reveal-delay-1">
         <div class="resolve__item-num" aria-hidden="true">05</div>
-        <p class="resolve__dor">"Tenho medo de errar e perder o benefício"</p>
-        <span class="resolve__arrow" aria-hidden="true"></span>
-        <p class="resolve__ganho">Segurança em cada decisão</p>
-        <p class="resolve__desc">Acompanhamos cada passo para que as decisões sejam tomadas com base em informação real, não em suposição.</p>
+        <div class="resolve__antes">
+          <span class="resolve__zone-label resolve__zone-label--antes">Antes</span>
+          <p class="resolve__dor">"Tenho medo de errar e perder o benefício"</p>
+        </div>
+        <div class="resolve__arrow" aria-hidden="true">
+          <span class="resolve__arrow-line"></span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" focusable="false">
+            <path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="resolve__depois">
+          <span class="resolve__zone-label resolve__zone-label--depois">Depois</span>
+          <p class="resolve__ganho">Segurança em cada decisão</p>
+          <p class="resolve__desc">Acompanhamos cada passo para que as decisões sejam tomadas com base em informação real, não em suposição.</p>
+        </div>
+      </li>
+
+      <li class="resolve__item reveal reveal-delay-2">
+        <div class="resolve__item-num" aria-hidden="true">06</div>
+        <div class="resolve__antes">
+          <span class="resolve__zone-label resolve__zone-label--antes">Antes</span>
+          <p class="resolve__dor">"Estou sozinho nesse processo"</p>
+        </div>
+        <div class="resolve__arrow" aria-hidden="true">
+          <span class="resolve__arrow-line"></span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" focusable="false">
+            <path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="resolve__depois">
+          <span class="resolve__zone-label resolve__zone-label--depois">Depois</span>
+          <p class="resolve__ganho">Apoio humano e constante</p>
+          <p class="resolve__desc">Você não enfrenta isso sozinho. A Eleva está presente, responde dúvidas e orienta em tempo real.</p>
+        </div>
+      </li>
+
+    </ol>
+  </div>
+</section>
+
+<!-- =========================================================
+     ÁREA DE ATUAÇÃO
+========================================================= -->
+<section class="atuacao section" id="atuacao" aria-labelledby="atuacao-title">
+  <div class="atuacao__bg" aria-hidden="true"></div>
+  <div class="wrap atuacao__inner">
+
+    <header class="atuacao__head">
+      <p class="section-label reveal">Área de atuação</p>
+      <h2 class="display-md atuacao__title reveal reveal-delay-1" id="atuacao-title">
+        Não existe benefício pequeno<br>quando é seu direito.
+      </h2>
+      <p class="atuacao__intro reveal reveal-delay-2">
+        A legislação garante muito mais do que a maioria conhece. A Eleva mapeia cada benefício disponível para pessoas com deficiência e cuida do processo com você — do início ao resultado.
+      </p>
+    </header>
+
+    <div class="atuacao__grid">
+
+      <!-- ① Feature: Isenção na compra de veículo -->
+      <article class="atuacao__card atuacao__card--feature reveal">
+        <div class="atuacao__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" focusable="false">
+            <path d="M5 8.5L6.5 5h7L15 8.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="2.5" y="8.5" width="15" height="5.5" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M2.5 11h15" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="6" cy="14" r="1.3" fill="currentColor"/>
+            <circle cx="14" cy="14" r="1.3" fill="currentColor"/>
+          </svg>
+        </div>
+        <span class="atuacao__badge">Isenção Fiscal</span>
+        <h3 class="atuacao__card-name">Isenção na compra de veículo</h3>
+        <p class="atuacao__card-desc">A assessoria mais procurada — e a mais complexa. Organizamos cada etapa da isenção de IPI, IOF, ICMS e IPVA, com atenção a cada requisito da Receita Federal, montadora e DETRAN. Cada detalhe, no tempo certo.</p>
+        <a href="#processo" class="atuacao__card-link">
+          Ver como funciona
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" focusable="false" aria-hidden="true">
+            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
       </article>
 
-      <article class="resolve__item reveal reveal-delay-2" role="listitem">
-        <div class="resolve__item-num" aria-hidden="true">06</div>
-        <p class="resolve__dor">"Estou sozinho nesse processo"</p>
-        <span class="resolve__arrow" aria-hidden="true"></span>
-        <p class="resolve__ganho">Apoio humano e constante</p>
-        <p class="resolve__desc">Você não enfrenta isso sozinho. A Eleva está presente, responde dúvidas e orienta em tempo real.</p>
+      <!-- ② Cartão de Estacionamento -->
+      <article class="atuacao__card reveal reveal-delay-1">
+        <div class="atuacao__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" focusable="false">
+            <rect x="2" y="4.5" width="16" height="11" rx="2" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M2 7.5h16" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="5.5" cy="12" r="1" fill="currentColor"/>
+            <path d="M8.5 10.5h4M8.5 12.5h2.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="atuacao__badge">Mobilidade Urbana</span>
+        <h3 class="atuacao__card-name">Cartão de Estacionamento PCD</h3>
+        <p class="atuacao__card-desc">Um direito reconhecido, burocrático na prática. Orientamos o processo junto ao órgão responsável — sem filas, sem retrabalho.</p>
       </article>
+
+      <!-- ③ SIM / CID no RG -->
+      <article class="atuacao__card reveal">
+        <div class="atuacao__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" focusable="false">
+            <rect x="2" y="4" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="7" cy="10" r="2" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M12 8.5h3M12 11.5h2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="atuacao__badge">Identificação</span>
+        <h3 class="atuacao__card-name">SIM — Novo RG com CID</h3>
+        <p class="atuacao__card-desc">Incluir a CID no novo documento de identidade facilita o acesso a outros benefícios. A Eleva orienta cada detalhe desse processo junto ao órgão emissor.</p>
+      </article>
+
+      <!-- ④ Aposentadoria (Terceirizado) -->
+      <article class="atuacao__card reveal reveal-delay-1">
+        <div class="atuacao__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" focusable="false">
+            <circle cx="9.5" cy="5.5" r="2.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M4 17c0-3.038 2.462-5.5 5.5-5.5s5.5 2.462 5.5 5.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M14.5 9v5M12 11.5h5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="atuacao__badge">Previdência Social</span>
+        <h3 class="atuacao__card-name">Aposentadoria (Terceirizado)</h3>
+        <p class="atuacao__card-desc">Para trabalhadores terceirizados com deficiência, orientamos o processo junto ao INSS para garantir a aposentadoria no momento certo, com todos os direitos preservados.</p>
+      </article>
+
+      <!-- ⑤ Alvará Judicial -->
+      <article class="atuacao__card reveal reveal-delay-2">
+        <div class="atuacao__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" focusable="false">
+            <path d="M4.5 15.5l6.5-6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <rect x="9.8" y="3.2" width="3.5" height="7" rx="1" transform="rotate(45 9.8 3.2)" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M3 17h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="atuacao__badge">Via Judicial</span>
+        <h3 class="atuacao__card-name">Alvará Judicial</h3>
+        <p class="atuacao__card-desc">Quando a via administrativa não basta, indicamos o caminho jurídico correto para que o benefício seja garantido por decisão judicial.</p>
+      </article>
+
+      <!-- ⑥ Isenção de IPVA -->
+      <article class="atuacao__card reveal">
+        <div class="atuacao__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" focusable="false">
+            <rect x="3" y="4" width="14" height="13" rx="2" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M3 8.5h14" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M7 3v2.5M13 3v2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M7 13l2 2 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="atuacao__badge">Imposto Estadual</span>
+        <h3 class="atuacao__card-name">Isenção de IPVA</h3>
+        <p class="atuacao__card-desc">Muitos têm direito e não sabem. Orientamos o processo junto à Secretaria da Fazenda do estado para isentar o IPVA do veículo já adquirido.</p>
+      </article>
+
+      <!-- ⑦ Isenção de Imposto de Renda -->
+      <article class="atuacao__card reveal reveal-delay-1">
+        <div class="atuacao__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" focusable="false">
+            <path d="M10 2l7 3v5c0 4-3.5 7-7 8-3.5-1-7-4-7-8V5l7-3z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            <path d="M7.5 12.5l5-5M8 8a.5.5 0 110-1 .5.5 0 010 1zM12 12a.5.5 0 110-1 .5.5 0 010 1z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="atuacao__badge">Imposto Federal</span>
+        <h3 class="atuacao__card-name">Isenção de Imposto de Renda</h3>
+        <p class="atuacao__card-desc">Pessoas com deficiência ou doença grave podem ter isenção total do IRPF sobre proventos de aposentadoria, reforma ou pensão. A Eleva orienta como solicitar e manter esse direito.</p>
+      </article>
+
+      <!-- ⑧ CTA card -->
+      <div class="atuacao__card atuacao__card--cta reveal reveal-delay-2" role="complementary" aria-label="Consulta gratuita">
+        <p class="atuacao__cta-label">Consulta gratuita</p>
+        <p class="atuacao__cta-text">Ainda tem dúvida sobre qual benefício é o seu?</p>
+        <p class="atuacao__cta-sub">Fale com a Eleva. A análise inicial é gratuita e sem compromisso — só para entender o seu caso.</p>
+        <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+gostaria+de+entender+meu+caso+de+isen%C3%A7%C3%A3o+PCD."
+           class="btn btn--terra"
+           target="_blank" rel="noopener noreferrer">
+          Consulta gratuita
+        </a>
+      </div>
+
     </div>
   </div>
 </section>
 
 <!-- =========================================================
-     COMO FUNCIONA O PROCESSO
+     COMO FUNCIONA O PROCESSO — MÉTODO ELEVA
 ========================================================= -->
 <section class="processo section" id="processo" aria-labelledby="processo-title">
   <div class="processo__pattern" aria-hidden="true"></div>
   <div class="wrap processo__inner">
+
     <header class="processo__head">
       <p class="section-label processo__head-label reveal">Método Eleva</p>
       <h2 class="display-md processo__title reveal reveal-delay-1" id="processo-title">
@@ -1204,77 +2328,102 @@
       </p>
     </header>
 
-    <ol class="processo__steps" aria-label="Etapas do processo de isenção">
-      <li class="processo__step active reveal">
-        <div class="processo__step-left" aria-hidden="true">
-          <div class="processo__step-num">1</div>
-          <div class="processo__step-line"></div>
-        </div>
-        <div class="processo__step-content">
-          <p class="processo__step-tag">Início</p>
-          <h3 class="processo__step-title">Análise inicial do caso</h3>
-          <p class="processo__step-body">
-            Entendemos a sua situação: tipo de deficiência, perfil de uso do veículo, documentos disponíveis e histórico. Antes de qualquer passo, há clareza sobre o que é possível.
-          </p>
-        </div>
-      </li>
+    <div class="processo__timeline">
 
-      <li class="processo__step reveal reveal-delay-1">
-        <div class="processo__step-left" aria-hidden="true">
-          <div class="processo__step-num">2</div>
-          <div class="processo__step-line"></div>
-        </div>
-        <div class="processo__step-content">
-          <p class="processo__step-tag">Estratégia</p>
-          <h3 class="processo__step-title">Direcionamento do processo</h3>
-          <p class="processo__step-body">
-            Identificamos quais isenções se aplicam — IPI, IOF, ICMS, IPVA — e quais órgãos e instâncias precisam ser acionados. Definimos o caminho mais eficiente para o seu caso.
-          </p>
-        </div>
-      </li>
+      <!-- shared animated rail -->
+      <div class="processo__rail" aria-hidden="true">
+        <div class="processo__rail-fill" id="processoRailFill"></div>
+      </div>
 
-      <li class="processo__step reveal reveal-delay-2">
-        <div class="processo__step-left" aria-hidden="true">
-          <div class="processo__step-num">3</div>
-          <div class="processo__step-line"></div>
-        </div>
-        <div class="processo__step-content">
-          <p class="processo__step-tag">Organização</p>
-          <h3 class="processo__step-title">Organização documental</h3>
-          <p class="processo__step-body">
-            Elaboramos o checklist completo e orientamos na obtenção de cada documento — laudo médico, habilitação, certidões e demais requisitos. Sem retrabalho, sem surpresas.
-          </p>
-        </div>
-      </li>
+      <ol class="processo__steps" aria-label="Etapas do processo de isenção">
 
-      <li class="processo__step reveal reveal-delay-3">
-        <div class="processo__step-left" aria-hidden="true">
-          <div class="processo__step-num">4</div>
-          <div class="processo__step-line"></div>
-        </div>
-        <div class="processo__step-content">
-          <p class="processo__step-tag">Suporte</p>
-          <h3 class="processo__step-title">Acompanhamento ativo</h3>
-          <p class="processo__step-body">
-            Estamos presentes durante a tramitação, orientando sobre prazos, respondendo dúvidas e garantindo que o processo avance sem perda de informação ou prazo.
-          </p>
-        </div>
-      </li>
+        <li class="processo__step" data-step="0">
+          <div class="processo__step-node" aria-hidden="true">
+            <div class="processo__step-num">
+              <span class="processo__step-num-text">1</span>
+            </div>
+          </div>
+          <div class="processo__step-content">
+            <p class="processo__step-tag">Início</p>
+            <h3 class="processo__step-title">Análise inicial do caso</h3>
+            <p class="processo__step-body">
+              Entendemos a sua situação: tipo de deficiência, perfil de uso do veículo, documentos disponíveis e histórico. Antes de qualquer passo, há clareza sobre o que é possível.
+            </p>
+          </div>
+        </li>
 
-      <li class="processo__step reveal reveal-delay-4">
-        <div class="processo__step-left" aria-hidden="true">
-          <div class="processo__step-num">5</div>
-          <div class="processo__step-line"></div>
-        </div>
-        <div class="processo__step-content">
-          <p class="processo__step-tag">Conquista</p>
-          <h3 class="processo__step-title">Aquisição do veículo</h3>
-          <p class="processo__step-body">
-            Com as isenções aplicadas e o processo concluído, você avança com segurança para a escolha e aquisição do veículo — com clareza sobre o que foi obtido e como usar o benefício.
-          </p>
-        </div>
-      </li>
-    </ol>
+        <li class="processo__step" data-step="1">
+          <div class="processo__step-node" aria-hidden="true">
+            <div class="processo__step-num">
+              <span class="processo__step-num-text">2</span>
+            </div>
+          </div>
+          <div class="processo__step-content">
+            <p class="processo__step-tag">Estratégia</p>
+            <h3 class="processo__step-title">Direcionamento do processo</h3>
+            <p class="processo__step-body">
+              Identificamos quais isenções se aplicam — IPI, IOF, ICMS, IPVA — e quais órgãos precisam ser acionados. Definimos o caminho mais eficiente para o seu caso.
+            </p>
+          </div>
+        </li>
+
+        <li class="processo__step" data-step="2">
+          <div class="processo__step-node" aria-hidden="true">
+            <div class="processo__step-num">
+              <span class="processo__step-num-text">3</span>
+            </div>
+          </div>
+          <div class="processo__step-content">
+            <p class="processo__step-tag">Organização</p>
+            <h3 class="processo__step-title">Organização documental</h3>
+            <p class="processo__step-body">
+              Elaboramos o checklist completo e orientamos na obtenção de cada documento — laudo médico, habilitação, certidões e demais requisitos. Sem retrabalho, sem surpresas.
+            </p>
+          </div>
+        </li>
+
+        <li class="processo__step" data-step="3">
+          <div class="processo__step-node" aria-hidden="true">
+            <div class="processo__step-num">
+              <span class="processo__step-num-text">4</span>
+            </div>
+          </div>
+          <div class="processo__step-content">
+            <p class="processo__step-tag">Suporte</p>
+            <h3 class="processo__step-title">Acompanhamento ativo</h3>
+            <p class="processo__step-body">
+              Estamos presentes durante a tramitação, orientando sobre prazos, respondendo dúvidas e garantindo que o processo avance sem perda de informação ou prazo.
+            </p>
+          </div>
+        </li>
+
+        <li class="processo__step" data-step="4">
+          <div class="processo__step-node" aria-hidden="true">
+            <div class="processo__step-num">
+              <span class="processo__step-num-text">5</span>
+            </div>
+          </div>
+          <div class="processo__step-content">
+            <p class="processo__step-tag">Conquista</p>
+            <h3 class="processo__step-title">Aquisição do veículo</h3>
+            <p class="processo__step-body">
+              Com as isenções aplicadas e o processo concluído, você avança com segurança para a escolha e aquisição do veículo — com clareza total sobre o benefício obtido.
+            </p>
+          </div>
+        </li>
+
+      </ol>
+    </div>
+
+    <!-- step counter dots -->
+    <div class="processo__counter" aria-hidden="true" id="processoCounter">
+      <span class="processo__counter-dot" data-dot="0"></span>
+      <span class="processo__counter-dot" data-dot="1"></span>
+      <span class="processo__counter-dot" data-dot="2"></span>
+      <span class="processo__counter-dot" data-dot="3"></span>
+      <span class="processo__counter-dot" data-dot="4"></span>
+    </div>
+
   </div>
 </section>
 
@@ -1283,83 +2432,152 @@
 ========================================================= -->
 <section class="beneficios section" id="beneficios" aria-labelledby="beneficios-title">
   <div class="wrap">
-    <header class="beneficios__head">
-      <p class="section-label reveal">Por que contar com a Eleva</p>
-      <h2 class="display-md reveal reveal-delay-1" id="beneficios-title">
-        O que muda quando o processo tem alguém organizado ao seu lado.
-      </h2>
-    </header>
+    <div class="beneficios__inner">
 
-    <div class="beneficios__grid">
-      <article class="beneficio-card reveal">
-        <div class="beneficio-card__icon beneficio-card__icon--terra" aria-hidden="true">🧭</div>
-        <h3 class="beneficio-card__title">Mais clareza desde o início</h3>
-        <p class="beneficio-card__body">
-          Você entende o que tem direito, o que é necessário e o que pode esperar — sem depender de informações contraditórias da internet.
-        </p>
-      </article>
+      <!-- Header -->
+      <header class="beneficios__head">
+        <p class="section-label reveal">Por que contar com a Eleva</p>
+        <h2 class="display-md reveal reveal-delay-1" id="beneficios-title">
+          O que muda quando o processo tem<br>alguém organizado ao seu lado.
+        </h2>
+      </header>
 
-      <article class="beneficio-card reveal reveal-delay-1">
-        <div class="beneficio-card__icon beneficio-card__icon--verde" aria-hidden="true">🛡️</div>
-        <h3 class="beneficio-card__title">Mais segurança em cada decisão</h3>
-        <p class="beneficio-card__body">
-          Cada passo é tomado com orientação especializada, reduzindo o risco de erros que podem atrasar ou inviabilizar o processo.
-        </p>
-      </article>
+      <!-- Split layout: rows + sticky card -->
+      <div class="beneficios__layout">
 
-      <article class="beneficio-card reveal reveal-delay-2">
-        <div class="beneficio-card__icon beneficio-card__icon--cobre" aria-hidden="true">⚡</div>
-        <h3 class="beneficio-card__title">Menos tempo perdido</h3>
-        <p class="beneficio-card__body">
-          A organização prévia e o acompanhamento ativo reduzem idas desnecessárias a órgãos, reenvio de documentos e esperas evitáveis.
-        </p>
-      </article>
+        <!-- Benefit rows -->
+        <div class="beneficios__list" role="list">
 
-      <article class="beneficio-card reveal">
-        <div class="beneficio-card__icon beneficio-card__icon--verde" aria-hidden="true">📦</div>
-        <h3 class="beneficio-card__title">Processo mais organizado</h3>
-        <p class="beneficio-card__body">
-          Nada fica perdido. Cada documento, prazo e instância tem seu lugar definido dentro de um método estruturado e claro.
-        </p>
-      </article>
+          <article class="benef-row reveal" role="listitem">
+            <span class="benef-row__num" aria-hidden="true">01</span>
+            <div class="benef-row__content">
+              <div class="benef-row__meta">
+                <span class="benef-row__icon benef-row__icon--terra" aria-hidden="true">🧭</span>
+                <h3 class="benef-row__title">Mais clareza desde o início</h3>
+              </div>
+              <p class="benef-row__body">Você entende o que tem direito, o que é necessário e o que pode esperar — sem depender de informações contraditórias da internet.</p>
+              <span class="benef-row__tag benef-row__tag--terra">Clareza</span>
+            </div>
+          </article>
 
-      <article class="beneficio-card reveal reveal-delay-1">
-        <div class="beneficio-card__icon beneficio-card__icon--terra" aria-hidden="true">💬</div>
-        <h3 class="beneficio-card__title">Apoio especializado e humano</h3>
-        <p class="beneficio-card__body">
-          Você não precisa decifrar legislação ou entender burocracias sozinho. A equipe da Eleva traduz cada exigência em ação concreta.
-        </p>
-      </article>
+          <article class="benef-row reveal reveal-delay-1" role="listitem">
+            <span class="benef-row__num" aria-hidden="true">02</span>
+            <div class="benef-row__content">
+              <div class="benef-row__meta">
+                <span class="benef-row__icon benef-row__icon--verde" aria-hidden="true">🛡️</span>
+                <h3 class="benef-row__title">Mais segurança em cada decisão</h3>
+              </div>
+              <p class="benef-row__body">Cada passo é tomado com orientação especializada, reduzindo o risco de erros que podem atrasar ou inviabilizar o processo.</p>
+              <span class="benef-row__tag benef-row__tag--verde">Segurança</span>
+            </div>
+          </article>
 
-      <article class="beneficio-card reveal reveal-delay-2">
-        <div class="beneficio-card__icon beneficio-card__icon--cobre" aria-hidden="true">🌿</div>
-        <h3 class="beneficio-card__title">Mais tranquilidade para avançar</h3>
-        <p class="beneficio-card__body">
-          Saber que há alguém organizado conduzindo o processo permite que você avance com mais leveza e foque no que realmente importa.
-        </p>
-      </article>
+          <article class="benef-row reveal reveal-delay-2" role="listitem">
+            <span class="benef-row__num" aria-hidden="true">03</span>
+            <div class="benef-row__content">
+              <div class="benef-row__meta">
+                <span class="benef-row__icon benef-row__icon--cobre" aria-hidden="true">⚡</span>
+                <h3 class="benef-row__title">Menos tempo perdido</h3>
+              </div>
+              <p class="benef-row__body">A organização prévia e o acompanhamento ativo reduzem idas desnecessárias a órgãos, reenvio de documentos e esperas evitáveis.</p>
+              <span class="benef-row__tag benef-row__tag--cobre">Agilidade</span>
+            </div>
+          </article>
 
-      <!-- feature card -->
-      <div class="beneficio-feature reveal">
-        <div class="beneficio-feature__pattern" aria-hidden="true"></div>
-        <div class="beneficio-feature__content">
-          <p class="beneficio-feature__label">Nossa missão</p>
-          <h3 class="beneficio-feature__title">
-            Um direito que existe no papel deve existir também na prática.
-          </h3>
-          <p class="beneficio-feature__body">
-            A Eleva existe para que a isenção deixe de ser um processo intimidador e se torne uma conquista real — acessível, compreensível e segura para quem tem esse direito.
-          </p>
+          <article class="benef-row reveal" role="listitem">
+            <span class="benef-row__num" aria-hidden="true">04</span>
+            <div class="benef-row__content">
+              <div class="benef-row__meta">
+                <span class="benef-row__icon benef-row__icon--verde" aria-hidden="true">📋</span>
+                <h3 class="benef-row__title">Processo mais organizado</h3>
+              </div>
+              <p class="benef-row__body">Nada fica perdido. Cada documento, prazo e instância tem seu lugar definido dentro de um método estruturado e claro.</p>
+              <span class="benef-row__tag benef-row__tag--verde">Organização</span>
+            </div>
+          </article>
+
+          <article class="benef-row reveal reveal-delay-1" role="listitem">
+            <span class="benef-row__num" aria-hidden="true">05</span>
+            <div class="benef-row__content">
+              <div class="benef-row__meta">
+                <span class="benef-row__icon benef-row__icon--terra" aria-hidden="true">💬</span>
+                <h3 class="benef-row__title">Apoio especializado e humano</h3>
+              </div>
+              <p class="benef-row__body">Você não precisa decifrar legislação ou entender burocracias sozinho. A equipe da Eleva traduz cada exigência em ação concreta.</p>
+              <span class="benef-row__tag benef-row__tag--terra">Suporte</span>
+            </div>
+          </article>
+
+          <article class="benef-row reveal reveal-delay-2" role="listitem">
+            <span class="benef-row__num" aria-hidden="true">06</span>
+            <div class="benef-row__content">
+              <div class="benef-row__meta">
+                <span class="benef-row__icon benef-row__icon--cobre" aria-hidden="true">🌿</span>
+                <h3 class="benef-row__title">Mais tranquilidade para avançar</h3>
+              </div>
+              <p class="benef-row__body">Saber que há alguém organizado conduzindo o processo permite que você avance com mais leveza e foque no que realmente importa.</p>
+              <span class="benef-row__tag benef-row__tag--cobre">Leveza</span>
+            </div>
+          </article>
+
         </div>
-        <div class="beneficio-feature__cta">
-          <p class="beneficio-feature__editorial">
-            "Da insegurança<br />à chave do carro."
-          </p>
-          <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+quero+come%C3%A7ar+a+analisar+meu+caso+de+isen%C3%A7%C3%A3o."
-             class="btn btn--terra" target="_blank" rel="noopener noreferrer">
-            Começar agora
-          </a>
-        </div>
+
+        <!-- Sticky feature card -->
+        <aside class="beneficios__aside reveal reveal-delay-1" aria-label="Nossa missão">
+          <div class="beneficio-feature">
+            <div class="beneficio-feature__bg" aria-hidden="true"></div>
+            <div class="beneficio-feature__glow" aria-hidden="true"></div>
+            <div class="beneficio-feature__ring" aria-hidden="true"></div>
+            <div class="beneficio-feature__inner">
+
+              <p class="beneficio-feature__label">Nossa missão</p>
+
+              <blockquote class="beneficio-feature__editorial">
+                "Da insegurança<br>à chave do carro."
+              </blockquote>
+
+              <p class="beneficio-feature__body">
+                A Eleva existe para que a isenção deixe de ser um processo intimidador e se torne uma conquista real — acessível, compreensível e segura para quem tem esse direito.
+              </p>
+
+              <div class="beneficio-feature__proof" aria-label="Nossos compromissos">
+                <div class="benef-proof-item">
+                  <span class="benef-proof-item__check" aria-hidden="true">
+                    <svg viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 4l2.5 2.5L9 1" stroke="#EFE3D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span>Análise do caso sem compromisso</span>
+                </div>
+                <div class="benef-proof-item">
+                  <span class="benef-proof-item__check" aria-hidden="true">
+                    <svg viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 4l2.5 2.5L9 1" stroke="#EFE3D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span>Acompanhamento em todas as etapas</span>
+                </div>
+                <div class="benef-proof-item">
+                  <span class="benef-proof-item__check" aria-hidden="true">
+                    <svg viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 4l2.5 2.5L9 1" stroke="#EFE3D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span>Orientação clara, sem jargão jurídico</span>
+                </div>
+              </div>
+
+              <div class="beneficio-feature__btn">
+                <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+quero+come%C3%A7ar+a+analisar+meu+caso+de+isen%C3%A7%C3%A3o."
+                   class="btn btn--terra" target="_blank" rel="noopener noreferrer">
+                  Começar agora
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </aside>
+
       </div>
     </div>
   </div>
@@ -1635,6 +2853,55 @@
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
   }
 
+  /* ---- Método Eleva — scroll-driven step tracker ---- */
+  (function () {
+    const steps    = Array.from(document.querySelectorAll('.processo__step'));
+    const railFill = document.getElementById('processoRailFill');
+    const dots     = Array.from(document.querySelectorAll('#processoCounter .processo__counter-dot'));
+
+    if (!steps.length || !railFill) return;
+
+    function activate(idx) {
+      steps.forEach((s, i) => {
+        s.classList.remove('active', 'seen');
+        if (i < idx)  s.classList.add('seen');
+        if (i === idx) s.classList.add('active');
+      });
+      dots.forEach((d, i) => {
+        d.classList.remove('active', 'seen');
+        if (i < idx)  d.classList.add('seen');
+        if (i === idx) d.classList.add('active');
+      });
+      // fill from 0% (step 0) to 100% (step 4)
+      const pct = steps.length > 1 ? (idx / (steps.length - 1)) * 100 : 0;
+      railFill.style.height = pct + '%';
+    }
+
+    if (prefersReduced) {
+      // show all steps immediately
+      steps.forEach(s => { s.classList.add('active'); s.style.opacity = '1'; s.style.transform = 'none'; });
+      railFill.style.height = '100%';
+      dots.forEach(d => d.classList.add('seen'));
+      return;
+    }
+
+    // init: first step active
+    activate(0);
+
+    const stepObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const idx = steps.indexOf(entry.target);
+        if (idx !== -1) activate(idx);
+      });
+    }, {
+      threshold: 0.45,
+      rootMargin: '0px 0px -25% 0px'
+    });
+
+    steps.forEach(s => stepObserver.observe(s));
+  })();
+
   /* ---- FAQ accordion ---- */
   document.querySelectorAll('.faq__trigger').forEach(trigger => {
     trigger.addEventListener('click', () => {
@@ -1653,6 +2920,26 @@
 
       trigger.setAttribute('aria-expanded', String(!expanded));
       if (body) body.classList.toggle('open', !expanded);
+    });
+  });
+
+  /* ---- assessoria tabs ---- */
+  document.querySelectorAll('.assessoria__tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('aria-controls');
+
+      // update buttons
+      document.querySelectorAll('.assessoria__tab-btn').forEach(b => {
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.setAttribute('aria-selected', 'true');
+
+      // update panels
+      document.querySelectorAll('.assessoria__panel').forEach(p => {
+        p.classList.remove('active');
+      });
+      const target = document.getElementById(targetId);
+      if (target) target.classList.add('active');
     });
   });
 
