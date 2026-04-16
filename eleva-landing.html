@@ -7,9 +7,24 @@
   <meta name="theme-color" content="#6B3019" />
   <title>Eleva Isenções | Seu direito, nosso compromisso</title>
 
+  <!-- Favicon e Lenis CSS -->
+  <link rel="icon" type="image/svg+xml" href="ELEVA 01S.svg" />
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.18/dist/lenis.css">
+
+  <!-- Resource hints -->
+  <link rel="dns-prefetch" href="https://wa.me" />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;0,700;0,800;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+  <!-- Preload LCP image -->
+  <link rel="preload" href="foto1.webp" as="image" fetchpriority="high" />
+  <!-- Non-blocking Google Fonts: load as print, swap to all on load -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;0,700;0,800;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap"
+        media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;0,700;0,800;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" />
+  </noscript>
 
   <style>
     /* =========================================================
@@ -1094,7 +1109,7 @@
       content: '';
       position: absolute; inset: 0;
       background:
-        radial-gradient(ellipse 55% 45% at 92% 2%, rgba(161,79,42,0.055) 0%, transparent 65%),
+        radial-gradient(ellipse 55% 45% at 92% 2%, rgba(161,79,42,0.05) 0%, transparent 65%),
         radial-gradient(ellipse 40% 35% at 4% 98%, rgba(66,84,56,0.04) 0%, transparent 55%);
       pointer-events: none;
     }
@@ -1103,274 +1118,309 @@
 
     .beneficios__head {
       max-width: 620px;
-      margin-bottom: 60px;
+      margin-bottom: 40px;
     }
     .beneficios__head .display-md { margin-top: 12px; }
 
-    /* Two-column layout */
-    .beneficios__layout {
+    /* ── Bento Grid ─────────────────────────────────────────── */
+    .beneficios__bento {
       display: grid;
-      gap: 48px;
-      align-items: start;
+      gap: 10px;
+      grid-template-columns: 1fr;
     }
-    @media (min-width: 960px) {
-      .beneficios__layout {
-        grid-template-columns: 1fr 348px;
-        gap: 80px;
+
+    @media (min-width: 560px) {
+      .beneficios__bento { grid-template-columns: 1fr 1fr; }
+      .benef-card--w2 { grid-column: span 2; }
+      .benef-card--feature { grid-column: span 2; }
+    }
+
+    @media (min-width: 900px) {
+      .beneficios__bento {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto auto auto;
+      }
+      /* card 03: wide, row 2, cols 1–2 */
+      .benef-card--w2 {
+        grid-column: 1 / 3;
+        grid-row: 2;
+      }
+      /* feature: tall, col 3, rows 1–2 */
+      .benef-card--feature {
+        grid-column: 3;
+        grid-row: 1 / 3;
       }
     }
 
-    /* Benefit rows list */
-    .beneficios__list {
+    /* ── Base card ──────────────────────────────────────────── */
+    .benef-card {
+      background: var(--c-creme);
+      border: 1px solid rgba(161,79,42,0.09);
+      border-radius: var(--r-lg);
+      padding: 26px 26px 22px;
+      position: relative;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-    }
-
-    .benef-row {
-      display: grid;
-      grid-template-columns: 52px 1fr;
-      gap: 8px 20px;
-      padding: 28px 0;
-      border-bottom: 1px solid rgba(161,79,42,0.09);
-      position: relative;
+      min-height: 186px;
       cursor: default;
-      transition: border-color var(--dur-base) ease;
+      transition:
+        transform var(--dur-base) var(--ease-out),
+        box-shadow var(--dur-base) var(--ease-out),
+        border-color var(--dur-base) ease;
     }
 
-    /* Animated left accent bar */
-    .benef-row::before {
-      content: '';
+    /* Large ghost number in top-right corner */
+    .benef-card__deco {
       position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 2px;
-      background: linear-gradient(180deg, var(--c-terra) 0%, var(--c-cobre) 100%);
-      border-radius: 2px;
-      transform: scaleY(0);
-      transform-origin: top center;
-      transition: transform 0.4s var(--ease-out);
-    }
-
-    /* Background highlight */
-    .benef-row::after {
-      content: '';
-      position: absolute;
-      inset: 4px -12px;
-      border-radius: var(--r-sm);
-      background: rgba(161,79,42,0.0);
-      transition: background var(--dur-base) ease;
+      top: 8px; right: 14px;
+      font-family: var(--f-editorial);
+      font-style: italic;
+      font-size: 4.8rem;
+      line-height: 1;
+      color: rgba(161,79,42,0.06);
+      user-select: none;
       pointer-events: none;
-      z-index: -1;
+      transition:
+        color var(--dur-slow) ease,
+        transform var(--dur-slow) var(--ease-out);
     }
 
     @media (hover:hover) {
-      .benef-row:hover { border-color: rgba(161,79,42,0.0); }
-      .benef-row:hover::before { transform: scaleY(1); }
-      .benef-row:hover::after { background: rgba(161,79,42,0.03); }
-      .benef-row:hover .benef-row__num { color: var(--c-terra); opacity: 1; }
-      .benef-row:hover .benef-row__icon { opacity: 1; transform: scale(1.05); }
-      .benef-row:hover .benef-row__title { color: var(--c-terra); }
+      .benef-card:not(.benef-card--feature):hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 56px rgba(161,79,42,0.10);
+        border-color: rgba(161,79,42,0.20);
+      }
+      .benef-card:hover .benef-card__deco {
+        color: rgba(161,79,42,0.13);
+        transform: scale(1.07) translateY(-3px) rotate(-2deg);
+      }
+      .benef-card:hover .benef-card__icon { transform: scale(1.1); }
+      .benef-card:hover .benef-card__title { color: var(--c-terra); }
     }
 
-    /* Column 1: editorial number */
-    .benef-row__num {
-      font-family: var(--f-editorial);
-      font-style: italic;
-      font-size: 2.1rem;
-      color: rgba(161,79,42,0.2);
-      line-height: 1;
-      padding-top: 3px;
-      grid-row: 1;
-      transition: color var(--dur-base) ease, opacity var(--dur-base) ease;
-      user-select: none;
-    }
-
-    /* Column 2: icon + meta + body */
-    .benef-row__content {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .benef-row__meta {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 8px;
-    }
-
-    .benef-row__icon {
-      width: 32px; height: 32px;
-      border-radius: 8px;
+    .benef-card__icon {
+      width: 38px; height: 38px;
+      border-radius: var(--r-sm);
       display: flex; align-items: center; justify-content: center;
-      font-size: 0.9rem;
+      font-size: 1rem;
+      margin-bottom: 14px;
       flex-shrink: 0;
-      opacity: 0.75;
-      transition: opacity var(--dur-base) ease, transform var(--dur-base) var(--ease-out);
+      position: relative; z-index: 1;
+      transition: transform var(--dur-base) var(--ease-out);
     }
-    .benef-row__icon--terra { background: rgba(161,79,42,0.1); }
-    .benef-row__icon--verde { background: rgba(66,84,56,0.1); }
-    .benef-row__icon--cobre { background: rgba(201,122,82,0.12); }
+    .benef-card__icon--terra { background: rgba(161,79,42,0.10); }
+    .benef-card__icon--verde { background: rgba(66,84,56,0.10); }
+    .benef-card__icon--cobre { background: rgba(201,122,82,0.12); }
 
-    .benef-row__title {
+    .benef-card__title {
       font-family: var(--f-heading);
       font-weight: 700;
-      font-size: 0.97rem;
+      font-size: 0.95rem;
       color: var(--c-preto);
       line-height: 1.25;
+      margin-bottom: 8px;
+      position: relative; z-index: 1;
       transition: color var(--dur-fast) ease;
     }
 
-    .benef-row__body {
-      font-size: 0.865rem;
+    .benef-card__body {
+      font-size: 0.825rem;
       color: rgba(30,26,23,0.52);
-      line-height: 1.73;
+      line-height: 1.70;
+      flex: 1;
+      position: relative; z-index: 1;
     }
 
-    .benef-row__tag {
+    .benef-card__tag {
       display: inline-flex;
       align-self: flex-start;
-      margin-top: 10px;
-      font-size: 0.63rem;
+      margin-top: 14px;
+      font-size: 0.61rem;
       font-weight: 700;
       letter-spacing: 0.11em;
       text-transform: uppercase;
       padding: 4px 10px;
       border-radius: var(--r-pill);
+      position: relative; z-index: 1;
     }
-    .benef-row__tag--terra { background: rgba(161,79,42,0.08); color: var(--c-terra); }
-    .benef-row__tag--verde { background: rgba(66,84,56,0.08); color: var(--c-verde); }
-    .benef-row__tag--cobre { background: rgba(201,122,82,0.1); color: #9d5e38; }
+    .benef-card__tag--terra { background: rgba(161,79,42,0.08); color: var(--c-terra); }
+    .benef-card__tag--verde { background: rgba(66,84,56,0.08); color: var(--c-verde); }
+    .benef-card__tag--cobre { background: rgba(201,122,82,0.10); color: #9d5e38; }
 
-    /* Sticky aside */
-    .beneficios__aside {
-      position: sticky;
-      top: 96px;
+    /* ── Wide card (card 03) — horizontal on desktop ────────── */
+    @media (min-width: 900px) {
+      .benef-card--w2 {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 32px;
+        min-height: 160px;
+      }
+      .benef-card--w2 .benef-card__left {
+        display: flex; flex-direction: column;
+        flex: 1;
+      }
+      .benef-card--w2 .benef-card__right {
+        flex: 1;
+        padding-top: 2px;
+      }
+      .benef-card--w2 .benef-card__icon { margin-bottom: 10px; }
     }
 
-    /* Feature card (full redesign) */
-    .beneficio-feature {
-      background: linear-gradient(155deg, #5A2412 0%, #0E0A08 100%);
-      border-radius: var(--r-lg);
-      padding: 36px 32px 40px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 32px 80px rgba(14,10,8,0.22), 0 2px 0 rgba(201,122,82,0.12) inset;
+    /* ── Feature card (dark, tall) ──────────────────────────── */
+    .benef-card--feature {
+      background: linear-gradient(155deg, #5A2412 0%, #0D0906 100%);
+      border-color: rgba(201,122,82,0.14);
+      min-height: 340px;
+      box-shadow:
+        0 2px 0 rgba(201,122,82,0.10) inset,
+        0 24px 64px rgba(14,10,8,0.18);
     }
 
-    /* texture */
-    .beneficio-feature__bg {
+    .benef-card--feature:hover {
+      transform: none !important;
+      box-shadow:
+        0 2px 0 rgba(201,122,82,0.10) inset,
+        0 0 0 1px rgba(201,122,82,0.22);
+    }
+
+    /* texture overlay */
+    .benef-feat__bg {
       position: absolute; inset: 0;
       background-image: url("pattern.svg");
-      background-size: 120px;
+      background-size: 110px;
       opacity: 0.05;
     }
 
-    /* warm glow at top-right */
-    .beneficio-feature__glow {
+    /* glow orb */
+    .benef-feat__glow {
       position: absolute;
-      width: 260px; height: 260px;
+      width: 280px; height: 280px;
       border-radius: 50%;
-      background: radial-gradient(circle at center, rgba(201,122,82,0.18) 0%, transparent 68%);
-      top: -80px; right: -60px;
+      background: radial-gradient(circle at center, rgba(201,122,82,0.20) 0%, transparent 68%);
+      top: -90px; right: -70px;
       pointer-events: none;
     }
 
-    /* subtle ring */
-    .beneficio-feature__ring {
+    /* concentric rings */
+    .benef-feat__rings {
       position: absolute;
-      width: 320px; height: 320px;
+      width: 340px; height: 340px;
       border-radius: 50%;
       border: 1px solid rgba(201,122,82,0.09);
-      top: -100px; right: -100px;
+      top: -110px; right: -110px;
       pointer-events: none;
     }
-    .beneficio-feature__ring::after {
+    .benef-feat__rings::after {
       content: '';
-      position: absolute;
-      inset: 40px;
+      position: absolute; inset: 44px;
       border-radius: 50%;
       border: 1px solid rgba(201,122,82,0.06);
     }
 
-    .beneficio-feature__inner { position: relative; z-index: 1; }
+    .benef-feat__inner {
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column;
+      height: 100%;
+    }
 
-    .beneficio-feature__label {
+    .benef-feat__label {
       display: flex; align-items: center; gap: 10px;
-      font-size: 0.67rem; font-weight: 700;
+      font-size: 0.66rem; font-weight: 700;
       letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--c-cobre); margin-bottom: 22px;
+      color: var(--c-cobre); margin-bottom: 18px;
     }
-    .beneficio-feature__label::before {
-      content: ''; width: 22px; height: 1px; background: var(--c-cobre); flex-shrink: 0;
+    .benef-feat__label::before {
+      content: ''; width: 20px; height: 1px;
+      background: var(--c-cobre); flex-shrink: 0;
     }
 
-    .beneficio-feature__editorial {
+    .benef-feat__quote {
       font-family: var(--f-editorial);
       font-style: italic;
-      font-size: clamp(1.65rem, 2.2vw, 2.05rem);
+      font-size: clamp(1.55rem, 2vw, 1.9rem);
       color: var(--c-creme);
       line-height: 1.35;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
 
-    .beneficio-feature__body {
-      font-size: 0.835rem;
-      color: rgba(239,227,214,0.48);
+    .benef-feat__body {
+      font-size: 0.81rem;
+      color: rgba(239,227,214,0.46);
       line-height: 1.75;
-      margin-bottom: 26px;
+      margin-bottom: 20px;
     }
 
-    /* Proof points */
-    .beneficio-feature__proof {
+    .benef-feat__proof {
       display: flex;
       flex-direction: column;
-      gap: 11px;
-      margin-bottom: 28px;
-      padding: 18px 20px;
+      gap: 9px;
+      margin-bottom: 22px;
+      padding: 15px 17px;
       background: rgba(255,255,255,0.04);
       border-radius: var(--r-sm);
       border: 1px solid rgba(239,227,214,0.07);
+      flex: 1;
     }
 
-    .benef-proof-item {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      font-size: 0.82rem;
-      color: rgba(239,227,214,0.68);
+    .benef-feat__proof-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.79rem;
+      color: rgba(239,227,214,0.67);
       line-height: 1.4;
     }
 
-    .benef-proof-item__check {
-      width: 18px; height: 18px;
+    .benef-feat__check {
+      width: 16px; height: 16px;
       border-radius: 50%;
-      background: rgba(161,79,42,0.38);
+      background: rgba(161,79,42,0.40);
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
-    .benef-proof-item__check svg {
-      width: 9px; height: 9px;
-    }
+    .benef-feat__check svg { width: 8px; height: 8px; }
 
-    .beneficio-feature__btn {
-      display: flex;
-      width: 100%;
-    }
-    .beneficio-feature__btn .btn {
-      flex: 1;
-      justify-content: center;
-    }
+    .benef-feat__cta { display: flex; }
+    .benef-feat__cta .btn { flex: 1; justify-content: center; }
 
     /* =========================================================
        SECTION: FAQ
     ========================================================= */
-    .faq { background: var(--c-creme); }
-    .faq__inner {
-      display: grid; gap: 56px;
+    .faq { background: var(--c-creme); position: relative; overflow: hidden; }
+    .faq::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 55% 50% at 100% 0%, rgba(201,122,82,0.07) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 40% at 0% 100%, rgba(161,79,42,0.05) 0%, transparent 65%);
+      pointer-events: none;
     }
-    @media (min-width: 900px) { .faq__inner { grid-template-columns: 360px 1fr; gap: 80px; align-items: start; } }
-    .faq__head {}
+    .faq__inner {
+      display: grid; gap: 56px; position: relative; z-index: 1;
+    }
+    @media (min-width: 900px) {
+      .faq__inner { grid-template-columns: 340px 1fr; gap: 80px; align-items: start; }
+    }
+
+    /* Heading column */
+    .faq__head { position: relative; }
+    .faq__head-deco {
+      position: absolute;
+      top: -32px; right: -16px;
+      font-family: var(--f-editorial);
+      font-style: italic;
+      font-size: clamp(9rem, 16vw, 13rem);
+      line-height: 1;
+      color: rgba(161,79,42,0.045);
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -0.04em;
+    }
     .faq__title { margin-bottom: 16px; }
-    .faq__intro { font-size: 0.95rem; color: rgba(30,26,23,0.6); max-width: 36ch; margin-bottom: 32px; }
+    .faq__intro {
+      font-size: 0.95rem; color: rgba(30,26,23,0.6);
+      max-width: 36ch; margin-bottom: 32px; line-height: 1.72;
+    }
     .faq__contact {
       background: var(--c-creme-2); border: 1px solid rgba(161,79,42,0.12);
       border-radius: var(--r-md); padding: 24px;
@@ -1381,40 +1431,98 @@
     }
     .faq__contact-text { font-size: 0.88rem; color: rgba(30,26,23,0.6); margin-bottom: 16px; }
 
-    .faq__list { display: flex; flex-direction: column; gap: 0; }
+    /* Accordion list — card-based */
+    .faq__list { display: flex; flex-direction: column; gap: 8px; }
     .faq__item {
-      border-bottom: 1px solid rgba(161,79,42,0.1);
+      background: rgba(255,255,255,0.52);
+      border: 1px solid rgba(161,79,42,0.10);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      transition:
+        box-shadow var(--dur-base) var(--ease-out),
+        border-color var(--dur-base) ease,
+        background var(--dur-base) ease;
     }
-    .faq__item:first-child { border-top: 1px solid rgba(161,79,42,0.1); }
+    @media (hover:hover) {
+      .faq__item:not(.faq__item--open):hover {
+        box-shadow: 0 6px 28px rgba(161,79,42,0.08);
+        border-color: rgba(161,79,42,0.18);
+        background: rgba(255,255,255,0.75);
+      }
+    }
+    .faq__item--open {
+      background: #fff;
+      border-color: rgba(161,79,42,0.22);
+      box-shadow: 0 10px 40px rgba(161,79,42,0.10);
+      border-left: 3px solid var(--c-cobre);
+    }
+
+    /* Trigger */
     .faq__trigger {
-      width: 100%; display: flex; align-items: center; justify-content: space-between;
-      gap: 16px; padding: 24px 0; text-align: left; cursor: pointer;
+      width: 100%; display: flex; align-items: center;
+      gap: 14px; padding: 20px 22px;
+      text-align: left; cursor: pointer;
       background: transparent; border: none; color: var(--c-preto);
-      font-family: var(--f-heading); font-weight: 600; font-size: 0.98rem;
       transition: color var(--dur-fast) ease;
     }
-    @media (hover:hover) { .faq__trigger:hover { color: var(--c-terra); } }
-    .faq__trigger[aria-expanded="true"] { color: var(--c-terra); }
+    .faq__trigger-num {
+      font-family: var(--f-editorial);
+      font-style: italic;
+      font-size: 1.3rem;
+      color: rgba(161,79,42,0.28);
+      flex-shrink: 0;
+      line-height: 1;
+      min-width: 26px;
+      transition: color var(--dur-base) ease;
+    }
+    .faq__trigger-text {
+      flex: 1;
+      font-family: var(--f-heading); font-weight: 600; font-size: 0.96rem;
+      line-height: 1.4; color: var(--c-preto);
+      transition: color var(--dur-fast) ease;
+    }
+    @media (hover:hover) {
+      .faq__item:not(.faq__item--open):hover .faq__trigger-text { color: var(--c-terra); }
+      .faq__item:not(.faq__item--open):hover .faq__trigger-num { color: rgba(161,79,42,0.52); }
+    }
+    .faq__item--open .faq__trigger-text { color: var(--c-terra); }
+    .faq__item--open .faq__trigger-num { color: var(--c-cobre); }
+
+    /* Cross → minus icon via pseudo-elements */
     .faq__icon {
-      width: 28px; height: 28px; border-radius: 50%;
-      border: 1px solid rgba(161,79,42,0.2);
+      width: 24px; height: 24px;
+      flex-shrink: 0;
+      position: relative;
       display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; font-size: 0.9rem; color: var(--c-terra);
-      transition: transform var(--dur-fast) var(--ease-out),
-                  background var(--dur-fast) ease, border-color var(--dur-fast) ease;
     }
-    .faq__trigger[aria-expanded="true"] .faq__icon {
-      transform: rotate(45deg); background: var(--c-terra); color: var(--c-creme);
-      border-color: var(--c-terra);
+    .faq__icon::before,
+    .faq__icon::after {
+      content: '';
+      position: absolute;
+      background: var(--c-cobre);
+      border-radius: 2px;
+      transition:
+        transform var(--dur-base) var(--ease-out),
+        opacity var(--dur-base) ease;
     }
+    .faq__icon::before { width: 13px; height: 1.5px; }
+    .faq__icon::after  { width: 1.5px; height: 13px; }
+    .faq__item--open .faq__icon::before { background: var(--c-terra); }
+    .faq__item--open .faq__icon::after  {
+      transform: scaleY(0); opacity: 0; background: var(--c-terra);
+    }
+
+    /* Smooth height animation via grid trick */
     .faq__body {
-      overflow: hidden; max-height: 0;
-      transition: max-height var(--dur-slow) var(--ease-out);
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows var(--dur-base) var(--ease-out);
     }
-    .faq__body.open { max-height: 400px; }
-    .faq__body-inner {
-      padding: 0 0 24px;
-      font-size: 0.92rem; color: rgba(30,26,23,0.65); line-height: 1.75;
+    .faq__body.open { grid-template-rows: 1fr; }
+    .faq__body-inner { overflow: hidden; }
+    .faq__body-pad {
+      padding: 0 22px 20px 62px; /* left aligns with trigger text: 22px + 26px num + 14px gap */
+      font-size: 0.92rem; color: rgba(30,26,23,0.62); line-height: 1.78;
     }
 
     /* =========================================================
@@ -1422,6 +1530,7 @@
     ========================================================= */
     .cta-final {
       background: var(--c-preto); position: relative; overflow: hidden;
+      content-visibility: auto; contain-intrinsic-size: 0 540px;
     }
     .cta-final__glow {
       position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
@@ -1453,6 +1562,15 @@
     }
     .cta-final__body { color: rgba(239,227,214,0.6); max-width: 50ch; margin: 0 auto 40px; }
     .cta-final__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-bottom: 40px; }
+    .cta-final__car {
+      width: 100%;
+      max-width: 620px;
+      height: auto;
+      display: block;
+      margin: 8px auto 36px;
+      object-fit: contain;
+      filter: drop-shadow(0 24px 56px rgba(161,79,42,0.30));
+    }
     .cta-final__trust {
       display: flex; flex-wrap: wrap; justify-content: center; gap: 24px;
       padding-top: 32px; border-top: 1px solid rgba(239,227,214,0.08);
@@ -1468,6 +1586,7 @@
     ========================================================= */
     .footer {
       background: #100d0a; padding: 56px 0 32px;
+      content-visibility: auto; contain-intrinsic-size: 0 320px;
     }
     .footer__top {
       display: grid; gap: 40px; margin-bottom: 48px;
@@ -1555,9 +1674,10 @@
     .reveal-delay-3 { transition-delay: 240ms; }
     .reveal-delay-4 { transition-delay: 320ms; }
     .reveal-delay-5 { transition-delay: 400ms; }
+    .reveal-delay-6 { transition-delay: 480ms; }
 
     @media (prefers-reduced-motion: reduce) {
-      .reveal, .btn, .step-card, .beneficio-card, .faq__body,
+      .reveal, .btn, .step-card, .faq__body, .faq__item, .faq__icon::before, .faq__icon::after,
       .hero__trust-dot, .wa-float, .resolve__item::before {
         transition: none !important; animation: none !important;
         opacity: 1 !important; transform: none !important;
@@ -1569,6 +1689,14 @@
         animation: none !important;
       }
       .processo__rail-fill { transition: none !important; }
+      .benef-card {
+        transition: none !important; transform: none !important;
+      }
+      .benef-card__deco, .benef-card__icon, .benef-card__title {
+        transition: none !important;
+      }
+      .faq__body { grid-template-rows: 0fr !important; }
+      .faq__body.open { grid-template-rows: 1fr !important; }
       html { scroll-behavior: auto; }
     }
 
@@ -1581,6 +1709,12 @@
     @media (max-width: 480px) {
       .hero__actions { flex-direction: column; }
       .hero__actions .btn { width: 100%; justify-content: center; }
+    }
+
+    /* Benefícios responsive */
+    @media (max-width: 559px) {
+      .benef-card { min-height: 160px; padding: 22px 20px 18px; }
+      .benef-card__deco { font-size: 3.8rem; }
     }
   </style>
 </head>
@@ -1694,7 +1828,7 @@
 
       <div class="hero__visual reveal reveal-delay-2">
         <div class="hero__img-wrap">
-          <img src="foto1.webp" alt="Pessoa com deficiência utilizando notebook e celular" loading="eager" width="460" height="614" />
+          <img src="foto1.webp" alt="Pessoa com deficiência utilizando notebook e celular" loading="eager" fetchpriority="high" decoding="async" width="460" height="614" />
         </div>
         <div class="hero__floating-cards">
           <div class="hero__float-card reveal reveal-delay-2">
@@ -1765,7 +1899,7 @@
       <div class="sobre__visual reveal">
         <div class="sobre__img-wrap">
           <img src="fotohero.webp" alt="Kelly, fundadora da Eleva Isenções"
-               loading="lazy" width="680" height="510"
+               loading="lazy" decoding="async" width="680" height="510"
                onerror="this.parentElement.style.background='linear-gradient(135deg,#6B3019,#1E1A17)'" />
           <div class="sobre__img-overlay" aria-hidden="true"></div>
         </div>
@@ -2434,7 +2568,6 @@
   <div class="wrap">
     <div class="beneficios__inner">
 
-      <!-- Header -->
       <header class="beneficios__head">
         <p class="section-label reveal">Por que contar com a Eleva</p>
         <h2 class="display-md reveal reveal-delay-1" id="beneficios-title">
@@ -2442,141 +2575,112 @@
         </h2>
       </header>
 
-      <!-- Split layout: rows + sticky card -->
-      <div class="beneficios__layout">
+      <!-- Bento grid: 3×3 on desktop, 2-col tablet, 1-col mobile  -->
+      <!-- Desktop layout:                                          -->
+      <!--  [01]  [02]  [Feature ↕row1-2]                          -->
+      <!--  [03──────wide──]  [Feature ↕row2]                      -->
+      <!--  [04]  [05]  [06]                                        -->
+      <div class="beneficios__bento" role="list">
 
-        <!-- Benefit rows -->
-        <div class="beneficios__list" role="list">
+        <!-- 01 -->
+        <article class="benef-card reveal" role="listitem">
+          <span class="benef-card__deco" aria-hidden="true">01</span>
+          <div class="benef-card__icon benef-card__icon--terra" aria-hidden="true">🧭</div>
+          <h3 class="benef-card__title">Mais clareza desde o início</h3>
+          <p class="benef-card__body">Você entende o que tem direito, o que é necessário e o que pode esperar — sem depender de informações contraditórias da internet.</p>
+          <span class="benef-card__tag benef-card__tag--terra">Clareza</span>
+        </article>
 
-          <article class="benef-row reveal" role="listitem">
-            <span class="benef-row__num" aria-hidden="true">01</span>
-            <div class="benef-row__content">
-              <div class="benef-row__meta">
-                <span class="benef-row__icon benef-row__icon--terra" aria-hidden="true">🧭</span>
-                <h3 class="benef-row__title">Mais clareza desde o início</h3>
+        <!-- 02 -->
+        <article class="benef-card reveal reveal-delay-1" role="listitem">
+          <span class="benef-card__deco" aria-hidden="true">02</span>
+          <div class="benef-card__icon benef-card__icon--verde" aria-hidden="true">🛡️</div>
+          <h3 class="benef-card__title">Mais segurança em cada decisão</h3>
+          <p class="benef-card__body">Cada passo é tomado com orientação especializada, reduzindo o risco de erros que podem atrasar ou inviabilizar o processo.</p>
+          <span class="benef-card__tag benef-card__tag--verde">Segurança</span>
+        </article>
+
+        <!-- 03 — wide card (spans 2 cols on desktop, row 2) -->
+        <article class="benef-card benef-card--w2 reveal" role="listitem">
+          <span class="benef-card__deco" aria-hidden="true">03</span>
+          <div class="benef-card__left">
+            <div class="benef-card__icon benef-card__icon--cobre" aria-hidden="true">⚡</div>
+            <h3 class="benef-card__title">Menos tempo perdido</h3>
+            <span class="benef-card__tag benef-card__tag--cobre">Agilidade</span>
+          </div>
+          <div class="benef-card__right">
+            <p class="benef-card__body">A organização prévia e o acompanhamento ativo reduzem idas desnecessárias a órgãos, reenvio de documentos e esperas evitáveis — deixando o processo fluir com mais eficiência e menos desgaste.</p>
+          </div>
+        </article>
+
+        <!-- 04 -->
+        <article class="benef-card reveal reveal-delay-1" role="listitem">
+          <span class="benef-card__deco" aria-hidden="true">04</span>
+          <div class="benef-card__icon benef-card__icon--verde" aria-hidden="true">📋</div>
+          <h3 class="benef-card__title">Processo mais organizado</h3>
+          <p class="benef-card__body">Nada fica perdido. Cada documento, prazo e instância tem seu lugar dentro de um método estruturado e claro.</p>
+          <span class="benef-card__tag benef-card__tag--verde">Organização</span>
+        </article>
+
+        <!-- 05 -->
+        <article class="benef-card reveal reveal-delay-2" role="listitem">
+          <span class="benef-card__deco" aria-hidden="true">05</span>
+          <div class="benef-card__icon benef-card__icon--terra" aria-hidden="true">💬</div>
+          <h3 class="benef-card__title">Apoio especializado e humano</h3>
+          <p class="benef-card__body">Você não precisa decifrar legislação sozinho. A equipe da Eleva traduz cada exigência em ação concreta.</p>
+          <span class="benef-card__tag benef-card__tag--terra">Suporte</span>
+        </article>
+
+        <!-- 06 -->
+        <article class="benef-card reveal reveal-delay-2" role="listitem">
+          <span class="benef-card__deco" aria-hidden="true">06</span>
+          <div class="benef-card__icon benef-card__icon--cobre" aria-hidden="true">🌿</div>
+          <h3 class="benef-card__title">Mais tranquilidade para avançar</h3>
+          <p class="benef-card__body">Com alguém organizado ao seu lado, você avança com leveza e foca no que realmente importa.</p>
+          <span class="benef-card__tag benef-card__tag--cobre">Leveza</span>
+        </article>
+
+        <!-- Feature card — col 3, rows 1–2 on desktop -->
+        <article class="benef-card benef-card--feature reveal reveal-delay-2" role="listitem" aria-label="Nossa missão">
+          <div class="benef-feat__bg" aria-hidden="true"></div>
+          <div class="benef-feat__glow" aria-hidden="true"></div>
+          <div class="benef-feat__rings" aria-hidden="true"></div>
+          <div class="benef-feat__inner">
+            <p class="benef-feat__label">Nossa missão</p>
+            <blockquote class="benef-feat__quote">
+              "Da insegurança<br>à chave do carro."
+            </blockquote>
+            <p class="benef-feat__body">
+              A Eleva existe para que a isenção deixe de ser um processo intimidador e se torne uma conquista real — acessível, compreensível e segura.
+            </p>
+            <div class="benef-feat__proof" aria-label="Nossos compromissos">
+              <div class="benef-feat__proof-item">
+                <span class="benef-feat__check" aria-hidden="true">
+                  <svg viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 4l2.5 2.5L9 1" stroke="#EFE3D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span>Análise do caso sem compromisso</span>
               </div>
-              <p class="benef-row__body">Você entende o que tem direito, o que é necessário e o que pode esperar — sem depender de informações contraditórias da internet.</p>
-              <span class="benef-row__tag benef-row__tag--terra">Clareza</span>
+              <div class="benef-feat__proof-item">
+                <span class="benef-feat__check" aria-hidden="true">
+                  <svg viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 4l2.5 2.5L9 1" stroke="#EFE3D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span>Acompanhamento em todas as etapas</span>
+              </div>
+              <div class="benef-feat__proof-item">
+                <span class="benef-feat__check" aria-hidden="true">
+                  <svg viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 4l2.5 2.5L9 1" stroke="#EFE3D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span>Orientação clara, sem jargão jurídico</span>
+              </div>
             </div>
-          </article>
-
-          <article class="benef-row reveal reveal-delay-1" role="listitem">
-            <span class="benef-row__num" aria-hidden="true">02</span>
-            <div class="benef-row__content">
-              <div class="benef-row__meta">
-                <span class="benef-row__icon benef-row__icon--verde" aria-hidden="true">🛡️</span>
-                <h3 class="benef-row__title">Mais segurança em cada decisão</h3>
-              </div>
-              <p class="benef-row__body">Cada passo é tomado com orientação especializada, reduzindo o risco de erros que podem atrasar ou inviabilizar o processo.</p>
-              <span class="benef-row__tag benef-row__tag--verde">Segurança</span>
-            </div>
-          </article>
-
-          <article class="benef-row reveal reveal-delay-2" role="listitem">
-            <span class="benef-row__num" aria-hidden="true">03</span>
-            <div class="benef-row__content">
-              <div class="benef-row__meta">
-                <span class="benef-row__icon benef-row__icon--cobre" aria-hidden="true">⚡</span>
-                <h3 class="benef-row__title">Menos tempo perdido</h3>
-              </div>
-              <p class="benef-row__body">A organização prévia e o acompanhamento ativo reduzem idas desnecessárias a órgãos, reenvio de documentos e esperas evitáveis.</p>
-              <span class="benef-row__tag benef-row__tag--cobre">Agilidade</span>
-            </div>
-          </article>
-
-          <article class="benef-row reveal" role="listitem">
-            <span class="benef-row__num" aria-hidden="true">04</span>
-            <div class="benef-row__content">
-              <div class="benef-row__meta">
-                <span class="benef-row__icon benef-row__icon--verde" aria-hidden="true">📋</span>
-                <h3 class="benef-row__title">Processo mais organizado</h3>
-              </div>
-              <p class="benef-row__body">Nada fica perdido. Cada documento, prazo e instância tem seu lugar definido dentro de um método estruturado e claro.</p>
-              <span class="benef-row__tag benef-row__tag--verde">Organização</span>
-            </div>
-          </article>
-
-          <article class="benef-row reveal reveal-delay-1" role="listitem">
-            <span class="benef-row__num" aria-hidden="true">05</span>
-            <div class="benef-row__content">
-              <div class="benef-row__meta">
-                <span class="benef-row__icon benef-row__icon--terra" aria-hidden="true">💬</span>
-                <h3 class="benef-row__title">Apoio especializado e humano</h3>
-              </div>
-              <p class="benef-row__body">Você não precisa decifrar legislação ou entender burocracias sozinho. A equipe da Eleva traduz cada exigência em ação concreta.</p>
-              <span class="benef-row__tag benef-row__tag--terra">Suporte</span>
-            </div>
-          </article>
-
-          <article class="benef-row reveal reveal-delay-2" role="listitem">
-            <span class="benef-row__num" aria-hidden="true">06</span>
-            <div class="benef-row__content">
-              <div class="benef-row__meta">
-                <span class="benef-row__icon benef-row__icon--cobre" aria-hidden="true">🌿</span>
-                <h3 class="benef-row__title">Mais tranquilidade para avançar</h3>
-              </div>
-              <p class="benef-row__body">Saber que há alguém organizado conduzindo o processo permite que você avance com mais leveza e foque no que realmente importa.</p>
-              <span class="benef-row__tag benef-row__tag--cobre">Leveza</span>
-            </div>
-          </article>
-
-        </div>
-
-        <!-- Sticky feature card -->
-        <aside class="beneficios__aside reveal reveal-delay-1" aria-label="Nossa missão">
-          <div class="beneficio-feature">
-            <div class="beneficio-feature__bg" aria-hidden="true"></div>
-            <div class="beneficio-feature__glow" aria-hidden="true"></div>
-            <div class="beneficio-feature__ring" aria-hidden="true"></div>
-            <div class="beneficio-feature__inner">
-
-              <p class="beneficio-feature__label">Nossa missão</p>
-
-              <blockquote class="beneficio-feature__editorial">
-                "Da insegurança<br>à chave do carro."
-              </blockquote>
-
-              <p class="beneficio-feature__body">
-                A Eleva existe para que a isenção deixe de ser um processo intimidador e se torne uma conquista real — acessível, compreensível e segura para quem tem esse direito.
-              </p>
-
-              <div class="beneficio-feature__proof" aria-label="Nossos compromissos">
-                <div class="benef-proof-item">
-                  <span class="benef-proof-item__check" aria-hidden="true">
-                    <svg viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M1 4l2.5 2.5L9 1" stroke="#EFE3D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                  <span>Análise do caso sem compromisso</span>
-                </div>
-                <div class="benef-proof-item">
-                  <span class="benef-proof-item__check" aria-hidden="true">
-                    <svg viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M1 4l2.5 2.5L9 1" stroke="#EFE3D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                  <span>Acompanhamento em todas as etapas</span>
-                </div>
-                <div class="benef-proof-item">
-                  <span class="benef-proof-item__check" aria-hidden="true">
-                    <svg viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M1 4l2.5 2.5L9 1" stroke="#EFE3D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                  <span>Orientação clara, sem jargão jurídico</span>
-                </div>
-              </div>
-
-              <div class="beneficio-feature__btn">
-                <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+quero+come%C3%A7ar+a+analisar+meu+caso+de+isen%C3%A7%C3%A3o."
-                   class="btn btn--terra" target="_blank" rel="noopener noreferrer">
-                  Começar agora
-                </a>
-              </div>
-
+            <div class="benef-feat__cta">
+              <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+quero+come%C3%A7ar+a+analisar+meu+caso+de+isen%C3%A7%C3%A3o."
+                 class="btn btn--terra" target="_blank" rel="noopener noreferrer">
+                Começar agora
+              </a>
             </div>
           </div>
-        </aside>
+        </article>
 
       </div>
     </div>
@@ -2589,7 +2693,9 @@
 <section class="faq section" id="faq" aria-labelledby="faq-title">
   <div class="wrap">
     <div class="faq__inner">
+
       <div class="faq__head reveal">
+        <span class="faq__head-deco" aria-hidden="true">?</span>
         <p class="section-label">Dúvidas frequentes</p>
         <h2 class="display-sm faq__title" id="faq-title">
           Perguntas que chegam muito — respondidas com clareza.
@@ -2611,72 +2717,90 @@
 
         <div class="faq__item" role="listitem">
           <button class="faq__trigger" aria-expanded="false" aria-controls="faq-1">
-            <span>Como saber se tenho direito à isenção?</span>
-            <span class="faq__icon" aria-hidden="true">+</span>
+            <span class="faq__trigger-num" aria-hidden="true">01</span>
+            <span class="faq__trigger-text">Como saber se tenho direito à isenção?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
           </button>
-          <div class="faq__body" id="faq-1" role="region">
+          <div class="faq__body" id="faq-1" role="region" aria-labelledby="faq-1-label">
             <div class="faq__body-inner">
-              O direito à isenção depende do tipo e grau de deficiência, comprovado em laudo médico especializado. A legislação prevê isenção de IPI, IOF, ICMS e IPVA para diferentes perfis de PCD. A Eleva analisa o seu caso especificamente antes de qualquer passo — sem que você precise interpretar a lei sozinho.
+              <div class="faq__body-pad">
+                O direito à isenção depende do tipo e grau de deficiência, comprovado em laudo médico especializado. A legislação prevê isenção de IPI, IOF, ICMS e IPVA para diferentes perfis de PCD. A Eleva analisa o seu caso especificamente antes de qualquer passo — sem que você precise interpretar a lei sozinho.
+              </div>
             </div>
           </div>
         </div>
 
         <div class="faq__item" role="listitem">
           <button class="faq__trigger" aria-expanded="false" aria-controls="faq-2">
-            <span>A pessoa com deficiência precisa ser a motorista?</span>
-            <span class="faq__icon" aria-hidden="true">+</span>
+            <span class="faq__trigger-num" aria-hidden="true">02</span>
+            <span class="faq__trigger-text">A pessoa com deficiência precisa ser a motorista?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
           </button>
           <div class="faq__body" id="faq-2" role="region">
             <div class="faq__body-inner">
-              Não necessariamente. A legislação prevê isenção mesmo para PCD não condutora — desde que o veículo seja utilizado para sua mobilidade e que haja documentação adequada do condutor regular. Para cada situação existe um caminho específico, e a Eleva identifica qual se aplica ao seu caso.
+              <div class="faq__body-pad">
+                Não necessariamente. A legislação prevê isenção mesmo para PCD não condutora — desde que o veículo seja utilizado para sua mobilidade e que haja documentação adequada do condutor regular. Para cada situação existe um caminho específico, e a Eleva identifica qual se aplica ao seu caso.
+              </div>
             </div>
           </div>
         </div>
 
         <div class="faq__item" role="listitem">
           <button class="faq__trigger" aria-expanded="false" aria-controls="faq-3">
-            <span>Quais isenções podem estar envolvidas no processo?</span>
-            <span class="faq__icon" aria-hidden="true">+</span>
+            <span class="faq__trigger-num" aria-hidden="true">03</span>
+            <span class="faq__trigger-text">Quais isenções podem estar envolvidas no processo?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
           </button>
           <div class="faq__body" id="faq-3" role="region">
             <div class="faq__body-inner">
-              Dependendo do perfil da deficiência e do estado de residência, é possível obter isenção de IPI (federal), IOF (federal), ICMS (estadual) e IPVA (estadual). Cada isenção tem requisitos e órgãos responsáveis distintos. A Eleva mapeia quais se aplicam ao seu caso e orienta em cada frente.
+              <div class="faq__body-pad">
+                Dependendo do perfil da deficiência e do estado de residência, é possível obter isenção de IPI (federal), IOF (federal), ICMS (estadual) e IPVA (estadual). Cada isenção tem requisitos e órgãos responsáveis distintos. A Eleva mapeia quais se aplicam ao seu caso e orienta em cada frente.
+              </div>
             </div>
           </div>
         </div>
 
         <div class="faq__item" role="listitem">
           <button class="faq__trigger" aria-expanded="false" aria-controls="faq-4">
-            <span>A Eleva acompanha o processo do início ao fim?</span>
-            <span class="faq__icon" aria-hidden="true">+</span>
+            <span class="faq__trigger-num" aria-hidden="true">04</span>
+            <span class="faq__trigger-text">A Eleva acompanha o processo do início ao fim?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
           </button>
           <div class="faq__body" id="faq-4" role="region">
             <div class="faq__body-inner">
-              Sim. A Eleva não faz apenas a orientação inicial e te deixa sozinho. Estamos presentes em cada etapa — da análise do caso à organização documental, do acompanhamento das aprovações à conclusão para aquisição do veículo.
+              <div class="faq__body-pad">
+                Sim. A Eleva não faz apenas a orientação inicial e te deixa sozinho. Estamos presentes em cada etapa — da análise do caso à organização documental, do acompanhamento das aprovações à conclusão para aquisição do veículo.
+              </div>
             </div>
           </div>
         </div>
 
         <div class="faq__item" role="listitem">
           <button class="faq__trigger" aria-expanded="false" aria-controls="faq-5">
-            <span>Quanto tempo dura o processo de isenção?</span>
-            <span class="faq__icon" aria-hidden="true">+</span>
+            <span class="faq__trigger-num" aria-hidden="true">05</span>
+            <span class="faq__trigger-text">Quanto tempo dura o processo de isenção?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
           </button>
           <div class="faq__body" id="faq-5" role="region">
             <div class="faq__body-inner">
-              O tempo varia de acordo com o tipo de isenção, o estado e a completude da documentação. Com organização e acompanhamento, o processo tende a fluir mais rapidamente. A Eleva te mantém informado sobre cada prazo e andamento — sem que você fique na dúvida sobre o que está acontecendo.
+              <div class="faq__body-pad">
+                O tempo varia de acordo com o tipo de isenção, o estado e a completude da documentação. Com organização e acompanhamento, o processo tende a fluir mais rapidamente. A Eleva te mantém informado sobre cada prazo e andamento — sem que você fique na dúvida sobre o que está acontecendo.
+              </div>
             </div>
           </div>
         </div>
 
         <div class="faq__item" role="listitem">
           <button class="faq__trigger" aria-expanded="false" aria-controls="faq-6">
-            <span>Familiares podem contratar a assessoria?</span>
-            <span class="faq__icon" aria-hidden="true">+</span>
+            <span class="faq__trigger-num" aria-hidden="true">06</span>
+            <span class="faq__trigger-text">Familiares podem contratar a assessoria?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
           </button>
           <div class="faq__body" id="faq-6" role="region">
             <div class="faq__body-inner">
-              Sim. Familiares, responsáveis legais e curadores podem buscar a Eleva para conduzir o processo em nome da pessoa com deficiência. Analisamos a situação e orientamos sobre a documentação necessária para esse perfil.
+              <div class="faq__body-pad">
+                Sim. Familiares, responsáveis legais e curadores podem buscar a Eleva para conduzir o processo em nome da pessoa com deficiência. Analisamos a situação e orientamos sobre a documentação necessária para esse perfil.
+              </div>
             </div>
           </div>
         </div>
@@ -2694,7 +2818,13 @@
   <div class="cta-final__pattern" aria-hidden="true"></div>
   <div class="wrap">
     <div class="cta-final__inner">
-      <div class="cta-final__icon reveal" aria-hidden="true">🌿</div>
+      <div class="cta-final__icon reveal" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 12C12 7.5 9 3.5 4 2C4 7.5 7.5 11.5 12 12Z" fill="currentColor"/>
+          <path d="M12 12C12 7.5 15 3.5 20 2C20 7.5 16.5 11.5 12 12Z" fill="currentColor" opacity="0.65"/>
+          <path d="M12 12V21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
       <p class="cta-final__editorial reveal reveal-delay-1">
         "O primeiro passo é entender o que é possível."
       </p>
@@ -2704,7 +2834,16 @@
       <p class="cta-final__body reveal reveal-delay-3">
         Entre em contato com a Eleva. Analisamos o seu caso com atenção, orientamos sem jargão e acompanhamos o caminho inteiro com você.
       </p>
-      <div class="cta-final__actions reveal reveal-delay-4">
+      <img
+        src="carro.webp"
+        alt="Carro vermelho com mascote da Eleva Isenções"
+        class="cta-final__car reveal reveal-delay-4"
+        width="1200"
+        height="540"
+        loading="lazy"
+        decoding="async"
+      />
+      <div class="cta-final__actions reveal reveal-delay-5">
         <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+quero+analisar+meu+caso+de+isen%C3%A7%C3%A3o+PCD+com+a+equipe+da+Eleva."
            class="btn btn--terra" target="_blank" rel="noopener noreferrer"
            aria-label="Solicitar análise de caso pelo WhatsApp">
@@ -2715,7 +2854,7 @@
           Enviar por e-mail
         </a>
       </div>
-      <div class="cta-final__trust reveal reveal-delay-5">
+      <div class="cta-final__trust reveal reveal-delay-6">
         <span class="cta-final__trust-item"><span>✓</span> Sem compromisso inicial</span>
         <span class="cta-final__trust-item"><span>✓</span> Análise confidencial</span>
         <span class="cta-final__trust-item"><span>✓</span> Atendimento humano</span>
@@ -2734,7 +2873,7 @@
     <div class="footer__top">
       <div class="footer__brand">
         <img src="ELEVA 01H.svg" alt="Eleva Isenções" class="footer__logo"
-             onerror="this.style.display='none'" />
+             loading="lazy" decoding="async" onerror="this.style.display='none'" />
         <p class="footer__tagline">
           Assessoria especializada em isenções fiscais para pessoas com deficiência na aquisição de veículos. Clareza, organização e presença em cada etapa.
         </p>
@@ -2796,10 +2935,16 @@
   /* ---- ano no footer ---- */
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* ---- nav scroll ---- */
+  /* ---- nav scroll (RAF-throttled) ---- */
   const nav = document.getElementById('site-nav');
+  let navRafPending = false;
   const onScroll = () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
+    if (navRafPending) return;
+    navRafPending = true;
+    requestAnimationFrame(() => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+      navRafPending = false;
+    });
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
@@ -2888,11 +3033,14 @@
     // init: first step active
     activate(0);
 
+    // Map for O(1) step index lookup
+    const stepIndex = new Map(steps.map((s, i) => [s, i]));
+
     const stepObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
-        const idx = steps.indexOf(entry.target);
-        if (idx !== -1) activate(idx);
+        const idx = stepIndex.get(entry.target);
+        if (idx !== undefined) activate(idx);
       });
     }, {
       threshold: 0.45,
@@ -2902,42 +3050,44 @@
     steps.forEach(s => stepObserver.observe(s));
   })();
 
-  /* ---- FAQ accordion ---- */
-  document.querySelectorAll('.faq__trigger').forEach(trigger => {
-    trigger.addEventListener('click', () => {
-      const expanded = trigger.getAttribute('aria-expanded') === 'true';
-      const bodyId = trigger.getAttribute('aria-controls');
-      const body = document.getElementById(bodyId);
+  /* ---- FAQ accordion (event delegation — one listener, no per-click DOM queries) ---- */
+  const faqList = document.querySelector('.faq__list');
+  if (faqList) {
+    // Pre-cache all trigger→body relationships once at init
+    const faqItems = [...faqList.querySelectorAll('.faq__item')].map(item => ({
+      item,
+      trigger: item.querySelector('.faq__trigger'),
+      body: document.getElementById(item.querySelector('.faq__trigger')?.getAttribute('aria-controls')),
+    }));
 
-      // close all others
-      document.querySelectorAll('.faq__trigger').forEach(t => {
-        if (t !== trigger) {
-          t.setAttribute('aria-expanded', 'false');
-          const b = document.getElementById(t.getAttribute('aria-controls'));
-          if (b) b.classList.remove('open');
-        }
+    faqList.addEventListener('click', e => {
+      const trigger = e.target.closest('.faq__trigger');
+      if (!trigger) return;
+      const expanded = trigger.getAttribute('aria-expanded') === 'true';
+
+      faqItems.forEach(({ item, trigger: t, body: b }) => {
+        if (t === trigger) return;
+        t.setAttribute('aria-expanded', 'false');
+        if (b) b.classList.remove('open');
+        item.classList.remove('faq__item--open');
       });
 
       trigger.setAttribute('aria-expanded', String(!expanded));
-      if (body) body.classList.toggle('open', !expanded);
+      const current = faqItems.find(x => x.trigger === trigger);
+      if (current?.body) current.body.classList.toggle('open', !expanded);
+      if (current?.item) current.item.classList.toggle('faq__item--open', !expanded);
     });
-  });
+  }
 
-  /* ---- assessoria tabs ---- */
-  document.querySelectorAll('.assessoria__tab-btn').forEach(btn => {
+  /* ---- assessoria tabs (cached selectors) ---- */
+  const tabBtns   = [...document.querySelectorAll('.assessoria__tab-btn')];
+  const tabPanels = [...document.querySelectorAll('.assessoria__panel')];
+  tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const targetId = btn.getAttribute('aria-controls');
-
-      // update buttons
-      document.querySelectorAll('.assessoria__tab-btn').forEach(b => {
-        b.setAttribute('aria-selected', 'false');
-      });
+      tabBtns.forEach(b => b.setAttribute('aria-selected', 'false'));
       btn.setAttribute('aria-selected', 'true');
-
-      // update panels
-      document.querySelectorAll('.assessoria__panel').forEach(p => {
-        p.classList.remove('active');
-      });
+      tabPanels.forEach(p => p.classList.remove('active'));
       const target = document.getElementById(targetId);
       if (target) target.classList.add('active');
     });
@@ -2949,9 +3099,36 @@
       const target = document.querySelector(link.getAttribute('href'));
       if (!target) return;
       e.preventDefault();
+      // Compatibilidade de scroll suave nativo se não houver lenis ativado em algum momento (fallback)
       const offset = 80;
       const top = target.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+</script>
+
+<!-- Lenis Smooth Scroll -->
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+<script>
+  const lenis = new Lenis({
+    duration: 1.2,
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
+
+  /* Override smooth scroll for anchor links using Lenis */
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      e.stopPropagation();
+      lenis.scrollTo(target, { offset: -80 });
     });
   });
 </script>
