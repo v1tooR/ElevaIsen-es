@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidade e Termos de Uso — Eleva Isenções</title>
+  <meta name="description" content="Política de Privacidade e Termos de Uso da Eleva Isenções — AMPARU ASSESSORIA E ISENCOES PARA PCD LTDA." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" type="image/svg+xml" href="assets/logos/ELEVA 01S.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
+        media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" />
+  </noscript>
+
+  <style>
+    :root {
+      --c-terra:  #A14F2A;
+      --c-mogno:  #6B3019;
+      --c-cobre:  #C47C45;
+      --c-creme:  #EFE3D6;
+      --c-creme-2:#F7F1EA;
+      --c-preto:  #1E1A17;
+      --f-heading:'Raleway', sans-serif;
+      --f-body:   'DM Sans', sans-serif;
+      --r-sm:     8px;
+      --r-md:     14px;
+      --r-lg:     24px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--f-body);
+      color: var(--c-preto);
+      background: var(--c-creme-2);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.75;
+    }
+    a { color: var(--c-terra); text-decoration: underline; text-underline-offset: 3px; }
+    a:hover { color: var(--c-mogno); }
+    ul { padding-left: 1.4em; }
+    li { margin-bottom: 6px; }
+
+    /* Header */
+    .pp-header {
+      background: var(--c-mogno);
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(239,227,214,0.12);
+    }
+    .pp-header__inner {
+      max-width: 860px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .pp-header__logo { height: 28px; width: auto; }
+    .pp-header__back {
+      font-family: var(--f-body); font-size: 0.82rem; font-weight: 500;
+      color: rgba(239,227,214,0.65); text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+      transition: color 220ms ease;
+    }
+    .pp-header__back:hover { color: var(--c-creme); }
+    .pp-header__back svg { width: 14px; height: 14px; }
+
+    /* Main layout */
+    .pp-wrap {
+      max-width: 860px; margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+    @media (min-width: 768px) { .pp-wrap { padding: 72px 48px 96px; } }
+
+    /* Table of contents */
+    .pp-toc {
+      background: white;
+      border: 1px solid rgba(161,79,42,0.15);
+      border-radius: var(--r-lg);
+      padding: 28px 32px;
+      margin-bottom: 56px;
+    }
+    .pp-toc__title {
+      font-family: var(--f-heading);
+      font-weight: 700; font-size: 0.85rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--c-cobre); margin-bottom: 14px;
+    }
+    .pp-toc__list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+    .pp-toc__list li { margin: 0; }
+    .pp-toc__list a {
+      font-size: 0.88rem; color: var(--c-terra); font-weight: 500;
+      text-decoration: none;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .pp-toc__list a::before {
+      content: '→'; font-size: 0.75rem; color: var(--c-cobre);
+    }
+    .pp-toc__list a:hover { color: var(--c-mogno); }
+
+    /* Document header */
+    .pp-doc-header { margin-bottom: 48px; }
+    .pp-doc-header__label {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--c-cobre); margin-bottom: 12px;
+    }
+    .pp-doc-header__title {
+      font-family: var(--f-heading); font-weight: 800;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: var(--c-mogno); line-height: 1.15; margin-bottom: 16px;
+    }
+    .pp-doc-header__meta {
+      font-size: 0.82rem; color: rgba(30,26,23,0.5);
+      display: flex; flex-wrap: wrap; gap: 16px;
+    }
+    .pp-doc-header__meta span { display: flex; align-items: center; gap: 5px; }
+
+    /* Company info box */
+    .pp-company {
+      background: rgba(107,48,25,0.06);
+      border-left: 3px solid var(--c-cobre);
+      border-radius: 0 var(--r-sm) var(--r-sm) 0;
+      padding: 18px 22px; margin-bottom: 40px;
+    }
+    .pp-company p { font-size: 0.86rem; line-height: 1.7; color: rgba(30,26,23,0.75); margin: 0; }
+    .pp-company strong { color: var(--c-preto); }
+
+    /* Sections */
+    .pp-section { margin-bottom: 52px; scroll-margin-top: 24px; }
+    .pp-section__title {
+      font-family: var(--f-heading); font-weight: 700;
+      font-size: 1.15rem; color: var(--c-mogno);
+      margin-bottom: 14px; padding-bottom: 10px;
+      border-bottom: 1px solid rgba(161,79,42,0.15);
+    }
+    .pp-section__subtitle {
+      font-family: var(--f-heading); font-weight: 600;
+      font-size: 0.95rem; color: var(--c-terra);
+      margin: 20px 0 8px;
+    }
+    .pp-section p { font-size: 0.92rem; margin-bottom: 12px; color: rgba(30,26,23,0.82); }
+    .pp-section ul { font-size: 0.92rem; color: rgba(30,26,23,0.82); margin-bottom: 12px; }
+
+    /* Divider */
+    .pp-divider {
+      border: none; border-top: 1px solid rgba(161,79,42,0.12);
+      margin: 56px 0;
+    }
+
+    /* Footer */
+    .pp-footer {
+      background: var(--c-mogno);
+      padding: 32px 0;
+      text-align: center;
+    }
+    .pp-footer__inner { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+    .pp-footer__logo { height: 24px; margin: 0 auto 16px; }
+    .pp-footer__text { font-size: 0.78rem; color: rgba(239,227,214,0.45); line-height: 1.6; }
+    .pp-footer__text a { color: rgba(239,227,214,0.65); }
+
+    /* Highlight box */
+    .pp-highlight {
+      background: rgba(196,124,69,0.08);
+      border: 1px solid rgba(196,124,69,0.2);
+      border-radius: var(--r-md);
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-size: 0.88rem;
+      color: rgba(30,26,23,0.78);
+    }
+  </style>
+</head>
+<body>
+
+<header class="pp-header" role="banner">
+  <div class="pp-header__inner">
+    <a href="eleva-landing.html">
+      <img src="assets/logos/ELEVA 01H.svg" alt="Eleva Isenções" class="pp-header__logo"
+           onerror="this.style.display='none'" />
+    </a>
+    <a href="eleva-landing.html" class="pp-header__back" aria-label="Voltar ao site">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path d="M10 3L5 8l5 5"/>
+      </svg>
+      Voltar ao site
+    </a>
+  </div>
+</header>
+
+<main class="pp-wrap" id="main">
+
+  <div class="pp-doc-header">
+    <p class="pp-doc-header__label">Documentos legais</p>
+    <h1 class="pp-doc-header__title">Política de Privacidade<br>e Termos de Uso</h1>
+    <div class="pp-doc-header__meta">
+      <span>Última atualização: 29 de abril de 2025</span>
+      <span>Versão 1.0</span>
+    </div>
+  </div>
+
+  <div class="pp-company" role="note" aria-label="Dados da empresa">
+    <p>
+      <strong>AMPARU ASSESSORIA E ISENCOES PARA PCD LTDA</strong><br>
+      CNPJ: 65.176.144/0001-49<br>
+      Rua Doutor João Guilhermino, 429, Sala 66 — Centro<br>
+      CEP 12210-131 — São José dos Campos/SP
+    </p>
+  </div>
+
+  <nav class="pp-toc" aria-label="Índice do documento">
+    <p class="pp-toc__title">Índice</p>
+    <ul class="pp-toc__list" role="list">
+      <li><a href="#privacidade">Política de Privacidade</a></li>
+      <li><a href="#coleta">Dados coletados</a></li>
+      <li><a href="#finalidade">Finalidade do tratamento</a></li>
+      <li><a href="#compartilhamento">Compartilhamento de dados</a></li>
+      <li><a href="#direitos">Seus direitos (LGPD)</a></li>
+      <li><a href="#cookies">Cookies</a></li>
+      <li><a href="#termos">Termos de Uso</a></li>
+      <li><a href="#contato-lgpd">Contato / DPO</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== POLÍTICA DE PRIVACIDADE ===================== -->
+
+  <section class="pp-section" id="privacidade">
+    <h2 class="pp-section__title">1. Política de Privacidade</h2>
+    <p>
+      A Eleva Isenções, operada pela <strong>AMPARU ASSESSORIA E ISENCOES PARA PCD LTDA</strong>,
+      está comprometida com a proteção dos seus dados pessoais e com o cumprimento da
+      <strong>Lei Geral de Proteção de Dados (Lei n.º 13.709/2018 — LGPD)</strong>.
+    </p>
+    <p>
+      Esta Política de Privacidade descreve como coletamos, utilizamos, armazenamos e
+      protegemos as informações que você nos fornece ao acessar o site
+      <strong>elevaisencoes.com.br</strong> ou ao entrar em contato conosco pelos
+      nossos canais de atendimento.
+    </p>
+  </section>
+
+  <section class="pp-section" id="coleta">
+    <h2 class="pp-section__title">2. Dados coletados</h2>
+
+    <h3 class="pp-section__subtitle">2.1 Dados fornecidos voluntariamente</h3>
+    <p>Coletamos as informações que você nos envia ao solicitar atendimento, incluindo:</p>
+    <ul>
+      <li>Nome completo</li>
+      <li>Número de telefone (WhatsApp)</li>
+      <li>Endereço de e-mail</li>
+      <li>Informações sobre a deficiência e documentação relacionada, quando necessário para a prestação do serviço</li>
+    </ul>
+
+    <h3 class="pp-section__subtitle">2.2 Dados coletados automaticamente</h3>
+    <p>
+      Ao navegar no site, podemos coletar automaticamente informações técnicas, como:
+    </p>
+    <ul>
+      <li>Endereço IP</li>
+      <li>Tipo de navegador e dispositivo</li>
+      <li>Páginas visitadas e tempo de navegação</li>
+      <li>Dados de cookies (conforme sua aceitação)</li>
+    </ul>
+  </section>
+
+  <section class="pp-section" id="finalidade">
+    <h2 class="pp-section__title">3. Finalidade do tratamento de dados</h2>
+    <p>Utilizamos seus dados pessoais para as seguintes finalidades:</p>
+    <ul>
+      <li><strong>Prestação do serviço:</strong> analisar seu caso e prestar a assessoria para isenção PCD</li>
+      <li><strong>Atendimento ao cliente:</strong> responder suas dúvidas e solicitações via WhatsApp ou e-mail</li>
+      <li><strong>Cumprimento de obrigações legais:</strong> em conformidade com a legislação vigente</li>
+      <li><strong>Melhoria do site:</strong> analisar o desempenho das páginas e experiência do usuário</li>
+    </ul>
+    <div class="pp-highlight">
+      <strong>Base legal:</strong> o tratamento dos seus dados se baseia no seu consentimento
+      (Art. 7º, I da LGPD), na execução de contrato (Art. 7º, V) e no cumprimento de
+      obrigações legais (Art. 7º, II), conforme aplicável em cada situação.
+    </div>
+  </section>
+
+  <section class="pp-section" id="compartilhamento">
+    <h2 class="pp-section__title">4. Compartilhamento de dados</h2>
+    <p>
+      Não vendemos, alugamos ou compartilhamos seus dados pessoais com terceiros para
+      fins comerciais. Podemos compartilhar informações somente nos seguintes casos:
+    </p>
+    <ul>
+      <li>Com órgãos públicos (Receita Federal, DETRAN, Sefaz etc.) quando necessário para a execução do serviço de isenção PCD</li>
+      <li>Com prestadores de serviços essenciais para o funcionamento do site (hospedagem, análise de tráfego), sempre sob contrato de confidencialidade</li>
+      <li>Quando exigido por determinação judicial ou legal</li>
+    </ul>
+  </section>
+
+  <section class="pp-section" id="retencao">
+    <h2 class="pp-section__title">5. Retenção e segurança dos dados</h2>
+    <p>
+      Seus dados são armazenados pelo tempo necessário para a prestação do serviço e
+      cumprimento das obrigações legais, respeitando os prazos previstos em lei.
+    </p>
+    <p>
+      Adotamos medidas técnicas e organizacionais adequadas para proteger seus dados
+      contra acesso não autorizado, perda, destruição ou alteração indevida.
+    </p>
+  </section>
+
+  <section class="pp-section" id="direitos">
+    <h2 class="pp-section__title">6. Seus direitos como titular (LGPD)</h2>
+    <p>Em conformidade com a LGPD, você tem os seguintes direitos sobre seus dados pessoais:</p>
+    <ul>
+      <li><strong>Confirmação e acesso:</strong> saber se tratamos seus dados e obter uma cópia</li>
+      <li><strong>Correção:</strong> solicitar a atualização de dados incompletos ou desatualizados</li>
+      <li><strong>Eliminação:</strong> solicitar a exclusão dos dados desnecessários ou tratados sem consentimento</li>
+      <li><strong>Portabilidade:</strong> solicitar a transferência dos dados a outro fornecedor</li>
+      <li><strong>Revogação do consentimento:</strong> retirar seu consentimento a qualquer momento</li>
+      <li><strong>Oposição:</strong> opor-se ao tratamento quando não concordar com a base legal utilizada</li>
+    </ul>
+    <p>
+      Para exercer qualquer desses direitos, entre em contato pelo e-mail
+      <a href="mailto:contato@elevaisencoes.com.br">contato@elevaisencoes.com.br</a>.
+      Responderemos em até 15 dias úteis.
+    </p>
+  </section>
+
+  <section class="pp-section" id="cookies">
+    <h2 class="pp-section__title">7. Cookies e tecnologias de rastreamento</h2>
+    <p>
+      Utilizamos cookies para melhorar sua experiência de navegação. Cookies são pequenos
+      arquivos de texto armazenados no seu dispositivo.
+    </p>
+
+    <h3 class="pp-section__subtitle">Tipos de cookies utilizados</h3>
+    <ul>
+      <li><strong>Cookies essenciais:</strong> necessários para o funcionamento do site, não podem ser desativados</li>
+      <li><strong>Cookies analíticos:</strong> coletam informações sobre como os visitantes usam o site (ex: Google Analytics), com sua aceitação</li>
+      <li><strong>Cookies de preferências:</strong> armazenam suas escolhas, como a aceitação desta política</li>
+    </ul>
+    <p>
+      Você pode gerenciar ou desativar cookies nas configurações do seu navegador. A desativação
+      de cookies essenciais pode afetar o funcionamento de partes do site.
+    </p>
+  </section>
+
+  <hr class="pp-divider" />
+
+  <!-- ===================== TERMOS DE USO ===================== -->
+
+  <section class="pp-section" id="termos">
+    <h2 class="pp-section__title">8. Termos de Uso</h2>
+    <p>
+      Ao acessar o site <strong>elevaisencoes.com.br</strong>, você concorda com os
+      presentes Termos de Uso. Caso não concorde, pedimos que não utilize o site.
+    </p>
+
+    <h3 class="pp-section__subtitle">8.1 Natureza do serviço</h3>
+    <p>
+      A Eleva Isenções presta serviços de assessoria e orientação no processo de isenção
+      fiscal para Pessoas com Deficiência (PCD) na aquisição de veículos. As informações
+      disponibilizadas no site têm caráter educativo e informativo, não constituindo
+      consultoria jurídica formal.
+    </p>
+
+    <h3 class="pp-section__subtitle">8.2 Uso adequado do site</h3>
+    <p>Você se compromete a:</p>
+    <ul>
+      <li>Utilizar o site apenas para fins lícitos e de acordo com a legislação brasileira</li>
+      <li>Não reproduzir ou distribuir conteúdo do site sem autorização prévia</li>
+      <li>Não praticar atos que possam prejudicar o funcionamento do site ou de outros usuários</li>
+    </ul>
+
+    <h3 class="pp-section__subtitle">8.3 Limitação de responsabilidade</h3>
+    <p>
+      As informações do site são fornecidas "no estado em que se encontram". A Eleva Isenções
+      não garante que as informações sejam sempre completas ou atualizadas, e não se
+      responsabiliza por decisões tomadas com base exclusiva no conteúdo do site sem
+      atendimento personalizado.
+    </p>
+    <p>
+      Os valores de economia mencionados são estimativas baseadas nas isenções fiscais aplicáveis.
+      O benefício real varia conforme o modelo do veículo, o preço e o estado de emplacamento.
+    </p>
+
+    <h3 class="pp-section__subtitle">8.4 Propriedade intelectual</h3>
+    <p>
+      Todo o conteúdo do site — textos, imagens, logotipos, identidade visual e demais
+      elementos — é propriedade da <strong>AMPARU ASSESSORIA E ISENCOES PARA PCD LTDA</strong>
+      e está protegido pela legislação de propriedade intelectual. Reprodução não autorizada
+      é proibida.
+    </p>
+
+    <h3 class="pp-section__subtitle">8.5 Modificações</h3>
+    <p>
+      Podemos atualizar estes Termos e a Política de Privacidade a qualquer momento. A versão
+      mais recente estará sempre disponível nesta página, com a data da última atualização.
+      O uso continuado do site após alterações implica aceitação dos novos termos.
+    </p>
+
+    <h3 class="pp-section__subtitle">8.6 Foro</h3>
+    <p>
+      Estes documentos são regidos pelas leis da República Federativa do Brasil.
+      Fica eleito o foro da Comarca de <strong>São José dos Campos/SP</strong> para
+      dirimir quaisquer controvérsias.
+    </p>
+  </section>
+
+  <section class="pp-section" id="contato-lgpd">
+    <h2 class="pp-section__title">9. Contato e Encarregado de Dados (DPO)</h2>
+    <p>
+      Para dúvidas, solicitações relacionadas aos seus direitos ou questões sobre privacidade,
+      entre em contato com nosso Encarregado de Proteção de Dados:
+    </p>
+    <div class="pp-company">
+      <p>
+        <strong>AMPARU ASSESSORIA E ISENCOES PARA PCD LTDA</strong><br>
+        E-mail: <a href="mailto:contato@elevaisencoes.com.br">contato@elevaisencoes.com.br</a><br>
+        Rua Doutor João Guilhermino, 429, Sala 66 — Centro<br>
+        CEP 12210-131 — São José dos Campos/SP<br>
+        CNPJ: 65.176.144/0001-49
+      </p>
+    </div>
+    <p>
+      Você também tem o direito de apresentar reclamações à
+      <strong>Autoridade Nacional de Proteção de Dados (ANPD)</strong> em
+      <a href="https://www.gov.br/anpd" target="_blank" rel="noopener noreferrer">www.gov.br/anpd</a>.
+    </p>
+  </section>
+
+</main>
+
+<footer class="pp-footer" role="contentinfo">
+  <div class="pp-footer__inner">
+    <img src="assets/logos/ELEVA 01H.svg" alt="Eleva Isenções" class="pp-footer__logo"
+         loading="lazy" onerror="this.style.display='none'" />
+    <p class="pp-footer__text">
+      &copy; <span id="year"></span> AMPARU ASSESSORIA E ISENCOES PARA PCD LTDA — CNPJ 65.176.144/0001-49<br>
+      São José dos Campos/SP — <a href="eleva-landing.html">Voltar ao site</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

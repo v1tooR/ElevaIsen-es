@@ -20,16 +20,16 @@
   <meta property="og:url" content="https://elevaisencoes.com.br/" />
   <meta property="og:title" content="Isenção PCD para Veículos | Assessoria Especializada — Eleva Isenções" />
   <meta property="og:description" content="Assessoria especializada em isenção PCD para aquisição de veículos. Orientamos pessoas com deficiência no processo de isenção de IPI, IOF, ICMS e IPVA com clareza e segurança." />
-  <meta property="og:image" content="https://elevaisencoes.com.br/og-image.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Eleva Isenções — Assessoria especializada em isenção PCD para veículos" />
+  <meta property="og:image" content="https://elevaisencoes.com.br/assets/images/misc/snippetshare.webp" />
+  <meta property="og:image:width" content="1415" />
+  <meta property="og:image:height" content="787" />
+  <meta property="og:image:alt" content="Eleva Isenções — Transformamos seu direito em conquista." />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Isenção PCD para Veículos | Eleva Isenções" />
   <meta name="twitter:description" content="Assessoria especializada em isenção PCD para aquisição de veículos. Isenção de IPI, IOF, ICMS e IPVA com orientação clara e acompanhamento próximo." />
-  <meta name="twitter:image" content="https://elevaisencoes.com.br/og-image.jpg" />
+  <meta name="twitter:image" content="https://elevaisencoes.com.br/assets/images/misc/snippetshare.webp" />
 
   <!-- Favicon e Lenis CSS -->
   <link rel="icon" type="image/svg+xml" href="assets/logos/ELEVA 01S.svg" />
@@ -44,10 +44,10 @@
   <link rel="preload" href="assets/images/hero/foto1.webp" as="image" fetchpriority="high" />
   <!-- Non-blocking Google Fonts: load as print, swap to all on load -->
   <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;0,700;0,800;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;1,200;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap"
         media="print" onload="this.media='all'" />
   <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;0,700;0,800;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;1,200;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" />
   </noscript>
 
   <!-- Structured Data: Organization -->
@@ -182,7 +182,7 @@
 
       --f-heading:   'Raleway', sans-serif;
       --f-body:      'DM Sans', sans-serif;
-      --f-editorial: 'Cormorant Garamond', serif;
+      --f-editorial: 'Raleway', sans-serif;
 
       --w-max:    1200px;
       --r-sm:     8px;
@@ -255,7 +255,7 @@
     .display-lg { font-size: clamp(2rem, 4.5vw, 3.6rem); letter-spacing: -0.02em; }
     .display-md { font-size: clamp(1.6rem, 3vw, 2.4rem); letter-spacing: -0.01em; }
     .display-sm { font-size: clamp(1.2rem, 2vw, 1.5rem); }
-    .editorial-quote { font-family: var(--f-editorial); font-style: italic; line-height: 1.3; }
+    .editorial-quote { font-family: var(--f-editorial); font-style: italic; font-weight: 300; letter-spacing: 0.02em; line-height: 1.4; }
     .body-lg { font-size: 1.1rem; line-height: 1.75; }
     .body-md { font-size: 0.95rem; line-height: 1.75; }
     .body-sm { font-size: 0.85rem; line-height: 1.7; }
@@ -444,14 +444,19 @@
       display: block;
     }
     .hero__tagline {
-      font-family: var(--f-editorial); font-style: italic;
-      font-size: clamp(1.3rem, 2.5vw, 1.7rem);
-      color: rgba(30,26,23,0.55); line-height: 1.4;
+      font-family: var(--f-editorial); font-style: italic; font-weight: 300;
+      font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+      letter-spacing: 0.01em;
+      color: rgba(30,26,23,0.65); line-height: 1.5;
       margin-bottom: 28px;
     }
     .hero__body {
-      font-size: 1.05rem; color: rgba(30,26,23,0.65);
-      line-height: 1.75; max-width: 52ch; margin-bottom: 40px;
+      font-size: 1.05rem; color: rgba(30,26,23,0.78);
+      line-height: 1.75; max-width: 52ch; margin-bottom: 12px;
+    }
+    .hero__disclaimer {
+      font-size: 0.72rem; color: rgba(30,26,23,0.42);
+      line-height: 1.5; max-width: 52ch; margin-bottom: 40px;
     }
     .hero__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 48px; }
     .hero__trust {
@@ -466,7 +471,7 @@
       background: var(--c-terra); opacity: 0.7;
     }
     .hero__trust-text {
-      font-size: 0.8rem; color: rgba(30,26,23,0.45);
+      font-size: 0.85rem; color: rgba(30,26,23,0.62);
       letter-spacing: 0.02em;
     }
 
@@ -500,26 +505,27 @@
     }
     @media (hover:hover) { .hero__float-card:hover { transform: translateX(4px); } }
     .hero__float-card-icon {
-      width: 32px; height: 32px; flex-shrink: 0;
-      background: rgba(255,255,255,0.2); border-radius: 8px;
+      width: 34px; height: 34px; flex-shrink: 0;
+      background: rgba(255,255,255,0.18); border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
     .hero__float-card-title {
-      font-family: var(--f-heading); font-weight: 600; font-size: 0.78rem;
-      color: #fff; margin-bottom: 2px;
+      font-family: var(--f-heading); font-weight: 800; font-size: 0.96rem;
+      color: #fff; margin-bottom: 2px; line-height: 1.2; letter-spacing: -0.01em;
     }
     .hero__float-card-text {
-      font-size: 0.68rem; color: rgba(255,255,255,0.7); line-height: 1.4;
+      font-size: 0.72rem; color: rgba(255,255,255,0.80); line-height: 1.35;
     }
     @media (max-width: 899px) {
       .hero__floating-cards {
-        position: relative; top: auto; right: auto;
+        position: relative;
+        bottom: auto; left: auto; top: auto; right: auto;
         transform: none; width: 100%;
-        flex-direction: row; flex-wrap: wrap;
-        margin-top: 16px;
+        flex-direction: column; gap: 10px;
+        margin-top: 16px; padding: 0;
       }
-      .hero__float-card { flex: 1; min-width: 180px; }
+      .hero__float-card { flex: none; width: 100%; min-width: 0; }
     }
 
     /* =========================================================
@@ -625,302 +631,490 @@
       background-repeat: repeat;
     }
     .sobre__inner {
-      display: grid; gap: 56px; align-items: center;
-      position: relative; z-index: 1;
+      display: flex; flex-direction: column; align-items: center;
+      gap: 56px; position: relative; z-index: 1;
     }
-    @media (min-width: 900px) { .sobre__inner { grid-template-columns: 1fr 1fr; gap: 80px; } }
+    .sobre__header {
+      text-align: center; max-width: 760px; width: 100%;
+    }
     .sobre__visual {
       position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 56px;
+      width: 100%;
     }
-    .sobre__img-wrap {
-      border-radius: var(--r-lg); overflow: hidden;
-      aspect-ratio: 3/4; background: var(--c-mogno);
-      position: relative;
+    .sobre__levi-float {
+      position: absolute; top: -24px; left: 50%;
+      transform: translateX(-50%);
+      width: 88px; height: auto; z-index: 4;
+      filter: drop-shadow(0 10px 28px rgba(30,26,23,0.30));
+      animation: leviFloat 3.4s ease-in-out infinite;
+      pointer-events: none;
     }
-    .sobre__img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
-    .sobre__img-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(107,48,25,0.4) 0%, transparent 40%);
+    @keyframes leviFloat {
+      0%, 100% { transform: translateX(-50%) translateY(0) rotate(-3deg); }
+      50%       { transform: translateX(-50%) translateY(-10px) rotate(3deg); }
     }
+    @media (prefers-reduced-motion: reduce) {
+      .sobre__levi-float { animation: none; }
+    }
+
+    /* Team members — horizontal cards */
+    .sobre__team {
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+      width: 100%;
+    }
+    .sobre__member {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0;
+      background: rgba(239,227,214,0.08);
+      border: 1px solid rgba(239,227,214,0.14);
+      border-radius: var(--r-lg);
+      padding: 28px 16px 22px;
+      transition: background var(--dur-base) ease, border-color var(--dur-base) ease;
+    }
+    @media (hover:hover) {
+      .sobre__member:hover {
+        background: rgba(239,227,214,0.13);
+        border-color: rgba(239,227,214,0.24);
+      }
+    }
+    .sobre__member-circle {
+      width: 144px; height: 144px;
+      border-radius: 50%; overflow: hidden;
+      border: 3px solid rgba(239,227,214,0.28);
+      box-shadow: 0 8px 28px rgba(30,26,23,0.40);
+      background: var(--c-mogno);
+      flex-shrink: 0;
+      margin-bottom: 18px;
+    }
+    .sobre__member-circle img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+    }
+    .sobre__member-name {
+      font-family: var(--f-heading); font-weight: 700; font-size: 0.96rem;
+      color: var(--c-creme); margin: 0 0 5px;
+    }
+    .sobre__member-role {
+      font-size: 0.74rem; color: var(--c-cobre);
+      margin: 0 0 12px; line-height: 1.3; font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+    .sobre__member-desc {
+      font-size: 0.78rem; color: rgba(239,227,214,0.62);
+      line-height: 1.6; margin: 0;
+    }
+
     .sobre__badge-float {
-      position: absolute; bottom: 24px; left: 24px;
-      background: var(--c-creme); border-radius: var(--r-md);
-      padding: 16px 20px;
-      box-shadow: 0 8px 32px rgba(30,26,23,0.3);
+      margin-top: 16px;
+      background: rgba(239,227,214,0.08);
+      border: 1px solid rgba(239,227,214,0.16);
+      border-radius: var(--r-md);
+      padding: 12px 20px;
+      display: inline-flex; align-items: center; gap: 14px;
+      align-self: center;
     }
     .sobre__badge-num {
-      font-family: var(--f-heading); font-weight: 800; font-size: 1.8rem;
-      color: var(--c-terra); line-height: 1;
+      font-family: var(--f-heading); font-weight: 800; font-size: 1.4rem;
+      color: var(--c-creme); line-height: 1;
     }
     .sobre__badge-label {
-      font-size: 0.75rem; color: rgba(30,26,23,0.55); line-height: 1.3;
+      font-size: 0.70rem; color: rgba(239,227,214,0.55); line-height: 1.35;
     }
-    .sobre__deco-line {
-      position: absolute; top: 24px; right: -12px; bottom: -12px;
-      border: 1px solid rgba(239,227,214,0.25); border-radius: var(--r-lg);
-      opacity: 0.5; pointer-events: none;
+
+    /* Wrapper de texto dentro do card — só visível como flex em row */
+    .sobre__member-text { display: contents; }
+
+    @media (max-width: 899px) {
+      .sobre__levi-float { width: 70px; }
+      .sobre__member-circle { width: 110px; height: 110px; }
     }
-    .sobre__content {}
-    .sobre__title { color: var(--c-creme); margin-bottom: 20px; }
+    /* Tablet estreito: 2 colunas */
+    @media (max-width: 760px) {
+      .sobre__team { flex-wrap: wrap; gap: 12px; }
+      .sobre__member { flex: 1 1 calc(50% - 6px); min-width: 0; }
+      .sobre__member-circle { width: 96px; height: 96px; }
+    }
+    /* Mobile: coluna única, card em linha com texto à direita */
+    @media (max-width: 480px) {
+      .sobre__team { flex-direction: column; flex-wrap: nowrap; gap: 10px; }
+      .sobre__member {
+        flex-direction: row; align-items: center;
+        text-align: left; padding: 14px 16px; gap: 14px;
+      }
+      .sobre__member-circle { width: 72px; height: 72px; margin-bottom: 0; flex-shrink: 0; }
+      /* Ativa o wrapper de texto como bloco flex coluna */
+      .sobre__member-text {
+        display: flex; flex-direction: column;
+        min-width: 0; flex: 1;
+      }
+      .sobre__member-name { font-size: 0.88rem; margin-bottom: 2px; }
+      .sobre__member-role { font-size: 0.68rem; margin-bottom: 6px; }
+      .sobre__member-desc { font-size: 0.73rem; line-height: 1.5; }
+    }
+    .sobre__title { color: var(--c-creme); margin-bottom: 20px; text-align: center; }
     .sobre__editorial {
-      font-family: var(--f-editorial); font-style: italic;
-      font-size: 1.35rem; color: rgba(239,227,214,0.65); line-height: 1.5;
+      font-family: var(--f-editorial); font-style: italic; font-weight: 300;
+      font-size: 1.2rem; letter-spacing: 0.015em;
+      color: rgba(239,227,214,0.65); line-height: 1.6;
       margin-bottom: 24px; padding-left: 20px;
       border-left: 3px solid rgba(239,227,214,0.3);
     }
-    .sobre__body { color: rgba(239,227,214,0.75); max-width: 55ch; margin-bottom: 36px; }
-    .sobre__pillars { display: flex; flex-direction: column; gap: 14px; }
+    .sobre__body {
+      color: rgba(239,227,214,0.88); max-width: 65ch;
+      margin: 0 auto 20px; text-align: center;
+    }
+    .sobre__pillars {
+      display: flex; flex-direction: row; gap: 16px; width: 100%;
+    }
     .sobre__pillar {
-      display: flex; align-items: center; gap: 14px;
+      flex: 1; display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: 12px;
+      background: rgba(239,227,214,0.06);
+      border: 1px solid rgba(239,227,214,0.10);
+      border-radius: var(--r-lg); padding: 24px 16px;
     }
     .sobre__pillar-icon {
-      width: 40px; height: 40px; flex-shrink: 0; border-radius: var(--r-sm);
-      background: rgba(239,227,214,0.12); display: flex; align-items: center;
-      justify-content: center; font-size: 1.1rem;
+      width: 48px; height: 48px; flex-shrink: 0; border-radius: var(--r-md);
+      background: rgba(239,227,214,0.10); display: flex; align-items: center;
+      justify-content: center; font-size: 1.3rem;
     }
     .sobre__pillar-text {
-      font-weight: 500; font-size: 0.92rem; color: var(--c-creme);
+      font-weight: 700; font-size: 0.90rem; color: var(--c-creme); margin: 0;
     }
     .sobre__pillar-sub {
-      font-size: 0.78rem; color: rgba(239,227,214,0.55);
+      font-size: 0.78rem; color: rgba(239,227,214,0.55); line-height: 1.5; margin: 0;
+    }
+    @media (max-width: 640px) {
+      .sobre__pillars { flex-direction: column; }
     }
 
     /* =========================================================
-       SECTION: ASSESSORIA / PARA QUEM
+       SECTION: PARA QUEM / PCD BENTO
     ========================================================= */
     .assessoria { background: var(--c-creme); }
-    .assessoria__head { text-align: center; max-width: 640px; margin: 0 auto 52px; }
+    .assessoria__head { text-align: center; max-width: 600px; margin: 0 auto 56px; }
 
-    /* Tab navigation */
-    .assessoria__tabs { display: flex; justify-content: center; margin-bottom: 52px; }
-    .assessoria__tab-list {
-      display: flex; gap: 0;
-      background: rgba(30,26,23,0.05);
-      border: 1px solid rgba(161,79,42,0.12);
-      border-radius: var(--r-pill); padding: 5px;
-      overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    /* PCD Bento — desktop grid */
+    .pcd-bento {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
     }
-    .assessoria__tab-list::-webkit-scrollbar { display: none; }
-    .assessoria__tab-btn {
-      display: flex; align-items: center; gap: 7px;
-      padding: 11px 22px; border-radius: var(--r-pill);
-      font-family: var(--f-heading); font-weight: 600; font-size: 0.82rem;
-      letter-spacing: 0.03em; white-space: nowrap;
-      color: rgba(30,26,23,0.45); background: transparent; border: none;
-      cursor: pointer; transition: color var(--dur-fast) ease,
-                                   background var(--dur-fast) ease,
-                                   box-shadow var(--dur-fast) ease;
-      min-height: 42px;
+    /* O carousel é transparente no desktop — herdado pelo grid pai */
+    .pcd-carousel {
+      display: contents; /* os filhos participam direto do grid */
     }
-    .assessoria__tab-btn[aria-selected="true"] {
-      background: var(--c-terra); color: var(--c-creme);
-      box-shadow: 0 4px 14px rgba(161,79,42,0.28);
-    }
-    @media (hover:hover) {
-      .assessoria__tab-btn:not([aria-selected="true"]):hover {
-        color: var(--c-terra); background: rgba(161,79,42,0.07);
-      }
-    }
-    .assessoria__tab-icon { font-size: 0.95rem; }
+    .pcd-scroll-hint { display: none; }
 
-    /* Tab panels */
-    .assessoria__panel { display: none; }
-    .assessoria__panel.active {
-      display: block;
-      animation: fadePanel var(--dur-base) var(--ease-out) forwards;
-    }
-    @keyframes fadePanel {
-      from { opacity: 0; transform: translateY(12px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Step grid */
-    .assessoria__grid { display: grid; gap: 16px; }
-    @media (min-width: 480px) { .assessoria__grid { grid-template-columns: 1fr 1fr; } }
-    @media (min-width: 900px) { .assessoria__grid { grid-template-columns: repeat(3, 1fr); } }
-
-    /* Step card */
-    .step-card {
-      background: var(--c-creme-2);
-      border: 1px solid rgba(161,79,42,0.1);
-      border-radius: var(--r-lg); padding: 30px 26px;
-      position: relative; overflow: hidden;
+    /* Card base */
+    .pcd-card {
+      background: #fff;
+      border: 1px solid rgba(161,79,42,0.10);
+      border-radius: var(--r-lg);
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 240px;
       transition: transform var(--dur-base) var(--ease-out),
                   box-shadow var(--dur-base) var(--ease-out),
-                  border-color var(--dur-base) ease;
-      display: flex; flex-direction: column;
+                  border-color var(--dur-base) var(--ease-out);
     }
-    .step-card::after {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+
+    @media (max-width: 900px) {
+      .pcd-bento { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .pcd-card--w2 { grid-column: span 2; }
+      .pcd-cta { grid-column: span 2; }
+    }
+
+    /* Mobile: carousel horizontal com snap */
+    @media (max-width: 640px) {
+      /* Bento vira coluna simples */
+      .pcd-bento {
+        display: flex; flex-direction: column; gap: 20px;
+      }
+
+      /* Carousel dos cards: scroll horizontal */
+      .pcd-carousel {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 12px;
+        /* padding lateral: mostra peek do próximo card */
+        padding-left: 4px;
+        padding-right: 40px;
+        padding-bottom: 12px;
+        margin: 0 -4px; /* compensa padding */
+        /* esconde scrollbar */
+        scrollbar-width: none;
+      }
+      .pcd-carousel::-webkit-scrollbar { display: none; }
+
+      /* Cada card ocupa ~84% da viewport = peek de ~16% do próximo */
+      .pcd-bento .pcd-card {
+        flex: 0 0 84vw;
+        scroll-snap-align: start;
+        min-height: unset;
+        padding: 24px 20px;
+      }
+
+      /* Wide card fica um pouco mais largo para não parecer cortado */
+      .pcd-card--w2 {
+        flex: 0 0 88vw;
+        grid-column: unset;
+      }
+      .pcd-card--w2 .pcd-card__layout {
+        flex-direction: column; gap: 14px;
+      }
+
+      .pcd-card__deco { font-size: 3.5rem; bottom: 10px; right: 14px; }
+      .pcd-card__icon { width: 44px; height: 44px; font-size: 1.25rem; margin-bottom: 14px; }
+
+      /* Hint de scroll */
+      .pcd-scroll-hint {
+        display: flex; align-items: center; gap: 6px;
+        font-size: 0.72rem; color: rgba(30,26,23,0.38);
+        letter-spacing: 0.04em; margin-top: -8px;
+      }
+      .pcd-scroll-hint svg { opacity: 0.5; }
+
+      /* CTA ocupa largura total */
+      .pcd-cta {
+        grid-column: unset;
+        flex-direction: column; align-items: flex-start;
+      }
+    }
+    .pcd-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
       background: linear-gradient(90deg, var(--c-terra), var(--c-cobre));
       transform: scaleX(0); transform-origin: left;
       transition: transform var(--dur-base) var(--ease-out);
     }
     @media (hover:hover) {
-      .step-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 40px rgba(161,79,42,0.1);
-        border-color: rgba(161,79,42,0.2);
+      .pcd-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 48px rgba(161,79,42,0.12);
+        border-color: rgba(161,79,42,0.22);
       }
-      .step-card:hover::after { transform: scaleX(1); }
+      .pcd-card:hover::before { transform: scaleX(1); }
+      .pcd-card:hover .pcd-card__icon { transform: scale(1.08); }
     }
-    .step-card--first {
-      background: linear-gradient(145deg, var(--c-terra) 0%, var(--c-mogno) 100%);
-      border-color: transparent;
+
+    /* Wide variant */
+    .pcd-card--w2 { grid-column: span 2; }
+    .pcd-card--w2 .pcd-card__layout { display: flex; gap: 32px; align-items: flex-start; }
+    .pcd-card--w2 .pcd-card__left { flex: 0 0 auto; }
+    .pcd-card--w2 .pcd-card__right { flex: 1; padding-top: 4px; }
+
+    /* Icon */
+    .pcd-card__icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin-bottom: 18px;
+      transition: transform var(--dur-fast) ease;
     }
-    .step-card--first::after {
-      background: rgba(239,227,214,0.25);
+    .pcd-card__icon--terra { background: rgba(161,79,42,0.10); }
+    .pcd-card__icon--verde { background: rgba(66,84,56,0.10); }
+    .pcd-card__icon--cobre { background: rgba(201,122,82,0.12); }
+
+    /* Decorative number */
+    .pcd-card__deco {
+      font-family: var(--f-editorial); font-style: italic; font-weight: 200;
+      font-size: 5rem; line-height: 1; letter-spacing: -0.03em;
+      color: rgba(161,79,42,0.07); position: absolute;
+      bottom: 14px; right: 22px; pointer-events: none; user-select: none;
     }
-    .step-card__num {
-      font-family: var(--f-editorial); font-style: italic; font-weight: 400;
-      font-size: 4rem; line-height: 1; letter-spacing: -0.03em;
-      color: rgba(161,79,42,0.12); position: absolute;
-      top: 12px; right: 16px; pointer-events: none; user-select: none;
-    }
-    .step-card--first .step-card__num { color: rgba(239,227,214,0.15); }
-    .step-card__step-label {
-      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--c-cobre); margin-bottom: 10px;
-    }
-    .step-card--first .step-card__step-label { color: rgba(239,227,214,0.6); }
-    .step-card__title {
-      font-family: var(--f-heading); font-weight: 700; font-size: 0.97rem;
+
+    /* Text */
+    .pcd-card__title {
+      font-family: var(--f-heading); font-weight: 700; font-size: 1.05rem;
       color: var(--c-preto); margin-bottom: 10px; line-height: 1.3;
     }
-    .step-card--first .step-card__title { color: var(--c-creme); }
-    .step-card__body {
-      font-size: 0.83rem; color: rgba(30,26,23,0.58); line-height: 1.7;
-      flex: 1; margin-bottom: 20px;
+    .pcd-card__body {
+      font-size: 0.875rem; color: rgba(30,26,23,0.72); line-height: 1.7; flex: 1;
     }
-    .step-card--first .step-card__body { color: rgba(239,227,214,0.68); }
-    .step-card__cta {
-      display: inline-flex; align-items: center; gap: 6px; margin-top: auto;
-      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.03em;
-      color: var(--c-terra); text-decoration: none;
-      transition: gap var(--dur-fast) ease, color var(--dur-fast) ease;
+    .pcd-card__tag {
+      display: inline-flex; align-items: center; margin-top: 16px;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: var(--r-pill);
     }
-    .step-card--first .step-card__cta { color: var(--c-creme); }
-    @media (hover:hover) {
-      .step-card__cta:hover { gap: 10px; color: var(--c-mogno); }
-      .step-card--first .step-card__cta:hover { gap: 10px; color: rgba(239,227,214,0.8); }
-      .step-card__cta:hover .step-card__cta-arrow { transform: translateX(3px); }
-    }
-    .step-card__cta-arrow { transition: transform var(--dur-fast) ease; font-style: normal; }
+    .pcd-card__tag--terra { background: rgba(161,79,42,0.08); color: var(--c-terra); }
+    .pcd-card__tag--verde { background: rgba(66,84,56,0.08); color: var(--c-verde); }
+    .pcd-card__tag--cobre { background: rgba(201,122,82,0.10); color: #9d5e38; }
 
-    /* Renovação banner */
-    .assessoria__renovacao-banner {
+    /* CTA banner */
+    .pcd-cta {
       grid-column: 1 / -1; margin-top: 4px;
-      background: var(--c-verde); border-radius: var(--r-lg);
-      padding: 30px 36px; display: flex;
-      flex-wrap: wrap; align-items: center; justify-content: space-between;
-      gap: 20px; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, var(--c-verde) 0%, #354a2d 100%);
+      border-radius: var(--r-lg); padding: 44px 40px;
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      gap: 24px; position: relative; overflow: hidden;
     }
-    .assessoria__renovacao-banner::before {
+    .pcd-cta::before {
       content: ''; position: absolute; inset: 0;
       background-image: url("assets/images/misc/pattern.svg"); background-size: 160px;
       opacity: 0.05; pointer-events: none;
     }
-    .assessoria__renovacao-banner-content { position: relative; z-index: 1; }
-    .assessoria__renovacao-banner-title {
-      font-family: var(--f-heading); font-weight: 700; font-size: 1rem;
-      color: var(--c-creme); margin-bottom: 5px;
+    .pcd-cta__content { position: relative; z-index: 1; max-width: 520px; }
+    .pcd-cta__label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--c-cobre); margin-bottom: 10px; display: block;
     }
-    .assessoria__renovacao-banner-sub {
-      font-size: 0.83rem; color: rgba(239,227,214,0.6);
+    .pcd-cta__title {
+      font-family: var(--f-heading); font-weight: 800;
+      font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+      color: var(--c-creme); line-height: 1.25; margin-bottom: 10px;
     }
-    .assessoria__renovacao-banner-cta { position: relative; z-index: 1; }
+    .pcd-cta__sub { font-size: 0.92rem; color: rgba(239,227,214,0.80); line-height: 1.6; }
+    .pcd-cta__actions { position: relative; z-index: 1; display: flex; gap: 12px; flex-wrap: wrap; }
+    @media (max-width: 640px) {
+      .pcd-cta { padding: 32px 24px; }
+      .pcd-cta__actions { width: 100%; flex-direction: column; gap: 10px; }
+      .pcd-cta__actions .btn { width: 100%; justify-content: center; }
+    }
 
     /* =========================================================
        SECTION: O QUE RESOLVE
     ========================================================= */
-    .resolve {
+    /* =========================================================
+       SECTION: DEPOIMENTOS — SLIDER
+    ========================================================= */
+    .depoimentos {
       background: var(--c-preto); position: relative; overflow: hidden;
     }
-    .resolve__pattern {
+    .depoimentos__pattern {
       position: absolute; inset: 0; opacity: 0.04;
       background-image: url("assets/images/misc/pattern.svg"); background-size: 200px; background-repeat: repeat;
     }
-    .resolve__inner { position: relative; z-index: 1; }
-    .resolve__head { max-width: 600px; margin-bottom: 64px; }
-    .resolve__head-label { color: var(--c-cobre); margin-bottom: 16px; }
-    .resolve__title { color: var(--c-creme); margin-bottom: 20px; }
-    .resolve__intro { color: rgba(239,227,214,0.78); max-width: 52ch; } /* ↑ 0.6→0.78: ~6.4:1 ✓ */
-    .resolve__grid {
-      display: grid; gap: 1px;
-      background: rgba(239,227,214,0.06);
-      border-radius: var(--r-lg); overflow: hidden;
-      border: 1px solid rgba(239,227,214,0.06);
-      list-style: none; padding: 0; margin: 0; /* reset ol defaults */
+    .depoimentos__inner { position: relative; z-index: 1; }
+    .depoimentos__head { max-width: 600px; margin-bottom: 56px; }
+    .depoimentos__head-label { color: var(--c-cobre); margin-bottom: 16px; }
+    .depoimentos__title { color: var(--c-creme); margin-bottom: 20px; }
+    .depoimentos__intro { color: rgba(239,227,214,0.88); max-width: 52ch; }
+
+    /* Grid de depoimentos */
+    .depo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
     }
-    @media (min-width: 640px) { .resolve__grid { grid-template-columns: 1fr 1fr; } }
-    @media (min-width: 1024px) { .resolve__grid { grid-template-columns: repeat(3, 1fr); } }
-    /* list-style:none kills VoiceOver list semantics in Safari — explicit role="list" on the element restores it */
-    .resolve__item {
-      padding: 32px 28px 36px;
-      background: rgba(30,26,23,0.82);
-      transition: background var(--dur-fast) ease;
+    .depo-card {
+      background: var(--c-creme);
+      border: 1px solid rgba(161,79,42,0.10);
+      border-radius: var(--r-lg);
+      padding: 30px 26px 26px;
+      display: flex; flex-direction: column; gap: 16px;
       position: relative; overflow: hidden;
-      list-style: none; /* per-item reset for specificity safety */
+      transition: transform var(--dur-base) var(--ease-out),
+                  box-shadow var(--dur-base) var(--ease-out);
     }
-    /* Animated top accent bar revealed on hover */
-    .resolve__item::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, var(--c-terra), var(--c-cobre));
-      transform: scaleX(0); transform-origin: left;
-      transition: transform 0.38s var(--ease-out);
+    .depo-card--hidden { display: none; }
+    .depo-card__deco {
+      font-family: var(--f-editorial); font-style: italic; font-weight: 200;
+      font-size: 7rem; line-height: 0.75;
+      color: rgba(161,79,42,0.06);
+      position: absolute; top: 10px; left: 18px;
+      pointer-events: none; user-select: none;
+    }
+    .depo-card__stars {
+      color: var(--c-terra); font-size: 0.88rem;
+      letter-spacing: 2px; margin: 0;
+    }
+    .depo-card__quote {
+      font-family: var(--f-body); font-weight: 400;
+      font-size: 0.91rem;
+      color: var(--c-preto);
+      line-height: 1.72;
+      flex: 1; margin: 0;
+      position: relative; z-index: 1;
+    }
+    .depo-card__author {
+      display: flex; align-items: center; gap: 12px;
+      margin-top: auto; padding-top: 4px;
+    }
+    .depo-card__avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: rgba(161,79,42,0.11);
+      border: 1.5px solid rgba(161,79,42,0.20);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--f-heading); font-weight: 700; font-size: 0.65rem;
+      color: var(--c-terra); letter-spacing: 0.06em;
+      flex-shrink: 0;
+    }
+    .depo-card__author-name {
+      font-family: var(--f-heading); font-weight: 700; font-size: 0.86rem;
+      color: var(--c-preto); line-height: 1.3; margin: 0;
+    }
+    .depo-card__google-tag {
+      font-size: 0.70rem; color: rgba(30,26,23,0.42); margin: 3px 0 0;
     }
     @media (hover:hover) {
-      .resolve__item:hover { background: rgba(161,79,42,0.09); }
-      .resolve__item:hover::before { transform: scaleX(1); }
+      .depo-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 36px rgba(161,79,42,0.10);
+      }
     }
-    .resolve__item-num {
-      font-family: var(--f-editorial); font-size: 3.8rem;
-      color: var(--c-cobre); line-height: 1; margin-bottom: 18px;
-      font-style: italic; user-select: none;
+
+    /* Footer grid */
+    .depo-footer {
+      display: flex; flex-direction: column; align-items: center; gap: 16px;
+      margin-top: 44px;
     }
-    /* — Antes zone ——————————————————————————— */
-    .resolve__antes {
-      background: rgba(239,227,214,0.04);
-      border: 1px solid rgba(239,227,214,0.09);
-      border-radius: 6px; padding: 10px 14px;
+    .depo-load-more {
+      background: transparent;
+      border: 1.5px solid rgba(239,227,214,0.22);
+      color: var(--c-creme);
+      font-family: var(--f-heading); font-weight: 600; font-size: 0.88rem;
+      padding: 13px 36px; border-radius: 100px;
+      cursor: pointer;
+      transition: background var(--dur-fast) ease, border-color var(--dur-fast) ease;
     }
-    /* Shared zone label styles */
-    .resolve__zone-label {
-      display: block; font-size: 0.62rem; font-weight: 700;
-      letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 5px;
+    @media (hover:hover) {
+      .depo-load-more:hover {
+        background: rgba(239,227,214,0.07);
+        border-color: rgba(239,227,214,0.42);
+      }
     }
-    .resolve__zone-label--antes { color: rgba(239,227,214,0.65); } /* ~5.5:1 ✓ */
-    .resolve__zone-label--depois { color: var(--c-cobre); }        /* ~5.2:1 ✓ */
-    .resolve__dor {
-      font-family: var(--f-body); font-weight: 400; font-size: 0.875rem;
-      color: rgba(239,227,214,0.75); /* ↑ 0.5→0.75: ~5.8:1 ✓ */
-      font-style: italic; line-height: 1.5; margin: 0;
-      text-decoration: line-through;
-      text-decoration-color: rgba(201,122,82,0.55);
-      text-decoration-thickness: 1.5px;
+    .depo-google-btn {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: rgba(239,227,214,0.05);
+      border: 1px solid rgba(239,227,214,0.13);
+      border-radius: 100px;
+      padding: 11px 26px;
+      color: rgba(239,227,214,0.80);
+      font-family: var(--f-heading); font-weight: 600; font-size: 0.82rem;
+      text-decoration: none;
+      transition: background var(--dur-fast) ease, border-color var(--dur-fast) ease, color var(--dur-fast) ease;
     }
-    /* — Arrow divider ———————————————————————— */
-    .resolve__arrow {
-      display: flex; align-items: center; gap: 8px;
-      margin: 14px 0; color: rgba(201,122,82,0.55);
+    @media (hover:hover) {
+      .depo-google-btn:hover {
+        background: rgba(239,227,214,0.10);
+        border-color: rgba(239,227,214,0.28);
+        color: var(--c-creme);
+      }
     }
-    .resolve__arrow-line {
-      flex: 1; height: 1px;
-      background: linear-gradient(90deg, rgba(201,122,82,0.35), transparent);
+    .depo-google-btn svg { flex-shrink: 0; }
+
+    @media (max-width: 900px) {
+      .depo-grid { grid-template-columns: repeat(2, 1fr); }
     }
-    /* — Depois zone —————————————————————————— */
-    .resolve__ganho {
-      font-family: var(--f-heading); font-weight: 700; font-size: 1rem;
-      color: var(--c-creme); /* 21:1 ✓ */
-      margin-bottom: 0; padding-left: 10px;
-      border-left: 2px solid var(--c-terra);
-      line-height: 1.4;
+    @media (max-width: 560px) {
+      .depo-grid { grid-template-columns: 1fr; gap: 14px; }
+      .depo-card { padding: 24px 20px 22px; }
     }
-    .resolve__desc {
-      font-size: 0.84rem;
-      color: rgba(239,227,214,0.72); /* ↑ 0.45→0.72: ~5.5:1 ✓ */
-      line-height: 1.70; margin-top: 12px;
-    }
+
 
     /* =========================================================
        SECTION: ÁREA DE ATUAÇÃO
@@ -935,7 +1129,7 @@
     .atuacao__inner { position: relative; z-index: 1; }
     .atuacao__head { max-width: 640px; margin-bottom: 56px; }
     .atuacao__title { color: var(--c-preto); margin-bottom: 20px; }
-    .atuacao__intro { color: rgba(30,26,23,0.62); max-width: 58ch; }
+    .atuacao__intro { color: rgba(30,26,23,0.75); max-width: 58ch; }
 
     /* Bento grid */
     .atuacao__grid {
@@ -1038,16 +1232,16 @@
 
     /* Card desc */
     .atuacao__card-desc {
-      font-size: 0.84rem; color: rgba(30,26,23,0.65); line-height: 1.70; margin: 0; /* ~5.3:1 ✓ */
+      font-size: 0.88rem; color: rgba(30,26,23,0.75); line-height: 1.72; margin: 0;
     }
     .atuacao__card--feature .atuacao__card-desc {
-      color: rgba(239,227,214,0.72); font-size: 0.88rem; line-height: 1.72;
+      color: rgba(239,227,214,0.82); font-size: 0.9rem; line-height: 1.72;
     }
 
     /* Feature card arrow link */
     .atuacao__card-link {
       display: inline-flex; align-items: center; gap: 6px;
-      font-size: 0.82rem; font-weight: 600; color: rgba(239,227,214,0.78);
+      font-size: 0.85rem; font-weight: 600; color: rgba(239,227,214,0.88);
       margin-top: 22px; text-decoration: none; width: fit-content;
       transition: color var(--dur-fast) ease, gap var(--dur-fast) var(--ease-out);
     }
@@ -1057,7 +1251,7 @@
     /* Feature card decorative watermark */
     .atuacao__card-deco {
       position: absolute; right: 20px; bottom: -10px;
-      font-family: var(--f-editorial); font-style: italic;
+      font-family: var(--f-editorial); font-style: italic; font-weight: 200;
       font-size: 8rem; line-height: 1;
       color: rgba(255,255,255,0.055); user-select: none; pointer-events: none;
     }
@@ -1072,7 +1266,7 @@
       font-size: 1.05rem; line-height: 1.3; color: var(--c-creme); margin-bottom: 10px;
     }
     .atuacao__cta-sub {
-      font-size: 0.84rem; color: rgba(239,227,214,0.62); line-height: 1.65;
+      font-size: 0.88rem; color: rgba(239,227,214,0.80); line-height: 1.65;
       margin-bottom: 24px; flex: 1;
     }
 
@@ -1086,9 +1280,9 @@
     }
     .processo__inner { position: relative; z-index: 1; }
     .processo__head { text-align: center; max-width: 600px; margin: 0 auto 80px; }
-    .processo__head-label { color: rgba(239,227,214,0.55); margin-bottom: 16px; }
+    .processo__head-label { color: rgba(239,227,214,0.70); margin-bottom: 16px; }
     .processo__title { color: var(--c-creme); margin-bottom: 16px; }
-    .processo__intro { color: rgba(239,227,214,0.62); }
+    .processo__intro { color: rgba(239,227,214,0.80); }
 
     /* timeline wrapper — establishes positioning context for the rail */
     .processo__timeline {
@@ -1144,8 +1338,8 @@
                   box-shadow 0.5s var(--ease-out);
     }
     .processo__step-num-text {
-      font-family: var(--f-editorial); font-style: italic; font-weight: 500;
-      font-size: 1.3rem; color: rgba(239,227,214,0.22);
+      font-family: var(--f-editorial); font-style: italic; font-weight: 300;
+      font-size: 1.2rem; color: rgba(239,227,214,0.22);
       transition: opacity 0.3s ease, color 0.4s ease;
       position: relative; z-index: 1;
     }
@@ -1212,12 +1406,12 @@
       color: var(--c-creme); margin-bottom: 10px; line-height: 1.3;
     }
     .processo__step-body {
-      font-size: 0.88rem; color: rgba(239,227,214,0.52);
+      font-size: 0.92rem; color: rgba(239,227,214,0.65);
       line-height: 1.75; max-width: 52ch;
       transition: color 0.4s ease;
     }
     .processo__step.active .processo__step-body {
-      color: rgba(239,227,214,0.75);
+      color: rgba(239,227,214,0.88);
     }
 
     /* progress counter */
@@ -1260,266 +1454,138 @@
     }
     .beneficios__head .display-md { margin-top: 12px; }
 
-    /* ── Bento Grid ─────────────────────────────────────────── */
-    .beneficios__bento {
-      display: grid;
-      gap: 10px;
-      grid-template-columns: 1fr;
+    /* ── Comparison intro ───────────────────────────────────── */
+    .beneficios__intro {
+      font-size: 0.97rem; color: rgba(30,26,23,0.62);
+      line-height: 1.65; margin-top: 14px; max-width: 52ch;
     }
 
-    @media (min-width: 560px) {
-      .beneficios__bento { grid-template-columns: 1fr 1fr; }
-      .benef-card--w2 { grid-column: span 2; }
-      .benef-card--feature { grid-column: span 2; }
-    }
-
-    @media (min-width: 900px) {
-      .beneficios__bento {
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: auto auto auto;
-      }
-      /* card 03: wide, row 2, cols 1–2 */
-      .benef-card--w2 {
-        grid-column: 1 / 3;
-        grid-row: 2;
-      }
-      /* feature: tall, col 3, rows 1–2 */
-      .benef-card--feature {
-        grid-column: 3;
-        grid-row: 1 / 3;
-      }
-    }
-
-    /* ── Base card ──────────────────────────────────────────── */
-    .benef-card {
-      background: var(--c-creme);
-      border: 1px solid rgba(161,79,42,0.09);
+    /* ── Comparison table card ──────────────────────────────── */
+    .comp-wrap {
+      background: #fff;
+      border: 1px solid rgba(161,79,42,0.10);
       border-radius: var(--r-lg);
-      padding: 26px 26px 22px;
-      position: relative;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      min-height: 186px;
-      cursor: default;
-      transition:
-        transform var(--dur-base) var(--ease-out),
-        box-shadow var(--dur-base) var(--ease-out),
-        border-color var(--dur-base) ease;
+      box-shadow: 0 4px 40px rgba(30,26,23,0.07);
     }
 
-    /* Large ghost number in top-right corner */
-    .benef-card__deco {
-      position: absolute;
-      top: 8px; right: 14px;
-      font-family: var(--f-editorial);
-      font-style: italic;
-      font-size: 4.8rem;
-      line-height: 1;
-      color: rgba(161,79,42,0.06);
-      user-select: none;
-      pointer-events: none;
-      transition:
-        color var(--dur-slow) ease,
-        transform var(--dur-slow) var(--ease-out);
+    /* Header row */
+    .comp-header {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      background: rgba(161,79,42,0.035);
+      border-bottom: 1px solid rgba(161,79,42,0.10);
+    }
+    .comp-header__col {
+      display: flex; align-items: center; gap: 10px;
+      padding: 18px 32px;
+      font-family: var(--f-heading); font-weight: 700;
+      font-size: 0.88rem;
+    }
+    .comp-header__col--eleva { color: var(--c-preto); }
+    .comp-header__col--sem   { color: rgba(180,40,40,0.80); }
+    .comp-header__sep { background: rgba(161,79,42,0.10); }
+
+    /* Colored dot indicators */
+    .comp-dot {
+      width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+      display: inline-block;
+    }
+    .comp-dot--eleva {
+      background: var(--c-verde);
+      box-shadow: 0 0 0 3px rgba(66,84,56,0.14);
+    }
+    .comp-dot--sem {
+      background: rgba(180,40,40,0.70);
+      box-shadow: 0 0 0 3px rgba(180,40,40,0.14);
     }
 
+    /* Data rows */
+    .comp-row {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      border-bottom: 1px solid rgba(161,79,42,0.07);
+      position: relative;
+      transition: background var(--dur-fast) ease;
+    }
+    .comp-row:last-child { border-bottom: none; }
     @media (hover:hover) {
-      .benef-card:not(.benef-card--feature):hover {
-        transform: translateY(-5px);
-        box-shadow: 0 18px 56px rgba(161,79,42,0.10);
-        border-color: rgba(161,79,42,0.20);
-      }
-      .benef-card:hover .benef-card__deco {
-        color: rgba(161,79,42,0.13);
-        transform: scale(1.07) translateY(-3px) rotate(-2deg);
-      }
-      .benef-card:hover .benef-card__icon { transform: scale(1.1); }
-      .benef-card:hover .benef-card__title { color: var(--c-terra); }
+      .comp-row:hover { background: rgba(66,84,56,0.04); }
     }
 
-    .benef-card__icon {
-      width: 38px; height: 38px;
-      border-radius: var(--r-sm);
+    .comp-cell {
+      display: flex; align-items: center; gap: 14px;
+      padding: 22px 32px;
+      font-size: 0.92rem; line-height: 1.5;
+    }
+    .comp-cell--eleva { color: rgba(30,26,23,0.88); }
+    .comp-cell--sem   { color: rgba(160,35,35,0.72); }
+    .comp-row__sep { background: rgba(161,79,42,0.08); }
+
+    /* Icon circles */
+    .comp-icon {
+      width: 22px; height: 22px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
-      margin-bottom: 14px;
       flex-shrink: 0;
-      position: relative; z-index: 1;
-      transition: transform var(--dur-base) var(--ease-out);
     }
-    .benef-card__icon--terra { background: rgba(161,79,42,0.10); }
-    .benef-card__icon--verde { background: rgba(66,84,56,0.10); }
-    .benef-card__icon--cobre { background: rgba(201,122,82,0.12); }
+    .comp-icon--check { background: rgba(66,84,56,0.12); color: var(--c-verde); }
+    .comp-icon svg, .comp-icon svg { width: 10px; height: 10px; }
+    .comp-icon--x { background: rgba(180,40,40,0.08); color: rgba(180,40,40,0.65); }
 
-    .benef-card__title {
-      font-family: var(--f-heading);
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--c-preto);
-      line-height: 1.25;
-      margin-bottom: 8px;
-      position: relative; z-index: 1;
-      transition: color var(--dur-fast) ease;
-    }
-
-    .benef-card__body {
-      font-size: 0.825rem;
-      color: rgba(30,26,23,0.52);
-      line-height: 1.70;
-      flex: 1;
-      position: relative; z-index: 1;
+    /* Mobile: backgrounds por coluna para diferenciar visualmente */
+    @media (max-width: 640px) {
+      .comp-wrap { border-radius: 16px; }
+      .comp-header { grid-template-columns: 1fr 1px 1fr; }
+      .comp-header__col { padding: 14px 14px; font-size: 0.76rem; }
+      .comp-header__col--eleva { background: rgba(66,84,56,0.06); }
+      .comp-header__col--sem   { background: rgba(180,40,40,0.05); }
+      .comp-row { grid-template-columns: 1fr 1px 1fr; }
+      .comp-cell { padding: 16px 14px; font-size: 0.80rem; gap: 8px; line-height: 1.45; }
+      .comp-cell--eleva { background: rgba(66,84,56,0.025); }
+      .comp-cell--sem   { background: rgba(180,40,40,0.025); }
+      .comp-icon { width: 18px; height: 18px; flex-shrink: 0; }
+      .comp-icon svg { width: 9px; height: 9px; }
+      .comp-dot { width: 8px; height: 8px; }
     }
 
-    .benef-card__tag {
-      display: inline-flex;
-      align-self: flex-start;
-      margin-top: 14px;
-      font-size: 0.61rem;
-      font-weight: 700;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: var(--r-pill);
-      position: relative; z-index: 1;
+    /* ── CTA below table ────────────────────────────────────── */
+    .comp-cta {
+      margin-top: 48px;
+      background: linear-gradient(135deg, var(--c-verde) 0%, #354a2d 100%);
+      border-radius: var(--r-lg);
+      padding: 44px 48px;
+      display: flex; flex-wrap: wrap;
+      align-items: center; justify-content: space-between;
+      gap: 28px; position: relative; overflow: hidden;
     }
-    .benef-card__tag--terra { background: rgba(161,79,42,0.08); color: var(--c-terra); }
-    .benef-card__tag--verde { background: rgba(66,84,56,0.08); color: var(--c-verde); }
-    .benef-card__tag--cobre { background: rgba(201,122,82,0.10); color: #9d5e38; }
-
-    /* ── Wide card (card 03) — horizontal on desktop ────────── */
-    @media (min-width: 900px) {
-      .benef-card--w2 {
-        flex-direction: row;
-        align-items: flex-start;
-        gap: 32px;
-        min-height: 160px;
-      }
-      .benef-card--w2 .benef-card__left {
-        display: flex; flex-direction: column;
-        flex: 1;
-      }
-      .benef-card--w2 .benef-card__right {
-        flex: 1;
-        padding-top: 2px;
-      }
-      .benef-card--w2 .benef-card__icon { margin-bottom: 10px; }
-    }
-
-    /* ── Feature card (dark, tall) ──────────────────────────── */
-    .benef-card--feature {
-      background: linear-gradient(155deg, #5A2412 0%, #0D0906 100%);
-      border-color: rgba(201,122,82,0.14);
-      min-height: 340px;
-      box-shadow:
-        0 2px 0 rgba(201,122,82,0.10) inset,
-        0 24px 64px rgba(14,10,8,0.18);
-    }
-
-    .benef-card--feature:hover {
-      transform: none !important;
-      box-shadow:
-        0 2px 0 rgba(201,122,82,0.10) inset,
-        0 0 0 1px rgba(201,122,82,0.22);
-    }
-
-    /* texture overlay */
-    .benef-feat__bg {
-      position: absolute; inset: 0;
+    .comp-cta::before {
+      content: ''; position: absolute; inset: 0;
       background-image: url("assets/images/misc/pattern.svg");
-      background-size: 110px;
-      opacity: 0.05;
+      background-size: 160px; opacity: 0.05; pointer-events: none;
     }
-
-    /* glow orb */
-    .benef-feat__glow {
-      position: absolute;
-      width: 280px; height: 280px;
-      border-radius: 50%;
-      background: radial-gradient(circle at center, rgba(201,122,82,0.20) 0%, transparent 68%);
-      top: -90px; right: -70px;
-      pointer-events: none;
+    .comp-cta__content { position: relative; z-index: 1; max-width: 480px; }
+    .comp-cta__label {
+      font-size: 0.67rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--c-cobre);
+      margin-bottom: 10px; display: block;
     }
-
-    /* concentric rings */
-    .benef-feat__rings {
-      position: absolute;
-      width: 340px; height: 340px;
-      border-radius: 50%;
-      border: 1px solid rgba(201,122,82,0.09);
-      top: -110px; right: -110px;
-      pointer-events: none;
+    .comp-cta__title {
+      font-family: var(--f-heading); font-weight: 800;
+      font-size: clamp(1.2rem, 2.4vw, 1.55rem);
+      color: var(--c-creme); line-height: 1.25; margin-bottom: 8px;
     }
-    .benef-feat__rings::after {
-      content: '';
-      position: absolute; inset: 44px;
-      border-radius: 50%;
-      border: 1px solid rgba(201,122,82,0.06);
+    .comp-cta__sub {
+      font-size: 0.9rem; color: rgba(239,227,214,0.72); line-height: 1.6;
     }
-
-    .benef-feat__inner {
+    .comp-cta__actions {
       position: relative; z-index: 1;
-      display: flex; flex-direction: column;
-      height: 100%;
+      display: flex; gap: 12px; flex-wrap: wrap;
     }
-
-    .benef-feat__label {
-      display: flex; align-items: center; gap: 10px;
-      font-size: 0.66rem; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--c-cobre); margin-bottom: 18px;
+    @media (max-width: 600px) {
+      .comp-cta { padding: 32px 24px; }
+      .comp-cta__actions { width: 100%; flex-direction: column; gap: 10px; }
+      .comp-cta__actions .btn { width: 100%; justify-content: center; }
     }
-    .benef-feat__label::before {
-      content: ''; width: 20px; height: 1px;
-      background: var(--c-cobre); flex-shrink: 0;
-    }
-
-    .benef-feat__quote {
-      font-family: var(--f-editorial);
-      font-style: italic;
-      font-size: clamp(1.55rem, 2vw, 1.9rem);
-      color: var(--c-creme);
-      line-height: 1.35;
-      margin-bottom: 14px;
-    }
-
-    .benef-feat__body {
-      font-size: 0.81rem;
-      color: rgba(239,227,214,0.46);
-      line-height: 1.75;
-      margin-bottom: 20px;
-    }
-
-    .benef-feat__proof {
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-      margin-bottom: 22px;
-      padding: 15px 17px;
-      background: rgba(255,255,255,0.04);
-      border-radius: var(--r-sm);
-      border: 1px solid rgba(239,227,214,0.07);
-      flex: 1;
-    }
-
-    .benef-feat__proof-item {
-      display: flex; align-items: center; gap: 10px;
-      font-size: 0.79rem;
-      color: rgba(239,227,214,0.67);
-      line-height: 1.4;
-    }
-
-    .benef-feat__check {
-      width: 16px; height: 16px;
-      border-radius: 50%;
-      background: rgba(161,79,42,0.40);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .benef-feat__check svg { width: 8px; height: 8px; }
-
-    .benef-feat__cta { display: flex; }
-    .benef-feat__cta .btn { flex: 1; justify-content: center; }
 
     /* =========================================================
        SECTION: FAQ
@@ -1547,6 +1613,7 @@
       top: -32px; right: -16px;
       font-family: var(--f-editorial);
       font-style: italic;
+      font-weight: 200;
       font-size: clamp(9rem, 16vw, 13rem);
       line-height: 1;
       color: rgba(161,79,42,0.045);
@@ -1606,7 +1673,8 @@
     .faq__trigger-num {
       font-family: var(--f-editorial);
       font-style: italic;
-      font-size: 1.3rem;
+      font-weight: 300;
+      font-size: 1.1rem;
       color: rgba(161,79,42,0.28);
       flex-shrink: 0;
       line-height: 1;
@@ -1660,7 +1728,161 @@
     .faq__body-inner { overflow: hidden; }
     .faq__body-pad {
       padding: 0 22px 20px 62px; /* left aligns with trigger text: 22px + 26px num + 14px gap */
-      font-size: 0.92rem; color: rgba(30,26,23,0.62); line-height: 1.78;
+      font-size: 0.95rem; color: rgba(30,26,23,0.75); line-height: 1.78;
+    }
+
+    /* =========================================================
+       SECTION: LOJA ELEVA
+    ========================================================= */
+    .loja {
+      background: var(--c-mogno);
+      position: relative; overflow: hidden;
+    }
+    .loja::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, #7a3820 0%, var(--c-mogno) 45%, #2a1208 100%);
+    }
+    .loja__pattern {
+      position: absolute; inset: 0;
+      background-image: url("assets/images/misc/pattern.svg");
+      background-size: 200px; opacity: 0.04; pointer-events: none;
+    }
+
+    /* Ticker */
+    .loja__ticker {
+      overflow: hidden;
+      border-top: 1px solid rgba(239,227,214,0.08);
+      border-bottom: 1px solid rgba(239,227,214,0.08);
+      padding: 14px 0; margin-bottom: 72px;
+      position: relative; z-index: 1;
+    }
+    .loja__ticker-track {
+      display: flex; width: max-content;
+      animation: tickerRoll 24s linear infinite;
+    }
+    @keyframes tickerRoll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .loja__ticker-track { animation: none; }
+    }
+    .loja__ticker-item {
+      display: inline-flex; align-items: center; gap: 16px;
+      padding: 0 28px;
+      font-family: var(--f-heading); font-weight: 700;
+      font-size: 0.74rem; letter-spacing: 0.13em;
+      text-transform: uppercase; color: rgba(239,227,214,0.45);
+      white-space: nowrap;
+    }
+    .loja__ticker-dot {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: var(--c-cobre); flex-shrink: 0;
+    }
+
+    /* Layout */
+    .loja__inner {
+      position: relative; z-index: 1;
+      display: grid; gap: 64px;
+    }
+    @media (min-width: 900px) {
+      .loja__inner { grid-template-columns: 1fr 1fr; align-items: center; }
+    }
+
+    /* Copy side */
+    .loja__label { color: var(--c-cobre); margin-bottom: 20px; }
+    .loja__title {
+      color: var(--c-creme);
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      line-height: 1.1; letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+    .loja__title em {
+      font-style: italic; font-weight: 200; color: var(--c-cobre);
+    }
+    .loja__body {
+      color: rgba(239,227,214,0.72);
+      font-size: 1rem; line-height: 1.78;
+      max-width: 48ch; margin-bottom: 40px;
+    }
+    .loja__actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    @media (max-width: 600px) {
+      .loja__actions { flex-direction: column; align-items: stretch; gap: 10px; }
+      .loja__actions .btn { width: 100%; justify-content: center; }
+    }
+    .loja__trust {
+      display: flex; flex-wrap: wrap; gap: 22px; margin-top: 28px;
+    }
+    .loja__trust-item {
+      font-size: 0.78rem; color: rgba(239,227,214,0.42);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .loja__trust-item::before {
+      content: ''; width: 14px; height: 1px;
+      background: var(--c-cobre); opacity: 0.5;
+    }
+
+    /* Visual side */
+    .loja__visual { position: relative; }
+
+    /* Mockup da loja */
+    .loja__mockup-wrap {
+      position: relative;
+    }
+    .loja__mockup-img {
+      width: 100%; height: auto; display: block;
+      border-radius: 12px;
+      filter: drop-shadow(0 28px 72px rgba(0,0,0,0.60));
+      transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+      transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    @media (hover:hover) {
+      .loja__mockup-wrap:hover .loja__mockup-img {
+        transform: perspective(1000px) rotateY(-1deg) rotateX(0deg);
+      }
+    }
+    .loja__mockup-glow {
+      position: absolute; inset: 15% 8%;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at 40% 60%, rgba(201,122,82,0.28) 0%, transparent 70%);
+      filter: blur(48px);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Levi floating in the visual column */
+    .loja__levi {
+      position: absolute; top: -48px; right: -16px;
+      width: 120px; height: auto; z-index: 2;
+      filter: drop-shadow(0 12px 32px rgba(0,0,0,0.40));
+      animation: leviFloat 3.4s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    /* Badge flutuante "Loja ao vivo" */
+    .loja__mockup-badge {
+      position: absolute; bottom: 32px; left: -18px;
+      background: var(--c-creme); color: var(--c-mogno);
+      border-radius: 12px; padding: 10px 16px;
+      font-family: var(--f-heading); font-size: 0.70rem; font-weight: 700;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.32);
+      display: flex; align-items: center; gap: 8px;
+      white-space: nowrap; z-index: 3;
+      animation: leviFloat 4.4s ease-in-out infinite reverse;
+      pointer-events: none;
+    }
+    .loja__mockup-badge-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #22c55e; flex-shrink: 0;
+      box-shadow: 0 0 0 3px rgba(34,197,94,0.25);
+    }
+
+    @media (max-width: 640px) {
+      .loja__ticker { margin-bottom: 48px; }
+      .loja__levi { width: 84px; top: -32px; right: -8px; }
+      .loja__mockup-badge { left: 0; bottom: 16px; }
     }
 
     /* =========================================================
@@ -1690,16 +1912,21 @@
       font-size: 1.6rem; margin: 0 auto 32px;
     }
     .cta-final__editorial {
-      font-family: var(--f-editorial); font-style: italic;
-      font-size: clamp(1.4rem, 3vw, 2rem); color: rgba(239,227,214,0.55);
-      line-height: 1.4; margin-bottom: 20px;
+      font-family: var(--f-editorial); font-style: italic; font-weight: 300;
+      font-size: clamp(1.2rem, 2.5vw, 1.75rem); letter-spacing: 0.01em;
+      color: rgba(239,227,214,0.68);
+      line-height: 1.55; margin-bottom: 20px;
     }
     .cta-final__title {
       font-size: clamp(2rem, 5vw, 3.2rem); color: var(--c-creme);
       margin-bottom: 20px;
     }
-    .cta-final__body { color: rgba(239,227,214,0.6); max-width: 50ch; margin: 0 auto 40px; }
+    .cta-final__body { color: rgba(239,227,214,0.82); max-width: 50ch; margin: 0 auto 40px; }
     .cta-final__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-bottom: 40px; }
+    @media (max-width: 600px) {
+      .cta-final__actions { flex-direction: column; align-items: stretch; gap: 10px; }
+      .cta-final__actions .btn { width: 100%; justify-content: center; }
+    }
     .cta-final__car {
       width: 100%;
       max-width: 620px;
@@ -1738,6 +1965,9 @@
       font-size: 0.82rem; color: rgba(239,227,214,0.4); line-height: 1.65;
       max-width: 32ch;
     }
+    .footer__cnpj {
+      font-size: 0.72rem; color: rgba(239,227,214,0.2); margin-top: 12px; line-height: 1.5;
+    }
     .footer__col-title {
       font-family: var(--f-heading); font-weight: 700; font-size: 0.78rem;
       letter-spacing: 0.08em; text-transform: uppercase;
@@ -1753,6 +1983,12 @@
       display: flex; flex-wrap: wrap; gap: 12px;
       align-items: center; justify-content: space-between;
     }
+    .footer__disclaimer {
+      font-size: 0.68rem; color: rgba(239,227,214,0.22);
+      line-height: 1.6; max-width: 72ch;
+      margin-bottom: 20px; padding-bottom: 20px;
+      border-bottom: 1px solid rgba(239,227,214,0.06);
+    }
     .footer__copy {
       font-size: 0.75rem; color: rgba(239,227,214,0.25);
     }
@@ -1764,6 +2000,43 @@
       transition: color var(--dur-fast) ease;
     }
     @media (hover:hover) { .footer__legal-link:hover { color: rgba(239,227,214,0.5); } }
+
+    /* =========================================================
+       COOKIE CONSENT BAR
+    ========================================================= */
+    .cookie-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 400;
+      background: #100d0a;
+      border-top: 1px solid rgba(239,227,214,0.1);
+      padding: 14px 24px;
+      display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
+      justify-content: space-between;
+      transform: translateY(100%);
+      transition: transform 340ms cubic-bezier(0.16,1,0.3,1);
+    }
+    .cookie-bar.visible { transform: translateY(0); }
+    .cookie-bar__text {
+      font-size: 0.78rem; color: rgba(239,227,214,0.5); line-height: 1.55;
+      flex: 1; min-width: 200px;
+    }
+    .cookie-bar__text a {
+      color: rgba(196,124,69,0.8); text-decoration: underline; text-underline-offset: 2px;
+    }
+    .cookie-bar__actions { display: flex; gap: 8px; flex-shrink: 0; }
+    .cookie-bar__btn {
+      font-family: var(--f-body); font-size: 0.76rem; font-weight: 600;
+      padding: 7px 16px; border-radius: var(--r-pill);
+      cursor: pointer; transition: opacity 200ms ease; border: none;
+    }
+    .cookie-bar__btn--accept {
+      background: var(--c-cobre); color: var(--c-preto);
+    }
+    .cookie-bar__btn--accept:hover { opacity: 0.85; }
+    .cookie-bar__btn--decline {
+      background: transparent; color: rgba(239,227,214,0.35);
+      border: 1px solid rgba(239,227,214,0.12);
+    }
+    .cookie-bar__btn--decline:hover { color: rgba(239,227,214,0.6); border-color: rgba(239,227,214,0.25); }
 
     /* =========================================================
        WHATSAPP FLOAT
@@ -1815,8 +2088,8 @@
     .reveal-delay-6 { transition-delay: 480ms; }
 
     @media (prefers-reduced-motion: reduce) {
-      .reveal, .btn, .step-card, .faq__body, .faq__item, .faq__icon::before, .faq__icon::after,
-      .hero__trust-dot, .wa-float, .resolve__item::before {
+      .reveal, .btn, .pcd-card, .faq__body, .faq__item, .faq__icon::before, .faq__icon::after,
+      .hero__trust-dot, .wa-float, .depo-slider__track, .depo-dot {
         transition: none !important; animation: none !important;
         opacity: 1 !important; transform: none !important;
       }
@@ -1881,7 +2154,7 @@
         <li><a href="#faq" class="nav__link">Dúvidas</a></li>
       </ul>
 
-      <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+gostaria+de+entender+meu+caso+de+isen%C3%A7%C3%A3o+PCD."
+      <a href="https://wa.me/5512982820153?text=Ol%C3%A1%2C+gostaria+de+entender+meu+caso+de+isen%C3%A7%C3%A3o+PCD."
          class="btn btn--terra nav__cta" target="_blank" rel="noopener noreferrer"
          aria-label="Falar com a equipe no WhatsApp">
         Falar com a equipe
@@ -1902,7 +2175,7 @@
   <a href="#processo" class="nav__mobile-link" data-close-menu>Processo</a>
   <a href="#beneficios" class="nav__mobile-link" data-close-menu>Benefícios</a>
   <a href="#faq" class="nav__mobile-link" data-close-menu>Dúvidas</a>
-  <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+gostaria+de+entender+meu+caso+de+isen%C3%A7%C3%A3o+PCD."
+  <a href="https://wa.me/5512982820153?text=Ol%C3%A1%2C+gostaria+de+entender+meu+caso+de+isen%C3%A7%C3%A3o+PCD."
      class="btn btn--terra" target="_blank" rel="noopener" data-close-menu>
     Falar com a equipe
   </a>
@@ -1933,16 +2206,16 @@
         </h1>
 
         <p class="hero__tagline reveal reveal-delay-2">
-          A isenção PCD que você tem direito,<br />
-          sem a confusão que ninguém quer enfrentar.
+          Tenha acesso a todos os seus direitos de isenção de forma simples para PCD
         </p>
 
         <p class="hero__body reveal reveal-delay-3">
-          Somos uma assessoria especializada em isenção fiscal para pessoas com deficiência (PCD) na aquisição de veículos. Orientamos e acompanhamos você em todo o processo de isenção de IPI, IOF, ICMS e IPVA — com clareza, segurança e suporte real do início ao fim.
+          Somos uma assessoria especializada em isenção para pessoas com deficiência (PCD) na aquisição de veículos. Com os benefícios de isenção de IPI, IOF, ICMS e IPVA, você pode economizar <strong>mais de R$&nbsp;20.000</strong> na compra do seu carro — e nós cuidamos de todo o processo pra isso acontecer.
         </p>
+        <p class="hero__disclaimer reveal reveal-delay-3">* O valor economizado varia conforme o modelo e o preço do veículo. Nem todos os carros proporcionam economia de R$&nbsp;20.000.</p>
 
         <div class="hero__actions reveal reveal-delay-4">
-          <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+quero+analisar+meu+caso+de+isen%C3%A7%C3%A3o+PCD."
+          <a href="https://wa.me/5512982820153?text=Ol%C3%A1%2C+quero+analisar+meu+caso+de+isen%C3%A7%C3%A3o+PCD."
              class="btn btn--terra" target="_blank" rel="noopener noreferrer"
              aria-label="Falar com a Equipe pelo WhatsApp">
             Falar com a Equipe
@@ -1970,17 +2243,17 @@
         </div>
         <div class="hero__floating-cards">
           <div class="hero__float-card reveal reveal-delay-2">
-            <span class="hero__float-card-icon" aria-hidden="true">🔍</span>
+            <span class="hero__float-card-icon" aria-hidden="true">💸</span>
             <div>
-              <p class="hero__float-card-title">Análise de elegibilidade</p>
-              <p class="hero__float-card-text">Entendemos o seu caso antes de qualquer passo.</p>
+              <p class="hero__float-card-title">R$ 20.000 de desconto</p>
+              <p class="hero__float-card-text">Economia média em impostos na compra</p>
             </div>
-          </div>  
+          </div>
           <div class="hero__float-card reveal reveal-delay-4">
-            <span class="hero__float-card-icon" aria-hidden="true">🤝</span>
+            <span class="hero__float-card-icon" aria-hidden="true">✅</span>
             <div>
-              <p class="hero__float-card-title">Acompanhamento real</p>
-              <p class="hero__float-card-text">Presente em cada etapa, sem deixar você sozinho.</p>
+              <p class="hero__float-card-title">Avaliação Gratuita</p>
+              <p class="hero__float-card-text">Análise do seu caso sem compromisso</p>
             </div>
           </div>
         </div>
@@ -2006,10 +2279,15 @@
       <span class="marcas__item"><img src="assets/images/brands/marca3.webp"  alt="Hyundai"    loading="lazy" /></span>
       <span class="marcas__item"><img src="assets/images/brands/marca7.webp"  alt="Fiat"       loading="lazy" /></span>
       <span class="marcas__item"><img src="assets/images/brands/marca6.webp"  alt="Chevrolet"  loading="lazy" /></span>
+      <span class="marcas__item"><img src="assets/images/brands/renault.webp" alt="Renault"    loading="lazy" /></span>
       <span class="marcas__item"><img src="assets/images/brands/marca5.webp"  alt="Jeep"       loading="lazy" /></span>
+      <span class="marcas__item"><img src="assets/images/brands/toyota.webp"  alt="Toyota"     loading="lazy" /></span>
       <span class="marcas__item"><img src="assets/images/brands/marca4.webp"  alt="Honda"      loading="lazy" /></span>
+      <span class="marcas__item"><img src="assets/images/brands/gwm.webp"     alt="GWM"        loading="lazy" /></span>
       <span class="marcas__item"><img src="assets/images/brands/marca2.webp"  alt="Nissan"     loading="lazy" /></span>
+      <span class="marcas__item"><img src="assets/images/brands/mitsubish.webp" alt="Mitsubishi" loading="lazy" /></span>
       <span class="marcas__item"><img src="assets/images/brands/marca1.webp"  alt="Peugeot"    loading="lazy" /></span>
+      <span class="marcas__item"><img src="assets/images/brands/omoda.webp"   alt="Omoda"      loading="lazy" /></span>
       <span class="marcas__item"><img src="assets/images/brands/marca8.webp"  alt="Chery"      loading="lazy" /></span>
       <span class="marcas__item"><img src="assets/images/brands/marca9.webp"  alt="Citroën"    loading="lazy" /></span>
       <!-- set B — duplicado para loop sem costura -->
@@ -2017,10 +2295,15 @@
       <span class="marcas__item"><img src="assets/images/brands/marca3.webp"  alt="Hyundai"    loading="lazy" /></span>
       <span class="marcas__item"><img src="assets/images/brands/marca7.webp"  alt="Fiat"       loading="lazy" /></span>
       <span class="marcas__item"><img src="assets/images/brands/marca6.webp"  alt="Chevrolet"  loading="lazy" /></span>
+      <span class="marcas__item"><img src="assets/images/brands/renault.webp" alt="Renault"    loading="lazy" /></span>
       <span class="marcas__item"><img src="assets/images/brands/marca5.webp"  alt="Jeep"       loading="lazy" /></span>
+      <span class="marcas__item"><img src="assets/images/brands/toyota.webp"  alt="Toyota"     loading="lazy" /></span>
       <span class="marcas__item"><img src="assets/images/brands/marca4.webp"  alt="Honda"      loading="lazy" /></span>
+      <span class="marcas__item"><img src="assets/images/brands/gwm.webp"     alt="GWM"        loading="lazy" /></span>
       <span class="marcas__item"><img src="assets/images/brands/marca2.webp"  alt="Nissan"     loading="lazy" /></span>
+      <span class="marcas__item"><img src="assets/images/brands/mitsubish.webp" alt="Mitsubishi" loading="lazy" /></span>
       <span class="marcas__item"><img src="assets/images/brands/marca1.webp"  alt="Peugeot"    loading="lazy" /></span>
+      <span class="marcas__item"><img src="assets/images/brands/omoda.webp"   alt="Omoda"      loading="lazy" /></span>
       <span class="marcas__item"><img src="assets/images/brands/marca8.webp"  alt="Chery"      loading="lazy" /></span>
       <span class="marcas__item"><img src="assets/images/brands/marca9.webp"  alt="Citroën"    loading="lazy" /></span>
     </div>
@@ -2028,555 +2311,101 @@
 </section>
 
 <!-- =========================================================
-     SOBRE A ELEVA
+     PARA QUEM É A ELEVA
 ========================================================= -->
-<section class="sobre section" id="sobre" aria-labelledby="sobre-title">
-  <div class="sobre__pattern" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="sobre__inner">
-      <div class="sobre__visual reveal">
-        <div class="sobre__img-wrap">
-          <img src="assets/images/hero/fotohero.webp" alt="Kelly, fundadora da Eleva Isenções"
-               loading="lazy" decoding="async" width="680" height="510"
-               onerror="this.parentElement.style.background='linear-gradient(135deg,#6B3019,#1E1A17)'" />
-          <div class="sobre__img-overlay" aria-hidden="true"></div>
-        </div>
-        <div class="sobre__badge-float" aria-label="Assessoria dedicada ao processo de isenção PCD">
-          <div class="sobre__badge-num">PCD</div>
-          <div class="sobre__badge-label">Assessoria<br />especializada</div>
-        </div>
-        <div class="sobre__deco-line" aria-hidden="true"></div>
-      </div>
-
-      <div class="sobre__content">
-        <p class="section-label reveal" style="color: rgba(239,227,214,0.55);">Quem somos</p>
-        <h2 class="display-md sobre__title reveal reveal-delay-1" id="sobre-title">
-          Uma assessoria feita para quem precisa de clareza, não de mais complicação.
-        </h2>
-        <blockquote class="sobre__editorial reveal reveal-delay-2">
-          "O processo de isenção é um direito. Nosso trabalho é tornar esse caminho percorrível."
-        </blockquote>
-        <p class="sobre__body reveal reveal-delay-3">
-          A Eleva Isenções nasceu da percepção de que muitas pessoas com deficiência têm direito à isenção fiscal na aquisição de veículo, mas enfrentam um processo fragmentado, cheio de dúvidas e instâncias diferentes. Criamos uma assessoria próxima, organizada e experiente para transformar essa complexidade em uma jornada clara e segura.
-        </p>
-        <ul class="sobre__pillars" role="list">
-          <li class="sobre__pillar reveal reveal-delay-3">
-            <span class="sobre__pillar-icon" aria-hidden="true">🎯</span>
-            <div>
-              <p class="sobre__pillar-text">Especialização real</p>
-              <p class="sobre__pillar-sub">Conhecimento aprofundado do processo de isenção PCD</p>
-            </div>
-          </li>
-          <li class="sobre__pillar reveal reveal-delay-4">
-            <span class="sobre__pillar-icon" aria-hidden="true">🤲</span>
-            <div>
-              <p class="sobre__pillar-text">Acompanhamento próximo</p>
-              <p class="sobre__pillar-sub">Presença em cada etapa, não apenas no início</p>
-            </div>
-          </li>
-          <li class="sobre__pillar reveal reveal-delay-5">
-            <span class="sobre__pillar-icon" aria-hidden="true">📐</span>
-            <div>
-              <p class="sobre__pillar-text">Organização do processo</p>
-              <p class="sobre__pillar-sub">Método claro para reduzir retrabalho e insegurança</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =========================================================
-     PARA QUEM ATUA
-========================================================= -->
-<section class="assessoria section" id="para-quem" aria-labelledby="assessoria-title">
+<section class="assessoria section" id="para-quem" aria-labelledby="para-quem-title">
   <div class="wrap">
     <header class="assessoria__head">
       <p class="section-label reveal">Para quem é a Eleva</p>
-      <h2 class="display-md reveal reveal-delay-1" id="assessoria-title">
-        A isenção existe para você — independente da situação.
+      <h2 class="display-md reveal reveal-delay-1" id="para-quem-title">
+        Quem pode ter direito?
       </h2>
-      <p class="body-md reveal reveal-delay-2" style="color:rgba(30,26,23,0.6); margin-top:14px;">
-        Selecione o seu perfil e veja como a Eleva conduz o processo para o seu caso.
+      <p class="body-md reveal reveal-delay-2" style="color:rgba(30,26,23,0.65); margin-top:14px;">
+        A lei garante isenções fiscais significativas para pessoas com deficiência. Veja se a sua condição se enquadra.
       </p>
     </header>
 
-    <!-- Tab navigation -->
-    <div class="assessoria__tabs reveal reveal-delay-2">
-      <div class="assessoria__tab-list" role="tablist" aria-label="Perfis de atendimento">
-        <button class="assessoria__tab-btn"
-                role="tab" aria-selected="true"
-                aria-controls="panel-condutor" id="tab-condutor">
-          <span class="assessoria__tab-icon" aria-hidden="true">🚗</span>
-          Condutores
-        </button>
-        <button class="assessoria__tab-btn"
-                role="tab" aria-selected="false"
-                aria-controls="panel-nao-condutor" id="tab-nao-condutor">
-          <span class="assessoria__tab-icon" aria-hidden="true">🧑‍🦽</span>
-          Não Condutores
-        </button>
-        <button class="assessoria__tab-btn"
-                role="tab" aria-selected="false"
-                aria-controls="panel-renovacao" id="tab-renovacao">
-          <span class="assessoria__tab-icon" aria-hidden="true">🔄</span>
-          Renovação de Isenção
-        </button>
-      </div>
-    </div>
+    <div class="pcd-bento" role="list">
 
-    <!-- Panel: Condutores -->
-    <div class="assessoria__panel active" id="panel-condutor"
-         role="tabpanel" aria-labelledby="tab-condutor">
-      <div class="assessoria__grid">
+      <!-- Carousel wrapper (mobile: horizontal scroll; desktop: transparent) -->
+      <div class="pcd-carousel">
 
-        <article class="step-card step-card--first reveal">
-          <span class="step-card__num" aria-hidden="true">1</span>
-          <p class="step-card__step-label">Passo 01</p>
-          <h3 class="step-card__title">Avaliação Gratuita</h3>
-          <p class="step-card__body">Confirme com um especialista se o seu laudo médico e exames te dão direito às isenções — sem custo e sem compromisso.</p>
-          <a href="https://wa.me/5500000000000?text=Quero+fazer+minha+avalia%C3%A7%C3%A3o+gratuita."
-             class="step-card__cta" target="_blank" rel="noopener noreferrer">
-            Fazer avaliação <span class="step-card__cta-arrow" aria-hidden="true">→</span>
-          </a>
+        <!-- Deficiência física -->
+        <article class="pcd-card reveal" role="listitem">
+          <span class="pcd-card__deco" aria-hidden="true">01</span>
+          <div class="pcd-card__icon pcd-card__icon--terra" aria-hidden="true">🦽</div>
+          <h3 class="pcd-card__title">Deficiência Física</h3>
+          <p class="pcd-card__body">Condições que causam redução da mobilidade, força ou amplitude de movimentos, além de outras limitações físicas permanentes.</p>
+          <span class="pcd-card__tag pcd-card__tag--terra">Física</span>
         </article>
 
-        <article class="step-card reveal reveal-delay-1">
-          <span class="step-card__num" aria-hidden="true">2</span>
-          <p class="step-card__step-label">Passo 02</p>
-          <h3 class="step-card__title">Consulta com Especialista</h3>
-          <p class="step-card__body">Avaliação da sua patologia, orientação sobre exames necessários e suporte para a elaboração do relatório médico correto.</p>
-          <a href="https://wa.me/5500000000000" class="step-card__cta" target="_blank" rel="noopener noreferrer">
-            Falar com a equipe <span class="step-card__cta-arrow" aria-hidden="true">→</span>
-          </a>
+        <!-- Autismo TEA -->
+        <article class="pcd-card reveal reveal-delay-1" role="listitem">
+          <span class="pcd-card__deco" aria-hidden="true">02</span>
+          <div class="pcd-card__icon pcd-card__icon--verde" aria-hidden="true">♾️</div>
+          <h3 class="pcd-card__title">Autismo (TEA)</h3>
+          <p class="pcd-card__body">Condição neurodivergente reconhecida por lei, independente do nível de suporte necessário.</p>
+          <span class="pcd-card__tag pcd-card__tag--verde">TEA</span>
         </article>
 
-        <article class="step-card reveal reveal-delay-2">
-          <span class="step-card__num" aria-hidden="true">3</span>
-          <p class="step-card__step-label">Passo 03</p>
-          <h3 class="step-card__title">Biometria e Perícia</h3>
-          <p class="step-card__body">Suporte completo para o agendamento de biometria e perícia junto ao DETRAN, com orientação em cada etapa do fluxo.</p>
-          <a href="https://wa.me/5500000000000" class="step-card__cta" target="_blank" rel="noopener noreferrer">
-            Entender o processo <span class="step-card__cta-arrow" aria-hidden="true">→</span>
-          </a>
+        <!-- Deficiência auditiva -->
+        <article class="pcd-card reveal reveal-delay-2" role="listitem">
+          <span class="pcd-card__deco" aria-hidden="true">03</span>
+          <div class="pcd-card__icon pcd-card__icon--cobre" aria-hidden="true">🦻</div>
+          <h3 class="pcd-card__title">Deficiência Auditiva</h3>
+          <p class="pcd-card__body">Perda parcial ou total da capacidade auditiva, podendo variar em diferentes graus de intensidade.</p>
+          <span class="pcd-card__tag pcd-card__tag--cobre">Auditiva</span>
         </article>
 
-        <article class="step-card reveal reveal-delay-3">
-          <span class="step-card__num" aria-hidden="true">4</span>
-          <p class="step-card__step-label">Passo 04</p>
-          <h3 class="step-card__title">Transformação de CNH</h3>
-          <p class="step-card__body">Orientação para a habilitação especial e suporte em todo o processo de adaptação da CNH quando o perfil exigir.</p>
-          <a href="https://wa.me/5500000000000" class="step-card__cta" target="_blank" rel="noopener noreferrer">
-            Saiba mais <span class="step-card__cta-arrow" aria-hidden="true">→</span>
-          </a>
-        </article>
-
-        <article class="step-card reveal reveal-delay-4">
-          <span class="step-card__num" aria-hidden="true">5</span>
-          <p class="step-card__step-label">Passo 05</p>
-          <h3 class="step-card__title">Laudo Médico</h3>
-          <p class="step-card__body">Orientação na obtenção e organização do laudo médico exigido — documento central em todo o processo de isenção.</p>
-          <a href="https://wa.me/5500000000000" class="step-card__cta" target="_blank" rel="noopener noreferrer">
-            Entender o laudo <span class="step-card__cta-arrow" aria-hidden="true">→</span>
-          </a>
-        </article>
-
-        <article class="step-card reveal reveal-delay-5">
-          <span class="step-card__num" aria-hidden="true">6</span>
-          <p class="step-card__step-label">Passo 06</p>
-          <h3 class="step-card__title">Processos de Isenção</h3>
-          <p class="step-card__body">Conduzimos as solicitações de IPI, IOF, ICMS e IPVA — identificando quais se aplicam e acompanhando cada tramitação.</p>
-          <a href="https://wa.me/5500000000000" class="step-card__cta" target="_blank" rel="noopener noreferrer">
-            Iniciar processo <span class="step-card__cta-arrow" aria-hidden="true">→</span>
-          </a>
-        </article>
-
-      </div>
-    </div>
-
-    <!-- Panel: Não Condutores -->
-    <div class="assessoria__panel" id="panel-nao-condutor"
-         role="tabpanel" aria-labelledby="tab-nao-condutor">
-      <div class="assessoria__grid">
-
-        <article class="step-card step-card--first">
-          <span class="step-card__num" aria-hidden="true">1</span>
-          <p class="step-card__step-label">Passo 01</p>
-          <h3 class="step-card__title">Avaliação Gratuita</h3>
-          <p class="step-card__body">Analisamos seu perfil e documentos para confirmar se há direito à isenção como não condutor — sem custo inicial.</p>
-          <a href="https://wa.me/5500000000000?text=Quero+fazer+minha+avalia%C3%A7%C3%A3o+gratuita."
-             class="step-card__cta" target="_blank" rel="noopener noreferrer">
-            Fazer avaliação <span class="step-card__cta-arrow" aria-hidden="true">→</span>
-          </a>
-        </article>
-
-        <article class="step-card">
-          <span class="step-card__num" aria-hidden="true">2</span>
-          <p class="step-card__step-label">Passo 02</p>
-          <h3 class="step-card__title">Relatório Médico</h3>
-          <p class="step-card__body">Orientação para a elaboração do relatório médico adequado ao perfil de não condutor — documento decisivo para aprovação das isenções.</p>
-          <a href="https://wa.me/5500000000000" class="step-card__cta" target="_blank" rel="noopener noreferrer">
-            Entender o processo <span class="step-card__cta-arrow" aria-hidden="true">→</span>
-          </a>
-        </article>
-
-        <article class="step-card">
-          <span class="step-card__num" aria-hidden="true">3</span>
-          <p class="step-card__step-label">Passo 03</p>
-          <h3 class="step-card__title">Laudo Médico</h3>
-          <p class="step-card__body">Suporte na obtenção do laudo específico para não condutores, com orientação sobre o tipo de documento exigido em cada instância.</p>
-          <a href="https://wa.me/5500000000000" class="step-card__cta" target="_blank" rel="noopener noreferrer">
-            Saber mais <span class="step-card__cta-arrow" aria-hidden="true">→</span>
-          </a>
-        </article>
-
-        <article class="step-card">
-          <span class="step-card__num" aria-hidden="true">4</span>
-          <p class="step-card__step-label">Passo 04</p>
-          <h3 class="step-card__title">Processos de Isenção</h3>
-          <p class="step-card__body">Conduzimos as solicitações de IPI, IOF, ICMS e IPVA para não condutores, acompanhando cada benefício aplicável ao caso.</p>
-          <a href="https://wa.me/5500000000000" class="step-card__cta" target="_blank" rel="noopener noreferrer">
-            Iniciar processo <span class="step-card__cta-arrow" aria-hidden="true">→</span>
-          </a>
-        </article>
-
-      </div>
-    </div>
-
-    <!-- Panel: Renovação -->
-    <div class="assessoria__panel" id="panel-renovacao"
-         role="tabpanel" aria-labelledby="tab-renovacao">
-      <div class="assessoria__grid">
-
-        <article class="step-card step-card--first">
-          <span class="step-card__num" aria-hidden="true">1</span>
-          <p class="step-card__step-label">Passo 01</p>
-          <h3 class="step-card__title">Já tem CNH Especial?</h3>
-          <p class="step-card__body">Se você já possui CNH especial e quer renovar as isenções, a Eleva conduz todas as etapas do processo de renovação com você.</p>
-          <a href="https://wa.me/5500000000000?text=Quero+renovar+minhas+isen%C3%A7%C3%B5es."
-             class="step-card__cta" target="_blank" rel="noopener noreferrer">
-            Iniciar renovação <span class="step-card__cta-arrow" aria-hidden="true">→</span>
-          </a>
-        </article>
-
-        <article class="step-card">
-          <span class="step-card__num" aria-hidden="true">2</span>
-          <p class="step-card__step-label">Passo 02</p>
-          <h3 class="step-card__title">Laudo Médico Atualizado</h3>
-          <p class="step-card__body">Verificamos se o laudo está dentro da validade e orientamos na atualização necessária para manter todos os benefícios fiscais.</p>
-          <a href="https://wa.me/5500000000000" class="step-card__cta" target="_blank" rel="noopener noreferrer">
-            Verificar laudo <span class="step-card__cta-arrow" aria-hidden="true">→</span>
-          </a>
-        </article>
-
-        <article class="step-card">
-          <span class="step-card__num" aria-hidden="true">3</span>
-          <p class="step-card__step-label">Passo 03</p>
-          <h3 class="step-card__title">Renovação das Cartas de Isenção</h3>
-          <p class="step-card__body">Conduzimos o processo de renovação das cartas de isenção para a aquisição de um novo veículo com todos os benefícios aplicáveis.</p>
-          <a href="https://wa.me/5500000000000" class="step-card__cta" target="_blank" rel="noopener noreferrer">
-            Renovar isenções <span class="step-card__cta-arrow" aria-hidden="true">→</span>
-          </a>
-        </article>
-
-        <div class="assessoria__renovacao-banner">
-          <div class="assessoria__renovacao-banner-content">
-            <h3 class="assessoria__renovacao-banner-title">
-              Vai trocar de carro e precisa renovar suas cartas?
-            </h3>
-            <p class="assessoria__renovacao-banner-sub">
-              Nossa equipe especializada em renovação está pronta para conduzir o processo.
-            </p>
+        <!-- Deficiência Visual / Monocular — wide -->
+        <article class="pcd-card pcd-card--w2 reveal" role="listitem">
+          <span class="pcd-card__deco" aria-hidden="true">04</span>
+          <div class="pcd-card__layout">
+            <div class="pcd-card__left">
+              <div class="pcd-card__icon pcd-card__icon--terra" aria-hidden="true">🦯</div>
+              <h3 class="pcd-card__title">Deficiência Visual<br>e Monocular</h3>
+              <span class="pcd-card__tag pcd-card__tag--terra">Visual</span>
+            </div>
+            <div class="pcd-card__right">
+              <p class="pcd-card__body">Baixa visão ou perda total em um ou ambos os olhos. A deficiência monocular — perda em apenas um olho — também garante direito às isenções fiscais.</p>
+            </div>
           </div>
-          <div class="assessoria__renovacao-banner-cta">
-            <a href="https://wa.me/5500000000000?text=Quero+renovar+minhas+cartas+de+isen%C3%A7%C3%A3o."
-               class="btn btn--terra" target="_blank" rel="noopener noreferrer">
-              Falar com a equipe de renovação
-            </a>
-          </div>
-        </div>
+        </article>
 
-      </div>
-    </div>
+        <!-- Deficiência mental -->
+        <article class="pcd-card reveal reveal-delay-1" role="listitem">
+          <span class="pcd-card__deco" aria-hidden="true">05</span>
+          <div class="pcd-card__icon pcd-card__icon--verde" aria-hidden="true">🧠</div>
+          <h3 class="pcd-card__title">Deficiência Mental</h3>
+          <p class="pcd-card__body">Limitação intelectual severa ou profunda, com impacto nas funções cognitivas e no funcionamento adaptativo.</p>
+          <span class="pcd-card__tag pcd-card__tag--verde">Mental</span>
+        </article>
 
-  </div>
-</section>
+      </div><!-- /pcd-carousel -->
 
-<!-- =========================================================
-     O QUE A ELEVA RESOLVE
-========================================================= -->
-<section class="resolve section" id="resolve" aria-labelledby="resolve-title">
-  <div class="resolve__pattern" aria-hidden="true"></div>
-  <div class="wrap resolve__inner">
-    <header class="resolve__head">
-      <p class="section-label resolve__head-label reveal">O que transformamos</p>
-      <h2 class="display-md resolve__title reveal reveal-delay-1" id="resolve-title">
-        Da confusão à clareza, em cada ponto do processo.
-      </h2>
-      <p class="resolve__intro reveal reveal-delay-2">
-        Cada dificuldade que você sente hoje tem um caminho. A Eleva existe para mostrar esse caminho.
+      <!-- Scroll hint — visível só em mobile -->
+      <p class="pcd-scroll-hint" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Deslize para ver mais
       </p>
-    </header>
 
-    <!-- role="list" restores VoiceOver list semantics when list-style:none is applied (Safari bug) -->
-    <ol class="resolve__grid" role="list">
-
-      <li class="resolve__item reveal">
-        <div class="resolve__item-num" aria-hidden="true">01</div>
-        <div class="resolve__antes">
-          <span class="resolve__zone-label resolve__zone-label--antes">Antes</span>
-          <p class="resolve__dor">"Não sei se tenho direito"</p>
+      <!-- CTA banner -->
+      <div class="pcd-cta reveal reveal-delay-2">
+        <div class="pcd-cta__content">
+          <span class="pcd-cta__label">Avaliação gratuita</span>
+          <h3 class="pcd-cta__title">Não sabe se sua condição dá direito?<br>Descubra agora — sem custo.</h3>
+          <p class="pcd-cta__sub">Em poucos minutos, a equipe da Eleva analisa o seu caso e identifica exatamente quais isenções você pode acessar.</p>
         </div>
-        <div class="resolve__arrow" aria-hidden="true">
-          <span class="resolve__arrow-line"></span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" focusable="false">
-            <path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+        <div class="pcd-cta__actions">
+          <a href="https://wa.me/5512982820153?text=Quero+fazer+minha+avalia%C3%A7%C3%A3o+gratuita."
+             class="btn btn--terra" target="_blank" rel="noopener noreferrer">
+            Fazer avaliação gratuita
+          </a>
+          <a href="https://wa.me/5512982820153?text=Ol%C3%A1%2C+gostaria+de+falar+com+a+equipe+da+Eleva+Isen%C3%A7%C3%B5es."
+             class="btn btn--outline-creme" target="_blank" rel="noopener noreferrer">
+            Falar com a equipe
+          </a>
         </div>
-        <div class="resolve__depois">
-          <span class="resolve__zone-label resolve__zone-label--depois">Depois</span>
-          <p class="resolve__ganho">Clareza sobre a elegibilidade</p>
-          <p class="resolve__desc">Analisamos o seu caso com atenção antes de qualquer passo, para que você saiba exatamente onde está.</p>
-        </div>
-      </li>
-
-      <li class="resolve__item reveal reveal-delay-1">
-        <div class="resolve__item-num" aria-hidden="true">02</div>
-        <div class="resolve__antes">
-          <span class="resolve__zone-label resolve__zone-label--antes">Antes</span>
-          <p class="resolve__dor">"A burocracia parece interminável"</p>
-        </div>
-        <div class="resolve__arrow" aria-hidden="true">
-          <span class="resolve__arrow-line"></span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" focusable="false">
-            <path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="resolve__depois">
-          <span class="resolve__zone-label resolve__zone-label--depois">Depois</span>
-          <p class="resolve__ganho">Processo organizado em etapas</p>
-          <p class="resolve__desc">Dividimos o processo em etapas claras e cuidamos da sequência para você não se perder.</p>
-        </div>
-      </li>
-
-      <li class="resolve__item reveal reveal-delay-2">
-        <div class="resolve__item-num" aria-hidden="true">03</div>
-        <div class="resolve__antes">
-          <span class="resolve__zone-label resolve__zone-label--antes">Antes</span>
-          <p class="resolve__dor">"Não sei quais documentos juntar"</p>
-        </div>
-        <div class="resolve__arrow" aria-hidden="true">
-          <span class="resolve__arrow-line"></span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" focusable="false">
-            <path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="resolve__depois">
-          <span class="resolve__zone-label resolve__zone-label--depois">Depois</span>
-          <p class="resolve__ganho">Checklist preciso e orientado</p>
-          <p class="resolve__desc">Cada documento, em cada instância. Sem retrabalho, sem idas desnecessárias.</p>
-        </div>
-      </li>
-
-      <li class="resolve__item reveal">
-        <div class="resolve__item-num" aria-hidden="true">04</div>
-        <div class="resolve__antes">
-          <span class="resolve__zone-label resolve__zone-label--antes">Antes</span>
-          <p class="resolve__dor">"Me perco com tantos órgãos"</p>
-        </div>
-        <div class="resolve__arrow" aria-hidden="true">
-          <span class="resolve__arrow-line"></span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" focusable="false">
-            <path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="resolve__depois">
-          <span class="resolve__zone-label resolve__zone-label--depois">Depois</span>
-          <p class="resolve__ganho">Direcionamento específico</p>
-          <p class="resolve__desc">Identificamos qual isenção se aplica e junto a qual órgão tratar — sem confusão entre Receita, DETRAN e Sefaz.</p>
-        </div>
-      </li>
-
-      <li class="resolve__item reveal reveal-delay-1">
-        <div class="resolve__item-num" aria-hidden="true">05</div>
-        <div class="resolve__antes">
-          <span class="resolve__zone-label resolve__zone-label--antes">Antes</span>
-          <p class="resolve__dor">"Tenho medo de errar e perder o benefício"</p>
-        </div>
-        <div class="resolve__arrow" aria-hidden="true">
-          <span class="resolve__arrow-line"></span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" focusable="false">
-            <path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="resolve__depois">
-          <span class="resolve__zone-label resolve__zone-label--depois">Depois</span>
-          <p class="resolve__ganho">Segurança em cada decisão</p>
-          <p class="resolve__desc">Acompanhamos cada passo para que as decisões sejam tomadas com base em informação real, não em suposição.</p>
-        </div>
-      </li>
-
-      <li class="resolve__item reveal reveal-delay-2">
-        <div class="resolve__item-num" aria-hidden="true">06</div>
-        <div class="resolve__antes">
-          <span class="resolve__zone-label resolve__zone-label--antes">Antes</span>
-          <p class="resolve__dor">"Estou sozinho nesse processo"</p>
-        </div>
-        <div class="resolve__arrow" aria-hidden="true">
-          <span class="resolve__arrow-line"></span>
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" focusable="false">
-            <path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="resolve__depois">
-          <span class="resolve__zone-label resolve__zone-label--depois">Depois</span>
-          <p class="resolve__ganho">Apoio humano e constante</p>
-          <p class="resolve__desc">Você não enfrenta isso sozinho. A Eleva está presente, responde dúvidas e orienta em tempo real.</p>
-        </div>
-      </li>
-
-    </ol>
-  </div>
-</section>
-
-<!-- =========================================================
-     ÁREA DE ATUAÇÃO
-========================================================= -->
-<section class="atuacao section" id="atuacao" aria-labelledby="atuacao-title">
-  <div class="atuacao__bg" aria-hidden="true"></div>
-  <div class="wrap atuacao__inner">
-
-    <header class="atuacao__head">
-      <p class="section-label reveal">Área de atuação</p>
-      <h2 class="display-md atuacao__title reveal reveal-delay-1" id="atuacao-title">
-        Não existe benefício pequeno<br>quando é seu direito.
-      </h2>
-      <p class="atuacao__intro reveal reveal-delay-2">
-        A legislação garante muito mais do que a maioria conhece. A Eleva mapeia cada benefício disponível para pessoas com deficiência e cuida do processo com você — do início ao resultado.
-      </p>
-    </header>
-
-    <div class="atuacao__grid">
-
-      <!-- ① Feature: Isenção na compra de veículo -->
-      <article class="atuacao__card atuacao__card--feature reveal">
-        <div class="atuacao__icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" focusable="false">
-            <path d="M5 8.5L6.5 5h7L15 8.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="2.5" y="8.5" width="15" height="5.5" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
-            <path d="M2.5 11h15" stroke="currentColor" stroke-width="1.4"/>
-            <circle cx="6" cy="14" r="1.3" fill="currentColor"/>
-            <circle cx="14" cy="14" r="1.3" fill="currentColor"/>
-          </svg>
-        </div>
-        <span class="atuacao__badge">Isenção Fiscal</span>
-        <h3 class="atuacao__card-name">Isenção na compra de veículo</h3>
-        <p class="atuacao__card-desc">A assessoria mais procurada — e a mais complexa. Organizamos cada etapa da isenção de IPI, IOF, ICMS e IPVA, com atenção a cada requisito da Receita Federal, montadora e DETRAN. Cada detalhe, no tempo certo.</p>
-        <a href="#processo" class="atuacao__card-link">
-          Ver como funciona
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" focusable="false" aria-hidden="true">
-            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-
-      </article>
-
-      <!-- ② Cartão de Estacionamento -->
-      <article class="atuacao__card reveal reveal-delay-1">
-        <div class="atuacao__icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" focusable="false">
-            <rect x="2" y="4.5" width="16" height="11" rx="2" stroke="currentColor" stroke-width="1.4"/>
-            <path d="M2 7.5h16" stroke="currentColor" stroke-width="1.4"/>
-            <circle cx="5.5" cy="12" r="1" fill="currentColor"/>
-            <path d="M8.5 10.5h4M8.5 12.5h2.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <span class="atuacao__badge">Mobilidade Urbana</span>
-        <h3 class="atuacao__card-name">Cartão de Estacionamento PCD</h3>
-        <p class="atuacao__card-desc">Um direito reconhecido, burocrático na prática. Orientamos o processo junto ao órgão responsável — sem filas, sem retrabalho.</p>
-      </article>
-
-      <!-- ③ SIM / CID no RG -->
-      <article class="atuacao__card reveal">
-        <div class="atuacao__icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" focusable="false">
-            <rect x="2" y="4" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/>
-            <circle cx="7" cy="10" r="2" stroke="currentColor" stroke-width="1.4"/>
-            <path d="M12 8.5h3M12 11.5h2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <span class="atuacao__badge">Identificação</span>
-        <h3 class="atuacao__card-name">SIM — Novo RG com CID</h3>
-        <p class="atuacao__card-desc">Incluir a CID no novo documento de identidade facilita o acesso a outros benefícios. A Eleva orienta cada detalhe desse processo junto ao órgão emissor.</p>
-      </article>
-
-      <!-- ④ Aposentadoria (Terceirizado) -->
-      <article class="atuacao__card reveal reveal-delay-1">
-        <div class="atuacao__icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" focusable="false">
-            <circle cx="9.5" cy="5.5" r="2.5" stroke="currentColor" stroke-width="1.4"/>
-            <path d="M4 17c0-3.038 2.462-5.5 5.5-5.5s5.5 2.462 5.5 5.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-            <path d="M14.5 9v5M12 11.5h5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <span class="atuacao__badge">Previdência Social</span>
-        <h3 class="atuacao__card-name">Aposentadoria (Terceirizado)</h3>
-        <p class="atuacao__card-desc">Para trabalhadores terceirizados com deficiência, orientamos o processo junto ao INSS para garantir a aposentadoria no momento certo, com todos os direitos preservados.</p>
-      </article>
-
-      <!-- ⑤ Alvará Judicial -->
-      <article class="atuacao__card reveal reveal-delay-2">
-        <div class="atuacao__icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" focusable="false">
-            <path d="M4.5 15.5l6.5-6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-            <rect x="9.8" y="3.2" width="3.5" height="7" rx="1" transform="rotate(45 9.8 3.2)" stroke="currentColor" stroke-width="1.4"/>
-            <path d="M3 17h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <span class="atuacao__badge">Via Judicial</span>
-        <h3 class="atuacao__card-name">Alvará Judicial</h3>
-        <p class="atuacao__card-desc">Quando a via administrativa não basta, indicamos o caminho jurídico correto para que o benefício seja garantido por decisão judicial.</p>
-      </article>
-
-      <!-- ⑥ Isenção de IPVA -->
-      <article class="atuacao__card reveal">
-        <div class="atuacao__icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" focusable="false">
-            <rect x="3" y="4" width="14" height="13" rx="2" stroke="currentColor" stroke-width="1.4"/>
-            <path d="M3 8.5h14" stroke="currentColor" stroke-width="1.4"/>
-            <path d="M7 3v2.5M13 3v2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-            <path d="M7 13l2 2 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <span class="atuacao__badge">Imposto Estadual</span>
-        <h3 class="atuacao__card-name">Isenção de IPVA</h3>
-        <p class="atuacao__card-desc">Muitos têm direito e não sabem. Orientamos o processo junto à Secretaria da Fazenda do estado para isentar o IPVA do veículo já adquirido.</p>
-      </article>
-
-      <!-- ⑦ Isenção de Imposto de Renda -->
-      <article class="atuacao__card reveal reveal-delay-1">
-        <div class="atuacao__icon" aria-hidden="true">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" focusable="false">
-            <path d="M10 2l7 3v5c0 4-3.5 7-7 8-3.5-1-7-4-7-8V5l7-3z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
-            <path d="M7.5 12.5l5-5M8 8a.5.5 0 110-1 .5.5 0 010 1zM12 12a.5.5 0 110-1 .5.5 0 010 1z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <span class="atuacao__badge">Imposto Federal</span>
-        <h3 class="atuacao__card-name">Isenção de Imposto de Renda</h3>
-        <p class="atuacao__card-desc">Pessoas com deficiência ou doença grave podem ter isenção total do IRPF sobre proventos de aposentadoria, reforma ou pensão. A Eleva orienta como solicitar e manter esse direito.</p>
-      </article>
-
-      <!-- ⑧ CTA card -->
-      <div class="atuacao__card atuacao__card--cta reveal reveal-delay-2" role="complementary" aria-label="Consulta gratuita">
-        <p class="atuacao__cta-label">Consulta gratuita</p>
-        <p class="atuacao__cta-text">Ainda tem dúvida sobre qual benefício é o seu?</p>
-        <p class="atuacao__cta-sub">Fale com a Eleva. A análise inicial é gratuita e sem compromisso — só para entender o seu caso.</p>
-        <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+gostaria+de+entender+meu+caso+de+isen%C3%A7%C3%A3o+PCD."
-           class="btn btn--terra"
-           target="_blank" rel="noopener noreferrer">
-          Consulta gratuita
-        </a>
       </div>
 
     </div>
@@ -2617,9 +2446,9 @@
           </div>
           <div class="processo__step-content">
             <p class="processo__step-tag">Início</p>
-            <h3 class="processo__step-title">Análise inicial do caso</h3>
+            <h3 class="processo__step-title">Avaliação Inicial Gratuita</h3>
             <p class="processo__step-body">
-              Entendemos a sua situação: tipo de deficiência, perfil de uso do veículo, documentos disponíveis e histórico. Antes de qualquer passo, há clareza sobre o que é possível.
+              Analisamos seus documentos e verificamos se você tem direito à isenção. Conferimos se os laudos médicos atendem às exigências necessárias — você já começa com clareza total sobre sua situação, sem custo e sem compromisso.
             </p>
           </div>
         </li>
@@ -2631,10 +2460,10 @@
             </div>
           </div>
           <div class="processo__step-content">
-            <p class="processo__step-tag">Estratégia</p>
-            <h3 class="processo__step-title">Direcionamento do processo</h3>
+            <p class="processo__step-tag">Organização</p>
+            <h3 class="processo__step-title">Organização dos Documentos</h3>
             <p class="processo__step-body">
-              Identificamos quais isenções se aplicam — IPI, IOF, ICMS, IPVA — e quais órgãos precisam ser acionados. Definimos o caminho mais eficiente para o seu caso.
+              Auxiliamos na obtenção da CNH especial quando necessário e cuidamos de toda a parte documental — incluindo o laudo específico para isenção. Você não precisa se preocupar com a burocracia.
             </p>
           </div>
         </li>
@@ -2646,10 +2475,10 @@
             </div>
           </div>
           <div class="processo__step-content">
-            <p class="processo__step-tag">Organização</p>
-            <h3 class="processo__step-title">Organização documental</h3>
+            <p class="processo__step-tag">Protocolo</p>
+            <h3 class="processo__step-title">Solicitação das Isenções</h3>
             <p class="processo__step-body">
-              Elaboramos o checklist completo e orientamos na obtenção de cada documento — laudo médico, habilitação, certidões e demais requisitos. Sem retrabalho, sem surpresas.
+              Realizamos todo o protocolo junto aos órgãos responsáveis para garantir suas isenções de IPI, IOF, ICMS e IPVA. Seu processo é conduzido com segurança até a aprovação.
             </p>
           </div>
         </li>
@@ -2661,23 +2490,8 @@
             </div>
           </div>
           <div class="processo__step-content">
-            <p class="processo__step-tag">Suporte</p>
-            <h3 class="processo__step-title">Acompanhamento ativo</h3>
-            <p class="processo__step-body">
-              Estamos presentes durante a tramitação, orientando sobre prazos, respondendo dúvidas e garantindo que o processo avance sem perda de informação ou prazo.
-            </p>
-          </div>
-        </li>
-
-        <li class="processo__step" data-step="4">
-          <div class="processo__step-node" aria-hidden="true">
-            <div class="processo__step-num">
-              <span class="processo__step-num-text">5</span>
-            </div>
-          </div>
-          <div class="processo__step-content">
             <p class="processo__step-tag">Conquista</p>
-            <h3 class="processo__step-title">Aquisição do veículo</h3>
+            <h3 class="processo__step-title">Aquisição do Veículo</h3>
             <p class="processo__step-body">
               Com as isenções aplicadas e o processo concluído, você avança com segurança para a escolha e aquisição do veículo — com clareza total sobre o benefício obtido.
             </p>
@@ -2693,9 +2507,572 @@
       <span class="processo__counter-dot" data-dot="1"></span>
       <span class="processo__counter-dot" data-dot="2"></span>
       <span class="processo__counter-dot" data-dot="3"></span>
-      <span class="processo__counter-dot" data-dot="4"></span>
     </div>
 
+  </div>
+</section>
+
+<!-- =========================================================
+     DEPOIMENTOS
+========================================================= -->
+<section class="depoimentos section" id="depoimentos" aria-labelledby="depoimentos-title">
+  <div class="depoimentos__pattern" aria-hidden="true"></div>
+  <div class="wrap depoimentos__inner">
+
+    <header class="depoimentos__head">
+      <p class="section-label depoimentos__head-label reveal">Depoimentos</p>
+      <h2 class="display-md depoimentos__title reveal reveal-delay-1" id="depoimentos-title">
+        Quem passou pela Eleva, conta.
+      </h2>
+      <p class="depoimentos__intro reveal reveal-delay-2">
+        Resultados reais de pessoas reais — que conquistaram suas isenções com clareza e segurança.
+      </p>
+    </header>
+
+    <div class="depo-grid reveal" id="depoGrid">
+
+      <article class="depo-card">
+        <span class="depo-card__deco" aria-hidden="true">"</span>
+        <p class="depo-card__stars" aria-label="5 estrelas">★★★★★</p>
+        <blockquote class="depo-card__quote">Uma empresa muito séria no que faz. Sou cliente a muitos anos e sempre fui muito bem atendido.</blockquote>
+        <footer class="depo-card__author">
+          <div class="depo-card__avatar" aria-hidden="true">CE</div>
+          <div>
+            <p class="depo-card__author-name">Carlos Eduardo Ferreira de Araujo</p>
+            <p class="depo-card__google-tag">Google · 2 anos atrás</p>
+          </div>
+        </footer>
+      </article>
+
+      <article class="depo-card">
+        <span class="depo-card__deco" aria-hidden="true">"</span>
+        <p class="depo-card__stars" aria-label="5 estrelas">★★★★★</p>
+        <blockquote class="depo-card__quote">Excelente. Recomendo sempre aos amigos. Já faz alguns anos que recebo sua assistencia e só tenho elogios para ela. Parabéns Kelly. Continue nesse empreendimento.</blockquote>
+        <footer class="depo-card__author">
+          <div class="depo-card__avatar" aria-hidden="true">EC</div>
+          <div>
+            <p class="depo-card__author-name">Elaine Corbani</p>
+            <p class="depo-card__google-tag">Google · 2 anos atrás</p>
+          </div>
+        </footer>
+      </article>
+
+      <article class="depo-card">
+        <span class="depo-card__deco" aria-hidden="true">"</span>
+        <p class="depo-card__stars" aria-label="5 estrelas">★★★★★</p>
+        <blockquote class="depo-card__quote">Atenciosa, organizada, e a melhor pra nos apoiar em todo o processo de isenções PCD! Obrigada pela excelente profissional que você é!</blockquote>
+        <footer class="depo-card__author">
+          <div class="depo-card__avatar" aria-hidden="true">PC</div>
+          <div>
+            <p class="depo-card__author-name">Paula Chaves Ramos dos Santos</p>
+            <p class="depo-card__google-tag">Google · 2 anos atrás</p>
+          </div>
+        </footer>
+      </article>
+
+      <article class="depo-card">
+        <span class="depo-card__deco" aria-hidden="true">"</span>
+        <p class="depo-card__stars" aria-label="5 estrelas">★★★★★</p>
+        <blockquote class="depo-card__quote">Sempre me atende e responde minhas duvidas. Competente e muito atenciosa. Continuo meus serviços com Kelly. Obrigada.</blockquote>
+        <footer class="depo-card__author">
+          <div class="depo-card__avatar" aria-hidden="true">MM</div>
+          <div>
+            <p class="depo-card__author-name">Maristela D. A. Martins</p>
+            <p class="depo-card__google-tag">Google · 2 anos atrás</p>
+          </div>
+        </footer>
+      </article>
+
+      <article class="depo-card">
+        <span class="depo-card__deco" aria-hidden="true">"</span>
+        <p class="depo-card__stars" aria-label="5 estrelas">★★★★★</p>
+        <blockquote class="depo-card__quote">Não poderia ter escolhido outra pessoa para nós ajudar, sempre muito atenciosa e prestativa.</blockquote>
+        <footer class="depo-card__author">
+          <div class="depo-card__avatar" aria-hidden="true">SS</div>
+          <div>
+            <p class="depo-card__author-name">Sabrine Sanchez</p>
+            <p class="depo-card__google-tag">Google · 2 anos atrás</p>
+          </div>
+        </footer>
+      </article>
+
+      <article class="depo-card">
+        <span class="depo-card__deco" aria-hidden="true">"</span>
+        <p class="depo-card__stars" aria-label="5 estrelas">★★★★★</p>
+        <blockquote class="depo-card__quote">Muita prestativa, muita experiência. É dedicada na área de PCD, me ajudou muito. Fica aqui minha gratidão.</blockquote>
+        <footer class="depo-card__author">
+          <div class="depo-card__avatar" aria-hidden="true">PR</div>
+          <div>
+            <p class="depo-card__author-name">Paulo Ricardo</p>
+            <p class="depo-card__google-tag">Google · 2 anos atrás</p>
+          </div>
+        </footer>
+      </article>
+
+      <article class="depo-card depo-card--hidden">
+        <span class="depo-card__deco" aria-hidden="true">"</span>
+        <p class="depo-card__stars" aria-label="5 estrelas">★★★★★</p>
+        <blockquote class="depo-card__quote">Recebi total assessoria na elaboração de minha isenção PCD. Recomendo!</blockquote>
+        <footer class="depo-card__author">
+          <div class="depo-card__avatar" aria-hidden="true">TV</div>
+          <div>
+            <p class="depo-card__author-name">Telmo Venancio</p>
+            <p class="depo-card__google-tag">Google · um ano atrás</p>
+          </div>
+        </footer>
+      </article>
+
+      <article class="depo-card depo-card--hidden">
+        <span class="depo-card__deco" aria-hidden="true">"</span>
+        <p class="depo-card__stars" aria-label="5 estrelas">★★★★★</p>
+        <blockquote class="depo-card__quote">Pessoa que demonstra muito conhecimento e profissionalismo na área. Atende ao cliente com muito respeito, educação, além de ser muito eficiente no trabalho que realiza.</blockquote>
+        <footer class="depo-card__author">
+          <div class="depo-card__avatar" aria-hidden="true">EG</div>
+          <div>
+            <p class="depo-card__author-name">Eliane Garcia</p>
+            <p class="depo-card__google-tag">Google · um ano atrás</p>
+          </div>
+        </footer>
+      </article>
+
+      <article class="depo-card depo-card--hidden">
+        <span class="depo-card__deco" aria-hidden="true">"</span>
+        <p class="depo-card__stars" aria-label="5 estrelas">★★★★★</p>
+        <blockquote class="depo-card__quote">Atendimento diferenciado! Tudo rápido. Parabéns a Kely Roberta, sucesso! Adorei.</blockquote>
+        <footer class="depo-card__author">
+          <div class="depo-card__avatar" aria-hidden="true">CC</div>
+          <div>
+            <p class="depo-card__author-name">Carla Costha</p>
+            <p class="depo-card__google-tag">Google · um ano atrás</p>
+          </div>
+        </footer>
+      </article>
+
+      <article class="depo-card depo-card--hidden">
+        <span class="depo-card__deco" aria-hidden="true">"</span>
+        <p class="depo-card__stars" aria-label="5 estrelas">★★★★★</p>
+        <blockquote class="depo-card__quote">Já estamos fazendo o processo com a Kelly desde 2018, muito bom serviço, atenciosa, eu recomendo.</blockquote>
+        <footer class="depo-card__author">
+          <div class="depo-card__avatar" aria-hidden="true">JC</div>
+          <div>
+            <p class="depo-card__author-name">José Coelho</p>
+            <p class="depo-card__google-tag">Google · um ano atrás</p>
+          </div>
+        </footer>
+      </article>
+
+      <article class="depo-card depo-card--hidden">
+        <span class="depo-card__deco" aria-hidden="true">"</span>
+        <p class="depo-card__stars" aria-label="5 estrelas">★★★★★</p>
+        <blockquote class="depo-card__quote">Muito atenciosa e com bom relacionamento entre as concessionárias de veículos PCD.</blockquote>
+        <footer class="depo-card__author">
+          <div class="depo-card__avatar" aria-hidden="true">RS</div>
+          <div>
+            <p class="depo-card__author-name">Roberto Santos</p>
+            <p class="depo-card__google-tag">Google · 10 meses atrás</p>
+          </div>
+        </footer>
+      </article>
+
+      <article class="depo-card depo-card--hidden">
+        <span class="depo-card__deco" aria-hidden="true">"</span>
+        <p class="depo-card__stars" aria-label="5 estrelas">★★★★★</p>
+        <blockquote class="depo-card__quote">Extremamente competente, deu tudo certo, carro na mão só aproveitar, obrigado por todas as facilidades que me proporcionou.</blockquote>
+        <footer class="depo-card__author">
+          <div class="depo-card__avatar" aria-hidden="true">ES</div>
+          <div>
+            <p class="depo-card__author-name">Everton Silva</p>
+            <p class="depo-card__google-tag">Google · 8 meses atrás</p>
+          </div>
+        </footer>
+      </article>
+
+      <article class="depo-card depo-card--hidden">
+        <span class="depo-card__deco" aria-hidden="true">"</span>
+        <p class="depo-card__stars" aria-label="5 estrelas">★★★★★</p>
+        <blockquote class="depo-card__quote">Muito atenciosa, prestativa, não poderia escolher pessoa melhor para me atender, não tive nenhum problema. Indico de olho fechado.</blockquote>
+        <footer class="depo-card__author">
+          <div class="depo-card__avatar" aria-hidden="true">FP</div>
+          <div>
+            <p class="depo-card__author-name">Feise Pinese</p>
+            <p class="depo-card__google-tag">Google · 2 anos atrás</p>
+          </div>
+        </footer>
+      </article>
+
+      <article class="depo-card depo-card--hidden">
+        <span class="depo-card__deco" aria-hidden="true">"</span>
+        <p class="depo-card__stars" aria-label="5 estrelas">★★★★★</p>
+        <blockquote class="depo-card__quote">Atenção, profissionalismo e seriedade, isso nos faz dar a nota máxima!</blockquote>
+        <footer class="depo-card__author">
+          <div class="depo-card__avatar" aria-hidden="true">HC</div>
+          <div>
+            <p class="depo-card__author-name">Heber Correa</p>
+            <p class="depo-card__google-tag">Google · 2 anos atrás</p>
+          </div>
+        </footer>
+      </article>
+
+      <article class="depo-card depo-card--hidden">
+        <span class="depo-card__deco" aria-hidden="true">"</span>
+        <p class="depo-card__stars" aria-label="5 estrelas">★★★★★</p>
+        <blockquote class="depo-card__quote">A Kelly nos ajudou bastante; sempre disposta e respondendo rápido. RECOMENDO!!!</blockquote>
+        <footer class="depo-card__author">
+          <div class="depo-card__avatar" aria-hidden="true">IF</div>
+          <div>
+            <p class="depo-card__author-name">Itamar Ferreira</p>
+            <p class="depo-card__google-tag">Google · 8 meses atrás</p>
+          </div>
+        </footer>
+      </article>
+
+      <article class="depo-card depo-card--hidden">
+        <span class="depo-card__deco" aria-hidden="true">"</span>
+        <p class="depo-card__stars" aria-label="5 estrelas">★★★★★</p>
+        <blockquote class="depo-card__quote">Fiz o processo de isenção de IPI e fui muito bem atendida, tudo explicado corretamente e processo muito ágil. Fiquei muito satisfeita com a contratação do serviço. Super indico!</blockquote>
+        <footer class="depo-card__author">
+          <div class="depo-card__avatar" aria-hidden="true">GS</div>
+          <div>
+            <p class="depo-card__author-name">Giselle Souza</p>
+            <p class="depo-card__google-tag">Google · 6 meses atrás</p>
+          </div>
+        </footer>
+      </article>
+
+      <article class="depo-card depo-card--hidden">
+        <span class="depo-card__deco" aria-hidden="true">"</span>
+        <p class="depo-card__stars" aria-label="5 estrelas">★★★★★</p>
+        <blockquote class="depo-card__quote">Fui muito bem atendido, orientado e com minhas solicitações sendo prontamente atendido. Muito competente, atenciosa e me forneceu todo o suporte para eu conseguir minhas isenções e emplacamento do carro. Meus parabéns e super recomendo os serviços.</blockquote>
+        <footer class="depo-card__author">
+          <div class="depo-card__avatar" aria-hidden="true">NB</div>
+          <div>
+            <p class="depo-card__author-name">Nicolau Boarini</p>
+            <p class="depo-card__google-tag">Google · 4 meses atrás</p>
+          </div>
+        </footer>
+      </article>
+
+      <article class="depo-card depo-card--hidden">
+        <span class="depo-card__deco" aria-hidden="true">"</span>
+        <p class="depo-card__stars" aria-label="5 estrelas">★★★★★</p>
+        <blockquote class="depo-card__quote">Atendimento 100% ótimo, indico, essa menina é muito dez.</blockquote>
+        <footer class="depo-card__author">
+          <div class="depo-card__avatar" aria-hidden="true">LM</div>
+          <div>
+            <p class="depo-card__author-name">Luis Machado</p>
+            <p class="depo-card__google-tag">Google · 3 semanas atrás</p>
+          </div>
+        </footer>
+      </article>
+
+      <article class="depo-card depo-card--hidden">
+        <span class="depo-card__deco" aria-hidden="true">"</span>
+        <p class="depo-card__stars" aria-label="5 estrelas">★★★★★</p>
+        <blockquote class="depo-card__quote">A empresa é ótima!! As meninas que me atenderam foram super solicitas, nos auxiliaram e esclareceram todas as dúvidas. Nunca tínhamos entrado com o pedido PCD e não tivemos nenhum problema, foi rápido. Agradeço demais a toda equipe, daqui 4 anos estamos juntos para a troca do carro. Gratidão.</blockquote>
+        <footer class="depo-card__author">
+          <div class="depo-card__avatar" aria-hidden="true">MB</div>
+          <div>
+            <p class="depo-card__author-name">Mariana Bruno Jara Villela</p>
+            <p class="depo-card__google-tag">Google · 6 meses atrás</p>
+          </div>
+        </footer>
+      </article>
+
+      <article class="depo-card depo-card--hidden">
+        <span class="depo-card__deco" aria-hidden="true">"</span>
+        <p class="depo-card__stars" aria-label="5 estrelas">★★★★★</p>
+        <blockquote class="depo-card__quote">Excelente atendimento! Fui muito bem atendida pela Kelly, que foi extremamente atenciosa, profissional e paciente durante todo o processo de isenção do carro para PCD. Ela tirou todas as minhas dúvidas e me orientou de forma clara e objetiva. Recomendo muito o trabalho dela!</blockquote>
+        <footer class="depo-card__author">
+          <div class="depo-card__avatar" aria-hidden="true">TB</div>
+          <div>
+            <p class="depo-card__author-name">Teresinha Braga</p>
+            <p class="depo-card__google-tag">Google · um ano atrás</p>
+          </div>
+        </footer>
+      </article>
+
+      <article class="depo-card depo-card--hidden">
+        <span class="depo-card__deco" aria-hidden="true">"</span>
+        <p class="depo-card__stars" aria-label="5 estrelas">★★★★★</p>
+        <blockquote class="depo-card__quote">Muito bem atendido, pessoas educadas e com conhecimento no assunto.</blockquote>
+        <footer class="depo-card__author">
+          <div class="depo-card__avatar" aria-hidden="true">SM</div>
+          <div>
+            <p class="depo-card__author-name">Sílvio Magalhães</p>
+            <p class="depo-card__google-tag">Google · um ano atrás</p>
+          </div>
+        </footer>
+      </article>
+
+      <article class="depo-card depo-card--hidden">
+        <span class="depo-card__deco" aria-hidden="true">"</span>
+        <p class="depo-card__stars" aria-label="5 estrelas">★★★★★</p>
+        <blockquote class="depo-card__quote">Profissional competente, pontual nos compromissos e excelente nível de atendimento.</blockquote>
+        <footer class="depo-card__author">
+          <div class="depo-card__avatar" aria-hidden="true">LI</div>
+          <div>
+            <p class="depo-card__author-name">Luigi Merlino</p>
+            <p class="depo-card__google-tag">Google · 2 anos atrás</p>
+          </div>
+        </footer>
+      </article>
+
+      <article class="depo-card depo-card--hidden">
+        <span class="depo-card__deco" aria-hidden="true">"</span>
+        <p class="depo-card__stars" aria-label="5 estrelas">★★★★★</p>
+        <blockquote class="depo-card__quote">Ótima experiência! Profissional sempre disposta a analisar todos os detalhes e resolver com excelência.</blockquote>
+        <footer class="depo-card__author">
+          <div class="depo-card__avatar" aria-hidden="true">SC</div>
+          <div>
+            <p class="depo-card__author-name">Sergio Carmo</p>
+            <p class="depo-card__google-tag">Google · 2 anos atrás</p>
+          </div>
+        </footer>
+      </article>
+
+    </div><!-- /depo-grid -->
+
+    <div class="depo-footer">
+      <button class="depo-load-more" id="depoLoadMore" aria-label="Carregar mais depoimentos">
+        Ver mais avaliações
+      </button>
+      <a href="https://share.google/4JyPuYP4j7TWp4Pbv" target="_blank" rel="noopener noreferrer" class="depo-google-btn" aria-label="Avaliar a Eleva Isenções no Google">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        Avaliar no Google
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     ÁREA DE ATUAÇÃO
+========================================================= -->
+<section class="atuacao section" id="atuacao" aria-labelledby="atuacao-title">
+  <div class="atuacao__bg" aria-hidden="true"></div>
+  <div class="wrap atuacao__inner">
+
+    <header class="atuacao__head">
+      <p class="section-label reveal">Área de atuação</p>
+      <h2 class="display-md atuacao__title reveal reveal-delay-1" id="atuacao-title">
+        Não existe benefício pequeno<br>quando é seu direito.
+      </h2>
+      <p class="atuacao__intro reveal reveal-delay-2">
+        A legislação garante muito mais do que a maioria conhece. A Eleva mapeia cada benefício disponível para pessoas com deficiência e cuida do processo com você — do início ao resultado.
+      </p>
+    </header>
+
+    <div class="atuacao__grid">
+
+      <!-- ① Feature: Isenção na compra de veículo -->
+      <article class="atuacao__card atuacao__card--feature reveal">
+        <div class="atuacao__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" focusable="false">
+            <path d="M5 8.5L6.5 5h7L15 8.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="2.5" y="8.5" width="15" height="5.5" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M2.5 11h15" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="6" cy="14" r="1.3" fill="currentColor"/>
+            <circle cx="14" cy="14" r="1.3" fill="currentColor"/>
+          </svg>
+        </div>
+        <span class="atuacao__badge">Isenção Fiscal</span>
+        <h3 class="atuacao__card-name">Isenção na compra de veículo</h3>
+        <p class="atuacao__card-desc">Organizamos todo o processo de isenção de IPI, IOF, ICMS e IPVA.</p>
+        <a href="#processo" class="atuacao__card-link">
+          Ver como funciona
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" focusable="false" aria-hidden="true">
+            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <span class="atuacao__card-deco" aria-hidden="true">PCD</span>
+      </article>
+
+      <!-- ② Cartão de Estacionamento -->
+      <article class="atuacao__card reveal reveal-delay-1">
+        <div class="atuacao__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" focusable="false">
+            <rect x="2" y="4.5" width="16" height="11" rx="2" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M2 7.5h16" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="5.5" cy="12" r="1" fill="currentColor"/>
+            <path d="M8.5 10.5h4M8.5 12.5h2.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="atuacao__badge">Mobilidade Urbana</span>
+        <h3 class="atuacao__card-name">Cartão de Estacionamento PCD</h3>
+        <p class="atuacao__card-desc">Solicitamos a credencial para uso em vagas especiais, incluindo isenção de Zona Azul em algumas cidades — sem burocracia.</p>
+      </article>
+
+      <!-- ③ CIN / CID no RG -->
+      <article class="atuacao__card reveal">
+        <div class="atuacao__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" focusable="false">
+            <rect x="2" y="4" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="7" cy="10" r="2" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M12 8.5h3M12 11.5h2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="atuacao__badge">Identificação</span>
+        <h3 class="atuacao__card-name">CIN – Novo RG com CID</h3>
+        <p class="atuacao__card-desc">Auxiliamos na inclusão da CID no documento de identidade para facilitar o acesso a outros benefícios.</p>
+      </article>
+
+      <!-- ④ Aposentadoria e LOAS/BPC -->
+      <article class="atuacao__card reveal reveal-delay-1">
+        <div class="atuacao__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" focusable="false">
+            <circle cx="9.5" cy="5.5" r="2.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M4 17c0-3.038 2.462-5.5 5.5-5.5s5.5 2.462 5.5 5.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M14.5 9v5M12 11.5h5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="atuacao__badge">Previdência Social</span>
+        <h3 class="atuacao__card-name">Aposentadoria e LOAS/BPC PCD</h3>
+        <p class="atuacao__card-desc">Orientação no processo de aposentadoria ou benefício de prestação continuada para pessoas com deficiência, conforme os critérios legais.</p>
+      </article>
+
+      <!-- ⑤ Isenção de Imposto de Renda -->
+      <article class="atuacao__card reveal reveal-delay-2">
+        <div class="atuacao__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" focusable="false">
+            <path d="M10 2l7 3v5c0 4-3.5 7-7 8-3.5-1-7-4-7-8V5l7-3z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            <path d="M7.5 12.5l5-5M8 8a.5.5 0 110-1 .5.5 0 010 1zM12 12a.5.5 0 110-1 .5.5 0 010 1z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="atuacao__badge">Imposto Federal</span>
+        <h3 class="atuacao__card-name">Isenção de Imposto de Renda</h3>
+        <p class="atuacao__card-desc">Solicitação de isenção de IR e restituição dos últimos 5 anos para pessoas com deficiência ou doença grave.</p>
+      </article>
+
+      <!-- ⑥ Processo Judicial -->
+      <article class="atuacao__card reveal">
+        <div class="atuacao__icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" focusable="false">
+            <path d="M4.5 15.5l6.5-6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            <rect x="9.8" y="3.2" width="3.5" height="7" rx="1" transform="rotate(45 9.8 3.2)" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M3 17h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="atuacao__badge">Via Judicial</span>
+        <h3 class="atuacao__card-name">Processo Judicial</h3>
+        <p class="atuacao__card-desc">Atuação jurídica quando necessário para garantir o reconhecimento do direito por decisão judicial.</p>
+      </article>
+
+      <!-- ⑦ CTA card -->
+      <div class="atuacao__card atuacao__card--cta reveal reveal-delay-1" role="complementary" aria-label="Fale com a Eleva">
+        <p class="atuacao__cta-label">Avaliação inicial</p>
+        <p class="atuacao__cta-text">Ainda não sabe qual benefício é o seu?</p>
+        <p class="atuacao__cta-sub">Fale com a equipe da Eleva. A análise do seu caso é sem custo e sem compromisso.</p>
+        <a href="https://wa.me/5512982820153?text=Ol%C3%A1%2C+gostaria+de+entender+meu+caso+de+isen%C3%A7%C3%A3o+PCD."
+           class="btn btn--terra"
+           target="_blank" rel="noopener noreferrer">
+          Falar com a equipe
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SOBRE A ELEVA
+========================================================= -->
+<section class="sobre section" id="sobre" aria-labelledby="sobre-title">
+  <div class="sobre__pattern" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sobre__inner">
+
+      <!-- Texto centralizado -->
+      <div class="sobre__header">
+        <p class="section-label reveal" style="color: rgba(239,227,214,0.55);">Quem somos</p>
+        <h2 class="display-md sobre__title reveal reveal-delay-1" id="sobre-title">
+          Na Eleva Isenções, simplificar é o nosso propósito.
+        </h2>
+        <p class="sobre__body reveal reveal-delay-2">
+          Tornamos o processo de isenção para PCD mais claro e descomplicado. Mais do que lidar com documentos, cuidamos de pessoas. Valorizamos a sua história, reconhecendo que cada pessoa é única e merece ser atendida com respeito e empatia.
+        </p>
+        <p class="sobre__body reveal reveal-delay-3">
+          Contamos com uma equipe especializada, pronta para te orientar com clareza em cada etapa do processo, esclarecer suas dúvidas e conduzir tudo com agilidade e segurança para que você conquiste o seu direito.
+        </p>
+      </div>
+
+      <!-- Cards da equipe -->
+      <div class="sobre__visual reveal">
+
+        <img src="assets/images/hero/levi.webp" alt="Levi, mascote da Eleva Isenções"
+             class="sobre__levi-float" width="220" height="262"
+             loading="lazy" decoding="async" />
+
+        <div class="sobre__team">
+
+          <div class="sobre__member">
+            <div class="sobre__member-circle">
+              <img src="assets/images/misc/kelly.webp" alt="Kelly Roberta, CEO e Fundadora da Eleva Isenções"
+                   loading="lazy" decoding="async" width="168" height="168" />
+            </div>
+            <div class="sobre__member-text">
+              <p class="sobre__member-name">Kelly Roberta</p>
+              <p class="sobre__member-role">CEO &amp; Fundadora</p>
+              <p class="sobre__member-desc">Lidera com visão estratégica, elevando a consultoria em isenções com excelência e propósito.</p>
+            </div>
+          </div>
+
+          <div class="sobre__member">
+            <div class="sobre__member-circle">
+              <img src="assets/images/misc/homem.webp" alt="Nickolas Alves, Consultor de Negócios da Eleva Isenções"
+                   loading="lazy" decoding="async" width="128" height="128" />
+            </div>
+            <div class="sobre__member-text">
+              <p class="sobre__member-name">Nickolas Alves</p>
+              <p class="sobre__member-role">Consultor de Negócios</p>
+              <p class="sobre__member-desc">Atua com estratégia e segurança para garantir agilidade e assertividade nos processos.</p>
+            </div>
+          </div>
+
+          <div class="sobre__member">
+            <div class="sobre__member-circle">
+              <img src="assets/images/misc/Karine.webp" alt="Karine Moura, Analista Administrativo da Eleva Isenções"
+                   loading="lazy" decoding="async" width="168" height="168" />
+            </div>
+            <div class="sobre__member-text">
+              <p class="sobre__member-name">Karine Moura</p>
+              <p class="sobre__member-role">Analista Administrativo</p>
+              <p class="sobre__member-desc">Assegura rigor técnico e organização para a excelência em cada protocolo.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="sobre__badge-float" aria-label="+7 anos de experiência">
+          <div class="sobre__badge-num">+7</div>
+          <div class="sobre__badge-label">anos de<br />experiência</div>
+        </div>
+
+      </div>
+
+      <!-- Pilares em linha -->
+      <ul class="sobre__pillars" role="list">
+        <li class="sobre__pillar reveal reveal-delay-3">
+          <span class="sobre__pillar-icon" aria-hidden="true">🎯</span>
+          <p class="sobre__pillar-text">Especialização real</p>
+          <p class="sobre__pillar-sub">Conhecimento aprofundado do processo de isenção PCD</p>
+        </li>
+        <li class="sobre__pillar reveal reveal-delay-4">
+          <span class="sobre__pillar-icon" aria-hidden="true">🤲</span>
+          <p class="sobre__pillar-text">Acompanhamento próximo</p>
+          <p class="sobre__pillar-sub">Presença em cada etapa, não apenas no início</p>
+        </li>
+        <li class="sobre__pillar reveal reveal-delay-5">
+          <span class="sobre__pillar-icon" aria-hidden="true">📐</span>
+          <p class="sobre__pillar-text">Organização do processo</p>
+          <p class="sobre__pillar-sub">Método claro para reduzir retrabalho e insegurança</p>
+        </li>
+      </ul>
+
+    </div>
   </div>
 </section>
 
@@ -2709,117 +3086,132 @@
       <header class="beneficios__head">
         <p class="section-label reveal">Por que contar com a Eleva</p>
         <h2 class="display-md reveal reveal-delay-1" id="beneficios-title">
-          O que muda quando o processo tem<br>alguém organizado ao seu lado.
+          Veja a diferença na realidade.
         </h2>
+        <p class="beneficios__intro reveal reveal-delay-2">
+          Ter alguém que conhece o caminho muda tudo — do primeiro documento à aprovação final.
+        </p>
       </header>
 
-      <!-- Bento grid: 3×3 on desktop, 2-col tablet, 1-col mobile  -->
-      <!-- Desktop layout:                                          -->
-      <!--  [01]  [02]  [Feature ↕row1-2]                          -->
-      <!--  [03──────wide──]  [Feature ↕row2]                      -->
-      <!--  [04]  [05]  [06]                                        -->
-      <div class="beneficios__bento" role="list">
+      <!-- Comparison table -->
+      <div class="comp-wrap reveal" role="region" aria-label="Comparação: Com a Eleva vs Sem assessoria">
 
-        <!-- 01 -->
-        <article class="benef-card reveal" role="listitem">
-          <span class="benef-card__deco" aria-hidden="true">01</span>
-          <div class="benef-card__icon benef-card__icon--terra" aria-hidden="true">🧭</div>
-          <h3 class="benef-card__title">Mais clareza desde o início</h3>
-          <p class="benef-card__body">Você entende o que tem direito, o que é necessário e o que pode esperar — sem depender de informações contraditórias da internet.</p>
-          <span class="benef-card__tag benef-card__tag--terra">Clareza</span>
-        </article>
-
-        <!-- 02 -->
-        <article class="benef-card reveal reveal-delay-1" role="listitem">
-          <span class="benef-card__deco" aria-hidden="true">02</span>
-          <div class="benef-card__icon benef-card__icon--verde" aria-hidden="true">🛡️</div>
-          <h3 class="benef-card__title">Mais segurança em cada decisão</h3>
-          <p class="benef-card__body">Cada passo é tomado com orientação especializada, reduzindo o risco de erros que podem atrasar ou inviabilizar o processo.</p>
-          <span class="benef-card__tag benef-card__tag--verde">Segurança</span>
-        </article>
-
-        <!-- 03 — wide card (spans 2 cols on desktop, row 2) -->
-        <article class="benef-card benef-card--w2 reveal" role="listitem">
-          <span class="benef-card__deco" aria-hidden="true">03</span>
-          <div class="benef-card__left">
-            <div class="benef-card__icon benef-card__icon--cobre" aria-hidden="true">⚡</div>
-            <h3 class="benef-card__title">Menos tempo perdido</h3>
-            <span class="benef-card__tag benef-card__tag--cobre">Agilidade</span>
+        <!-- Header -->
+        <div class="comp-header" role="row">
+          <div class="comp-header__col comp-header__col--eleva" role="columnheader">
+            <span class="comp-dot comp-dot--eleva" aria-hidden="true"></span>
+            Com a Eleva
           </div>
-          <div class="benef-card__right">
-            <p class="benef-card__body">A organização prévia e o acompanhamento ativo reduzem idas desnecessárias a órgãos, reenvio de documentos e esperas evitáveis — deixando o processo fluir com mais eficiência e menos desgaste.</p>
+          <div class="comp-header__sep" aria-hidden="true"></div>
+          <div class="comp-header__col comp-header__col--sem" role="columnheader">
+            <span class="comp-dot comp-dot--sem" aria-hidden="true"></span>
+            Sem assessoria
           </div>
-        </article>
+        </div>
 
-        <!-- 04 -->
-        <article class="benef-card reveal reveal-delay-1" role="listitem">
-          <span class="benef-card__deco" aria-hidden="true">04</span>
-          <div class="benef-card__icon benef-card__icon--verde" aria-hidden="true">📋</div>
-          <h3 class="benef-card__title">Processo mais organizado</h3>
-          <p class="benef-card__body">Nada fica perdido. Cada documento, prazo e instância tem seu lugar dentro de um método estruturado e claro.</p>
-          <span class="benef-card__tag benef-card__tag--verde">Organização</span>
-        </article>
-
-        <!-- 05 -->
-        <article class="benef-card reveal reveal-delay-2" role="listitem">
-          <span class="benef-card__deco" aria-hidden="true">05</span>
-          <div class="benef-card__icon benef-card__icon--terra" aria-hidden="true">💬</div>
-          <h3 class="benef-card__title">Apoio especializado e humano</h3>
-          <p class="benef-card__body">Você não precisa decifrar legislação sozinho. A equipe da Eleva traduz cada exigência em ação concreta.</p>
-          <span class="benef-card__tag benef-card__tag--terra">Suporte</span>
-        </article>
-
-        <!-- 06 -->
-        <article class="benef-card reveal reveal-delay-2" role="listitem">
-          <span class="benef-card__deco" aria-hidden="true">06</span>
-          <div class="benef-card__icon benef-card__icon--cobre" aria-hidden="true">🌿</div>
-          <h3 class="benef-card__title">Mais tranquilidade para avançar</h3>
-          <p class="benef-card__body">Com alguém organizado ao seu lado, você avança com leveza e foca no que realmente importa.</p>
-          <span class="benef-card__tag benef-card__tag--cobre">Leveza</span>
-        </article>
-
-        <!-- Feature card — col 3, rows 1–2 on desktop -->
-        <article class="benef-card benef-card--feature reveal reveal-delay-2" role="listitem" aria-label="Nossa missão">
-          <div class="benef-feat__bg" aria-hidden="true"></div>
-          <div class="benef-feat__glow" aria-hidden="true"></div>
-          <div class="benef-feat__rings" aria-hidden="true"></div>
-          <div class="benef-feat__inner">
-            <p class="benef-feat__label">Nossa missão</p>
-            <blockquote class="benef-feat__quote">
-              "Da insegurança<br>à chave do carro."
-            </blockquote>
-            <p class="benef-feat__body">
-              A Eleva existe para que a isenção deixe de ser um processo intimidador e se torne uma conquista real — acessível, compreensível e segura.
-            </p>
-            <div class="benef-feat__proof" aria-label="Nossos compromissos">
-              <div class="benef-feat__proof-item">
-                <span class="benef-feat__check" aria-hidden="true">
-                  <svg viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 4l2.5 2.5L9 1" stroke="#EFE3D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </span>
-                <span>Análise do caso sem compromisso</span>
-              </div>
-              <div class="benef-feat__proof-item">
-                <span class="benef-feat__check" aria-hidden="true">
-                  <svg viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 4l2.5 2.5L9 1" stroke="#EFE3D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </span>
-                <span>Acompanhamento em todas as etapas</span>
-              </div>
-              <div class="benef-feat__proof-item">
-                <span class="benef-feat__check" aria-hidden="true">
-                  <svg viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 4l2.5 2.5L9 1" stroke="#EFE3D6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </span>
-                <span>Orientação clara, sem jargão jurídico</span>
-              </div>
-            </div>
-            <div class="benef-feat__cta">
-              <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+quero+come%C3%A7ar+a+analisar+meu+caso+de+isen%C3%A7%C3%A3o."
-                 class="btn btn--terra" target="_blank" rel="noopener noreferrer">
-                Começar agora
-              </a>
-            </div>
+        <!-- Row 1 -->
+        <div class="comp-row" role="row">
+          <div class="comp-cell comp-cell--eleva" role="cell">
+            <span class="comp-icon comp-icon--check" aria-hidden="true">
+              <svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            Você é orientado do início ao fim, sem dúvidas
           </div>
-        </article>
+          <div class="comp-row__sep" aria-hidden="true"></div>
+          <div class="comp-cell comp-cell--sem" role="cell">
+            <span class="comp-icon comp-icon--x" aria-hidden="true">
+              <svg viewBox="0 0 10 10" fill="none"><path d="M3 3l4 4M7 3l-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+            Processo confuso e cheio de incertezas
+          </div>
+        </div>
 
+        <!-- Row 2 -->
+        <div class="comp-row" role="row">
+          <div class="comp-cell comp-cell--eleva" role="cell">
+            <span class="comp-icon comp-icon--check" aria-hidden="true">
+              <svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            Seu direito é analisado por especialistas
+          </div>
+          <div class="comp-row__sep" aria-hidden="true"></div>
+          <div class="comp-cell comp-cell--sem" role="cell">
+            <span class="comp-icon comp-icon--x" aria-hidden="true">
+              <svg viewBox="0 0 10 10" fill="none"><path d="M3 3l4 4M7 3l-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+            Risco de erro e perda do benefício
+          </div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="comp-row" role="row">
+          <div class="comp-cell comp-cell--eleva" role="cell">
+            <span class="comp-icon comp-icon--check" aria-hidden="true">
+              <svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            Toda documentação conferida para evitar problemas
+          </div>
+          <div class="comp-row__sep" aria-hidden="true"></div>
+          <div class="comp-cell comp-cell--sem" role="cell">
+            <span class="comp-icon comp-icon--x" aria-hidden="true">
+              <svg viewBox="0 0 10 10" fill="none"><path d="M3 3l4 4M7 3l-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+            Retrabalho e erros no processo
+          </div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="comp-row" role="row">
+          <div class="comp-cell comp-cell--eleva" role="cell">
+            <span class="comp-icon comp-icon--check" aria-hidden="true">
+              <svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            Você tem suporte em cada etapa
+          </div>
+          <div class="comp-row__sep" aria-hidden="true"></div>
+          <div class="comp-cell comp-cell--sem" role="cell">
+            <span class="comp-icon comp-icon--x" aria-hidden="true">
+              <svg viewBox="0 0 10 10" fill="none"><path d="M3 3l4 4M7 3l-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+            Falta de orientação e insegurança
+          </div>
+        </div>
+
+        <!-- Row 5 -->
+        <div class="comp-row" role="row">
+          <div class="comp-cell comp-cell--eleva" role="cell">
+            <span class="comp-icon comp-icon--check" aria-hidden="true">
+              <svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            Caminho claro até a conquista da sua isenção
+          </div>
+          <div class="comp-row__sep" aria-hidden="true"></div>
+          <div class="comp-cell comp-cell--sem" role="cell">
+            <span class="comp-icon comp-icon--x" aria-hidden="true">
+              <svg viewBox="0 0 10 10" fill="none"><path d="M3 3l4 4M7 3l-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+            Processo lento, cansativo e frustrante
+          </div>
+        </div>
+
+      </div><!-- /comp-wrap -->
+
+      <!-- CTA -->
+      <div class="comp-cta reveal">
+        <div class="comp-cta__content">
+          <span class="comp-cta__label">Próximo passo</span>
+          <p class="comp-cta__title">Pronto para ter clareza no seu processo?</p>
+          <p class="comp-cta__sub">A análise do seu caso é sem custo e sem compromisso — só para entender o que você tem direito.</p>
+        </div>
+        <div class="comp-cta__actions">
+          <a href="https://wa.me/5512982820153?text=Ol%C3%A1%2C+quero+come%C3%A7ar+a+analisar+meu+caso+de+isen%C3%A7%C3%A3o."
+             class="btn btn--terra" target="_blank" rel="noopener noreferrer">
+            Começar minha avaliação
+          </a>
+          <a href="#faq" class="btn btn--outline-creme">
+            Ver dúvidas frequentes
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -2844,7 +3236,7 @@
         <div class="faq__contact">
           <p class="faq__contact-label">Fale com a Eleva</p>
           <p class="faq__contact-text">Nossa equipe responde com atenção e sem pressa.</p>
-          <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+tenho+uma+d%C3%BAvida+sobre+o+processo+de+isen%C3%A7%C3%A3o+PCD."
+          <a href="https://wa.me/5512982820153?text=Ol%C3%A1%2C+tenho+uma+d%C3%BAvida+sobre+o+processo+de+isen%C3%A7%C3%A3o+PCD."
              class="btn btn--outline-terra" target="_blank" rel="noopener noreferrer">
             Enviar mensagem
           </a>
@@ -2877,7 +3269,7 @@
           <div class="faq__body" id="faq-2" role="region">
             <div class="faq__body-inner">
               <div class="faq__body-pad">
-                Não necessariamente. A legislação prevê isenção mesmo para PCD não condutora — desde que o veículo seja utilizado para sua mobilidade e que haja documentação adequada do condutor regular. Para cada situação existe um caminho específico, e a Eleva identifica qual se aplica ao seu caso.
+                Não necessariamente. A legislação permite a isenção também para PCD não condutoras, desde que haja um condutor responsável. Cada caso segue regras específicas, e a Eleva identifica qual é o caminho mais adequado para a sua situação.
               </div>
             </div>
           </div>
@@ -2886,13 +3278,13 @@
         <div class="faq__item" role="listitem">
           <button class="faq__trigger" aria-expanded="false" aria-controls="faq-3">
             <span class="faq__trigger-num" aria-hidden="true">03</span>
-            <span class="faq__trigger-text">Quais isenções podem estar envolvidas no processo?</span>
+            <span class="faq__trigger-text">Quanto tempo dura o processo de isenção?</span>
             <span class="faq__icon" aria-hidden="true"></span>
           </button>
           <div class="faq__body" id="faq-3" role="region">
             <div class="faq__body-inner">
               <div class="faq__body-pad">
-                Dependendo do perfil da deficiência e do estado de residência, é possível obter isenção de IPI (federal), IOF (federal), ICMS (estadual) e IPVA (estadual). Cada isenção tem requisitos e órgãos responsáveis distintos. A Eleva mapeia quais se aplicam ao seu caso e orienta em cada frente.
+                O prazo pode variar conforme o tipo de isenção e a análise dos órgãos responsáveis. Em casos de veículo zero, o processo leva em média cerca de 45 dias.
               </div>
             </div>
           </div>
@@ -2901,40 +3293,10 @@
         <div class="faq__item" role="listitem">
           <button class="faq__trigger" aria-expanded="false" aria-controls="faq-4">
             <span class="faq__trigger-num" aria-hidden="true">04</span>
-            <span class="faq__trigger-text">A Eleva acompanha o processo do início ao fim?</span>
-            <span class="faq__icon" aria-hidden="true"></span>
-          </button>
-          <div class="faq__body" id="faq-4" role="region">
-            <div class="faq__body-inner">
-              <div class="faq__body-pad">
-                Sim. A Eleva não faz apenas a orientação inicial e te deixa sozinho. Estamos presentes em cada etapa — da análise do caso à organização documental, do acompanhamento das aprovações à conclusão para aquisição do veículo.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq__item" role="listitem">
-          <button class="faq__trigger" aria-expanded="false" aria-controls="faq-5">
-            <span class="faq__trigger-num" aria-hidden="true">05</span>
-            <span class="faq__trigger-text">Quanto tempo dura o processo de isenção?</span>
-            <span class="faq__icon" aria-hidden="true"></span>
-          </button>
-          <div class="faq__body" id="faq-5" role="region">
-            <div class="faq__body-inner">
-              <div class="faq__body-pad">
-                O tempo varia de acordo com o tipo de isenção, o estado e a completude da documentação. Com organização e acompanhamento, o processo tende a fluir mais rapidamente. A Eleva te mantém informado sobre cada prazo e andamento — sem que você fique na dúvida sobre o que está acontecendo.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq__item" role="listitem">
-          <button class="faq__trigger" aria-expanded="false" aria-controls="faq-6">
-            <span class="faq__trigger-num" aria-hidden="true">06</span>
             <span class="faq__trigger-text">Familiares podem contratar a assessoria?</span>
             <span class="faq__icon" aria-hidden="true"></span>
           </button>
-          <div class="faq__body" id="faq-6" role="region">
+          <div class="faq__body" id="faq-4" role="region">
             <div class="faq__body-inner">
               <div class="faq__body-pad">
                 Sim. Familiares, responsáveis legais e curadores podem buscar a Eleva para conduzir o processo em nome da pessoa com deficiência. Analisamos a situação e orientamos sobre a documentação necessária para esse perfil.
@@ -2943,7 +3305,187 @@
           </div>
         </div>
 
+        <div class="faq__item" role="listitem">
+          <button class="faq__trigger" aria-expanded="false" aria-controls="faq-5">
+            <span class="faq__trigger-num" aria-hidden="true">05</span>
+            <span class="faq__trigger-text">Não tenho nenhum laudo, posso entrar em contato mesmo assim?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__body" id="faq-5" role="region">
+            <div class="faq__body-inner">
+              <div class="faq__body-pad">
+                Sim. Você pode entrar em contato mesmo sem laudos. A Eleva analisa o seu caso e orienta quais documentos serão necessários para dar início ao processo.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <button class="faq__trigger" aria-expanded="false" aria-controls="faq-6">
+            <span class="faq__trigger-num" aria-hidden="true">06</span>
+            <span class="faq__trigger-text">Posso ter isenção de IPVA no meu carro atual?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__body" id="faq-6" role="region">
+            <div class="faq__body-inner">
+              <div class="faq__body-pad">
+                Sim. Em muitos casos é possível solicitar a isenção de IPVA para o veículo já em uso, inclusive quando o carro está no nome de um responsável legal da pessoa com deficiência.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <button class="faq__trigger" aria-expanded="false" aria-controls="faq-7">
+            <span class="faq__trigger-num" aria-hidden="true">07</span>
+            <span class="faq__trigger-text">Preciso renovar a isenção de IPVA todo ano?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__body" id="faq-7" role="region">
+            <div class="faq__body-inner">
+              <div class="faq__body-pad">
+                Não. Em São Paulo, a isenção de IPVA não precisa ser renovada anualmente. Somente deve ser solicitada novamente em caso de troca de veículo.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <button class="faq__trigger" aria-expanded="false" aria-controls="faq-8">
+            <span class="faq__trigger-num" aria-hidden="true">08</span>
+            <span class="faq__trigger-text">Posso escolher qualquer carro?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__body" id="faq-8" role="region">
+            <div class="faq__body-inner">
+              <div class="faq__body-pad">
+                Sim. Inclusive, temos parcerias com todas as marcas para te ajudar a escolher a melhor opção dentro das regras de isenção.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <button class="faq__trigger" aria-expanded="false" aria-controls="faq-9">
+            <span class="faq__trigger-num" aria-hidden="true">09</span>
+            <span class="faq__trigger-text">Preciso de perícia médica?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__body" id="faq-9" role="region">
+            <div class="faq__body-inner">
+              <div class="faq__body-pad">
+                Sim. É exigida a perícia para emissão da CNH especial, quando necessário. Também é realizada a perícia do IMESC para a isenção de IPVA, que avalia o grau da deficiência.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <button class="faq__trigger" aria-expanded="false" aria-controls="faq-10">
+            <span class="faq__trigger-num" aria-hidden="true">10</span>
+            <span class="faq__trigger-text">Outras pessoas podem dirigir o veículo?</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </button>
+          <div class="faq__body" id="faq-10" role="region">
+            <div class="faq__body-inner">
+              <div class="faq__body-pad">
+                Sim. O veículo pode ser conduzido por outras pessoas, sem problemas.
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     LOJA ELEVA
+========================================================= -->
+<section class="loja section" id="loja" aria-labelledby="loja-title">
+  <div class="loja__pattern" aria-hidden="true"></div>
+
+  <!-- Ticker marquee -->
+  <div class="loja__ticker" aria-hidden="true">
+    <div class="loja__ticker-track">
+      <span class="loja__ticker-item">Camisetas exclusivas <span class="loja__ticker-dot"></span></span>
+      <span class="loja__ticker-item">Edição limitada <span class="loja__ticker-dot"></span></span>
+      <span class="loja__ticker-item">Acessórios Eleva <span class="loja__ticker-dot"></span></span>
+      <span class="loja__ticker-item">Produto com propósito <span class="loja__ticker-dot"></span></span>
+      <span class="loja__ticker-item">Identidade PCD <span class="loja__ticker-dot"></span></span>
+      <span class="loja__ticker-item">Vista a causa <span class="loja__ticker-dot"></span></span>
+      <span class="loja__ticker-item">Camisetas exclusivas <span class="loja__ticker-dot"></span></span>
+      <span class="loja__ticker-item">Edição limitada <span class="loja__ticker-dot"></span></span>
+      <span class="loja__ticker-item">Acessórios Eleva <span class="loja__ticker-dot"></span></span>
+      <span class="loja__ticker-item">Produto com propósito <span class="loja__ticker-dot"></span></span>
+      <span class="loja__ticker-item">Identidade PCD <span class="loja__ticker-dot"></span></span>
+      <span class="loja__ticker-item">Vista a causa <span class="loja__ticker-dot"></span></span>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="loja__inner">
+
+      <!-- Copy -->
+      <div class="loja__copy">
+        <p class="section-label loja__label reveal">Loja Eleva</p>
+        <h2 class="loja__title reveal reveal-delay-1" id="loja-title">
+          Vista a causa.<br><em>Use com orgulho.</em>
+        </h2>
+        <p class="loja__body reveal reveal-delay-2">
+          Nossa loja reúne produtos exclusivos da Eleva — desenvolvidos para quem acredita que inclusão começa pela identidade. Cada peça carrega a essência de quem faz a diferença na vida de pessoas com deficiência todos os dias.
+        </p>
+        <div class="loja__actions reveal reveal-delay-3">
+          <a href="https://reserva.ink/terracotadenimqzo196jub5#"
+             class="btn btn--terra"
+             target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+              <path d="M1 1h2.5l1.8 8.5h7l1.5-5.5H4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="6.5" cy="13" r="1.2" fill="currentColor"/>
+              <circle cx="11.5" cy="13" r="1.2" fill="currentColor"/>
+            </svg>
+            Visitar a loja
+          </a>
+          <a href="https://reserva.ink/terracotadenimqzo196jub5#"
+             class="btn btn--outline-creme"
+             target="_blank" rel="noopener noreferrer">
+            Ver coleção →
+          </a>
+        </div>
+        <div class="loja__trust reveal reveal-delay-4">
+          <span class="loja__trust-item">Entrega para todo o Brasil</span>
+          <span class="loja__trust-item">Produtos exclusivos</span>
+          <span class="loja__trust-item">Marca com propósito</span>
+        </div>
+      </div>
+
+      <!-- Visual: product tease cards -->
+      <div class="loja__visual reveal reveal-delay-2">
+        <div class="loja__mockup-wrap">
+          <!-- Glow ambiente -->
+          <div class="loja__mockup-glow" aria-hidden="true"></div>
+
+          <!-- Levi mascote flutuante -->
+          <img src="assets/images/hero/levi.webp" alt=""
+               class="loja__levi" width="230" height="274"
+               loading="lazy" decoding="async" aria-hidden="true" />
+
+          <!-- Screenshot da loja em mockup de MacBook -->
+          <img src="assets/images/hero/elevaloja.webp"
+               alt="Preview da loja Eleva Isenções em reserva.ink"
+               class="loja__mockup-img"
+               width="1456" height="816"
+               loading="lazy" decoding="async" />
+
+          <!-- Badge flutuante "Loja ao vivo" -->
+          <div class="loja__mockup-badge" aria-hidden="true">
+            <span class="loja__mockup-badge-dot"></span>
+            Loja ao vivo
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -2982,7 +3524,7 @@
         decoding="async"
       />
       <div class="cta-final__actions reveal reveal-delay-5">
-        <a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+quero+analisar+meu+caso+de+isen%C3%A7%C3%A3o+PCD+com+a+equipe+da+Eleva."
+        <a href="https://wa.me/5512982820153?text=Ol%C3%A1%2C+quero+analisar+meu+caso+de+isen%C3%A7%C3%A3o+PCD+com+a+equipe+da+Eleva."
            class="btn btn--terra" target="_blank" rel="noopener noreferrer"
            aria-label="Solicitar análise de caso pelo WhatsApp">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -3015,6 +3557,10 @@
         <p class="footer__tagline">
           Assessoria especializada em isenção PCD para aquisição de veículos. Orientamos pessoas com deficiência no processo de isenção de IPI, IOF, ICMS e IPVA com clareza e segurança em cada etapa.
         </p>
+        <p class="footer__cnpj">
+          AMPARU ASSESSORIA E ISENCOES PARA PCD LTDA<br>
+          CNPJ: 65.176.144/0001-49
+        </p>
       </div>
 
       <nav aria-label="Links da página">
@@ -3032,7 +3578,7 @@
         <p class="footer__col-title">Contato</p>
         <ul class="footer__col-links" role="list">
           <li>
-            <a href="https://wa.me/5500000000000" class="footer__col-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/5512982820153?text=Ol%C3%A1%2C+gostaria+de+falar+com+a+equipe+da+Eleva+Isen%C3%A7%C3%B5es." class="footer__col-link" target="_blank" rel="noopener noreferrer">
               WhatsApp
             </a>
           </li>
@@ -3045,20 +3591,36 @@
       </div>
     </div>
 
+    <p class="footer__disclaimer">
+      * Os valores de economia mencionados são estimativas baseadas na soma das isenções de IPI, IOF, ICMS e IPVA aplicáveis a veículos para PCD. O valor real varia conforme o modelo, preço e estado de emplacamento do veículo. Nem todos os carros proporcionam economia de R$&nbsp;20.000.
+    </p>
+
     <div class="footer__bottom">
       <p class="footer__copy">
         &copy; <span id="year"></span> Eleva Isenções. Todos os direitos reservados.
       </p>
       <nav class="footer__legal" aria-label="Links legais">
-        <a href="#" class="footer__legal-link">Política de Privacidade</a>
-        <a href="#" class="footer__legal-link">Termos de Uso</a>
+        <a href="politica-privacidade.html" class="footer__legal-link">Política de Privacidade</a>
+        <a href="politica-privacidade.html#termos" class="footer__legal-link">Termos de Uso</a>
       </nav>
     </div>
   </div>
 </footer>
 
+<!-- Cookie Consent Bar -->
+<div class="cookie-bar" id="cookieBar" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+  <p class="cookie-bar__text">
+    Usamos cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa
+    <a href="politica-privacidade.html#cookies">Política de Privacidade</a>.
+  </p>
+  <div class="cookie-bar__actions">
+    <button class="cookie-bar__btn cookie-bar__btn--decline" id="cookieDecline" aria-label="Recusar cookies não essenciais">Recusar</button>
+    <button class="cookie-bar__btn cookie-bar__btn--accept" id="cookieAccept" aria-label="Aceitar cookies">Aceitar</button>
+  </div>
+</div>
+
 <!-- WhatsApp float -->
-<a href="https://wa.me/5500000000000?text=Ol%C3%A1%2C+gostaria+de+falar+com+a+equipe+da+Eleva+Isen%C3%A7%C3%B5es."
+<a href="https://wa.me/5512982820153?text=Ol%C3%A1%2C+gostaria+de+falar+com+a+equipe+da+Eleva+Isen%C3%A7%C3%B5es."
    class="wa-float" target="_blank" rel="noopener noreferrer"
    aria-label="Falar com a Eleva no WhatsApp">
   <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -3217,19 +3779,33 @@
     });
   }
 
-  /* ---- assessoria tabs (cached selectors) ---- */
-  const tabBtns   = [...document.querySelectorAll('.assessoria__tab-btn')];
-  const tabPanels = [...document.querySelectorAll('.assessoria__panel')];
-  tabBtns.forEach(btn => {
+  /* ---- Cookie consent bar ---- */
+  (function () {
+    const bar = document.getElementById('cookieBar');
+    if (!bar) return;
+    if (localStorage.getItem('eleva_cookie_consent')) return;
+    setTimeout(() => bar.classList.add('visible'), 800);
+
+    function dismiss(accepted) {
+      localStorage.setItem('eleva_cookie_consent', accepted ? 'accepted' : 'declined');
+      bar.classList.remove('visible');
+      setTimeout(() => bar.remove(), 400);
+    }
+
+    document.getElementById('cookieAccept').addEventListener('click', () => dismiss(true));
+    document.getElementById('cookieDecline').addEventListener('click', () => dismiss(false));
+  })();
+
+  /* ---- Depoimentos — carregar mais ---- */
+  (function () {
+    const btn     = document.getElementById('depoLoadMore');
+    if (!btn) return;
     btn.addEventListener('click', () => {
-      const targetId = btn.getAttribute('aria-controls');
-      tabBtns.forEach(b => b.setAttribute('aria-selected', 'false'));
-      btn.setAttribute('aria-selected', 'true');
-      tabPanels.forEach(p => p.classList.remove('active'));
-      const target = document.getElementById(targetId);
-      if (target) target.classList.add('active');
+      const hidden = document.querySelectorAll('#depoGrid .depo-card--hidden');
+      hidden.forEach(c => c.classList.remove('depo-card--hidden'));
+      btn.style.display = 'none';
     });
-  });
+  })();
 
   /* ---- smooth scroll for anchor links ---- */
   document.querySelectorAll('a[href^="#"]').forEach(link => {
