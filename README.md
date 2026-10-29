@@ -69,9 +69,38 @@ Ao migrar para estrutura multi-página, mover para `assets/` e atualizar os cami
 - Atualizar `sitemap.xml` a cada nova página publicada
 - Criar `assets/images/og/og-image.jpg` (1200×630px) para preview em redes sociais
 
+## Seção da equipe (React)
+
+A landing page continua em `eleva-landing.html`. A galeria da equipe usa React,
+TypeScript e Tailwind CSS, com a estrutura de componentes e aliases do shadcn.
+
+```bash
+npm ci
+npm run dev
+```
+
+Abra `http://localhost:5173/eleva-landing.html#sobre`. O servidor de desenvolvimento
+carrega o componente e o CSS diretamente. Antes de publicar, execute `npm run build`
+para atualizar os arquivos estáticos carregados pela página.
+
+- `components/ui/team-showcase.tsx`: galeria em três colunas, lista de nomes e interação por mouse, toque e teclado.
+- `components/team-members.ts`: dados e caminhos das fotos. Cadastre os novos integrantes aqui.
+- `components/team-showcase-demo.tsx`: exemplo de uso com os dados da Eleva.
+- `assets/css/team.css`: estilos da equipe e entrada do Tailwind, sem Preflight para preservar os estilos do site.
+- `lib/utils.ts`: utilitário `cn` usado pelos componentes.
+- `components.json`: configuração shadcn e alias `@/components/ui`. Essa pasta mantém os componentes de interface reutilizáveis no caminho esperado pelo shadcn.
+
+`npm run build` verifica o TypeScript, compila a seção em `assets/team/` e atualiza
+o HTML entre os marcadores `TEAM:START` e `TEAM:END`. Não edite esse trecho gerado:
+os dados vêm de `components/team-members.ts`. O HTML inicial mantém fotos, nomes
+e cargos disponíveis mesmo sem JavaScript; React adiciona as interações.
+
+Para publicar, envie o HTML e a pasta `assets/`, incluindo os arquivos compilados
+de `assets/team/`. A hospedagem continua estática e não precisa executar Node.js.
+
 ## Tecnologias
 
-- HTML5 semântico (sem framework, sem build tool)
+- HTML5 semântico com componente React isolado para a equipe e build com Vite
 - CSS com design tokens via custom properties (`--c-terra`, `--f-heading`, etc.)
 - JS vanilla com IntersectionObserver, RAF e event delegation
 - [Lenis](https://github.com/darkroomengineering/lenis) — scroll suave

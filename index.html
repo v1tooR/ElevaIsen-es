@@ -623,7 +623,7 @@
     ========================================================= */
     .sobre {
       background: linear-gradient(135deg, var(--c-mogno) 0%, #7A3520 40%, #8B3E25 70%, var(--c-terra) 100%);
-      position: relative; overflow: hidden;
+      position: relative; overflow: clip;
     }
     .sobre__pattern {
       position: absolute; inset: 0; opacity: 0.06;
@@ -642,76 +642,11 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 56px;
       width: 100%;
-    }
-    .sobre__levi-float {
-      position: absolute; top: -24px; left: 50%;
-      transform: translateX(-50%);
-      width: 88px; height: auto; z-index: 4;
-      filter: drop-shadow(0 10px 28px rgba(30,26,23,0.30));
-      animation: leviFloat 3.4s ease-in-out infinite;
-      pointer-events: none;
     }
     @keyframes leviFloat {
       0%, 100% { transform: translateX(-50%) translateY(0) rotate(-3deg); }
       50%       { transform: translateX(-50%) translateY(-10px) rotate(3deg); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .sobre__levi-float { animation: none; }
-    }
-
-    /* Team members — horizontal cards */
-    .sobre__team {
-      display: flex;
-      flex-direction: row;
-      gap: 16px;
-      width: 100%;
-    }
-    .sobre__member {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 0;
-      background: rgba(239,227,214,0.08);
-      border: 1px solid rgba(239,227,214,0.14);
-      border-radius: var(--r-lg);
-      padding: 28px 16px 22px;
-      transition: background var(--dur-base) ease, border-color var(--dur-base) ease;
-    }
-    @media (hover:hover) {
-      .sobre__member:hover {
-        background: rgba(239,227,214,0.13);
-        border-color: rgba(239,227,214,0.24);
-      }
-    }
-    .sobre__member-circle {
-      width: 144px; height: 144px;
-      border-radius: 50%; overflow: hidden;
-      border: 3px solid rgba(239,227,214,0.28);
-      box-shadow: 0 8px 28px rgba(30,26,23,0.40);
-      background: var(--c-mogno);
-      flex-shrink: 0;
-      margin-bottom: 18px;
-    }
-    .sobre__member-circle img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: top center;
-    }
-    .sobre__member-name {
-      font-family: var(--f-heading); font-weight: 700; font-size: 0.96rem;
-      color: var(--c-creme); margin: 0 0 5px;
-    }
-    .sobre__member-role {
-      font-size: 0.74rem; color: var(--c-cobre);
-      margin: 0 0 12px; line-height: 1.3; font-weight: 600;
-      letter-spacing: 0.03em;
-    }
-    .sobre__member-desc {
-      font-size: 0.78rem; color: rgba(239,227,214,0.62);
-      line-height: 1.6; margin: 0;
     }
 
     .sobre__badge-float {
@@ -731,36 +666,6 @@
       font-size: 0.70rem; color: rgba(239,227,214,0.55); line-height: 1.35;
     }
 
-    /* Wrapper de texto dentro do card — só visível como flex em row */
-    .sobre__member-text { display: contents; }
-
-    @media (max-width: 899px) {
-      .sobre__levi-float { width: 70px; }
-      .sobre__member-circle { width: 110px; height: 110px; }
-    }
-    /* Tablet estreito: 2 colunas */
-    @media (max-width: 760px) {
-      .sobre__team { flex-wrap: wrap; gap: 12px; }
-      .sobre__member { flex: 1 1 calc(50% - 6px); min-width: 0; }
-      .sobre__member-circle { width: 96px; height: 96px; }
-    }
-    /* Mobile: coluna única, card em linha com texto à direita */
-    @media (max-width: 480px) {
-      .sobre__team { flex-direction: column; flex-wrap: nowrap; gap: 10px; }
-      .sobre__member {
-        flex-direction: row; align-items: center;
-        text-align: left; padding: 14px 16px; gap: 14px;
-      }
-      .sobre__member-circle { width: 72px; height: 72px; margin-bottom: 0; flex-shrink: 0; }
-      /* Ativa o wrapper de texto como bloco flex coluna */
-      .sobre__member-text {
-        display: flex; flex-direction: column;
-        min-width: 0; flex: 1;
-      }
-      .sobre__member-name { font-size: 0.88rem; margin-bottom: 2px; }
-      .sobre__member-role { font-size: 0.68rem; margin-bottom: 6px; }
-      .sobre__member-desc { font-size: 0.73rem; line-height: 1.5; }
-    }
     .sobre__title { color: var(--c-creme); margin-bottom: 20px; text-align: center; }
     .sobre__editorial {
       font-family: var(--f-editorial); font-style: italic; font-weight: 300;
@@ -2128,6 +2033,8 @@
       .benef-card__deco { font-size: 3.8rem; }
     }
   </style>
+  <link rel="stylesheet" href="assets/team/team-showcase.css" />
+  <script defer src="assets/team/team-showcase.js"></script>
 </head>
 <body>
 
@@ -2999,52 +2906,12 @@
         </p>
       </div>
 
-      <!-- Cards da equipe -->
+      <!-- Equipe: galeria e lista sincronizadas -->
       <div class="sobre__visual reveal">
 
-        <img src="assets/images/hero/levi.webp" alt="Levi, mascote da Eleva Isenções"
-             class="sobre__levi-float" width="220" height="262"
-             loading="lazy" decoding="async" />
-
-        <div class="sobre__team">
-
-          <div class="sobre__member">
-            <div class="sobre__member-circle">
-              <img src="assets/images/misc/kelly.webp" alt="Kelly Roberta, CEO e Fundadora da Eleva Isenções"
-                   loading="lazy" decoding="async" width="168" height="168" />
-            </div>
-            <div class="sobre__member-text">
-              <p class="sobre__member-name">Kelly Roberta</p>
-              <p class="sobre__member-role">CEO &amp; Fundadora</p>
-              <p class="sobre__member-desc">Lidera com visão estratégica, elevando a consultoria em isenções com excelência e propósito.</p>
-            </div>
-          </div>
-
-          <div class="sobre__member">
-            <div class="sobre__member-circle">
-              <img src="assets/images/misc/homem.webp" alt="Nickolas Alves, Consultor de Negócios da Eleva Isenções"
-                   loading="lazy" decoding="async" width="128" height="128" />
-            </div>
-            <div class="sobre__member-text">
-              <p class="sobre__member-name">Nickolas Alves</p>
-              <p class="sobre__member-role">Consultor de Negócios</p>
-              <p class="sobre__member-desc">Atua com estratégia e segurança para garantir agilidade e assertividade nos processos.</p>
-            </div>
-          </div>
-
-          <div class="sobre__member">
-            <div class="sobre__member-circle">
-              <img src="assets/images/misc/Karine.webp" alt="Karine Moura, Analista Administrativo da Eleva Isenções"
-                   loading="lazy" decoding="async" width="168" height="168" />
-            </div>
-            <div class="sobre__member-text">
-              <p class="sobre__member-name">Karine Moura</p>
-              <p class="sobre__member-role">Analista Administrativo</p>
-              <p class="sobre__member-desc">Assegura rigor técnico e organização para a excelência em cada protocolo.</p>
-            </div>
-          </div>
-
-        </div>
+        <!-- TEAM:START -->
+        <div id="eleva-team"><div class="team-showcase tw:flex tw:w-full tw:flex-col tw:items-center tw:gap-8 tw:md:flex-row tw:md:items-start tw:md:gap-10"><div class="team-showcase__photos tw:grid tw:w-full tw:grid-cols-3 tw:items-start tw:gap-2 tw:sm:gap-3" role="group" aria-label="Fotos da equipe"><div class="team-showcase__column tw:flex tw:min-w-0 tw:flex-col tw:gap-2 tw:sm:gap-3 team-showcase__column--1"><button type="button" class="team-showcase__photo" aria-label="Kelly Roberta, CEO &amp; Fundadora" aria-pressed="false"><img src="assets/images/misc/kelly.webp" alt="Kelly Roberta" width="400" height="440" loading="lazy" decoding="async" style="object-position:center top;object-fit:cover"/></button><button type="button" class="team-showcase__photo" aria-label="Michelle Lemes, Assistente" aria-pressed="false"><img src="assets/images/team/michelle-lemes.webp" alt="Michelle Lemes" width="400" height="440" loading="lazy" decoding="async" style="object-position:center top;object-fit:cover"/></button></div><div class="team-showcase__column tw:flex tw:min-w-0 tw:flex-col tw:gap-2 tw:sm:gap-3 team-showcase__column--2"><button type="button" class="team-showcase__photo" aria-label="Nickolas Alves, Consultor de Negócios" aria-pressed="false"><img src="assets/images/misc/homem.webp" alt="Nickolas Alves" width="400" height="440" loading="lazy" decoding="async" style="object-position:center top;object-fit:cover"/></button><button type="button" class="team-showcase__photo" aria-label="Victor Santos, Assistente e Desenvolvedor" aria-pressed="false"><img src="assets/images/team/victor-santos.webp" alt="Victor Santos" width="400" height="440" loading="lazy" decoding="async" style="object-position:center top;object-fit:cover"/></button></div><div class="team-showcase__column tw:flex tw:min-w-0 tw:flex-col tw:gap-2 tw:sm:gap-3 team-showcase__column--3"><button type="button" class="team-showcase__photo" aria-label="Karine Moura, Analista Administrativo" aria-pressed="false"><img src="assets/images/misc/Karine.webp" alt="Karine Moura" width="400" height="440" loading="lazy" decoding="async" style="object-position:center top;object-fit:cover"/></button><button type="button" class="team-showcase__photo" aria-label="Levi, Mascote da Eleva" aria-pressed="false"><img src="assets/images/hero/levi.webp" alt="Levi" width="400" height="440" loading="lazy" decoding="async" style="object-position:center top;object-fit:contain"/></button></div></div><ul class="team-showcase__members tw:flex tw:w-full tw:min-w-0 tw:flex-col" aria-label="Integrantes da equipe"><li class="team-showcase__member"><div class="team-showcase__name-line"><button class="team-showcase__member-button" type="button" aria-pressed="false"><span class="team-showcase__marker" aria-hidden="true"></span><span class="team-showcase__name">Kelly Roberta</span></button></div><p class="team-showcase__role">CEO &amp; Fundadora</p><p class="team-showcase__description">Lidera com visão estratégica, elevando a consultoria em isenções com excelência e propósito.</p></li><li class="team-showcase__member"><div class="team-showcase__name-line"><button class="team-showcase__member-button" type="button" aria-pressed="false"><span class="team-showcase__marker" aria-hidden="true"></span><span class="team-showcase__name">Nickolas Alves</span></button></div><p class="team-showcase__role">Consultor de Negócios</p><p class="team-showcase__description">Atua com estratégia e segurança para garantir agilidade e assertividade nos processos.</p></li><li class="team-showcase__member"><div class="team-showcase__name-line"><button class="team-showcase__member-button" type="button" aria-pressed="false"><span class="team-showcase__marker" aria-hidden="true"></span><span class="team-showcase__name">Karine Moura</span></button></div><p class="team-showcase__role">Analista Administrativo</p><p class="team-showcase__description">Assegura rigor técnico e organização para a excelência em cada protocolo.</p></li><li class="team-showcase__member"><div class="team-showcase__name-line"><button class="team-showcase__member-button" type="button" aria-pressed="false"><span class="team-showcase__marker" aria-hidden="true"></span><span class="team-showcase__name">Michelle Lemes</span></button></div><p class="team-showcase__role">Assistente</p><p class="team-showcase__description">Apoia o atendimento e a organização das demandas, com atenção aos detalhes e cuidado em cada etapa.</p></li><li class="team-showcase__member"><div class="team-showcase__name-line"><button class="team-showcase__member-button" type="button" aria-pressed="false"><span class="team-showcase__marker" aria-hidden="true"></span><span class="team-showcase__name">Victor Santos</span></button></div><p class="team-showcase__role">Assistente e Desenvolvedor</p><p class="team-showcase__description">Une apoio à equipe e desenvolvimento de soluções para tornar o atendimento mais ágil e os processos mais simples.</p></li><li class="team-showcase__member"><div class="team-showcase__name-line"><button class="team-showcase__member-button" type="button" aria-pressed="false"><span class="team-showcase__marker" aria-hidden="true"></span><span class="team-showcase__name">Levi</span></button></div><p class="team-showcase__role">Mascote da Eleva</p><p class="team-showcase__description">Representa o acolhimento e a leveza da Eleva, lembrando que cuidar de pessoas está no centro de tudo o que fazemos.</p></li></ul></div></div>
+        <!-- TEAM:END -->
 
         <div class="sobre__badge-float" aria-label="+7 anos de experiência">
           <div class="sobre__badge-num">+7</div>

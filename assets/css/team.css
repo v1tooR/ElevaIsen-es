@@ -1,0 +1,46 @@
+@layer theme, utilities;
+@import "tailwindcss/theme.css" layer(theme) prefix(tw);
+@import "tailwindcss/utilities.css" layer(utilities) prefix(tw);
+@source "../../components";
+
+/* No Preflight: the rest of the institutional page keeps its own reset. */
+#eleva-team { width: 100%; }
+.team-showcase { color: var(--c-creme); font-family: var(--f-body); max-width: 1024px; margin: 0 auto; }
+.team-showcase__photos { max-width: 500px; grid-template-columns: 1fr 1.1fr 1.04fr; }
+.team-showcase__column--2 { padding-top: clamp(32px, 5vw, 64px); }
+.team-showcase__column--3 { padding-top: clamp(16px, 2.5vw, 30px); }
+.team-showcase__photo { display: block; width: 100%; aspect-ratio: 10 / 11; overflow: hidden; border-radius: 14px; background: var(--c-mogno); padding: 0; transition: opacity 300ms ease; }
+.team-showcase__photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) brightness(.82); transition: filter 400ms ease; }
+.team-showcase__photo.is-active img { filter: grayscale(0) brightness(1); }
+.team-showcase .is-dimmed { opacity: .55; }
+.team-showcase__members { gap: 20px; list-style: none; padding: 0; margin: 0; max-width: 500px; }
+.team-showcase__member { transition: opacity 300ms ease; }
+.team-showcase__name-line { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.team-showcase__member-button { display: flex; align-items: center; gap: 12px; color: var(--c-creme); text-align: left; padding: 3px 0; }
+.team-showcase__marker { width: 16px; height: 11px; border-radius: 4px; background: rgba(239,227,214,.35); flex-shrink: 0; transition: background 250ms ease, transform 250ms ease; }
+.team-showcase__name { font-family: var(--f-heading); font-size: 1.1rem; font-weight: 700; line-height: 1.35; }
+.team-showcase__member.is-active .team-showcase__marker { background: var(--c-creme); transform: scaleX(1.2); }
+.team-showcase__role { margin: 4px 0 0 28px; font-size: .78rem; font-weight: 500; line-height: 1.5; color: var(--c-creme); }
+.team-showcase__description { margin: 5px 0 0 28px; font-size: .76rem; line-height: 1.6; color: rgba(239,227,214,.78); max-width: 42ch; }
+.team-showcase__social { display: flex; align-items: center; gap: 5px; }
+.team-showcase__social a { display: flex; padding: 8px; border-radius: 5px; color: var(--c-creme); }
+.team-showcase__social a:hover { background: rgba(239,227,214,.15); }
+.team-showcase button:focus-visible, .team-showcase a:focus-visible { outline: 2px solid var(--c-creme); outline-offset: 5px; }
+@media (min-width: 768px) {
+  .team-showcase__photos { flex: 1.15; }
+  .team-showcase__members { flex: 1; }
+}
+/* Keep the gallery below the fixed nav, within the member list's bounds. */
+@media (min-width: 768px) and (min-height: 600px) {
+  .team-showcase__photos { position: sticky; top: 104px; align-self: flex-start; }
+}
+@media (max-width: 767px) {
+  .team-showcase__member-button { min-height: 44px; }
+  .team-showcase__role { margin-top: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .team-showcase .team-showcase__photo,
+  .team-showcase .team-showcase__photo img,
+  .team-showcase .team-showcase__member,
+  .team-showcase .team-showcase__marker { transition: none; }
+}
