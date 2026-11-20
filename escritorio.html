@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Escritório Eleva — Organização da equipe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1b1f27; --muted:#5d6472; --line:#e3e6ec; --soft:#f4f5f8;
+  --victor:#4f63ff; --karine:#0fa595; --michelle:#f0644f; --kelly:#e3a10f; --nickolas:#9b4dff;
+  --agent:#0ea5e9; --ok:#22a06b; --wait:#f5a524; --bad:#e5484d;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:#e9ecf1}
+#scene{position:fixed;inset:0}
+#scene canvas{display:block;outline:none}
+.labels{position:fixed!important;inset:0;pointer-events:none}
+
+/* 3D labels */
+.tag{pointer-events:auto;cursor:pointer;display:flex;align-items:center;gap:7px;background:#fff;border:2px solid var(--c);border-radius:999px;padding:4px 11px 4px 5px;font-size:12px;font-weight:800;box-shadow:0 6px 16px rgba(20,24,35,.16);white-space:nowrap;transition:transform .2s, background .2s, color .2s}
+.tag i{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--c);color:#fff;font-style:normal;font-size:10px}
+.tag small{font-weight:600;color:var(--muted);font-size:10.5px}
+.tag:hover{transform:translateY(-2px)}
+.tag.on{background:var(--c);color:#fff;transform:scale(1.1)}
+.tag.on i{background:#fff;color:var(--c)}
+.tag.on small{color:#ffffffd0}
+.zone{font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#4a5161;background:#ffffffdd;padding:3px 8px;border-radius:6px;white-space:nowrap}
+.station{display:flex;gap:6px;align-items:center;font-size:11px;font-weight:700;background:#1b1f27;color:#fff;border-radius:999px;padding:3px 10px 3px 3px;white-space:nowrap;transition:opacity .3s}
+.station b{display:grid;place-items:center;width:19px;height:19px;border-radius:50%;background:var(--c);font-size:10.5px}
+.station.dim{opacity:.25}
+.marker{font-size:11px;font-weight:700;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:8px;padding:4px 9px;white-space:nowrap;box-shadow:0 4px 12px rgba(20,24,35,.1)}
+.marker.gate{border:2px solid var(--ok)}
+.marker.hold{border:2px dashed var(--wait)}
+.qmark{display:flex;flex-direction:column;align-items:center;gap:6px}
+.qmark span{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--bad);color:#fff;font-size:26px;font-weight:800;box-shadow:0 0 0 6px #e5484d33;animation:pulse 1.4s ease-in-out infinite}
+.qmark em{font-style:normal;font-size:11.5px;font-weight:800;background:#fff;color:var(--bad);padding:4px 9px;border-radius:8px;border:1px solid #f4c4c5;white-space:nowrap}
+@keyframes pulse{50%{box-shadow:0 0 0 12px #e5484d11}}
+
+/* HUD */
+#hud{position:fixed;left:16px;top:16px;display:flex;flex-direction:column;gap:10px;max-width:min(560px,calc(100vw - 470px));z-index:3}
+.brand{display:flex;flex-direction:column;background:#ffffffee;backdrop-filter:blur(10px);border-radius:14px;padding:10px 14px;box-shadow:0 8px 24px rgba(20,24,35,.08);width:max-content}
+.brand span{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.brand strong{font-size:18px;font-weight:800;letter-spacing:-.01em}
+.seg{display:inline-flex;background:#ffffffee;backdrop-filter:blur(10px);border-radius:12px;padding:4px;gap:4px;box-shadow:0 8px 24px rgba(20,24,35,.08);width:max-content}
+.seg button{font:inherit;font-size:13px;font-weight:700;border:0;background:transparent;color:var(--muted);padding:8px 14px;border-radius:9px;cursor:pointer}
+.seg button.on{background:var(--ink);color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{font:inherit;font-size:12px;font-weight:700;display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:#ffffffee;border-radius:999px;padding:5px 10px 5px 6px;cursor:pointer;color:var(--ink)}
+.chips button i{width:10px;height:10px;border-radius:50%;background:var(--c)}
+.chips button.on{border-color:var(--c);box-shadow:inset 0 0 0 1px var(--c)}
+#caption{position:fixed;left:16px;bottom:16px;max-width:min(520px,calc(100vw - 480px));background:#1b1f27ee;color:#fff;border-radius:14px;padding:12px 16px;font-size:13px;line-height:1.5;z-index:3}
+#caption b{color:#fff}
+#caption .hint{display:block;margin-top:6px;color:#aab1bf;font-size:11.5px}
+#reset{position:fixed;right:452px;top:16px;font:inherit;font-size:12.5px;font-weight:700;border:1px solid var(--line);background:#ffffffee;border-radius:10px;padding:8px 12px;cursor:pointer;z-index:3}
+
+/* Panel */
+#panel{position:fixed;right:16px;top:16px;bottom:16px;width:420px;background:#ffffffef;backdrop-filter:blur(14px);border-radius:20px;box-shadow:0 18px 50px rgba(20,24,35,.14);display:flex;flex-direction:column;overflow:hidden;z-index:4}
+#panel header{padding:20px 22px 0;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+#panel h1{font-size:20px;line-height:1.25;letter-spacing:-.015em;margin:6px 0 14px;font-weight:800}
+.tabs{display:flex;gap:2px}
+.tabs button{font:inherit;font-size:13px;font-weight:700;border:0;background:none;color:var(--muted);padding:10px 12px;cursor:pointer;border-bottom:2px solid transparent}
+.tabs button.on{color:var(--ink);border-color:var(--ink)}
+.content{overflow:auto;padding:18px 22px 28px;scroll-behavior:smooth}
+.tab{display:none}
+.tab.on{display:block}
+.content h3{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:22px 0 10px}
+.content h3:first-child{margin-top:0}
+.content p{font-size:13.5px;line-height:1.6;margin:0 0 10px;color:#2c3240}
+.lead{font-size:15px!important;line-height:1.55!important;color:var(--ink)!important;font-weight:600}
+
+.person{border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px;cursor:pointer;transition:border-color .2s, box-shadow .2s;background:#fff}
+.person:hover{border-color:#cdd2db}
+.person.on{border-color:var(--c);box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 18%,transparent)}
+.ph{display:flex;align-items:center;gap:11px;margin-bottom:10px}
+.av{display:grid;place-items:center;width:36px;height:36px;border-radius:11px;background:var(--c);color:#fff;font-weight:800;font-size:15px;flex:none}
+.ph h4{margin:0;font-size:15px;font-weight:800}
+.ph p{margin:0!important;font-size:12.5px!important;color:var(--muted)!important}
+.row{display:grid;grid-template-columns:96px 1fr;gap:8px;padding:7px 0;border-top:1px dashed var(--line)}
+.row label{font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+.row ul{margin:0;padding:0;list-style:none}
+.row li{font-size:13px;line-height:1.45;margin-bottom:4px;padding-left:12px;position:relative}
+.row li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--c)}
+.row.out li{color:#7b8190;text-decoration:line-through;text-decoration-color:#c3c7cf}
+.row.out li::before{background:#c3c7cf}
+.focus{margin:8px 0 0!important;font-size:12.5px!important;background:var(--soft);border-radius:10px;padding:9px 11px;color:#3a4150!important}
+
+.stage{display:grid;grid-template-columns:30px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.stage:last-child{border-bottom:0}
+.stage .n{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--c);color:#fff;font-weight:800;font-size:13px}
+.stage h4{margin:3px 0 4px;font-size:14.5px;font-weight:800}
+.who{font-size:12.5px;color:var(--muted);margin-bottom:5px}
+.who b{color:var(--ink)}
+.stage .r{font-size:13px;line-height:1.5;color:#2c3240}
+.note{font-size:12.5px!important;background:var(--soft);border-radius:10px;padding:10px 12px;color:#3a4150!important}
+
+ol.dx,ol.rules,ol.steps{margin:0;padding:0;list-style:none;counter-reset:i}
+ol.dx li,ol.rules li,ol.steps li{counter-increment:i;position:relative;padding:0 0 12px 34px;font-size:13.5px;line-height:1.55;color:#2c3240}
+ol.dx li::before,ol.rules li::before,ol.steps li::before{content:counter(i);position:absolute;left:0;top:0;width:22px;height:22px;border-radius:7px;background:var(--soft);display:grid;place-items:center;font-size:11.5px;font-weight:800;color:var(--ink)}
+ol.steps li::before{background:var(--karine);color:#fff}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.duo div{border:1px solid var(--line);border-radius:12px;padding:12px}
+.duo span{display:inline-block;font-size:12px;font-weight:800;color:#fff;background:var(--c);border-radius:6px;padding:2px 8px;margin-bottom:6px}
+.duo p{font-size:12.5px!important;margin:0!important}
+ul.avoid{margin:0;padding:0;list-style:none}
+ul.avoid li{position:relative;padding:0 0 9px 22px;font-size:13.5px;line-height:1.5;color:#2c3240}
+ul.avoid li::before{content:"";position:absolute;left:4px;top:8px;width:9px;height:2px;background:var(--bad);border-radius:2px}
+.tpl{border:1px solid #bfe7e2;background:#f0fbf9;border-radius:12px;padding:12px 14px;margin:6px 0 4px}
+.tpl p{font-size:13px!important;margin:0 0 10px!important;color:#163f3a!important}
+.tpl button,.copy{font:inherit;font-size:12px;font-weight:800;border:0;background:var(--karine);color:#fff;border-radius:8px;padding:7px 12px;cursor:pointer}
+.cols{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.cols span{font-size:12px;font-weight:700;border:1px solid var(--line);border-radius:8px;padding:5px 9px;background:#fff}
+.cols span.new{border-color:#bfe7e2;background:#f0fbf9;color:#0b6e63}
+.cols span.new::after{content:" novo";font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;margin-left:4px;color:var(--karine)}
+.ex{border-left:3px solid var(--ink);padding:4px 0 4px 12px;margin:4px 0 10px}
+.ex p{font-size:13px!important;margin:0 0 6px!important}
+.ex .bad{color:#8a4a4b!important}
+.tl{margin:0;padding:0;list-style:none}
+.tl li{display:grid;grid-template-columns:70px 1fr;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13px;line-height:1.5}
+.tl li b{font-size:12px;font-weight:800;color:var(--muted)}
+.rit{display:grid;gap:8px}
+.rit div{border:1px solid var(--line);border-radius:12px;padding:11px 13px}
+.rit strong{display:block;font-size:13.5px;margin-bottom:3px}
+.rit span{font-size:12.5px;color:#3a4150;line-height:1.5}
+.kpi li{font-size:13px}
+
+.ag-tag{background:#0b1220;color:#fff;border-color:var(--agent)}
+.ag-tag i{background:var(--agent)}
+.bubble{font-size:11.5px;font-weight:700;color:#0b4a66;background:#e6f6fe;border:1px solid #9bdcf7;border-radius:10px;padding:5px 10px;white-space:nowrap;transition:opacity .3s;box-shadow:0 4px 12px rgba(14,165,233,.18)}
+.bubble.off{opacity:0}
+.ba{display:grid;gap:8px;margin-bottom:6px}
+.ba div{display:grid;grid-template-columns:1fr 18px 1fr;gap:8px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:12.5px;line-height:1.45}
+.ba s{color:#7b8190;text-decoration-color:#c3c7cf}
+.ba b{color:var(--agent);font-size:14px;text-align:center}
+.ba span{color:var(--ink);font-weight:600}
+.agent-hero{border-radius:14px;padding:14px 16px;background:linear-gradient(135deg,#0b1220,#11324a);color:#fff;margin-bottom:6px}
+.agent-hero strong{display:block;font-size:16px;margin-bottom:4px}
+.agent-hero p{color:#cfe9f7!important;font-size:13px!important;margin:0!important}
+ol.steps.ag li::before{background:var(--agent)}
+.phase{border-left:3px solid var(--agent);padding:2px 0 2px 12px;margin-bottom:10px}
+.phase strong{display:block;font-size:13.5px}
+.phase span{font-size:12.5px;color:#3a4150;line-height:1.5}
+#fallback{display:none;position:fixed;inset:0;place-items:center;padding:40px;text-align:center;color:var(--muted);font-size:14px}
+
+@media (max-width: 820px){
+  #panel{left:8px;right:8px;top:auto;bottom:8px;width:auto;height:46vh;border-radius:16px}
+  #panel header{padding:12px 14px 0}
+  #panel h1{font-size:15px;margin:4px 0 8px}
+  .tabs button{padding:8px 6px;font-size:12px}
+  .content{padding:14px}
+  #hud{left:8px;top:8px;max-width:calc(100vw - 16px);gap:6px}
+  .brand{padding:7px 11px}
+  .brand strong{font-size:15px}
+  .seg button{padding:6px 10px;font-size:12px}
+  .chips{display:none}
+  .zone{display:none}
+  .station{font-size:10px}
+  #caption{display:none}
+  #reset{right:8px;top:8px;padding:6px 10px}
+  .duo{grid-template-columns:1fr}
+  .row{grid-template-columns:82px 1fr}
+}
+</style>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<div id="scene"></div>
+<div id="fallback">Não foi possível iniciar o 3D neste navegador. O painel ao lado continua com toda a proposta.</div>
+
+<div id="hud">
+  <div class="brand"><span>Eleva Isenções</span><strong>Escritório da equipe</strong></div>
+  <div class="seg" id="modeSeg">
+    <button data-mode="antes">Como está hoje</button>
+    <button data-mode="proposta" class="on">Proposta</button>
+  </div>
+  <div class="chips" id="chips"></div>
+</div>
+<button id="reset">Visão geral</button>
+<div id="caption"></div>
+
+<aside id="panel">
+  <header>
+    <div class="eyebrow">Coach de time · proposta de organização</div>
+    <h1>Cada etapa com um dono. Cada informação em um lugar só.</h1>
+    <nav class="tabs" id="tabs">
+      <button data-tab="equipe" class="on">Equipe</button>
+      <button data-tab="fluxo">Fluxo</button>
+      <button data-tab="agente">Agente</button>
+      <button data-tab="diagnostico">Diagnóstico</button>
+      <button data-tab="plano">Plano</button>
+    </nav>
+  </header>
+  <div class="content" id="content">
+
+    <section class="tab on" id="tab-equipe">
+      <p class="note">Clique em uma pessoa aqui ou no escritório para ver onde ela senta e quais trechos do fluxo são dela. Os riscados são tarefas que saem da pessoa na proposta.</p>
+      <div id="people"></div>
+    </section>
+
+    <section class="tab" id="tab-fluxo">
+      <p>O caminho no chão do escritório é o caminho de um processo de isenção. Cada trecho tem a cor de quem é dono dele.</p>
+      <div id="stages"></div>
+      <p class="note" style="margin-top:12px">A Kelly não aparece como dona de nenhuma etapa do dia a dia de propósito. Ela acompanha todas pelos indicadores, define as regras e decide as exceções. Assim o processo anda mesmo quando ela está na rua ou em outra cidade.</p>
+    </section>
+
+    <section class="tab" id="tab-agente">
+      <div class="agent-hero"><strong>Agente de Pendências</strong><p>O integrante do time que não cansa: confere as pastas de cada cliente, aponta o que falta e avisa a pessoa certa. No escritório, é a esfera azul que circula pelo fluxo.</p></div>
+      <p class="lead" style="margin-top:14px">Ele é a peça que mais alivia o time. Tira da Michelle a cobrança de documentos um a um e tira da Kelly o papel de ser consultada sobre o andamento de cada caso.</p>
+
+      <h3>Como ele trabalha</h3>
+      <ol class="steps ag">
+        <li>Confere a pasta de cada cliente no OneDrive e compara com o checklist do pedido (IPVA, ICMS, CNH, IMESC).</li>
+        <li>Padroniza os nomes dos arquivos, para qualquer pessoa achar tudo rápido.</li>
+        <li>Monta a lista do que falta, por cliente.</li>
+        <li>Prepara a mensagem de WhatsApp para a pessoa certa, avisando o que falta.</li>
+        <li>No começo, a Michelle revisa e aprova as mensagens antes de sair. Quando o time confiar, as mais simples podem sair direto.</li>
+        <li>Registra quem já foi cobrado e quando, e cobra de novo no prazo combinado.</li>
+      </ol>
+
+      <h3>O que muda para a Michelle</h3>
+      <div class="ba">
+        <div><s>Conferir pasta por pasta</s><b>→</b><span>Recebe a lista pronta do que falta</span></div>
+        <div><s>Cobrar documento cliente a cliente</s><b>→</b><span>Aprova mensagens prontas, em lote</span></div>
+        <div><s>Lembrar quem já foi cobrado</s><b>→</b><span>O agente registra e cobra de novo</span></div>
+        <div><s>Ser perguntada “o que falta do cliente X?”</s><b>→</b><span>Qualquer pessoa consulta o agente</span></div>
+      </div>
+
+      <h3>O que muda para a Kelly</h3>
+      <div class="ba">
+        <div><s>Ser a fonte de informação do time</s><b>→</b><span>A resposta está no agente e na planilha</span></div>
+        <div><s>Perguntar o andamento de cada caso</s><b>→</b><span>Resumo diário de pendências por etapa e por pessoa</span></div>
+        <div><s>Descobrir um caso parado tarde demais</s><b>→</b><span>Alerta quando um caso passa do prazo</span></div>
+      </div>
+
+      <h3>Sugestão: pendências além de documentos</h3>
+      <p>Com poucas regras a mais, o agente pode vigiar justamente o ponto que gerou o problema de ontem:</p>
+      <ul class="avoid" style="--bad:var(--agent)">
+        <li>Cliente sem contato do vendedor na planilha de ICMS.</li>
+        <li>Isenção liberada sem autorização do cliente registrada.</li>
+        <li>Caso marcado como AGUARDAR cuja data de retorno chegou.</li>
+        <li>IMESC ou CNH sem atualização além do prazo combinado.</li>
+      </ul>
+
+      <h3>O que ele não faz</h3>
+      <ul class="avoid">
+        <li>Não envia nada ao vendedor. Isso continua com a Karine, só com SIM registrado.</li>
+        <li>Não decide exceções. Leva para a Kelly.</li>
+        <li>Não protocola. Isso é do agente Protocolador, sempre com revisão humana.</li>
+      </ul>
+
+      <h3>E o agente Protocolador?</h3>
+      <p>Ele acelera o preenchimento e o envio dos pedidos no SIVEI, com revisão humana. Diretamente, adianta o trabalho do Victor e da Karine. Para o resto do time, o ganho vem por tabela:</p>
+      <ul class="avoid" style="--bad:var(--victor)">
+        <li><b>Libera a Karine para o pós-liberação.</b> O tempo economizado no SIVEI vira tempo para confirmar com o cliente, avisar o vendedor e cobrir picos de atendimento da Michelle.</li>
+        <li><b>Encurta o caminho até a liberação.</b> Menos casos parados significa menos perguntas de andamento no WhatsApp da Michelle e na mesa da Kelly.</li>
+        <li><b>Reduz retrabalho.</b> Com os dados vindos do app e as regras do SIVEI embutidas, há menos erro no pedido e menos exigência que volta como cobrança de documento.</li>
+      </ul>
+      <div class="ba">
+        <div><span>Agente de Pendências garante a pasta completa</span><b>→</b><span>Protocolador protocola sem travar</span></div>
+      </div>
+      <p class="note">Um depende do outro: o Protocolador só anda rápido se a pasta chegar completa. Por isso a ordem é implantar primeiro o de Pendências e depois o Protocolador.</p>
+
+      <h3>Implantação em duas fases</h3>
+      <div class="phase"><strong>Fase 1 · Claude da Eleva</strong><span>O Victor monta o agente com um tutorial simples. A Michelle usa no dia a dia e aprova as mensagens. Serve para ajustar o checklist e o tom das mensagens.</span></div>
+      <div class="phase"><strong>Fase 2 · App Eleva</strong><span>O agente roda dentro do app com a API do Claude, lendo os mesmos campos da planilha e usando o WhatsApp Web aberto e logado por uma pessoa da equipe.</span></div>
+
+      <h3>Como medir o ganho</h3>
+      <ul class="avoid kpi" style="--bad:var(--ink)">
+        <li>Tempo que a Michelle gasta por semana cobrando documentos, antes e depois.</li>
+        <li>Quantas perguntas de andamento chegam à Kelly por semana.</li>
+        <li>Quantos casos passam do prazo sem ninguém perceber. Meta: zero.</li>
+      </ul>
+    </section>
+
+    <section class="tab" id="tab-diagnostico">
+      <p class="lead">O erro de ontem não foi de uma pessoa. Foi de uma etapa que ninguém tinha certeza de quem era. Quando isso acontece, cada um faz o que acha certo, alguém fica sobrecarregado e o cliente pode sair prejudicado.</p>
+
+      <h3>O que o episódio mostra</h3>
+      <ol class="dx">
+        <li><b>A etapa pós-liberação não tem dono fixo.</b> Ela já foi da Michelle, passou a ser resolvida junto com a Karine, foi redividida quando o Victor entrou e voltou de novo. Cada troca foi combinada na conversa e não ficou registrada.</li>
+        <li><b>Não existe uma trava de autorização.</b> Enviar a liberação ao vendedor depende de o cliente aceitar. Neste caso o cliente estava esperando um bônus e não queria que o vendedor soubesse ainda. A pergunta existia, mas era informal.</li>
+        <li><b>A informação depende de uma pessoa.</b> O contato do vendedor fica com a Kelly. Quando ela está em demandas externas, o processo para ou alguém improvisa.</li>
+        <li><b>A carga está concentrada na Michelle.</b> Agendamento, documentos, IMESC, CNH, WhatsApp e atendimento presencial já são muitas frentes. Somar a comunicação com o vendedor aumenta a chance de erro.</li>
+        <li><b>O problema foi discutido no grupo, no meio do expediente.</b> Por mensagem, a conversa tende a virar defesa em vez de solução.</li>
+      </ol>
+
+      <h3>Os dois lados têm razão</h3>
+      <div class="duo">
+        <div><span style="--c:var(--kelly)">Kelly</span><p>O processo não pode depender da presença dela, e a autorização do cliente é uma etapa crítica. Colocar o contato do vendedor na planilha de ICMS resolve a parte da informação.</p></div>
+        <div><span style="--c:var(--michelle)">Michelle</span><p>A capacidade dela tem limite, e o modelo em que ela passava o caso para a Karine funcionava. Ela não está recusando trabalho: está apontando um gargalo.</p></div>
+      </div>
+
+      <h3>O que eu evitaria</h3>
+      <ul class="avoid">
+        <li>Decidir a nova divisão pelo WhatsApp.</li>
+        <li>Resolver o problema colocando mais uma tarefa na Michelle.</li>
+        <li>Mudar funções outra vez sem atualizar o quadro de quem faz o quê.</li>
+        <li>Procurar culpado pelo caso de ontem. A pergunta útil é: o que no processo deixou o erro acontecer?</li>
+      </ul>
+    </section>
+
+    <section class="tab" id="tab-plano">
+      <h3>A proposta em uma frase</h3>
+      <p class="lead">A Karine passa a ser a dona única do pós-liberação (confirmar com o cliente e avisar o vendedor), a Michelle sai dessa ponta, e o contato do vendedor entra no cadastro logo no começo, pelo comercial.</p>
+
+      <h3>Regra do pós-liberação</h3>
+      <ol class="steps">
+        <li>Isenção liberada: a Karine registra a data da liberação na planilha de ICMS no mesmo dia.</li>
+        <li>Ela envia ao cliente a pergunta padrão (abaixo), sem margem para dúvida.</li>
+        <li>A resposta vai para a coluna de autorização: <b>SIM</b>, <b>AGUARDAR</b> ou <b>NÃO</b>, com a data.</li>
+        <li>Só com SIM registrado ela envia ao vendedor, usando o contato da planilha, e marca a data do envio.</li>
+        <li>Se for AGUARDAR, anota o motivo (por exemplo, esperando bônus) e a data para perguntar de novo.</li>
+        <li>Se faltar o contato do vendedor, pergunta à Kelly ou ao Nickolas e atualiza a planilha na hora, não só no WhatsApp.</li>
+      </ol>
+      <div class="tpl">
+        <p id="tplText">Olá, [nome]! Boa notícia: sua isenção de ICMS foi liberada. Antes de seguirmos, podemos enviar a liberação para o vendedor [vendedor] da [concessionária]? Responda SIM para enviarmos agora, ou AGUARDAR se preferir que a gente segure por enquanto.</p>
+        <button id="copyTpl">Copiar mensagem</button>
+      </div>
+
+      <h3>Colunas da planilha de ICMS</h3>
+      <div class="cols">
+        <span>Vendedor</span><span>Concessionária</span><span class="new">Contato do vendedor</span><span class="new">Data da liberação</span><span class="new">Autorização: SIM / AGUARDAR / NÃO</span><span class="new">Motivo e data de retorno</span><span class="new">Enviado ao vendedor em</span><span class="new">Responsável</span>
+      </div>
+      <p class="note">Depois, os mesmos campos podem ir para o App Eleva, para que o agente de Pendências e os lembretes trabalhem com a mesma informação.</p>
+
+      <h3>Alívio para a Michelle</h3>
+      <ul class="avoid" style="--bad:var(--michelle)">
+        <li>Sai dela toda a comunicação com vendedores e concessionárias.</li>
+        <li>Respostas prontas no WhatsApp para as dúvidas mais frequentes.</li>
+        <li>O agente de Pendências confere as pastas e prepara as cobranças. Ela só aprova (veja a aba Agente).</li>
+        <li>Janelas de resposta no WhatsApp quando estiver em atendimento presencial. Como a Kelly já disse, o cliente pode aguardar.</li>
+        <li>A Karine cobre picos de atendimento quando a fila de pós-liberação estiver em dia.</li>
+      </ul>
+
+      <h3>Combinados do time</h3>
+      <ol class="rules">
+        <li>Toda informação do cliente fica na planilha ou no app, nunca só no WhatsApp ou na cabeça de alguém.</li>
+        <li>Nada sai para o vendedor sem SIM registrado.</li>
+        <li>Cada etapa tem um dono e um apoio. Na dúvida, consulta o quadro. Se não estiver no quadro, a Kelly decide e atualiza o quadro.</li>
+        <li>O grupo de WhatsApp serve para passar o bastão. Problema de processo se resolve na reunião.</li>
+        <li>O cliente pode esperar alguns minutos. O processo não pode ficar parado.</li>
+        <li>Feedback em três partes: fato, impacto e proposta.</li>
+      </ol>
+      <div class="ex">
+        <p class="bad">Em vez de: “De novo isso? Já falei pra não fazer assim.”</p>
+        <p><b>Fato:</b> o vendedor foi avisado sem o cliente autorizar. <b>Impacto:</b> o cliente esperava um bônus e isso pode atrapalhar a negociação dele. <b>Proposta:</b> a partir de hoje, só enviamos com SIM registrado na planilha.</p>
+      </div>
+
+      <h3>Rituais</h3>
+      <div class="rit">
+        <div><strong>Daily de 10 minutos</strong><span>No começo do dia, em pé. Cada pessoa diz o que travou e de quem precisa. Solução se combina depois, entre os envolvidos.</span></div>
+        <div><strong>Revisão semanal de 30 minutos</strong><span>Casos que deram errado e o que mudar no processo. A Kelly conduz e todos falam. Sem buscar culpado.</span></div>
+        <div><strong>Mudança de função com transição</strong><span>Só com o quadro atualizado e uma semana em que quem sai fica como apoio de quem entra.</span></div>
+      </div>
+
+      <h3>Primeiros 7 dias</h3>
+      <ul class="tl">
+        <li><b>Dia 1</b><span>Reunião de 30 minutos com os cinco para validar este quadro e ajustar o que não fizer sentido.</span></li>
+        <li><b>Dias 1–2</b><span>Kelly e Nickolas preenchem o contato do vendedor de todos os casos em aberto na planilha de ICMS.</span></li>
+        <li><b>Dia 2</b><span>Victor cria as colunas novas e deixa a mensagem padrão fixada para a equipe.</span></li>
+        <li><b>Dia 3</b><span>Michelle passa para a Karine a lista de casos liberados pendentes. A Karine assume o pós-liberação.</span></li>
+        <li><b>Dias 4–5</b><span>Victor libera a fase 1 do agente de Pendências no Claude da Eleva, com tutorial. A Michelle começa a usar e aprovar as mensagens.</span></li>
+        <li><b>Dia 7</b><span>Primeira revisão semanal: o que funcionou, o que ajustar no processo e no checklist do agente.</span></li>
+      </ul>
+
+      <h3>Como saber se está funcionando</h3>
+      <ul class="avoid kpi" style="--bad:var(--ink)">
+        <li>Casos enviados ao vendedor sem SIM registrado: meta zero.</li>
+        <li>Tempo entre a liberação e o envio ao vendedor, quando autorizado.</li>
+        <li>Quantas vezes na semana alguém precisou perguntar o contato do vendedor à Kelly. Deve cair a cada semana.</li>
+        <li>Pendências abertas por pessoa na daily. Mostra se a carga está equilibrada.</li>
+      </ul>
+    </section>
+  </div>
+</aside>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
+
+/* ---------- Dados ---------- */
+const C = { victor:'#4f63ff', karine:'#0fa595', michelle:'#f0644f', kelly:'#e3a10f', nickolas:'#9b4dff' };
+const PEOPLE = {
+  kelly:{ nome:'Kelly', cargo:'CEO e Gestora geral',
+    dono:['Regras do processo e o quadro de quem faz o quê','Exceções, casos sensíveis e relacionamento externo','Indicadores da semana'],
+    apoio:['Consulta quando faltar o contato de um vendedor, com a planilha atualizada na hora'],
+    sai:['Ser a única pessoa que sabe certas informações','Responder o andamento de cada caso para a equipe'],
+    foco:'Sair do operacional do dia a dia. O resumo diário do agente de Pendências mostra onde cada caso está, sem precisar perguntar a ninguém.' },
+  nickolas:{ nome:'Nickolas', cargo:'Sócio, gestor e vendedor',
+    dono:['Captação e fechamento de clientes','Cadastro completo na entrada: vendedor, concessionária e contato do vendedor','Base de vendedores e concessionárias parceiras'],
+    apoio:['Gestão junto com a Kelly e decisões quando ela estiver fora'], sai:[],
+    foco:'Garantir que o contato do vendedor entre no começo do processo, e não seja procurado no fim.' },
+  michelle:{ nome:'Michelle', cargo:'Administração, Agendamento e IMESC',
+    dono:['Atendimento presencial e triagem do WhatsApp','Agendamentos, pedido e conferência de documentos','IMESC e etapa da CNH'],
+    apoio:['Aprovar as cobranças preparadas pelo agente de Pendências','Avisar a Karine quando o cliente comentar algo sobre o vendedor ou a compra do carro'],
+    sai:['Comunicação com vendedores e concessionárias','Conferir pasta por pasta e cobrar documento um a um'],
+    foco:'É o ponto de maior carga do time hoje. A proposta tira dela a ponta final do processo e passa a conferência e a cobrança de documentos para o agente de Pendências.' },
+  karine:{ nome:'Karine', cargo:'Protocoladora e Vendedora',
+    dono:['Pós-liberação: confirmar com o cliente e avisar o vendedor','Acompanhar as liberações','Protocolo no SIVEI junto com o Victor'],
+    apoio:['Comercial, nos fechamentos com o Nickolas','Picos de atendimento da Michelle'], sai:[],
+    foco:'Passa a ser a dona única da etapa que gerou o problema de ontem. Tem perfil de vendas, então já fala a língua do vendedor da concessionária.' },
+  victor:{ nome:'Victor', cargo:'Desenvolvedor e Protocolador',
+    dono:['Agente de Pendências: construir, ensinar a equipe e manter','Fila de protocolo no SIVEI (IPVA e ICMS)','Planilhas, App Eleva e agente Protocolador'],
+    apoio:['Acompanhamento das liberações','Pós-liberação quando a Karine estiver fora'], sai:[],
+    foco:'Tirar trabalho manual da equipe. Cada automação deve devolver horas para a Michelle e a Karine.' }
+};
+const STAGES = [
+  {n:1,t:'Captação e cadastro',owner:'nickolas',sup:['karine'],r:'O cliente entra com vendedor, concessionária e contato do vendedor preenchidos, ou marcado como “ainda não definido”.'},
+  {n:2,t:'Documentos, agendamento, IMESC e CNH',owner:'michelle',sup:['victor'],r:'Só passa para o protocolo com a pasta completa, conferida pelo agente de Pendências. Ele também prepara as cobranças do que falta.'},
+  {n:3,t:'Protocolo no SIVEI',owner:'victor',sup:['karine'],r:'Protocolou: salva o PDF do pedido, envia no grupo e registra a data na planilha.'},
+  {n:4,t:'Acompanhar liberação',owner:'karine',sup:['victor'],r:'Liberou: registra a data da liberação na planilha de ICMS no mesmo dia.'},
+  {n:5,t:'Autorização do cliente',owner:'karine',sup:[],r:'Pergunta padrão ao cliente. A resposta fica registrada como SIM, AGUARDAR ou NÃO.'},
+  {n:6,t:'Envio ao vendedor',owner:'karine',sup:['kelly','nickolas'],r:'Só com SIM registrado. Se faltar o contato, pergunta à Kelly ou ao Nickolas e atualiza a planilha na hora.'}
+];
+
+/* ---------- Painel ---------- */
+const esc = s => s.replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]));
+const peopleEl = document.getElementById('people');
+const ORDER = ['kelly','nickolas','michelle','karine','victor'];
+peopleEl.innerHTML = ORDER.map(k => {
+  const p = PEOPLE[k];
+  const list = a => '<ul>' + a.map(x => `<li>${esc(x)}</li>`).join('') + '</ul>';
+  return `<article class="person" data-key="${k}" style="--c:${C[k]}">
+    <div class="ph"><span class="av">${p.nome[0]}</span><div><h4>${p.nome}</h4><p>${p.cargo}</p></div></div>
+    <div class="row"><label>Dono de</label>${list(p.dono)}</div>
+    ${p.apoio.length ? `<div class="row"><label>Apoio em</label>${list(p.apoio)}</div>` : ''}
+    ${p.sai.length ? `<div class="row out"><label>Deixa de fazer</label>${list(p.sai)}</div>` : ''}
+    <p class="focus">${esc(p.foco)}</p>
+  </article>`;
+}).join('');
+document.getElementById('stages').innerHTML = STAGES.map(s => `
+  <div class="stage" style="--c:${C[s.owner]}">
+    <span class="n">${s.n}</span>
+    <div><h4>${s.t}</h4>
+      <div class="who">Dono: <b>${PEOPLE[s.owner].nome}</b>${s.sup.length ? ' · Apoio: ' + s.sup.map(k => PEOPLE[k].nome).join(' e ') : ''}</div>
+      <div class="r">${esc(s.r)}</div></div>
+  </div>`).join('');
+document.getElementById('chips').innerHTML = ORDER.map(k =>
+  `<button data-key="${k}" style="--c:${C[k]}"><i></i>${PEOPLE[k].nome}</button>`).join('') +
+  `<button data-agent="1" style="--c:#0ea5e9"><i></i>Agente de Pendências</button>`;
+
+function showTab(name){
+  document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.tab === name));
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('on', t.id === 'tab-' + name));
+}
+document.getElementById('tabs').addEventListener('click', e => { const b = e.target.closest('button'); if (b) { showTab(b.dataset.tab); document.getElementById('content').scrollTop = 0; } });
+
+document.getElementById('copyTpl').addEventListener('click', async e => {
+  const btn = e.currentTarget, text = document.getElementById('tplText').textContent;
+  try { await navigator.clipboard.writeText(text); btn.textContent = 'Copiada'; }
+  catch { const r = document.createRange(); r.selectNodeContents(document.getElementById('tplText')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Texto selecionado, use Ctrl+C'; }
+  setTimeout(() => btn.textContent = 'Copiar mensagem', 2200);
+});
+
+const CAPTIONS = {
+  antes: '<b>Como está hoje.</b> Depois da liberação o caso chega a uma etapa sem dono. Michelle, Karine e Kelly podem acabar fazendo, ou não fazendo, o aviso ao vendedor, e o contato dele só está com a Kelly. Os casos se acumulam ali.',
+  proposta: '<b>Proposta.</b> Cada trecho do caminho tem a cor do seu dono. Depois da liberação, a Karine pergunta ao cliente: só passa pelo portão quem respondeu SIM. A esfera azul é o agente de Pendências, que confere pastas e avisa quem precisa agir.'
+};
+const captionEl = document.getElementById('caption');
+
+/* ---------- 3D ---------- */
+const wrap = document.getElementById('scene');
+let renderer;
+try {
+  renderer = new THREE.WebGLRenderer({ antialias: true });
+} catch (err) {
+  document.getElementById('fallback').style.display = 'grid';
+  throw err;
+}
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
+wrap.appendChild(renderer.domElement);
+const labelRenderer = new CSS2DRenderer();
+labelRenderer.domElement.className = 'labels';
+wrap.appendChild(labelRenderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color('#e9ecf1');
+scene.fog = new THREE.Fog('#e9ecf1', 70, 140);
+
+const camera = new THREE.PerspectiveCamera(36, innerWidth / innerHeight, 0.1, 200);
+const homeCam = () => new THREE.Vector3(15, 21, 25).multiplyScalar(innerWidth > 820 ? 1.2 : 3.5);
+const HOME_TGT = new THREE.Vector3(0, 0, 0);
+camera.position.copy(homeCam());
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.target.copy(HOME_TGT);
+controls.enableDamping = true;
+controls.maxPolarAngle = Math.PI / 2.2;
+controls.minDistance = 7; controls.maxDistance = 95;
+
+scene.add(new THREE.HemisphereLight('#ffffff', '#cfd4dc', 1.15));
+const sun = new THREE.DirectionalLight('#fff3e2', 2.1);
+sun.position.set(10, 22, 12);
+sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048);
+Object.assign(sun.shadow.camera, { left: -18, right: 18, top: 16, bottom: -16, near: 1, far: 60 });
+sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.02;
+scene.add(sun);
+
+const mat = (c, o = {}) => new THREE.MeshStandardMaterial({ color: c, roughness: 0.8, metalness: 0, ...o });
+function box(w, h, d, m, x, y, z, parent = scene) {
+  const mesh = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), m);
+  mesh.position.set(x, y, z); mesh.castShadow = mesh.receiveShadow = true; parent.add(mesh); return mesh;
+}
+function cyl(rt, rb, h, m, x, y, z, seg = 24, parent = scene) {
+  const mesh = new THREE.Mesh(new THREE.CylinderGeometry(rt, rb, h, seg), m);
+  mesh.position.set(x, y, z); mesh.castShadow = mesh.receiveShadow = true; parent.add(mesh); return mesh;
+}
+function label(html, cls, x, y, z, style = '') {
+  const el = document.createElement('div'); el.className = cls; el.innerHTML = html; if (style) el.style.cssText = style;
+  const o = new CSS2DObject(el); o.position.set(x, y, z); scene.add(o); return o;
+}
+
+/* Estrutura */
+box(26.8, 0.5, 18.8, mat('#d5dae2'), 0, -0.45, 0);
+const floor = box(26, 0.3, 18, mat('#f3ede3', { roughness: 0.9 }), 0, -0.15, 0);
+floor.castShadow = false;
+const grid = new THREE.GridHelper(26, 26, '#e2d9ca', '#e2d9ca'); grid.position.y = 0.004;
+grid.scale.z = 18 / 26; grid.material.transparent = true; grid.material.opacity = 0.55; scene.add(grid);
+const wallM = mat('#fbfbfc');
+box(26, 3.2, 0.25, wallM, 0, 1.6, -9.0);
+box(0.25, 3.2, 18, wallM, -13.0, 1.6, 0);
+box(26, 0.12, 0.3, mat('#cfd5de'), 0, 0.06, -8.85);
+box(0.3, 0.12, 18, mat('#cfd5de'), -12.85, 0.06, 0);
+const winM = mat('#bcd8f2', { emissive: '#cfe6ff', emissiveIntensity: 0.35, roughness: 0.2 });
+[-6, -1.6, 2.8, 7.0].forEach(z => box(0.05, 1.4, 2.4, winM, -12.86, 1.8, z));
+
+/* Tapetes das áreas */
+const rug = (w, d, c, x, z) => { const r = box(w, 0.02, d, mat(c, { roughness: 1 }), x, 0.012, z); r.castShadow = false; return r; };
+rug(6.2, 3.2, '#e2e7fb', -3, 0.1);
+rug(4.0, 3.2, '#efe5fb', 7.5, 4.4);
+rug(5.0, 3.6, '#fde6e1', -8, 5.6);
+rug(6.2, 5.65, '#fbf0d6', 8.5, -6.02);
+const mr = cyl(3, 3, 0.02, mat('#e8e3d9', { roughness: 1 }), -8, 0.012, -5.2, 48); mr.castShadow = false;
+
+label('Ilha de protocolo', 'zone', -3, 0.05, -1.6);
+label('Comercial', 'zone', 7.5, 0.05, 2.95);
+label('Atendimento e documentação', 'zone', -8, 0.05, 3.55);
+label('Diretoria', 'zone', 8.5, 2.75, -3.2);
+label('Sala de reunião · daily', 'zone', -8, 0.05, -8.0);
+
+/* Móveis */
+const dark = mat('#353a46'), wood = mat('#d6b48a', { roughness: 0.55 });
+function makeDesk(x, z, monitors = 1) {
+  const g = new THREE.Group(); g.position.set(x, 0, z); scene.add(g);
+  box(1.7, 0.07, 0.85, wood, 0, 0.76, 0, g);
+  for (const lx of [-0.78, 0.78]) for (const lz of [-0.36, 0.36]) box(0.06, 0.74, 0.06, dark, lx, 0.37, lz, g);
+  const offs = monitors === 2 ? [-0.36, 0.36] : [0];
+  offs.forEach(ox => {
+    box(0.64, 0.4, 0.04, dark, ox, 1.13, 0.22, g);
+    box(0.58, 0.34, 0.01, new THREE.MeshStandardMaterial({ color: '#a8c8ff', emissive: '#7aa6ff', emissiveIntensity: 0.6 }), ox, 1.13, 0.195, g);
+    box(0.05, 0.18, 0.05, dark, ox, 0.88, 0.24, g);
+  });
+  box(0.5, 0.02, 0.16, mat('#eceef2'), 0, 0.81, -0.12, g);
+  cyl(0.05, 0.045, 0.1, mat('#ffffff'), 0.62, 0.85, -0.05, 12, g);
+  return g;
+}
+function makeChair(x, z, rotY, parent = scene) {
+  const g = new THREE.Group(); g.position.set(x, 0, z); g.rotation.y = rotY; parent.add(g);
+  const cm = mat('#3a404d');
+  box(0.52, 0.07, 0.52, cm, 0, 0.48, 0, g);
+  box(0.52, 0.56, 0.07, cm, 0, 0.8, -0.25, g);
+  cyl(0.04, 0.04, 0.44, cm, 0, 0.24, 0, 8, g);
+  cyl(0.26, 0.26, 0.04, cm, 0, 0.03, 0, 16, g);
+  return g;
+}
+function makePlant(x, z, s = 1) {
+  const g = new THREE.Group(); g.position.set(x, 0, z); g.scale.setScalar(s); scene.add(g);
+  cyl(0.28, 0.22, 0.5, mat('#e7e2d8'), 0, 0.25, 0, 16, g);
+  const lm = mat('#4f9d69', { flatShading: true });
+  [[0, 0.9, 0, 0.42], [0.18, 1.2, 0.05, 0.3], [-0.15, 1.15, -0.08, 0.32]].forEach(([a, b, c, r]) => {
+    const m = new THREE.Mesh(new THREE.IcosahedronGeometry(r, 0), lm); m.position.set(a, b, c); m.castShadow = true; g.add(m);
+  });
+}
+
+makeDesk(-4.2, 0.4, 2); makeDesk(-1.8, 0.4, 1);
+makeDesk(7.5, 4.6, 1);
+makeDesk(8.5, -5.2, 1);
+
+/* Recepção */
+box(2.6, 1.05, 0.6, mat('#ffffff'), -8, 0.525, 4.95);
+box(2.8, 0.06, 0.78, wood, -8, 1.08, 4.95);
+box(0.5, 0.32, 0.04, dark, -8.7, 1.3, 4.82);
+box(0.18, 0.05, 0.1, mat('#1f2430'), -7.3, 1.13, 4.85);
+makeChair(-9.2, 7.0, Math.PI); makeChair(-6.8, 7.0, Math.PI);
+
+/* Sala de reunião */
+cyl(1.25, 1.25, 0.07, wood, -8, 0.76, -5.2, 40);
+cyl(0.12, 0.25, 0.72, dark, -8, 0.36, -5.2, 16);
+for (let i = 0; i < 6; i++) { const a = i / 6 * Math.PI * 2 + 0.3; makeChair(-8 + Math.cos(a) * 1.95, -5.2 + Math.sin(a) * 1.95, -a - Math.PI / 2); }
+
+/* Diretoria (vidro) */
+const glassM = new THREE.MeshStandardMaterial({ color: '#cfe3f5', transparent: true, opacity: 0.22, roughness: 0.05, depthWrite: false });
+const frameM = mat('#4a5161');
+const gw = (w, d, x, z) => { const m = new THREE.Mesh(new THREE.BoxGeometry(w, 2.6, d), glassM); m.position.set(x, 1.3, z); scene.add(m); box(w, 0.06, d + 0.02, frameM, x, 2.6, z); box(w, 0.06, d + 0.02, frameM, x, 0.03, z); };
+gw(0.05, 5.65, 5.4, -6.02);
+gw(3.1, 0.05, 9.05 + 1.0, -3.2);
+gw(0.8, 0.05, 5.8, -3.2);
+[5.4, 6.2, 7.5, 11.6].forEach(x => box(0.06, 2.6, 0.06, frameM, x, 1.3, -3.2));
+box(1.7, 2.0, 0.4, mat('#e9e3d6'), 10.6, 1.0, -8.6);
+[0.55, 1.15, 1.75].forEach(y => box(1.6, 0.04, 0.38, wood, 10.6, y, -8.6));
+makePlant(6.0, -8.3, 0.9);
+
+/* Kanban e TV */
+function rr(g, x, y, w, h, r) { g.beginPath(); g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r); g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath(); }
+try { await document.fonts.ready; } catch {}
+function kanbanTex() {
+  const c = document.createElement('canvas'); c.width = 1400; c.height = 440; const g = c.getContext('2d');
+  g.fillStyle = '#ffffff'; g.fillRect(0, 0, 1400, 440);
+  g.fillStyle = '#1b1f27'; g.font = '800 32px Manrope, sans-serif'; g.fillText('Fluxo Eleva · quem é dono de cada etapa', 36, 52);
+  const cols = [['1', 'Captação', 'nickolas', 3], ['2', 'Documentos', 'michelle', 4], ['3', 'Protocolo', 'victor', 2], ['4', 'Liberação', 'karine', 3], ['5', 'Autorização', 'karine', 2], ['6', 'Vendedor', 'karine', 1]];
+  const cw = (1400 - 72 - 50) / 6;
+  cols.forEach(([n, t, k, cards], i) => {
+    const x = 36 + i * (cw + 10);
+    g.fillStyle = '#f2f3f6'; rr(g, x, 76, cw, 340, 14); g.fill();
+    g.fillStyle = C[k]; rr(g, x, 76, cw, 10, 5); g.fill();
+    g.fillStyle = '#1b1f27'; g.font = '800 24px Manrope, sans-serif'; g.fillText(n + ' · ' + t, x + 16, 124);
+    g.fillStyle = C[k]; g.font = '700 19px Manrope, sans-serif'; g.fillText(PEOPLE[k].nome, x + 16, 152);
+    for (let j = 0; j < cards; j++) {
+      const y = 172 + j * 58;
+      g.fillStyle = '#ffffff'; rr(g, x + 12, y, cw - 24, 46, 9); g.fill();
+      g.fillStyle = C[k]; g.fillRect(x + 12, y + 8, 5, 30);
+      g.fillStyle = '#d5d9e0'; rr(g, x + 28, y + 13, cw - 90, 8, 4); g.fill(); rr(g, x + 28, y + 28, cw - 130, 7, 4); g.fill();
+    }
+  });
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4; return t;
+}
+function dailyTex() {
+  const c = document.createElement('canvas'); c.width = 800; c.height = 450; const g = c.getContext('2d');
+  g.fillStyle = '#1f2430'; g.fillRect(0, 0, 800, 450);
+  g.fillStyle = '#ffffff'; g.font = '800 64px Manrope, sans-serif'; g.fillText('Daily · 10 min', 56, 150);
+  g.fillStyle = '#aab1bf'; g.font = '600 32px Manrope, sans-serif';
+  g.fillText('O que travou?', 56, 230); g.fillText('De quem eu preciso?', 56, 278);
+  g.fillStyle = '#6f7787'; g.font = '600 26px Manrope, sans-serif'; g.fillText('Revisão semanal · 30 min', 56, 370);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
+}
+box(7.2, 2.4, 0.06, mat('#d9dde4'), 1.2, 1.75, -8.86);
+const kb = new THREE.Mesh(new THREE.PlaneGeometry(7, 2.2), new THREE.MeshStandardMaterial({ map: kanbanTex(), roughness: 0.9 }));
+kb.position.set(1.2, 1.75, -8.82); scene.add(kb);
+box(2.75, 1.6, 0.06, dark, -8, 1.85, -8.86);
+const tv = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 1.46), new THREE.MeshBasicMaterial({ map: dailyTex() }));
+tv.position.set(-8, 1.85, -8.82); scene.add(tv);
+
+makePlant(-12.2, -8.2, 1.1); makePlant(-12.2, 8.2, 1); makePlant(12.2, -2.4, 1); makePlant(-5.2, -8.3, 0.8);
+
+/* Entrada e concessionária */
+box(2.2, 0.02, 0.9, mat('#3a404d', { roughness: 1 }), 3, 0.014, 8.45).castShadow = false;
+box(0.12, 2.4, 0.12, frameM, 1.9, 1.2, 8.9); box(0.12, 2.4, 0.12, frameM, 4.1, 1.2, 8.9); box(2.32, 0.12, 0.12, frameM, 3, 2.4, 8.9);
+label('Entrada do cliente', 'marker', 3, 2.8, 8.9);
+const car = new THREE.Group(); car.position.set(11.6, 0, 3.7); scene.add(car);
+box(1.9, 0.42, 0.95, mat('#c9ced8', { roughness: 0.4, metalness: 0.2 }), 0, 0.42, 0, car);
+box(1.0, 0.36, 0.85, mat('#9fb4cc', { roughness: 0.2 }), -0.1, 0.8, 0, car);
+for (const wx of [-0.62, 0.62]) for (const wz of [-0.48, 0.48]) { const w = cyl(0.2, 0.2, 0.12, mat('#2a2e37'), wx, 0.2, wz, 16, car); w.rotation.x = Math.PI / 2; }
+
+/* Pessoas */
+const SKIN = { victor:'#e9b994', karine:'#c98d66', michelle:'#8d5a3b', kelly:'#f1cdb0', nickolas:'#d8a27c' };
+const HAIR = { victor:'#2a1f1a', karine:'#3d2418', michelle:'#1d1512', kelly:'#7a4a28', nickolas:'#26262b' };
+const SEAT = { victor:[-4.2, -0.42], karine:[-1.8, -0.42], nickolas:[7.5, 3.78], kelly:[8.5, -6.02], michelle:[-8, 4.2] };
+const avatars = {};
+const pickables = [];
+Object.keys(SEAT).forEach((k, idx) => {
+  const [x, z] = SEAT[k];
+  const g = new THREE.Group(); g.position.set(x, 0, z); scene.add(g);
+  makeChair(0, 0, 0, g);
+  const pm = mat(C[k], { roughness: 0.6 });
+  const body = new THREE.Mesh(new THREE.CapsuleGeometry(0.26, 0.42, 6, 16), pm); body.position.y = 0.98; body.castShadow = true; g.add(body);
+  for (const s of [-1, 1]) { const a = new THREE.Mesh(new THREE.CapsuleGeometry(0.075, 0.34, 4, 8), pm); a.position.set(0.3 * s, 0.95, 0.18); a.rotation.x = -1.25; a.castShadow = true; g.add(a); }
+  const lm = mat('#3b4150');
+  for (const s of [-1, 1]) { const l = new THREE.Mesh(new THREE.CapsuleGeometry(0.09, 0.34, 4, 8), lm); l.position.set(0.12 * s, 0.6, 0.22); l.rotation.x = Math.PI / 2; g.add(l); }
+  const head = new THREE.Group(); head.position.y = 1.55; g.add(head);
+  const hm = new THREE.Mesh(new THREE.SphereGeometry(0.22, 24, 16), mat(SKIN[k], { roughness: 0.7 })); hm.castShadow = true; head.add(hm);
+  const hair = new THREE.Mesh(new THREE.SphereGeometry(0.235, 24, 16, 0, Math.PI * 2, 0, Math.PI * 0.55), mat(HAIR[k])); hair.rotation.x = -0.4; head.add(hair);
+  const em = new THREE.MeshBasicMaterial({ color: '#1b1f27' });
+  for (const s of [-1, 1]) { const e = new THREE.Mesh(new THREE.SphereGeometry(0.026, 8, 8), em); e.position.set(0.075 * s, 0.02, 0.205); head.add(e); }
+  const ring = new THREE.Mesh(new THREE.RingGeometry(0.66, 0.8, 48), new THREE.MeshBasicMaterial({ color: C[k], transparent: true, opacity: 0.35, side: THREE.DoubleSide, depthWrite: false }));
+  ring.rotation.x = -Math.PI / 2; ring.position.y = 0.035; g.add(ring);
+  g.traverse(o => { o.userData.person = k; if (o.isMesh) pickables.push(o); });
+  const el = document.createElement('div'); el.className = 'tag'; el.style.setProperty('--c', C[k]);
+  el.innerHTML = `<i>${PEOPLE[k].nome[0]}</i>${PEOPLE[k].nome}`; el.title = PEOPLE[k].cargo;
+  el.addEventListener('click', e => { e.stopPropagation(); select(k, true); });
+  const tag = new CSS2DObject(el); tag.position.set(0, 2.25, 0); g.add(tag);
+  avatars[k] = { g, head, body, ring, tag: el, phase: idx * 1.7, pos: new THREE.Vector3(x, 1, z) };
+});
+
+/* Caminho do processo */
+const WP = [
+  { x: 3, z: 8.4 },
+  { x: 7.5, z: 6.0, st: 1, owner: 'nickolas', label: 'Captação e cadastro' },
+  { x: -8, z: 6.2, st: 2, owner: 'michelle', label: 'Documentos, IMESC e CNH' },
+  { x: -5.6, z: 5.9, owner: 'victor' },
+  { x: -3, z: 2.2, st: 3, owner: 'victor', label: 'Protocolo SIVEI' },
+  { x: 1.8, z: 1.6, st: 4, owner: 'karine', label: 'Liberação' },
+  { x: 8.5, z: 1.6, st: 5, owner: 'karine', label: 'Autorização do cliente' },
+  { x: 12.2, z: 1.6, st: 6, owner: 'karine', label: 'Envio ao vendedor' }
+];
+const PTS = WP.map(p => new THREE.Vector3(p.x, 0.03, p.z));
+const CUM = [0];
+for (let i = 1; i < PTS.length; i++) CUM.push(CUM[i - 1] + PTS[i].distanceTo(PTS[i - 1]));
+const L = CUM[CUM.length - 1];
+const D_LIB = CUM[5], D_GATE = CUM[6];
+const STOPS = [CUM[1], CUM[2], CUM[4], CUM[5]];
+const segments = [];
+for (let i = 0; i < PTS.length - 1; i++) {
+  const a = PTS[i], b = PTS[i + 1], len = a.distanceTo(b), owner = WP[i + 1].owner;
+  const m = new THREE.Mesh(new THREE.BoxGeometry(len, 0.02, 0.18), new THREE.MeshBasicMaterial({ color: C[owner], transparent: true, opacity: 0.9 }));
+  m.position.set((a.x + b.x) / 2, 0.03, (a.z + b.z) / 2);
+  m.rotation.y = -Math.atan2(b.z - a.z, b.x - a.x);
+  scene.add(m);
+  segments.push({ mesh: m, owner, index: i });
+}
+const stationLabels = {}, stationDiscs = {};
+WP.forEach(p => {
+  if (!p.st) return;
+  const d = cyl(0.42, 0.42, 0.04, new THREE.MeshStandardMaterial({ color: C[p.owner], roughness: 0.5 }), p.x, 0.03, p.z, 32); d.castShadow = false; stationDiscs[p.st] = d;
+  stationLabels[p.st] = label(`<b>${p.st}</b>${p.label}`, 'station', p.x + (p.st === 5 ? 1.5 : 0), 0.55, p.z + (p.st === 5 ? -0.95 : 0.75), `--c:${C[p.owner]}`);
+});
+
+/* Portão de autorização */
+const gate = new THREE.Group(); gate.position.set(8.5, 0, 1.6); scene.add(gate);
+box(0.14, 1.7, 0.14, frameM, 0, 0.85, -0.75, gate); box(0.14, 1.7, 0.14, frameM, 0, 0.85, 0.75, gate);
+box(0.14, 0.14, 1.64, frameM, 0, 1.72, 0, gate);
+const lampM = new THREE.MeshStandardMaterial({ color: '#d0d4db', emissive: '#000000', emissiveIntensity: 1 });
+const lamp = new THREE.Mesh(new THREE.SphereGeometry(0.2, 20, 16), lampM); lamp.position.y = 1.98; gate.add(lamp);
+const gateLabel = label('Cliente autorizou o envio?', 'marker gate', 8.5, 2.75, 1.6);
+const holdPos = new THREE.Vector3(10.6, 0.62, -0.9);
+const hold = new THREE.Group(); hold.position.set(10.6, 0, -0.9); scene.add(hold);
+box(1.3, 0.06, 0.62, wood, 0, 0.55, 0, hold);
+for (const lx of [-0.58, 0.58]) box(0.05, 0.53, 0.5, dark, lx, 0.27, 0, hold);
+const holdLabel = label('Aguardando o cliente', 'marker hold', 11.6, 0.9, -0.9);
+
+/* Situação atual: etapa sem dono */
+const qEl = document.createElement('div'); qEl.className = 'qmark'; qEl.innerHTML = '<span>?</span><em>Quem avisa o vendedor?</em>';
+const qLabel = new CSS2DObject(qEl); qLabel.position.set(1.8, 2.7, 1.6); scene.add(qLabel);
+const dashed = [];
+['michelle', 'karine', 'kelly'].forEach(k => {
+  const a = new THREE.Vector3(1.8, 2.0, 1.6), b = avatars[k].pos.clone().setY(1.9);
+  const mid = a.clone().add(b).multiplyScalar(0.5); mid.y = 3.6;
+  const curve = new THREE.QuadraticBezierCurve3(a, mid, b);
+  const geo = new THREE.BufferGeometry().setFromPoints(curve.getPoints(40));
+  const line = new THREE.Line(geo, new THREE.LineDashedMaterial({ color: '#e5484d', dashSize: 0.25, gapSize: 0.18 }));
+  line.computeLineDistances(); scene.add(line); dashed.push(line);
+});
+
+/* Agente de Pendências */
+const AG = '#0ea5e9';
+const agent = new THREE.Group(); agent.position.set(-8, 3.7, 6.2); scene.add(agent);
+const agCore = new THREE.Mesh(new THREE.IcosahedronGeometry(0.32, 1), new THREE.MeshStandardMaterial({ color: '#8fd8fb', emissive: AG, emissiveIntensity: 1.1, roughness: 0.3, flatShading: true }));
+agCore.castShadow = true; agent.add(agCore);
+const agHalo = new THREE.Mesh(new THREE.TorusGeometry(0.52, 0.03, 8, 48), new THREE.MeshBasicMaterial({ color: AG }));
+agHalo.rotation.x = Math.PI / 2.4; agent.add(agHalo);
+agent.add(new THREE.PointLight(AG, 2.5, 4.5));
+agCore.userData.agent = agHalo.userData.agent = true; pickables.push(agCore, agHalo);
+const agTagEl = document.createElement('div'); agTagEl.className = 'tag ag-tag'; agTagEl.innerHTML = '<i>IA</i>Agente de Pendências';
+agTagEl.addEventListener('click', e => { e.stopPropagation(); openAgent(); });
+const agTag = new CSS2DObject(agTagEl); agTag.position.set(0, 0.75, 0); agent.add(agTag);
+const bubbleEl = document.createElement('div'); bubbleEl.className = 'bubble off';
+const bubble = new CSS2DObject(bubbleEl); bubble.position.set(0, -0.75, 0); agent.add(bubble);
+const pulse = new THREE.Mesh(new THREE.RingGeometry(0.3, 0.42, 48), new THREE.MeshBasicMaterial({ color: AG, transparent: true, opacity: 0, side: THREE.DoubleSide, depthWrite: false }));
+pulse.rotation.x = -Math.PI / 2; pulse.position.y = 0.05; scene.add(pulse);
+const beamGeo = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), new THREE.Vector3()]);
+const beam = new THREE.Line(beamGeo, new THREE.LineDashedMaterial({ color: AG, dashSize: 0.18, gapSize: 0.12 })); scene.add(beam);
+const AG_ROUTE = [
+  { x: -8, z: 6.2, txt: 'Conferindo as pastas no OneDrive' },
+  { x: -8, z: 4.2, txt: 'Lista do que falta pronta para aprovar' },
+  { x: 1.8, z: 1.6, txt: 'Liberado sem autorização registrada' },
+  { x: 7.5, z: 6.0, txt: 'Cliente sem contato do vendedor' },
+  { x: 8.5, z: -6.0, txt: 'Resumo do dia enviado à Kelly' }
+];
+let agIdx = 0, agState = 'fly', agTimer = 0, agFrom = new THREE.Vector3(-8, 3.7, 6.2);
+function updateAgent(dt, t) {
+  if (!agent.visible) return;
+  const stop = AG_ROUTE[agIdx];
+  const goal = new THREE.Vector3(stop.x, 3.7, stop.z);
+  if (agState === 'fly') {
+    agTimer += dt;
+    const dur = Math.max(1.2, agFrom.distanceTo(goal) / 4.5);
+    const u = Math.min(agTimer / dur, 1), e = u < 0.5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2;
+    agent.position.lerpVectors(agFrom, goal, e);
+    agent.position.y = 3.7 + Math.sin(u * Math.PI) * 0.6;
+    if (u >= 1) { agState = 'check'; agTimer = 0; bubbleEl.textContent = stop.txt; bubbleEl.classList.remove('off'); beam.visible = true; }
+  } else {
+    agTimer += dt;
+    const g = new THREE.Vector3(stop.x, 0.05, stop.z);
+    pulse.position.set(stop.x, 0.05, stop.z);
+    const ph = (agTimer % 0.9) / 0.9; pulse.scale.setScalar(1 + ph * 2.2); pulse.material.opacity = (1 - ph) * 0.8;
+    const pos = beamGeo.attributes.position; pos.setXYZ(0, agent.position.x, agent.position.y - 0.3, agent.position.z); pos.setXYZ(1, g.x, g.y, g.z); pos.needsUpdate = true; beam.computeLineDistances();
+    if (agTimer > 2.4) { agState = 'fly'; agTimer = 0; agFrom.copy(agent.position); agIdx = (agIdx + 1) % AG_ROUTE.length; bubbleEl.classList.add('off'); beam.visible = false; pulse.material.opacity = 0; }
+  }
+  agCore.rotation.y += dt * 1.2; agCore.rotation.x += dt * 0.5; agHalo.rotation.z += dt * 0.8;
+  agent.position.y += Math.sin(t * 2.4) * 0.004;
+}
+beam.visible = false;
+function openAgent() {
+  selected = null; select(null, true);
+  showTab('agente'); document.getElementById('content').scrollTop = 0;
+  focusOn(agent.position.clone().setY(0.6));
+}
+
+/* ---------- Estado ---------- */
+let mode = 'proposta';
+let selected = null;
+function updateSegments() {
+  segments.forEach(s => {
+    let o = 0.9;
+    if (mode === 'antes' && s.index >= 5) o = 0.12;
+    if (selected && s.owner !== selected) o *= 0.22;
+    s.mesh.material.opacity = o;
+  });
+}
+function setMode(m) {
+  mode = m;
+  document.querySelectorAll('#modeSeg button').forEach(b => b.classList.toggle('on', b.dataset.mode === m));
+  tokens.forEach(t => scene.remove(t.g)); tokens.length = 0; stuckSlot = 0; holdSlot = 0; spawnT = 0;
+  const p = m === 'proposta';
+  gate.visible = hold.visible = gateLabel.visible = holdLabel.visible = p;
+  qLabel.visible = !p; dashed.forEach(d => d.visible = !p);
+  agent.visible = agTag.visible = bubble.visible = p; if (!p) { beam.visible = false; pulse.material.opacity = 0; }
+  stationLabels[5].element.classList.toggle('dim', !p);
+  stationLabels[6].element.classList.toggle('dim', !p);
+  stationDiscs[5].visible = stationDiscs[6].visible = p;
+  captionEl.innerHTML = CAPTIONS[m] + '<span class="hint">Arraste para girar · role para aproximar · clique em uma pessoa</span>';
+  updateSegments();
+}
+document.getElementById('modeSeg').addEventListener('click', e => { const b = e.target.closest('button'); if (b) setMode(b.dataset.mode); });
+
+let focusGoal = null;
+function focusOn(pos) {
+  focusGoal = { tgt: pos.clone().setY(0.8), cam: pos.clone().add(new THREE.Vector3(6.5, 8, 10)) };
+}
+controls.addEventListener('start', () => { focusGoal = null; });
+function select(k, fromUI = false) {
+  selected = (selected === k && !fromUI) ? null : k;
+  if (fromUI && selected === k && document.querySelector(`.person.on[data-key="${k}"]`)) { /* mantém */ }
+  Object.entries(avatars).forEach(([key, a]) => a.tag.classList.toggle('on', key === selected));
+  document.querySelectorAll('.person').forEach(el => el.classList.toggle('on', el.dataset.key === selected));
+  document.querySelectorAll('#chips button').forEach(el => el.classList.toggle('on', el.dataset.key === selected));
+  updateSegments();
+  if (selected) {
+    focusOn(avatars[selected].pos);
+    showTab('equipe');
+    const card = document.querySelector(`.person[data-key="${selected}"]`);
+    if (card) card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+document.getElementById('people').addEventListener('click', e => { const c = e.target.closest('.person'); if (c) select(c.dataset.key, true); });
+document.getElementById('chips').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; if (b.dataset.agent) openAgent(); else select(b.dataset.key, true); });
+document.getElementById('reset').addEventListener('click', () => {
+  selected = null; select(null, true); focusGoal = { tgt: HOME_TGT.clone(), cam: homeCam() };
+});
+
+/* Clique no 3D */
+const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
+let downAt = null;
+function toNDC(e) { const r = renderer.domElement.getBoundingClientRect(); ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1); }
+renderer.domElement.addEventListener('pointerdown', e => { downAt = [e.clientX, e.clientY]; });
+renderer.domElement.addEventListener('pointerup', e => {
+  if (!downAt || Math.hypot(e.clientX - downAt[0], e.clientY - downAt[1]) > 5) return;
+  toNDC(e); ray.setFromCamera(ndc, camera);
+  const hit = ray.intersectObjects(pickables, false)[0];
+  if (hit && hit.object.userData.agent) openAgent();
+  else if (hit) select(hit.object.userData.person);
+  else if (selected) select(selected);
+});
+renderer.domElement.addEventListener('pointermove', e => {
+  if (e.buttons) return;
+  toNDC(e); ray.setFromCamera(ndc, camera);
+  renderer.domElement.style.cursor = ray.intersectObjects(pickables, false).length ? 'pointer' : 'grab';
+});
+
+/* ---------- Pastas (casos) andando pelo fluxo ---------- */
+const tokens = [];
+let spawnT = 0, stuckSlot = 0, holdSlot = 0, gateFlash = 0;
+const SPEED = 2.4;
+const tokenGeo = new THREE.BoxGeometry(0.42, 0.06, 0.3), tabGeo = new THREE.BoxGeometry(0.16, 0.035, 0.07);
+const COL = Object.fromEntries(Object.entries(C).map(([k, v]) => [k, new THREE.Color(v)]));
+const OK = new THREE.Color('#22a06b'), WAIT = new THREE.Color('#f5a524'), BAD = new THREE.Color('#e5484d');
+function spawn() {
+  const m = new THREE.MeshStandardMaterial({ color: C.nickolas, roughness: 0.5, transparent: true, opacity: 1 });
+  const g = new THREE.Group();
+  const a = new THREE.Mesh(tokenGeo, m); a.castShadow = true;
+  const b = new THREE.Mesh(tabGeo, m); b.position.set(-0.1, 0.045, -0.11);
+  g.add(a, b); g.position.copy(PTS[0]); scene.add(g);
+  tokens.push({ g, m, d: 0, state: 'move', timer: 0, ns: 0, decided: false, decision: null, phase: Math.random() * 6, slot: 0 });
+}
+function posAt(d) {
+  let i = 0; while (i < CUM.length - 2 && d > CUM[i + 1]) i++;
+  const t = (d - CUM[i]) / (CUM[i + 1] - CUM[i] || 1);
+  return { p: PTS[i].clone().lerp(PTS[i + 1], Math.min(Math.max(t, 0), 1)), seg: i };
+}
+function setGate(dec) { lampM.color.set(dec === 'SIM' ? '#22a06b' : '#f5a524'); lampM.emissive.set(dec === 'SIM' ? '#22a06b' : '#f5a524'); gateFlash = 1; }
+
+function updateTokens(dt, t) {
+  spawnT -= dt;
+  if (spawnT <= 0 && tokens.length < 14) { spawn(); spawnT = 1.7; }
+  const k = 1 - Math.exp(-dt * 12);
+  for (let i = tokens.length - 1; i >= 0; i--) {
+    const tk = tokens[i];
+    switch (tk.state) {
+      case 'move':
+        tk.d += SPEED * dt;
+        if (mode === 'antes' && tk.d >= D_LIB) { tk.d = D_LIB; tk.state = 'stuck'; tk.timer = 7; tk.slot = stuckSlot++ % 7; break; }
+        if (tk.ns < STOPS.length && tk.d >= STOPS[tk.ns]) { tk.d = STOPS[tk.ns]; tk.state = 'pause'; tk.timer = 0.6; tk.ns++; break; }
+        if (mode === 'proposta' && !tk.decided && tk.d >= D_GATE) {
+          tk.d = D_GATE; tk.state = 'gate'; tk.timer = 0.9;
+          tk.decision = tk.decision || (Math.random() < 0.65 ? 'SIM' : 'AGUARDAR'); setGate(tk.decision); break;
+        }
+        if (tk.d >= L) { tk.d = L; tk.state = 'done'; }
+        break;
+      case 'pause': tk.timer -= dt; if (tk.timer <= 0) tk.state = 'move'; break;
+      case 'gate':
+        tk.timer -= dt;
+        if (tk.timer <= 0) {
+          if (tk.decision === 'SIM') { tk.decided = true; tk.state = 'move'; }
+          else { tk.state = 'hold'; tk.timer = 4.2; tk.slot = holdSlot++ % 3; }
+        }
+        break;
+      case 'hold': tk.timer -= dt; if (tk.timer <= 0) { tk.decision = 'SIM'; tk.state = 'gate'; tk.timer = 0.7; setGate('SIM'); } break;
+      case 'stuck': tk.timer -= dt; if (tk.timer <= 0) tk.state = 'done'; break;
+      case 'done': tk.m.opacity -= dt * 1.6; break;
+    }
+    let target, col, seg = 0;
+    if (tk.state === 'hold') {
+      target = holdPos.clone().add(new THREE.Vector3((tk.slot - 1) * 0.42, 0.03, 0)); col = WAIT;
+    } else if (tk.state === 'stuck') {
+      const a = tk.slot / 7 * Math.PI * 2;
+      target = PTS[5].clone().add(new THREE.Vector3(Math.cos(a) * 0.65, 0.12, Math.sin(a) * 0.65)); col = BAD;
+      tk.g.rotation.z = Math.sin(t * 7 + tk.phase) * 0.12;
+    } else {
+      const r = posAt(tk.d); target = r.p; seg = r.seg;
+      target.y = 0.14 + (tk.state === 'move' ? Math.abs(Math.sin(t * 7 + tk.phase)) * 0.05 : 0);
+      col = (tk.state === 'gate' || tk.decided) && mode === 'proposta' && tk.d >= D_GATE - 0.01 ? (tk.decision === 'SIM' ? OK : WAIT) : COL[segments[seg].owner];
+      const a = PTS[seg], b = PTS[seg + 1];
+      tk.g.rotation.y = -Math.atan2(b.z - a.z, b.x - a.x);
+    }
+    tk.g.position.lerp(target, k);
+    tk.m.color.lerp(col, 1 - Math.exp(-dt * 8));
+    if (tk.m.opacity <= 0) { scene.remove(tk.g); tokens.splice(i, 1); }
+  }
+  gateFlash = Math.max(0, gateFlash - dt * 0.8);
+  lampM.emissiveIntensity = 0.25 + gateFlash * 2.2;
+}
+
+/* ---------- Layout e loop ---------- */
+function layout() {
+  const w = innerWidth, h = innerHeight;
+  renderer.setSize(w, h); labelRenderer.setSize(w, h);
+  const pr = document.getElementById('panel').getBoundingClientRect();
+  if (w > 820) { const P = Math.round(pr.width + 16); camera.aspect = (w + P) / h; camera.setViewOffset(w + P, h, P, 0, w, h); }
+  else { const P = Math.round(pr.height + 8); camera.aspect = w / (h + P); camera.setViewOffset(w, h + P, 0, P, w, h); }
+  camera.updateProjectionMatrix();
+}
+addEventListener('resize', layout);
+layout();
+setMode('proposta');
+
+const clock = new THREE.Clock();
+renderer.setAnimationLoop(() => {
+  const dt = Math.min(clock.getDelta(), 0.05), t = clock.elapsedTime;
+  updateTokens(dt, t);
+  updateAgent(dt, t);
+  Object.entries(avatars).forEach(([k, a]) => {
+    a.head.rotation.y = Math.sin(t * 0.6 + a.phase) * 0.35;
+    a.body.position.y = 0.98 + Math.sin(t * 2 + a.phase) * 0.012;
+    const on = k === selected;
+    a.ring.material.opacity = on ? 0.55 + Math.sin(t * 4) * 0.3 : (selected ? 0.12 : 0.35);
+    const s = on ? 1 + Math.sin(t * 4) * 0.06 : 1; a.ring.scale.set(s, s, s);
+  });
+  if (focusGoal) {
+    const k = 1 - Math.exp(-dt * 3.2);
+    controls.target.lerp(focusGoal.tgt, k); camera.position.lerp(focusGoal.cam, k);
+    if (camera.position.distanceTo(focusGoal.cam) < 0.05) focusGoal = null;
+  }
+  controls.update();
+  renderer.render(scene, camera);
+  labelRenderer.render(scene, camera);
+});
+</script>
+</body>
+</html>
